@@ -113,7 +113,7 @@ namespace QLBH_HBC
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(347, 135);
+            this.pictureBox1.Location = new System.Drawing.Point(353, 134);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(37, 34);
@@ -163,6 +163,7 @@ namespace QLBH_HBC
             this.btnLogin.TabIndex = 10;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
             // txtPass
             // 
@@ -187,7 +188,7 @@ namespace QLBH_HBC
             this.txtUser.Size = new System.Drawing.Size(174, 31);
             this.txtUser.TabIndex = 11;
             // 
-            // XtraForm1
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -203,7 +204,7 @@ namespace QLBH_HBC
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUser);
-            this.Name = "XtraForm1";
+            this.Name = "frmLogin";
             this.Text = "Đăng nhập";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

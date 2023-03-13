@@ -60,5 +60,10 @@ namespace QLBH_HBC
             if (!ckbShowPass.Checked)
                 txtPass.UseSystemPasswordChar = true;
         }
+
+        private void btnLogin_Click_1(object sender, EventArgs e)
+        {
+            Console.WriteLine("Hello world");
+        }
     }
 }
