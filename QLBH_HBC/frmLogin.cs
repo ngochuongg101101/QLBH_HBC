@@ -63,7 +63,7 @@ namespace QLBH_HBC
 
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
-            Console.WriteLine("Hello world");
+            Console.WriteLine("Hello world!");
         }
     }
 }
