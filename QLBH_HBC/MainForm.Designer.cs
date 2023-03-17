@@ -53,6 +53,7 @@ namespace QLBH_HBC
             this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement22 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.lblTieude = new DevExpress.XtraBars.BarStaticItem();
             this.accordionControlElement13 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -61,7 +62,6 @@ namespace QLBH_HBC
             this.accordionControlElement12 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.calcEdit1 = new DevExpress.XtraEditors.CalcEdit();
             this.calcEdit2 = new DevExpress.XtraEditors.CalcEdit();
-            this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calcEdit1.Properties)).BeginInit();
@@ -257,6 +257,12 @@ namespace QLBH_HBC
             this.accordionControlElement22.Name = "accordionControlElement22";
             this.accordionControlElement22.Text = "TRỢ GIÚP";
             // 
+            // accordionControlElement6
+            // 
+            this.accordionControlElement6.Expanded = true;
+            this.accordionControlElement6.Name = "accordionControlElement6";
+            this.accordionControlElement6.Text = "Element6";
+            // 
             // fluentDesignFormControl1
             // 
             this.fluentDesignFormControl1.FluentDesignForm = this;
@@ -268,7 +274,6 @@ namespace QLBH_HBC
             this.fluentDesignFormControl1.Size = new System.Drawing.Size(1095, 39);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
-            this.fluentDesignFormControl1.TitleItemLinks.Add(this.lblTieude);
             // 
             // lblTieude
             // 
@@ -306,6 +311,9 @@ namespace QLBH_HBC
             // 
             this.calcEdit1.Location = new System.Drawing.Point(136, 114);
             this.calcEdit1.Name = "calcEdit1";
+            // 
+            // 
+            // 
             this.calcEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.calcEdit1.Size = new System.Drawing.Size(125, 22);
@@ -315,16 +323,13 @@ namespace QLBH_HBC
             // 
             this.calcEdit2.Location = new System.Drawing.Point(136, 114);
             this.calcEdit2.Name = "calcEdit2";
+            // 
+            // 
+            // 
             this.calcEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.calcEdit2.Size = new System.Drawing.Size(125, 22);
             this.calcEdit2.TabIndex = 2;
-            // 
-            // accordionControlElement6
-            // 
-            this.accordionControlElement6.Expanded = true;
-            this.accordionControlElement6.Name = "accordionControlElement6";
-            this.accordionControlElement6.Text = "Element6";
             // 
             // Mainform
             // 

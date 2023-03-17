@@ -13,11 +13,10 @@ namespace QLBH_HBC
 {
     public partial class Mainform : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-        string t1 = "", t2 = "", t3 = "";
-        public Mainform(string t1, string t2, string t3)
+        public Mainform()
         {
             InitializeComponent();
-            this.t1 = t1; this.t2 = t2; this.t3 = t3;
+            
         }
         uc_Kiguihang ucKiguihang;
 

@@ -27,7 +27,7 @@ namespace QLBH_HBC
             if (count == 1)
             {
                 MessageBox.Show("Đăng nhập thành công!");
-                Form f = new MainForm(dt.Rows[0][0].ToString(), dt.Rows[0][1].ToString(), dt.Rows[0][2].ToString());
+                Form f = new MainForm();
                 f.Show();
                 this.Hide();
                 Pass = txtPass.Text;
