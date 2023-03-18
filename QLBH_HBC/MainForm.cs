@@ -11,27 +11,37 @@ using System.Windows.Forms;
 
 namespace QLBH_HBC
 {
-    public partial class Mainform : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
+    public partial class MainForm : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-        public Mainform()
+        public MainForm()
         {
             InitializeComponent();
             
         }
-        uc_Kiguihang ucKiguihang;
+        uc_Cuocvo ucCuocvo;
 
-        private void mnKyguihang_Click(object sender, EventArgs e)
+        private void Mainform_Load(object sender, EventArgs e)
         {
-            if (ucKiguihang==null)
+
+        }
+
+        private void accordionControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mnCuocvo_Click(object sender, EventArgs e)
+        {
+            if (ucCuocvo == null)
             {
-                ucKiguihang = new uc_Kiguihang();
-                ucKiguihang.Dock = DockStyle.Fill;
-                mainContainer.Controls.Add(ucKiguihang);
-                ucKiguihang.BringToFront();
+                ucCuocvo = new uc_Cuocvo();
+                ucCuocvo.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucCuocvo);
+                ucCuocvo.BringToFront();
             }
             else
-                ucKiguihang.BringToFront();
-            lblTieude.Caption = mnKyguihang.Text;
+                ucCuocvo.BringToFront();
+                lblTieude.Caption = mnKyguihang.Text; //sau đặt tên nút menu kiu gì được ta
         }
     }
 }
