@@ -18,29 +18,18 @@ namespace QLBH_HBC
             InitializeComponent();
             
         }
-        uc_Cuocvo ucCuocvo;
-
-        private void Mainform_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void accordionControl1_Click(object sender, EventArgs e)
-        {
-
-        }
+        UI.uc_Cuocvo ucCuocvo;
 
         private void mnCuocvo_Click(object sender, EventArgs e)
         {
-            if (ucCuocvo == null)
+            if(ucCuocvo==null)
             {
-                ucCuocvo = new uc_Cuocvo();
+                ucCuocvo = new UI.uc_Cuocvo();
                 ucCuocvo.Dock = DockStyle.Fill;
                 mainContainer.Controls.Add(ucCuocvo);
                 ucCuocvo.BringToFront();
             }
-            else
-                ucCuocvo.BringToFront();
+            
                 lblTieude.Caption = mnKyguihang.Text; //sau đặt tên nút menu kiu gì được ta
         }
     }

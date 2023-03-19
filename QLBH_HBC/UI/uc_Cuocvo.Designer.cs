@@ -29,368 +29,211 @@ namespace QLBH_HBC.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Cuocvo));
-            DevExpress.Utils.Animation.PushTransition pushTransition1 = new DevExpress.Utils.Animation.PushTransition();
-            this.advBandedGridView1 = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.MAHH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.bar1 = new DevExpress.XtraBars.Bar();
-            this.btnNhapcuoc = new DevExpress.XtraBars.BarButtonItem();
-            this.btnTracuoc = new DevExpress.XtraBars.BarButtonItem();
-            this.bar2 = new DevExpress.XtraBars.Bar();
-            this.bar3 = new DevExpress.XtraBars.Bar();
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.barEditItem2 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.workspaceManager1 = new DevExpress.Utils.WorkspaceManager(this.components);
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridSplitContainer1 = new DevExpress.XtraGrid.GridSplitContainer();
-            this.SLcuoc = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.advBandedGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1.Panel1)).BeginInit();
-            this.gridSplitContainer1.Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1.Panel2)).BeginInit();
-            this.gridSplitContainer1.SuspendLayout();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gcVCKcuoc = new DevExpress.XtraGrid.GridControl();
+            this.gvVCKcuoc = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.btnNhapcuoc = new DevExpress.XtraEditors.SimpleButton();
+            this.btnTracuoc = new DevExpress.XtraEditors.SimpleButton();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcVCKcuoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvVCKcuoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
-            // advBandedGridView1
+            // layoutControl1
             // 
-            this.advBandedGridView1.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
-            this.gridBand1});
-            this.advBandedGridView1.GridControl = this.gridControl1;
-            this.advBandedGridView1.Name = "advBandedGridView1";
+            this.layoutControl1.Controls.Add(this.label1);
+            this.layoutControl1.Controls.Add(this.gcVCKcuoc);
+            this.layoutControl1.Controls.Add(this.btnNhapcuoc);
+            this.layoutControl1.Controls.Add(this.btnTracuoc);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1108, 202, 812, 500);
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(821, 567);
+            this.layoutControl1.TabIndex = 0;
+            this.layoutControl1.Text = "layoutControl1";
             // 
-            // gridBand1
+            // label1
             // 
-            this.gridBand1.Caption = "gridBand1";
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.VisibleIndex = 0;
+            this.label1.BackColor = System.Drawing.Color.SteelBlue;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(797, 37);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "QUẢN LÝ CƯỢC VCK";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // gridControl1
+            // gcVCKcuoc
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.LevelTemplate = this.advBandedGridView1;
-            gridLevelNode1.RelationName = "Level1";
-            this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(738, 497);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1,
-            this.cardView1,
-            this.advBandedGridView1});
-            this.gridControl1.Load += new System.EventHandler(this.gridControl1_Load);
-            this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
+            this.gcVCKcuoc.Location = new System.Drawing.Point(12, 126);
+            this.gcVCKcuoc.MainView = this.gvVCKcuoc;
+            this.gcVCKcuoc.Name = "gcVCKcuoc";
+            this.gcVCKcuoc.Size = new System.Drawing.Size(797, 429);
+            this.gcVCKcuoc.TabIndex = 5;
+            this.gcVCKcuoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvVCKcuoc});
             // 
-            // gridView1
+            // gvVCKcuoc
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.MAHH,
-            this.SLcuoc});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            // 
-            // MAHH
-            // 
-            this.MAHH.Caption = "Mã hàng hóa";
-            this.MAHH.MinWidth = 25;
-            this.MAHH.Name = "MAHH";
-            this.MAHH.Visible = true;
-            this.MAHH.VisibleIndex = 0;
-            this.MAHH.Width = 94;
-            // 
-            // cardView1
-            // 
-            this.cardView1.GridControl = this.gridControl1;
-            this.cardView1.Name = "cardView1";
-            this.cardView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Auto;
-            // 
-            // barManager1
-            // 
-            this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar1,
-            this.bar2,
-            this.bar3});
-            this.barManager1.DockControls.Add(this.barDockControlTop);
-            this.barManager1.DockControls.Add(this.barDockControlBottom);
-            this.barManager1.DockControls.Add(this.barDockControlLeft);
-            this.barManager1.DockControls.Add(this.barDockControlRight);
-            this.barManager1.Form = this;
-            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barButtonItem1,
-            this.barButtonItem2,
-            this.btnNhapcuoc,
-            this.barButtonItem4,
-            this.btnTracuoc,
-            this.barEditItem2,
-            this.barButtonItem6});
-            this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 14;
-            this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemDateEdit1});
-            this.barManager1.StatusBar = this.bar3;
-            // 
-            // bar1
-            // 
-            this.bar1.BarName = "Tools";
-            this.bar1.DockCol = 0;
-            this.bar1.DockRow = 1;
-            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnNhapcuoc, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnTracuoc, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
-            this.bar1.Text = "Tools";
+            this.gvVCKcuoc.GridControl = this.gcVCKcuoc;
+            this.gvVCKcuoc.Name = "gvVCKcuoc";
             // 
             // btnNhapcuoc
             // 
-            this.btnNhapcuoc.Caption = "Nhập cược";
-            this.btnNhapcuoc.Id = 4;
-            this.btnNhapcuoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNhapcuoc.ImageOptions.Image")));
-            this.btnNhapcuoc.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNhapcuoc.ImageOptions.LargeImage")));
+            this.btnNhapcuoc.Location = new System.Drawing.Point(642, 95);
             this.btnNhapcuoc.Name = "btnNhapcuoc";
-            this.btnNhapcuoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapcuoc_ItemClick);
+            this.btnNhapcuoc.Size = new System.Drawing.Size(75, 27);
+            this.btnNhapcuoc.StyleController = this.layoutControl1;
+            this.btnNhapcuoc.TabIndex = 7;
+            this.btnNhapcuoc.Text = "Nhập cược";
+            this.btnNhapcuoc.Click += new System.EventHandler(this.btnNhapcuoc_Click);
             // 
             // btnTracuoc
             // 
-            this.btnTracuoc.Caption = "Trả cược";
-            this.btnTracuoc.Id = 9;
-            this.btnTracuoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTracuoc.ImageOptions.Image")));
-            this.btnTracuoc.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTracuoc.ImageOptions.LargeImage")));
+            this.btnTracuoc.Location = new System.Drawing.Point(741, 95);
             this.btnTracuoc.Name = "btnTracuoc";
+            this.btnTracuoc.Size = new System.Drawing.Size(68, 27);
+            this.btnTracuoc.StyleController = this.layoutControl1;
+            this.btnTracuoc.TabIndex = 8;
+            this.btnTracuoc.Text = "Trả cược";
             // 
-            // bar2
+            // Root
             // 
-            this.bar2.BarName = "Main menu";
-            this.bar2.DockCol = 0;
-            this.bar2.DockRow = 0;
-            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar2.OptionsBar.MultiLine = true;
-            this.bar2.OptionsBar.UseWholeRow = true;
-            this.bar2.Text = "Main menu";
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem2,
+            this.layoutControlItem4,
+            this.emptySpaceItem1,
+            this.layoutControlItem1,
+            this.emptySpaceItem2,
+            this.emptySpaceItem3,
+            this.layoutControlItem3});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(821, 567);
+            this.Root.TextVisible = false;
             // 
-            // bar3
+            // layoutControlItem2
             // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
+            this.layoutControlItem2.Control = this.gcVCKcuoc;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 114);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(801, 433);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
-            // barDockControlTop
+            // layoutControlItem4
             // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(738, 51);
+            this.layoutControlItem4.Control = this.btnNhapcuoc;
+            this.layoutControlItem4.Location = new System.Drawing.Point(630, 83);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(78, 31);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(79, 31);
+            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
             // 
-            // barDockControlBottom
+            // emptySpaceItem1
             // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 548);
-            this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(738, 20);
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 83);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(630, 31);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // barDockControlLeft
+            // layoutControlItem1
             // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 51);
-            this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 497);
+            this.layoutControlItem1.Control = this.btnTracuoc;
+            this.layoutControlItem1.Location = new System.Drawing.Point(729, 83);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(72, 31);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
-            // barDockControlRight
+            // emptySpaceItem2
             // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(738, 51);
-            this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 497);
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(709, 83);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(20, 31);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // barButtonItem1
+            // emptySpaceItem3
             // 
-            this.barButtonItem1.Caption = "Nhập cược";
-            this.barButtonItem1.Id = 0;
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 41);
+            this.emptySpaceItem3.Name = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(801, 42);
+            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // barButtonItem2
+            // layoutControlItem3
             // 
-            this.barButtonItem2.Caption = "Trả cược";
-            this.barButtonItem2.Id = 1;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "Trả cược";
-            this.barButtonItem4.Id = 5;
-            this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
-            this.barButtonItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
-            this.barButtonItem4.Name = "barButtonItem4";
-            // 
-            // barEditItem2
-            // 
-            this.barEditItem2.Caption = "njn";
-            this.barEditItem2.Edit = this.repositoryItemDateEdit1;
-            this.barEditItem2.Id = 12;
-            this.barEditItem2.Name = "barEditItem2";
-            // 
-            // repositoryItemDateEdit1
-            // 
-            this.repositoryItemDateEdit1.AutoHeight = false;
-            this.repositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDateEdit1.Name = "repositoryItemDateEdit1";
-            // 
-            // barButtonItem6
-            // 
-            this.barButtonItem6.Caption = "In báo cáo";
-            this.barButtonItem6.Id = 13;
-            this.barButtonItem6.Name = "barButtonItem6";
-            // 
-            // barStaticItem1
-            // 
-            this.barStaticItem1.Caption = "QUẢN LÝ CƯỢC VỎ";
-            this.barStaticItem1.Id = 7;
-            this.barStaticItem1.Name = "barStaticItem1";
-            // 
-            // barEditItem1
-            // 
-            this.barEditItem1.Caption = "n";
-            this.barEditItem1.Edit = this.repositoryItemComboBox1;
-            this.barEditItem1.Id = 8;
-            this.barEditItem1.Name = "barEditItem1";
-            this.barEditItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barEditItem1_ItemClick);
-            // 
-            // repositoryItemComboBox1
-            // 
-            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
-            // 
-            // workspaceManager1
-            // 
-            this.workspaceManager1.TargetControl = this;
-            this.workspaceManager1.TransitionType = pushTransition1;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Name = "gridColumn1";
-            // 
-            // gridSplitContainer1
-            // 
-            this.gridSplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridSplitContainer1.Grid = this.gridControl1;
-            this.gridSplitContainer1.Location = new System.Drawing.Point(0, 51);
-            this.gridSplitContainer1.Name = "gridSplitContainer1";
-            // 
-            // gridSplitContainer1.Panel1
-            // 
-            this.gridSplitContainer1.Panel1.Controls.Add(this.gridControl1);
-            this.gridSplitContainer1.Size = new System.Drawing.Size(738, 497);
-            this.gridSplitContainer1.TabIndex = 5;
-            // 
-            // SLcuoc
-            // 
-            this.SLcuoc.Caption = "Số lượng";
-            this.SLcuoc.MinWidth = 25;
-            this.SLcuoc.Name = "SLcuoc";
-            this.SLcuoc.Visible = true;
-            this.SLcuoc.VisibleIndex = 1;
-            this.SLcuoc.Width = 94;
+            this.layoutControlItem3.Control = this.label1;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(801, 41);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
             // 
             // uc_Cuocvo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gridSplitContainer1);
-            this.Controls.Add(this.barDockControlLeft);
-            this.Controls.Add(this.barDockControlRight);
-            this.Controls.Add(this.barDockControlBottom);
-            this.Controls.Add(this.barDockControlTop);
+            this.Controls.Add(this.layoutControl1);
             this.Name = "uc_Cuocvo";
-            this.Size = new System.Drawing.Size(738, 568);
-            ((System.ComponentModel.ISupportInitialize)(this.advBandedGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1.Panel1)).EndInit();
-            this.gridSplitContainer1.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1.Panel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).EndInit();
-            this.gridSplitContainer1.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(821, 567);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcVCKcuoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvVCKcuoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraBars.BarManager barManager1;
-        private DevExpress.XtraBars.Bar bar1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.Bar bar2;
-        private DevExpress.XtraBars.Bar bar3;
-        private DevExpress.XtraBars.BarDockControl barDockControlTop;
-        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
-        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
-        private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraBars.BarButtonItem btnNhapcuoc;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraBars.BarButtonItem btnTracuoc;
-        private DevExpress.XtraBars.BarEditItem barEditItem2;
-        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
-        private DevExpress.XtraBars.BarEditItem barEditItem1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
-        private DevExpress.Utils.WorkspaceManager workspaceManager1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Views.Card.CardView cardView1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView advBandedGridView1;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
-        private DevExpress.XtraGrid.GridSplitContainer gridSplitContainer1;
-        private DevExpress.XtraGrid.Columns.GridColumn MAHH;
-        private DevExpress.XtraGrid.Columns.GridColumn SLcuoc;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraGrid.GridControl gcVCKcuoc;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvVCKcuoc;
+        private DevExpress.XtraEditors.SimpleButton btnNhapcuoc;
+        private DevExpress.XtraEditors.SimpleButton btnTracuoc;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

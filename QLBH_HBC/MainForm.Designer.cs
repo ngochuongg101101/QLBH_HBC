@@ -279,7 +279,7 @@ namespace QLBH_HBC
             // calcEdit1
             // 
             this.calcEdit1.Location = new System.Drawing.Point(331, 278);
-            this.calcEdit1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.calcEdit1.Margin = new System.Windows.Forms.Padding(8);
             this.calcEdit1.Name = "calcEdit1";
             this.calcEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -289,7 +289,7 @@ namespace QLBH_HBC
             // calcEdit2
             // 
             this.calcEdit2.Location = new System.Drawing.Point(331, 278);
-            this.calcEdit2.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.calcEdit2.Margin = new System.Windows.Forms.Padding(8);
             this.calcEdit2.Name = "calcEdit2";
             this.calcEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -313,7 +313,6 @@ namespace QLBH_HBC
             this.NavigationControl = this.accordionControl1;
             this.Text = "QUẢN LÝ BÁN HÀNG HABECO";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Mainform_Load);
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calcEdit1.Properties)).EndInit();
