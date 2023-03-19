@@ -93,6 +93,7 @@ namespace QLBH_HBC.UI
             this.gcVCKcuoc.TabIndex = 5;
             this.gcVCKcuoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvVCKcuoc});
+            this.gcVCKcuoc.Load += new System.EventHandler(this.gcVCKcuoc_Load);
             // 
             // gvVCKcuoc
             // 
