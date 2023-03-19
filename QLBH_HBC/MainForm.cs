@@ -30,7 +30,7 @@ namespace QLBH_HBC
                 ucCuocvo.BringToFront();
             }
             
-                lblTieude.Caption = mnKyguihang.Text; //sau đặt tên nút menu kiu gì được ta
+                //lblTieude.Caption = mnKyguihang.Text; 
         }
     }
 }
