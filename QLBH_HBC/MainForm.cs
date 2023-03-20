@@ -19,6 +19,7 @@ namespace QLBH_HBC
             
         }
         UI.uc_Cuocvo ucCuocvo;
+        UI.uc_Donhang ucDonhang;
 
         private void mnCuocvo_Click(object sender, EventArgs e)
         {
@@ -31,6 +32,17 @@ namespace QLBH_HBC
             }
             
                 //lblTieude.Caption = mnKyguihang.Text; 
+        }
+
+        private void mnQLDH_Click(object sender, EventArgs e)
+        {
+            if (ucDonhang == null)
+            {
+                ucDonhang = new UI.uc_Donhang();
+                ucDonhang.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucDonhang);
+                ucDonhang.BringToFront();
+            }
         }
     }
 }

@@ -108,6 +108,12 @@
     <Compile Include="UI\uc_Cuocvo.Designer.cs">
       <DependentUpon>uc_Cuocvo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\uc_Donhang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_Donhang.Designer.cs">
+      <DependentUpon>uc_Donhang.cs</DependentUpon>
+    </Compile>
     <Compile Include="XtraForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </Compile>
     <EmbeddedResource Include="UI\uc_Cuocvo.resx">
       <DependentUpon>uc_Cuocvo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\uc_Donhang.resx">
+      <DependentUpon>uc_Donhang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraForm1.resx">
       <DependentUpon>XtraForm1.cs</DependentUpon>

@@ -25,12 +25,12 @@ namespace QLBH_HBC.UI
             f.Show();
         }
 
-        private void gcVCKcuoc_Load(object sender, EventArgs e)
+        private void gridControl_Load(object sender, EventArgs e)
         {
             string sql = "Select MA_DL as N'Mã đại lý',DAILY.TENDL as N'Tên đại lý',MA_VO as N'Mã vỏ',TENHH as N'Tên vỏ',SL_CUOC as N'Số lượng đã cược',SL_GIU as N'Số lượng đang giữ' " +
                 "from VCKCUOC,HANGHOA, DAILY WHERE VCKCUOC.MA_DL=DAILY.MADL AND VCKCUOC.MA_VO=HANGHOA.MAHH";
-            gcVCKcuoc.DataSource = DataProvider.Instance.ExecuteQuery(sql);
-            gcVCKcuoc.Refresh();
+            gridControl.DataSource = DataProvider.Instance.ExecuteQuery(sql);
+            gridControl.Refresh();
         }
     }
 }

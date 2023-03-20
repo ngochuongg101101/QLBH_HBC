@@ -38,7 +38,7 @@ namespace QLBH_HBC
             this.accordionControlElement7 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnCuocvo = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnQLDL = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement16 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnQLDH = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement17 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement18 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnQLKho = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -140,18 +140,19 @@ namespace QLBH_HBC
             // mnQLDL
             // 
             this.mnQLDL.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement16,
+            this.mnQLDH,
             this.accordionControlElement17,
             this.accordionControlElement18});
             this.mnQLDL.Expanded = true;
             this.mnQLDL.Name = "mnQLDL";
             this.mnQLDL.Text = "QUẢN LÝ ĐẠI LÝ";
             // 
-            // accordionControlElement16
+            // mnQLDH
             // 
-            this.accordionControlElement16.Name = "accordionControlElement16";
-            this.accordionControlElement16.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement16.Text = "Quản lý đơn hàng";
+            this.mnQLDH.Name = "mnQLDH";
+            this.mnQLDH.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.mnQLDH.Text = "Quản lý đơn hàng";
+            this.mnQLDH.Click += new System.EventHandler(this.mnQLDH_Click);
             // 
             // accordionControlElement17
             // 
@@ -335,7 +336,7 @@ namespace QLBH_HBC
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement13;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement14;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement15;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement16;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLDH;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement17;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement18;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement23;

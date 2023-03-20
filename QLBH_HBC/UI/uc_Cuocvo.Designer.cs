@@ -31,8 +31,8 @@ namespace QLBH_HBC.UI
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.label1 = new System.Windows.Forms.Label();
-            this.gcVCKcuoc = new DevExpress.XtraGrid.GridControl();
-            this.gvVCKcuoc = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControl = new DevExpress.XtraGrid.GridControl();
+            this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnNhapcuoc = new DevExpress.XtraEditors.SimpleButton();
             this.btnTracuoc = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -45,8 +45,8 @@ namespace QLBH_HBC.UI
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcVCKcuoc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvVCKcuoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
@@ -60,7 +60,7 @@ namespace QLBH_HBC.UI
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.label1);
-            this.layoutControl1.Controls.Add(this.gcVCKcuoc);
+            this.layoutControl1.Controls.Add(this.gridControl);
             this.layoutControl1.Controls.Add(this.btnNhapcuoc);
             this.layoutControl1.Controls.Add(this.btnTracuoc);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -84,21 +84,21 @@ namespace QLBH_HBC.UI
             this.label1.Text = "QUẢN LÝ CƯỢC VCK";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // gcVCKcuoc
+            // gridControl
             // 
-            this.gcVCKcuoc.Location = new System.Drawing.Point(12, 126);
-            this.gcVCKcuoc.MainView = this.gvVCKcuoc;
-            this.gcVCKcuoc.Name = "gcVCKcuoc";
-            this.gcVCKcuoc.Size = new System.Drawing.Size(797, 429);
-            this.gcVCKcuoc.TabIndex = 5;
-            this.gcVCKcuoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvVCKcuoc});
-            this.gcVCKcuoc.Load += new System.EventHandler(this.gcVCKcuoc_Load);
+            this.gridControl.Location = new System.Drawing.Point(12, 126);
+            this.gridControl.MainView = this.gridView;
+            this.gridControl.Name = "gridControl";
+            this.gridControl.Size = new System.Drawing.Size(797, 429);
+            this.gridControl.TabIndex = 5;
+            this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView});
+            this.gridControl.Load += new System.EventHandler(this.gridControl_Load);
             // 
-            // gvVCKcuoc
+            // gridView
             // 
-            this.gvVCKcuoc.GridControl = this.gcVCKcuoc;
-            this.gvVCKcuoc.Name = "gvVCKcuoc";
+            this.gridView.GridControl = this.gridControl;
+            this.gridView.Name = "gridView";
             // 
             // btnNhapcuoc
             // 
@@ -137,7 +137,7 @@ namespace QLBH_HBC.UI
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.gcVCKcuoc;
+            this.layoutControlItem2.Control = this.gridControl;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 114);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(801, 433);
@@ -206,8 +206,8 @@ namespace QLBH_HBC.UI
             this.Size = new System.Drawing.Size(821, 567);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcVCKcuoc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvVCKcuoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
@@ -224,8 +224,8 @@ namespace QLBH_HBC.UI
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraGrid.GridControl gcVCKcuoc;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvVCKcuoc;
+        private DevExpress.XtraGrid.GridControl gridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView;
         private DevExpress.XtraEditors.SimpleButton btnNhapcuoc;
         private DevExpress.XtraEditors.SimpleButton btnTracuoc;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
