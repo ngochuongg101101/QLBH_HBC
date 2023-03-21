@@ -37,7 +37,7 @@ namespace QLBH_HBC
             cbDaily.Text = "";
             cbDaily.ValueMember = "MADL";
 
-            //Truyền vào giá trị txtNguoitao = USERNAME đăng nhập, hiển thị là HOTEN của USERNAME
+            //Truyền vào giá trị txtNguoitao = USERNAME đăng nhập, hiển thị là USERNAME
 
         }
 
@@ -115,9 +115,6 @@ namespace QLBH_HBC
                         gridView.SetRowCellValue(rowHandle, "THANHTIEN", thanhTien);
 
                         tongTien = tongTien + thanhTien;
-
-                        // Gán giá trị tính được cho thuộc tính Text của đối tượng TextEdit
-                        txtTongtien.Text = tongTien.ToString();
                     }
                 }
             }
@@ -138,7 +135,7 @@ namespace QLBH_HBC
                 MessageBox.Show(connection.ConnectionString.Trim());
 
                 // Tạo command và truyền vào câu lệnh SQL
-                using (SqlCommand command = new SqlCommand("INSERT INTO PHIEUCUOC(NGAYTAO, NGUOITAO,LOAI, MA_DL) VALUES (@Ngaytao,@Nguoitao,N'Nhập',@MaDL)", connection))
+                using (SqlCommand command = new SqlCommand("INSERT INTO PHIEUCUOC(NGAYTAO, NGUOITAO,LOAI) VALUES (@Ngaytao,@Nguoitao,N'Nhập')", connection))
                 {
                     // Truyền các tham số vào command
                     //MessageBox.Show(dtNgaytao.EditValue.ToString());
