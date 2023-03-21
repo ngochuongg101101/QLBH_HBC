@@ -83,7 +83,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\BoomDAO.cs" />
+    <Compile Include="DAO\CTDonhangDAO.cs" />
+    <Compile Include="DTO\Boom.cs" />
+    <Compile Include="DTO\CTDonhang.cs" />
+    <Compile Include="DTO\CtPhieucuoc.cs" />
+    <Compile Include="DTO\Daily.cs" />
+    <Compile Include="DTO\Donhang.cs" />
+    <Compile Include="DTO\Hoadon.cs" />
+    <Compile Include="DTO\HopDong.cs" />
+    <Compile Include="DTO\LoaiHD.cs" />
+    <Compile Include="DTO\LoaiPK.cs" />
+    <Compile Include="DTO\Mavuviec.cs" />
+    <Compile Include="DTO\Phieucuoc.cs" />
+    <Compile Include="DTO\Phieukho.cs" />
+    <Compile Include="DTO\Phieuthuchi.cs" />
+    <Compile Include="DTO\Vckcuoc.cs" />
     <Compile Include="frmNhapcuoc.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data;
 namespace QLBH_HBC.DTO
 {
     class Hanghoa
@@ -19,7 +19,18 @@ namespace QLBH_HBC.DTO
             this.Loai = loai;
             this.Co_vck = co_vck;
         }
+        public Hanghoa(DataRow Row)
+        {
+            this.MaHH = Row["MADL"].ToString(); ;
+            this.TenHH = Row["TENHH"].ToString();
+            this.Dongia = (float)Convert.ToDouble(Row["DONGIA"].ToString());
+            this.Giacuoc = (float)Convert.ToDouble(Row["GIACUOC"].ToString());
+            this.Dvt = Row["DVT"].ToString();
+            this.Sl = (int)Convert.ToDouble(Row["SL"].ToString());
+            this.Loai  = Row["LOAI"].ToString();
+            this.Co_vck = (Boolean)Row["CO_VCK"];
 
+        }
         public float Giacuoc { get; private set; }
         public string Dvt { get; private set; }
         public int Sl { get; private set; }

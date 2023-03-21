@@ -27,7 +27,7 @@ namespace QLBH_HBC.UI
         {
             string sql = "SELECT TRANGTHAI, MADH , NGAYTAO , TENDL , NGUOITAO, TONGTIEN  FROM DONHANG " +
                         "JOIN DAILY ON MADL = MA_DL";
-            gridControl1.DataSource = DataProvider.Instance.ExecuteQuery(sql);
+            gridControl1.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql);
             gridControl1.Refresh();
             gridView1.RowClick += gridView1_RowClick;
             gridView1.OptionsBehavior.Editable = true;
@@ -51,7 +51,7 @@ namespace QLBH_HBC.UI
 
             string sql1 = "SELECT MAHH, TENHH, CT_DONHANG.SL, DVT, CT_DONHANG.DONGIA, THANHTIEN FROM CT_DONHANG JOIN HANGHOA ON MAHH = MA_HH " +
                 "WHERE MA_DH = '" + txtMadh.Text + "'";
-            gridControl2.DataSource = DataProvider.Instance.ExecuteQuery(sql1);
+            gridControl2.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql1);
             gridControl2.Refresh();
         }
 
@@ -130,7 +130,7 @@ namespace QLBH_HBC.UI
                     {
                         // Lấy thông tin hàng hóa từ cơ sở dữ liệu
                         string sql = "SELECT TENHH, DVT, DONGIA FROM HANGHOA WHERE MAHH = '" + maHH + "'";
-                        DataTable dt = DataProvider.Instance.ExecuteQuery(sql);
+                        DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql);
 
                         // Hiển thị thông tin hàng hóa lên gridView
                         if (dt.Rows.Count > 0)
@@ -158,14 +158,14 @@ namespace QLBH_HBC.UI
                         //Lấy lên VCK đi kèm
                         //Kiểm tra Hàng hóa đó có VCK không
                         string sql2 = "SELECT CO_VCK FROM HANGHOA WHERE MAHH = '" + maHH + "'";
-                        DataTable dt1 = DataProvider.Instance.ExecuteQuery(sql2);
+                        DataTable dt1 = Config.DataProvider.Instance.ExecuteQuery(sql2);
                         string coVck = dt1.Rows[0][0].ToString();
                         //Nếu hàng hóa có VCK thì lấy lên VCK đi kèm
                         if (coVck == "True")
                         {
                             // Lấy thông tin VCK từ cơ sở dữ liệu
                             string sql = "SELECT MAHH,TENHH,BOOM.SL,DVT FROM HANGHOA,BOOM WHERE MAHH = MA_VO AND MA_BIA = '" + maHH + "'";
-                            DataTable dt2 = DataProvider.Instance.ExecuteQuery(sql);
+                            DataTable dt2 = Config.DataProvider.Instance.ExecuteQuery(sql);
                             // Hiển thị thông tin VCK lên gridView
                             for (int i=0; i<dt2.Rows.Count; i++)
                             {

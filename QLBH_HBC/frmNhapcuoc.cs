@@ -16,26 +16,36 @@ namespace QLBH_HBC
 {
     public partial class frmNhapcuoc : DevExpress.XtraEditors.XtraForm
     {
-        public frmNhapcuoc()
+        private string userName;
+        public frmNhapcuoc(string username)
         {
             InitializeComponent();
+            this.userName = username;
         }
+
         private DataTable dt1;
         float tongTien = 0;
-
         private void frmNhapcuoc_Load(object sender, EventArgs e)
         {
+
             //Ngày tạo mặc định là ngày hiện tại
             dtNgaytao.EditValue = DateTime.Today;
 
             //Hiển thị mã + tên đại lý trong combobox
             string sql = "Select MADL,TENDL from DAILY";
-            DataTable dt = DataProvider.Instance.ExecuteQuery(sql);
+            DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql);
             cbDaily.DataSource = dt;
             dt.Columns.Add("FULL",typeof(string),"MADL + ' - ' + TENDL");
             cbDaily.DisplayMember = "FULL";
             cbDaily.Text = "";
             cbDaily.ValueMember = "MADL";
+            DTO.Nguoidung Hoten = DAO.NguoidungDAO.Instance.GetFullNameByUsername(userName);
+            if (Hoten != null)
+            {
+                cbNguoitao.Text = Hoten.Hoten.ToString();
+
+            }
+            cbNguoitao.Enabled = false;
 
             //Truyền vào giá trị txtNguoitao = USERNAME đăng nhập, hiển thị là USERNAME
 
@@ -94,7 +104,7 @@ namespace QLBH_HBC
 
                         // Lấy thông tin hàng hóa từ cơ sở dữ liệu
                         string sql = "SELECT TENHH, DVT, GIACUOC FROM HANGHOA WHERE MAHH = '" + maHH + "'";
-                        DataTable dt = DataProvider.Instance.ExecuteQuery(sql);
+                        DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql);
 
                         // Hiển thị thông tin hàng hóa lên gridView
                         if (dt.Rows.Count > 0)
@@ -122,12 +132,13 @@ namespace QLBH_HBC
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // Cai doan nay sau minh lai lien ket dataprovider chu kp viet the nay
             //1. TẠO PHIẾU NHẬP CƯỢC
             //Insert into PHIEUCUOC(NGAYTAO,NGUOITAO,MADL,LOAI = N'Nhập')
             //-> Tạo xong về SQL sinh được MA_PC
             //-> Lấy lên MAPC = MA_PC của phiếu vừa tạo
             SqlConnection connection = new SqlConnection();
-            string sql = "Data Source=DESKTOP-33G4CSH;Initial Catalog=QLBH_HBC;Integrated Security=True";
+            string sql = "Data Source=DESKTOP-33G4CSH;Initial Catalog=QLBH_HBC1;Integrated Security=True";
             connection.ConnectionString = sql;
             connection.Open();
             {
@@ -135,17 +146,14 @@ namespace QLBH_HBC
                 MessageBox.Show(connection.ConnectionString.Trim());
 
                 // Tạo command và truyền vào câu lệnh SQL
-                using (SqlCommand command = new SqlCommand("INSERT INTO PHIEUCUOC(NGAYTAO, NGUOITAO,LOAI) VALUES (@Ngaytao,@Nguoitao,N'Nhập')", connection))
+                using (SqlCommand command = new SqlCommand("INSERT INTO PHIEUCUOC(NGAYTAO, NGUOITAO,LOAI, MA_DL) VALUES (@Ngaytao,@Nguoitao,N'Nhập',@MaDL)", connection))
                 {
                     // Truyền các tham số vào command
-                    //MessageBox.Show(dtNgaytao.EditValue.ToString());
-                    MessageBox.Show(cbNguoitao.Text);
-                    MessageBox.Show(cbDaily.SelectedValue.ToString());
                     command.Parameters.AddWithValue("@NgayTao", dtNgaytao.DateTime);
-                    command.Parameters.AddWithValue("@NguoiTao", cbNguoitao.Text);
-                    command.Parameters.AddWithValue("@MaDL", cbDaily.SelectedValue.ToString());
+                    command.Parameters.AddWithValue("@NguoiTao", userName);
+                    command.Parameters.AddWithValue("@MaDL", cbDaily.SelectedValue.ToString().Trim());
+                    MessageBox.Show(cbDaily.SelectedValue.ToString());
                     command.ExecuteNonQuery();
-                    MessageBox.Show(command.ToString());
 
                     // Thực hiện execute scalar để lấy ra giá trị của MAPC
                     //int mapc = (int)command.ExecuteScalar();
