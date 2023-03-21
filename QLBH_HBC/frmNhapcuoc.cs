@@ -137,32 +137,51 @@ namespace QLBH_HBC
             //Insert into PHIEUCUOC(NGAYTAO,NGUOITAO,MADL,LOAI = N'Nhập')
             //-> Tạo xong về SQL sinh được MA_PC
             //-> Lấy lên MAPC = MA_PC của phiếu vừa tạo
-            SqlConnection connection = new SqlConnection();
-            string sql = "Data Source=DESKTOP-33G4CSH;Initial Catalog=QLBH_HBC1;Integrated Security=True";
-            connection.ConnectionString = sql;
-            connection.Open();
+            //SqlConnection connection = new SqlConnection();
+            //string sql = "Data Source=DESKTOP-33G4CSH;Initial Catalog=QLBH_HBC1;Integrated Security=True";
+            //connection.ConnectionString = sql;
+            //connection.Open();
+            //{
+            //    //connection.Open();
+            //    MessageBox.Show(connection.ConnectionString.Trim());
+
+            //    // Tạo command và truyền vào câu lệnh SQL
+            //    using (SqlCommand command = new SqlCommand("INSERT INTO PHIEUCUOC(NGAYTAO, NGUOITAO,LOAI, MA_DL) VALUES (@Ngaytao,@Nguoitao,N'Nhập',@MaDL)", connection))
+            //    {
+            //        // Truyền các tham số vào command
+            //        command.Parameters.AddWithValue("@NgayTao", dtNgaytao.DateTime);
+            //        command.Parameters.AddWithValue("@NguoiTao", userName);
+            //        command.Parameters.AddWithValue("@MaDL", cbDaily.SelectedValue.ToString().Trim());
+            //        MessageBox.Show(cbDaily.SelectedValue.ToString());
+            //        command.ExecuteNonQuery();
+
+            //        // Thực hiện execute scalar để lấy ra giá trị của MAPC
+            //        //int mapc = (int)command.ExecuteScalar();
+
+            //        // Hiển thị thông báo thành công và gán giá trị MAPC vào một control trên form
+            //        XtraMessageBox.Show("Tạo phiếu thành công! Mã phiếu: ");
+            //        //string maPC = mapc.ToString();
+            //    }
+            //}
+            // truong loai em dangg muon de 'nhap'
+            //try
             {
-                //connection.Open();
-                MessageBox.Show(connection.ConnectionString.Trim());
-
-                // Tạo command và truyền vào câu lệnh SQL
-                using (SqlCommand command = new SqlCommand("INSERT INTO PHIEUCUOC(NGAYTAO, NGUOITAO,LOAI, MA_DL) VALUES (@Ngaytao,@Nguoitao,N'Nhập',@MaDL)", connection))
+                string loaiNhap = "Nhập";
+                bool result = false;
+                result = DAO.PhieuCuocDAO.Instance.Insert(dtNgaytao.DateTime, userName, loaiNhap, cbDaily.SelectedValue.ToString().Trim());
+                if (result)
                 {
-                    // Truyền các tham số vào command
-                    command.Parameters.AddWithValue("@NgayTao", dtNgaytao.DateTime);
-                    command.Parameters.AddWithValue("@NguoiTao", userName);
-                    command.Parameters.AddWithValue("@MaDL", cbDaily.SelectedValue.ToString().Trim());
-                    MessageBox.Show(cbDaily.SelectedValue.ToString());
-                    command.ExecuteNonQuery();
-
-                    // Thực hiện execute scalar để lấy ra giá trị của MAPC
-                    //int mapc = (int)command.ExecuteScalar();
-
-                    // Hiển thị thông báo thành công và gán giá trị MAPC vào một control trên form
-                    XtraMessageBox.Show("Tạo phiếu thành công! Mã phiếu: " );
-                    //string maPC = mapc.ToString();
+                    XtraMessageBox.Show("Tạo phiếu thành công!");
+                }
+                else
+                {
+                    XtraMessageBox.Show("Tạo phiếu không thành công!");
                 }
             }
+            //catch(Exception ex)
+            //{
+            //    XtraMessageBox.Show("Lỗi kết nối hệ thống");
+            //}
             //Chạy lần lượt các row trong gridView
             //(
             //    1.1 TẠO CHI TIẾT PHIẾU CƯỢC

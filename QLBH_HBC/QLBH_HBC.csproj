@@ -85,6 +85,7 @@
   <ItemGroup>
     <Compile Include="DAO\BoomDAO.cs" />
     <Compile Include="DAO\CTDonhangDAO.cs" />
+    <Compile Include="DAO\PhieuCuocDAO.cs" />
     <Compile Include="DTO\Boom.cs" />
     <Compile Include="DTO\CTDonhang.cs" />
     <Compile Include="DTO\CtPhieucuoc.cs" />

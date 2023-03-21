@@ -76,7 +76,7 @@ namespace QLBH_HBC
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi máy chủ đăng nhập !");
+                //MessageBox.Show("Lỗi máy chủ đăng nhập !");
             }
         }
 
