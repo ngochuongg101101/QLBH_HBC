@@ -34,32 +34,30 @@ namespace QLBH_HBC.DAO
         // Thêm
         public bool Insert(DateTime ngaytao,string nguoitao, string loai,string madl) 
         {
-            //string query = String.Format("INSERT INTO PHIEUCUOC(NGAYTAO, NGUOITAO,LOAI, MA_DL) VALUES ({0},{1},N'{2}',{3})", ngaytao, nguoitao, loai, madl);
-            string query = String.Format("INSERT INTO PHIEUCUOC(NGAYTAO, NGUOITAO,LOAI, MA_DL) VALUES ('2023/01/01','{0}',N'{1}','{2}')",  nguoitao, loai, madl);
-
+            string query = String.Format("INSERT INTO PHIEUCUOC(NGAYTAO, NGUOITAO,LOAI, MA_DL) VALUES ('{0}','{1}',N'{2}','{3}')", ngaytao, nguoitao, loai, madl);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
         // Sửa
-        public bool Update(string mabia, string mavo, int sl)
+        public bool Update(DateTime ngaytao, string loai, string madl,string mapc)
         {
-            string query = String.Format("UPDATE dbo.BOOM SET SL = @SL WHERE MA_BIA = @MABIA AND MA_VO = @MAVO");
-            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query, new object[] { mabia, mavo, sl });
+            string query = String.Format("UPDATE dbo.PHIEUCUOC SET NGAYTAO = '{0}', LOAI = '{1}', MA_DL = '{2}' WHERE MAPC = '{3}'",ngaytao,loai,madl,mapc);
+            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
         //Xóa
-        public bool Delete(string mabia, string mavo)
+        public bool Delete(string mapc)
         {
-            string query = String.Format("DELETE dbo.BOOM WHERE MA_BIA = @MABIA AND MA_VO = @MAVO");
-            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query, new object[] { mabia, mavo });
+            string query = String.Format("DELETE dbo.PHIEUCUOC WHERE MAPC = '{0}'");
+            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
         // Lấy 1 dũ liệu 
-        public DTO.Phieucuoc Get(string mabia, string mavo)
+        public DTO.Phieucuoc Get(string mapc)
         {
             DTO.Phieucuoc item = null;
-            string query = "SELECT * FROM dbo.BOOM WHERE MA_BIA = @MABIA AND MA_VO = @MAVO";
-            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { mabia, mavo });
+            string query = "SELECT * FROM dbo.PHIEUCUOC WHERE MAPC =@MAPC";
+            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { mapc });
             foreach (DataRow row in result.Rows)
             {
                 item = new DTO.Phieucuoc(row);
