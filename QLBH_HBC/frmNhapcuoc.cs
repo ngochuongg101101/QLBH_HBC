@@ -16,15 +16,18 @@ namespace QLBH_HBC
 {
     public partial class frmNhapcuoc : DevExpress.XtraEditors.XtraForm
     {
-        public frmNhapcuoc()
+        private string userName;
+        public frmNhapcuoc(string username)
         {
             InitializeComponent();
+            this.userName = username;
         }
+
         private DataTable dt1;
         float tongTien = 0;
-
         private void frmNhapcuoc_Load(object sender, EventArgs e)
         {
+
             //Ngày tạo mặc định là ngày hiện tại
             dtNgaytao.EditValue = DateTime.Today;
 
@@ -36,6 +39,13 @@ namespace QLBH_HBC
             cbDaily.DisplayMember = "FULL";
             cbDaily.Text = "";
             cbDaily.ValueMember = "MADL";
+            DTO.Nguoidung Hoten = DAO.NguoidungDAO.Instance.GetFullNameByUsername(userName);
+            if (Hoten != null)
+            {
+                cbNguoitao.Text = Hoten.Hoten.ToString();
+
+            }
+            cbNguoitao.Enabled = false;
 
             //Truyền vào giá trị txtNguoitao = USERNAME đăng nhập, hiển thị là HOTEN của USERNAME
 
@@ -130,7 +140,7 @@ namespace QLBH_HBC
             //-> Tạo xong về SQL sinh được MA_PC
             //-> Lấy lên MAPC = MA_PC của phiếu vừa tạo
             SqlConnection connection = new SqlConnection();
-            string sql = "Data Source=DESKTOP-33G4CSH;Initial Catalog=QLBH_HBC;Integrated Security=True";
+            string sql = "Data Source=DESKTOP-ALEX;Initial Catalog=QLBH_HBC;Integrated Security=True";
             connection.ConnectionString = sql;
             connection.Open();
             {
@@ -145,7 +155,7 @@ namespace QLBH_HBC
                     MessageBox.Show(cbNguoitao.Text);
                     MessageBox.Show(cbDaily.SelectedValue.ToString());
                     command.Parameters.AddWithValue("@NgayTao", dtNgaytao.DateTime);
-                    command.Parameters.AddWithValue("@NguoiTao", cbNguoitao.Text);
+                    command.Parameters.AddWithValue("@NguoiTao", userName);
                     command.Parameters.AddWithValue("@MaDL", cbDaily.SelectedValue.ToString());
                     command.ExecuteNonQuery();
                     MessageBox.Show(command.ToString());

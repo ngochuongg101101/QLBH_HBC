@@ -55,7 +55,7 @@ namespace QLBH_HBC
                     if (LoginDB(username, password))
                     {
                         MessageBox.Show("Đăng nhập thành công !");
-                        MainForm mainForm = new MainForm();
+                        MainForm mainForm = new MainForm(username.Trim().ToUpper());
                         this.Hide();
                         mainForm.ShowDialog();
                         this.Show();

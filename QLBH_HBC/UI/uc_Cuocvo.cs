@@ -14,14 +14,16 @@ namespace QLBH_HBC.UI
 {
     public partial class uc_Cuocvo : DevExpress.XtraEditors.XtraUserControl
     {
-        public uc_Cuocvo()
+        private string userName;
+        public uc_Cuocvo(string username)
         {
             InitializeComponent();
+            this.userName = username;
         }
 
         private void btnNhapcuoc_Click(object sender, EventArgs e)
         {
-            Form f = new frmNhapcuoc();
+            Form f = new frmNhapcuoc(userName);
             f.Show();
         }
 
