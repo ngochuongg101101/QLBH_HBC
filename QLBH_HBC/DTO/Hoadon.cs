@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data;
 namespace QLBH_HBC.DTO
 {
     class Hoadon
@@ -19,7 +19,17 @@ namespace QLBH_HBC.DTO
             this.MaDH_Hoadon = madh;
             this.MaLHD_Hoadon = malhd;
         }
+        public Hoadon(DataRow Row)
+        {
+            this.MaHD = Row["MAHD"].ToString();
+            this.NgayTaoHoaDon = (DateTime)Row["NGAYTAO"];
+            this.NguoiTaoHoaDon = Row["NGUOITAO"].ToString();
+            this.VatHoaDon = (int)Convert.ToDouble(Row["VAT"].ToString());
+            this.TongTienHoaDon = (int)Convert.ToDouble(Row["TONGTIEN"].ToString());
+            this.MaDH_Hoadon = Row["MA_DH"].ToString();
+            this.MaLHD_Hoadon = Row["MA_LHD"].ToString();
 
+        }
         private string NguoiTaoHoaDon { get; }
         public int VatHoaDon { get; private set; }
         public bool ThanhToan { get; private set; }
