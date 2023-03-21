@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data;
 namespace QLBH_HBC.DTO
 {
     class Phieuthuchi
@@ -19,7 +19,18 @@ namespace QLBH_HBC.DTO
             this.MaPC = mapc;
             this.MaHD = mahd;
         }
+        public Phieuthuchi(DataRow Row)
+        {
+            this.MaPTC = Row["MAPTC"].ToString();
+            this.NgaytaoPTC = (DateTime)Row["NGAYTAO"];
+            this.NguoitaoPTC = Row["NGUOITAO"].ToString();
+            this.Pttt = Row["PTTT"].ToString();
+            this.TongTienPTC = (int)Convert.ToDouble(Row["TONGTIEN"].ToString());
+            this.MaMVV = Row["MA_MVV"].ToString();
+            this.MaPC = Row["MA_PC"].ToString();
+            this.MaHD = Row["MA_HD"].ToString();
 
+        }
         public string MaPTC { get; }
         public DateTime NgaytaoPTC { get; private set; }
         public string NguoitaoPTC { get; private set; }

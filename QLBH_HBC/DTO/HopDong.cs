@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data;
 namespace QLBH_HBC.DTO
 {
     class HopDong
@@ -18,7 +18,17 @@ namespace QLBH_HBC.DTO
             this.CK = ck;
             this.MaDL = madl;
         }
+        public HopDong(DataRow Row)
+        {
+            this.MaHD = Row["MAHD"].ToString();
+            this.NgayTao = (DateTime)Row["NGAYTAO"];
+            this.NguoiTao = Row["NGUOITAO"].ToString();
+            this.NgayBD = (DateTime)Row["NGAYBD"];
+            this.NgayKT = (DateTime)Row["NGAYKT"];
+            this.CK = (int)Convert.ToDouble(Row["CK"].ToString());
+            this.MaDL = Row["MA_DL"].ToString();
 
+        }
         private string MaHD { get; }
         public DateTime NgayTao { get; private set; }
         public string NguoiTao { get; private set; }
