@@ -130,6 +130,12 @@
     <Compile Include="UI\uc_Donhang.Designer.cs">
       <DependentUpon>uc_Donhang.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\uc_Kho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_Kho.Designer.cs">
+      <DependentUpon>uc_Kho.cs</DependentUpon>
+    </Compile>
     <Compile Include="XtraForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,7 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -163,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_Donhang.resx">
       <DependentUpon>uc_Donhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\uc_Kho.resx">
+      <DependentUpon>uc_Kho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraForm1.resx">
       <DependentUpon>XtraForm1.cs</DependentUpon>

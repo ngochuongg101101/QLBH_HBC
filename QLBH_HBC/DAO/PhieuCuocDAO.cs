@@ -32,7 +32,7 @@ namespace QLBH_HBC.DAO
             return list;
         }
         // Thêm
-        public bool Insert(DateTime ngaytao,string nguoitao, string loai,string madl) 
+        public bool Insert(string ngaytao,string nguoitao, string loai,string madl) 
         {
             string query = String.Format("INSERT INTO PHIEUCUOC(NGAYTAO, NGUOITAO,LOAI, MA_DL) VALUES ('{0}','{1}',N'{2}','{3}')", ngaytao, nguoitao, loai, madl);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);

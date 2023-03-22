@@ -59,6 +59,7 @@ namespace QLBH_HBC
             this.accordionControlElement12 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.calcEdit1 = new DevExpress.XtraEditors.CalcEdit();
             this.calcEdit2 = new DevExpress.XtraEditors.CalcEdit();
+            this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calcEdit1.Properties)).BeginInit();
@@ -98,7 +99,8 @@ namespace QLBH_HBC
             // 
             this.mnQLDM.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.mnKyguihang,
-            this.accordionControlElement7});
+            this.accordionControlElement7,
+            this.accordionControlElement1});
             this.mnQLDM.Expanded = true;
             this.mnQLDM.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
@@ -168,7 +170,6 @@ namespace QLBH_HBC
             // 
             // mnQLKho
             // 
-            this.mnQLKho.Expanded = true;
             this.mnQLKho.Name = "mnQLKho";
             this.mnQLKho.Text = "QUẢN LÝ KHO";
             // 
@@ -297,6 +298,12 @@ namespace QLBH_HBC
             this.calcEdit2.Size = new System.Drawing.Size(305, 22);
             this.calcEdit2.TabIndex = 2;
             // 
+            // accordionControlElement1
+            // 
+            this.accordionControlElement1.Name = "accordionControlElement1";
+            this.accordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement1.Text = "Danh mục hợp đồng";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -351,6 +358,7 @@ namespace QLBH_HBC
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement12;
         private DevExpress.XtraBars.BarStaticItem lblTieude;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLKho;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
     }
 }
 

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +36,8 @@ namespace QLBH_HBC
             string sql = "Select MADL,TENDL from DAILY";
             DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql);
             cbDaily.DataSource = dt;
-            dt.Columns.Add("FULL",typeof(string),"MADL + ' - ' + TENDL");
+            string madl = dt.Rows["MADL"].ToString().Trim()
+            dt.Columns.Add("FULL",typeof(string),"MADL".Trim() +" + ' - ' + TENDL");
             cbDaily.DisplayMember = "FULL";
             cbDaily.Text = "";
             cbDaily.ValueMember = "MADL";
@@ -46,6 +48,7 @@ namespace QLBH_HBC
 
             }
             cbNguoitao.Enabled = false;
+            txtNoidung.Text = "";
 
             //Truyền vào giá trị txtNguoitao = USERNAME đăng nhập, hiển thị là USERNAME
 
@@ -163,12 +166,12 @@ namespace QLBH_HBC
             //        //string maPC = mapc.ToString();
             //    }
             //}
-            // truong loai em dangg muon de 'nhap'
-            //try
+            try
             {
                 string loaiNhap = "Nhập";
                 bool result = false;
-                result = DAO.PhieuCuocDAO.Instance.Insert(dtNgaytao.DateTime, userName, loaiNhap, cbDaily.SelectedValue.ToString().Trim());
+                DateTime parsedDate;
+                result = DAO.PhieuCuocDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, loaiNhap, cbDaily.SelectedValue.ToString().Trim());
                 if (result)
                 {
                     XtraMessageBox.Show("Tạo phiếu thành công!");
@@ -178,10 +181,10 @@ namespace QLBH_HBC
                     XtraMessageBox.Show("Tạo phiếu không thành công!");
                 }
             }
-            //catch(Exception ex)
-            //{
-            //    XtraMessageBox.Show("Lỗi kết nối hệ thống");
-            //}
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi kết nối hệ thống");
+            }
             //Chạy lần lượt các row trong gridView
             //(
             //    1.1 TẠO CHI TIẾT PHIẾU CƯỢC

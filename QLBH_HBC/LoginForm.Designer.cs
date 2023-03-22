@@ -34,11 +34,11 @@ namespace QLBH_HBC
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.cbRemember = new System.Windows.Forms.CheckBox();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
-            this.txtPassword = new DevExpress.XtraEditors.TextEdit();
-            this.txtUsername = new DevExpress.XtraEditors.TextEdit();
             this.labelControlPassword = new DevExpress.XtraEditors.LabelControl();
             this.labelControlUserName = new DevExpress.XtraEditors.LabelControl();
             this.labelControlLogin = new DevExpress.XtraEditors.LabelControl();
+            this.txtPassword = new DevExpress.XtraEditors.TextEdit();
+            this.txtUsername = new DevExpress.XtraEditors.TextEdit();
             this.panelImageLogin = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlLogin)).BeginInit();
             this.panelControlLogin.SuspendLayout();
@@ -57,8 +57,9 @@ namespace QLBH_HBC
             this.panelControlLogin.Controls.Add(this.panelImageLogin);
             this.panelControlLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControlLogin.Location = new System.Drawing.Point(0, 0);
+            this.panelControlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControlLogin.Name = "panelControlLogin";
-            this.panelControlLogin.Size = new System.Drawing.Size(741, 384);
+            this.panelControlLogin.Size = new System.Drawing.Size(864, 473);
             this.panelControlLogin.TabIndex = 1;
             // 
             // panelControl1
@@ -70,58 +71,49 @@ namespace QLBH_HBC
             this.panelControl1.Controls.Add(this.txtUsername);
             this.panelControl1.Controls.Add(this.labelControlPassword);
             this.panelControl1.Controls.Add(this.labelControlUserName);
-            this.panelControl1.Location = new System.Drawing.Point(55, 121);
+            this.panelControl1.Location = new System.Drawing.Point(64, 149);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(427, 150);
+            this.panelControl1.Size = new System.Drawing.Size(498, 185);
             this.panelControl1.TabIndex = 3;
             // 
             // cbRemember
             // 
             this.cbRemember.AutoSize = true;
-            this.cbRemember.Location = new System.Drawing.Point(18, 82);
+            this.cbRemember.Location = new System.Drawing.Point(21, 101);
+            this.cbRemember.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbRemember.Name = "cbRemember";
-            this.cbRemember.Size = new System.Drawing.Size(120, 17);
+            this.cbRemember.Size = new System.Drawing.Size(151, 21);
             this.cbRemember.TabIndex = 5;
             this.cbRemember.Text = "Ghi nhớ đăng nhập.";
             this.cbRemember.UseVisualStyleBackColor = true;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(274, 122);
+            this.btnLogin.Location = new System.Drawing.Point(320, 150);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(148, 23);
+            this.btnLogin.Size = new System.Drawing.Size(173, 28);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(102, 56);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(251, 20);
-            this.txtPassword.TabIndex = 3;
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(102, 19);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(251, 20);
-            this.txtUsername.TabIndex = 2;
-            // 
             // labelControlPassword
             // 
-            this.labelControlPassword.Location = new System.Drawing.Point(20, 59);
+            this.labelControlPassword.Location = new System.Drawing.Point(23, 73);
+            this.labelControlPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControlPassword.Name = "labelControlPassword";
-            this.labelControlPassword.Size = new System.Drawing.Size(48, 13);
+            this.labelControlPassword.Size = new System.Drawing.Size(61, 17);
             this.labelControlPassword.TabIndex = 1;
             this.labelControlPassword.Text = "Mật khẩu:";
             this.labelControlPassword.Click += new System.EventHandler(this.labelControlPassword_Click);
             // 
             // labelControlUserName
             // 
-            this.labelControlUserName.Location = new System.Drawing.Point(18, 20);
+            this.labelControlUserName.Location = new System.Drawing.Point(21, 25);
+            this.labelControlUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControlUserName.Name = "labelControlUserName";
-            this.labelControlUserName.Size = new System.Drawing.Size(76, 13);
+            this.labelControlUserName.Size = new System.Drawing.Size(98, 17);
             this.labelControlUserName.TabIndex = 0;
             this.labelControlUserName.Text = "Tên đăng nhập:";
             this.labelControlUserName.Click += new System.EventHandler(this.labelControlUserName_Click);
@@ -132,11 +124,28 @@ namespace QLBH_HBC
             this.labelControlLogin.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControlLogin.Appearance.Options.UseFont = true;
             this.labelControlLogin.Appearance.Options.UseForeColor = true;
-            this.labelControlLogin.Location = new System.Drawing.Point(55, 36);
+            this.labelControlLogin.Location = new System.Drawing.Point(64, 44);
+            this.labelControlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControlLogin.Name = "labelControlLogin";
-            this.labelControlLogin.Size = new System.Drawing.Size(158, 33);
+            this.labelControlLogin.Size = new System.Drawing.Size(201, 41);
             this.labelControlLogin.TabIndex = 2;
             this.labelControlLogin.Text = "Login System";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(119, 69);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(293, 22);
+            this.txtPassword.TabIndex = 3;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(119, 23);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(293, 22);
+            this.txtUsername.TabIndex = 2;
             // 
             // panelImageLogin
             // 
@@ -149,18 +158,20 @@ namespace QLBH_HBC
             this.panelImageLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelImageLogin.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.panelImageLogin.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.panelImageLogin.Location = new System.Drawing.Point(535, 121);
+            this.panelImageLogin.Location = new System.Drawing.Point(624, 149);
+            this.panelImageLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelImageLogin.Name = "panelImageLogin";
-            this.panelImageLogin.Size = new System.Drawing.Size(150, 150);
+            this.panelImageLogin.Size = new System.Drawing.Size(175, 185);
             this.panelImageLogin.TabIndex = 1;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 384);
+            this.ClientSize = new System.Drawing.Size(864, 473);
             this.Controls.Add(this.panelControlLogin);
             this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("LoginForm.IconOptions.LargeImage")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "LoginForm";
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.panelControlLogin)).EndInit();
