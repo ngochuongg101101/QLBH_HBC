@@ -48,7 +48,7 @@ namespace QLBH_HBC.DAO
         //Xóa
         public bool Delete(string mapc)
         {
-            string query = String.Format("DELETE dbo.PHIEUCUOC WHERE MAPC = '{0}'");
+            string query = String.Format("DELETE dbo.PHIEUCUOC WHERE MAPC = '{0}'",mapc);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
@@ -58,6 +58,19 @@ namespace QLBH_HBC.DAO
             DTO.Phieucuoc item = null;
             string query = "SELECT * FROM dbo.PHIEUCUOC WHERE MAPC =@MAPC";
             DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { mapc });
+            foreach (DataRow row in result.Rows)
+            {
+                item = new DTO.Phieucuoc(row);
+                return item;
+            }
+            return item;
+        }
+        // Lấy 1 dũ liệu 
+        public DTO.Phieucuoc GetByDataOther(string ngaytao, string nguoitao, string loai, string madl)
+        {
+            DTO.Phieucuoc item = null;
+            string query = "SELECT MAPC FROM dbo.PHIEUCUOC WHERE NGAYTAO = @NGAYTAO, NGUOITAO = @NGUOITAO,LOAI = N'@LOAI', MA_DL=@MADL";
+            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { ngaytao,nguoitao,loai,madl });
             foreach (DataRow row in result.Rows)
             {
                 item = new DTO.Phieucuoc(row);
