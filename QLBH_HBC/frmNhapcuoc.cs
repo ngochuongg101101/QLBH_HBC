@@ -23,14 +23,14 @@ namespace QLBH_HBC
             InitializeComponent();
             this.userName = username;
         }
-        private int thanhtien = 0;
+        private double tongtien = 0;
         private DataTable dt1;
         private void frmNhapcuoc_Load(object sender, EventArgs e)
         {
 
             //Ngày tạo mặc định là ngày hiện tại
             dtNgaytao.EditValue = DateTime.Today;
-            txtTongtien.Text = thanhtien.ToString();
+            txtTongtien.Text = tongtien.ToString();
             //Hiển thị mã + tên đại lý trong combobox
             string sql = "Select MADL,TENDL from DAILY";
             DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql);
@@ -124,13 +124,21 @@ namespace QLBH_HBC
                     if (fieldName == "SL" && !row.IsNull("SL"))
                     {
                         int sl = int.Parse(row["SL"].ToString());
-                        float giaCuoc = float.Parse(gridView.GetRowCellValue(rowHandle, "GIACUOC").ToString());
+                        double giaCuoc = float.Parse(gridView.GetRowCellValue(rowHandle, "GIACUOC").ToString());
 
                         double thanhTien = sl * giaCuoc;
                         gridView.SetRowCellValue(rowHandle, "THANHTIEN", thanhTien);
+                        for (int i = 0; i < gridView.RowCount; i++)
+                        {
+                            object cellValueThanhTien = gridView.GetRowCellValue(i, "THANHTIEN");
+                            if(cellValueThanhTien.ToString().Trim().Length > 0)
+                            {
+                                tongtien = (float)(Double)(tongtien + Convert.ToDouble(cellValueThanhTien));
+                                txtTongtien.Text = tongtien.ToString();
+                            }
+                        }
 
-                        thanhtien = (int)(thanhtien + thanhTien);
-                        txtTongtien.Text = thanhtien.ToString();
+                        
                     }
                 }
             }
@@ -138,73 +146,62 @@ namespace QLBH_HBC
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // Cai doan nay sau minh lai lien ket dataprovider chu kp viet the nay
-            //1. TẠO PHIẾU NHẬP CƯỢC
-            //Insert into PHIEUCUOC(NGAYTAO,NGUOITAO,MADL,LOAI = N'Nhập')
-            //-> Tạo xong về SQL sinh được MA_PC
-            //-> Lấy lên MAPC = MA_PC của phiếu vừa tạo
-            //SqlConnection connection = new SqlConnection();
-            //string sql = "Data Source=DESKTOP-33G4CSH;Initial Catalog=QLBH_HBC1;Integrated Security=True";
-            //connection.ConnectionString = sql;
-            //connection.Open();
-            //{
-            //    //connection.Open();
-            //    MessageBox.Show(connection.ConnectionString.Trim());
-
-            //    // Tạo command và truyền vào câu lệnh SQL
-            //    using (SqlCommand command = new SqlCommand("INSERT INTO PHIEUCUOC(NGAYTAO, NGUOITAO,LOAI, MA_DL) VALUES (@Ngaytao,@Nguoitao,N'Nhập',@MaDL)", connection))
-            //    {
-            //        // Truyền các tham số vào command
-            //        command.Parameters.AddWithValue("@NgayTao", dtNgaytao.DateTime);
-            //        command.Parameters.AddWithValue("@NguoiTao", userName);
-            //        command.Parameters.AddWithValue("@MaDL", cbDaily.SelectedValue.ToString().Trim());
-            //        MessageBox.Show(cbDaily.SelectedValue.ToString());
-            //        command.ExecuteNonQuery();
-
-            //        // Thực hiện execute scalar để lấy ra giá trị của MAPC
-            //        //int mapc = (int)command.ExecuteScalar();
-
-            //        // Hiển thị thông báo thành công và gán giá trị MAPC vào một control trên form
-            //        XtraMessageBox.Show("Tạo phiếu thành công! Mã phiếu: ");
-            //        //string maPC = mapc.ToString();
-            //    }
-            //}
             try
             {
                 string loaiNhap = "Nhập";
                 DateTime parsedDate;
-                string result = DAO.PhieuCuocDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, loaiNhap, cbDaily.SelectedValue.ToString().Trim());
-                if (result != null)
+                if (dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss").Length > 6 && cbDaily.SelectedValue.ToString().Trim().Length>0)
                 {
-                    bool resultCT = false;
-                    for (int i = 0; i < gridView.RowCount; i++)
+                    string result = DAO.PhieuCuocDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, loaiNhap, cbDaily.SelectedValue.ToString().Trim());
+                    if (result != null)
                     {
-                        object cellValueMaHH = gridView.GetRowCellValue(i, "MAHH");
-                        object cellValueSL = gridView.GetRowCellValue(i, "SL");
-                        if(cellValueMaHH.ToString().Trim().Length > 0 && cellValueSL.ToString().Trim().Length > 0)
+                        bool resultCT = false;
+                        for (int i = 0; i < gridView.RowCount; i++)
                         {
-                            resultCT = DAO.CTPhieuCuocDAO.Instance.Insert(result, cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL));
+                            object cellValueMaHH = gridView.GetRowCellValue(i, "MAHH");
+                            object cellValueSL = gridView.GetRowCellValue(i, "SL");
+                            if (cellValueMaHH.ToString().Trim().Length > 0 && cellValueSL.ToString().Trim().Length > 0)
+                            {
+                                if (txtPTTT.Text.Length>0)
+                                {
+                                    resultCT = DAO.CTPhieuCuocDAO.Instance.Insert(result, cellValueMaHH.ToString().Trim().ToUpper(), Convert.ToInt32(cellValueSL));
+                                    DAO.PhieuThuChiDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, txtPTTT.Text, Convert.ToInt32(txtTongtien.Text), "MVV0002", result.Trim());
+                                    DTO.Vckcuoc resultVCK = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim());
+                                    if (resultVCK != null)
+                                    {
+                                        DAO.VCKDAO.Instance.Update(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL) + Convert.ToInt32(resultVCK.SlCuoc));
+                                    }
+                                    else
+                                    {
+                                        DAO.VCKDAO.Instance.Insert(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL));
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                break;
+                            }
+
+
+                        }
+                        if (resultCT)
+                        {
+                            XtraMessageBox.Show("Tạo phiếu thành công!");
                         }
                         else
                         {
-                            break;
+                            XtraMessageBox.Show("Lỗi nhâp số luọng");
                         }
-                        
 
-                    }
-                    if (resultCT)
-                    {
-                        XtraMessageBox.Show("Tạo phiếu thành công!");
                     }
                     else
                     {
-                        XtraMessageBox.Show("Lỗi nhâp số luọng");
+                        XtraMessageBox.Show("Tạo phiếu không thành công!");
                     }
-
                 }
                 else
                 {
-                    XtraMessageBox.Show("Tạo phiếu không thành công!");
+
                 }
             }
             catch (Exception ex)
@@ -223,8 +220,6 @@ namespace QLBH_HBC
             //    where VCKCUOC.MA_DL = MADL and VCKCUOC.MA_VO = MAHH
             //)
 
-            //2. Tạo phiếu thu chi
-            //Insert into  PHIEUTHUCHI(NGAYTAO,NGUOITAO,PTTT,TONGTIEN,MA_VV='VV002', MA_PC= MAPC vừa tạo)
         }
 
         private void cbDaily_SelectedIndexChanged(object sender, EventArgs e)

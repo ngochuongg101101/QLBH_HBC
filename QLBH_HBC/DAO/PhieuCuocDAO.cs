@@ -34,11 +34,6 @@ namespace QLBH_HBC.DAO
         // Thêm
         public string Insert(string ngaytao,string nguoitao, string loai,string madl) 
         {
-            //string query = String.Format("INSERT INTO PHIEUCUOC(NGAYTAO, NGUOITAO,LOAI, MA_DL) VALUES ('{0}','{1}',N'{2}','{3}')", ngaytao, nguoitao, loai, madl);
-            //object _result = Config.DataProvider.Instance.ExecuteScalar(query);
-            //decimal insertedId = Convert.ToString""(_result);
-            //return _result;
-            // Call the AUTO_ID_PHIEUCUOC() function to generate the new MAPC value
             string mapc = (string)Config.DataProvider.Instance.ExecuteScalar("SELECT dbo.AUTO_ID_PHIEUCUOC()");
 
             // Construct the INSERT query with the generated MAPC value
