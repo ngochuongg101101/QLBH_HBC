@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 using System.Data;
 namespace QLBH_HBC.DAO
 {
-    class CTDonhangDAO
+    class CTPhieuCuocDAO
     {
-        private static CTDonhangDAO instance;
+        private static CTPhieuCuocDAO instance;
 
-        public static CTDonhangDAO Instance
+        public static CTPhieuCuocDAO Instance
         {
-            get { if (instance == null) instance = new CTDonhangDAO(); return CTDonhangDAO.instance; }
+            get { if (instance == null) instance = new CTPhieuCuocDAO(); return CTPhieuCuocDAO.instance; }
             private set => instance = value;
         }
 
-        public CTDonhangDAO() { }
+        public CTPhieuCuocDAO() { }
         // Lấy danh sách dữ liệu
         public List<DTO.CTDonhang> GetAll()
         {
             List<DTO.CTDonhang> list = new List<DTO.CTDonhang>();
-            string query = "SELECT * FROM CT_DONHANG";
+            string query = "SELECT * FROM CT_PHIEUCUOC";
             DataTable data = Config.DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
-            {       
+            {
                 DTO.CTDonhang info = new DTO.CTDonhang(item);
                 list.Add(info);
             }
@@ -32,32 +32,32 @@ namespace QLBH_HBC.DAO
             return list;
         }
         // Thêm 
-        public bool Insert(string madh, string mahh, int sl)
+        public bool Insert(string mapc, string mavo, int sl)
         {
-            string query = String.Format("INSERT dbo.CT_DONHANG(MA_DH,MA_HH,SL)VALUES('{0}','{1}',{2})", madh, mahh, sl);
+            string query = String.Format("INSERT dbo.CT_PHIEUCUOC(MA_PC,MA_VO,SL)VALUES('{0}','{1}',{2})", mapc, mavo, sl);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
         // Sửa
-        public bool Update(string madh, string mahh, int sl)
+        public bool Update(string mapc, string mavo, int sl)
         {
-            string query = String.Format("UPDATE dbo.CT_DONHANG SET SL = {2} WHERE MA_DH = '{0}' AND MA_HH = '{1}'", madh, mahh, sl);
+            string query = String.Format("UPDATE dbo.CT_PHIEUCUOC SET SL = {2} WHERE MA_PC = '{0}' AND MA_VO = '{1}'", mapc, mavo, sl);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
         //Xóa
-        public bool Delete(string madh, string mahh)
+        public bool Delete(string mapc, string mavo)
         {
-            string query = String.Format("DELETE dbo.CT_DONHANG WHERE MA_DH = '{0}' AND MA_HH = '{1}'", madh, mahh);
+            string query = String.Format("DELETE dbo.CT_PHIEUCUOC WHERE MA_PC = '{0}' AND MA_VO = '{1}'", mapc, mavo);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
         // Lấy 1 dũ liệu 
-        public DTO.CTDonhang Get(string madh, string mahh)
+        public DTO.CTDonhang Get(string mapc, string mavo)
         {
             DTO.CTDonhang item = null;
-            string query = "SELECT * FROM dbo.CT_DONHANG WHERE MA_DH = @MADH AND MA_HH = @MAHH";
-            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { madh, mahh });
+            string query = "SELECT * FROM dbo.CT_PHIEUCUOC WHERE MA_PC = @MAPC AND MA_VO = @MAVO";
+            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { mapc, mavo });
             foreach (DataRow row in result.Rows)
             {
                 item = new DTO.CTDonhang(row);

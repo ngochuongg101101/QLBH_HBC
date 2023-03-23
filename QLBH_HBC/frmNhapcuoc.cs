@@ -23,21 +23,19 @@ namespace QLBH_HBC
             InitializeComponent();
             this.userName = username;
         }
-
+        private int thanhtien = 0;
         private DataTable dt1;
-        float tongTien = 0;
         private void frmNhapcuoc_Load(object sender, EventArgs e)
         {
 
             //Ngày tạo mặc định là ngày hiện tại
             dtNgaytao.EditValue = DateTime.Today;
-
+            txtTongtien.Text = thanhtien.ToString();
             //Hiển thị mã + tên đại lý trong combobox
             string sql = "Select MADL,TENDL from DAILY";
             DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql);
             cbDaily.DataSource = dt;
-            //string madl = dt.Rows["MADL"].ToString().Trim();
-            dt.Columns.Add("FULL",typeof(string),"MADL".Trim() +" + ' - ' + TENDL");
+            dt.Columns.Add("FULL", typeof(string), "TRIM(MADL) + ' - ' + TENDL");
             cbDaily.DisplayMember = "FULL";
             cbDaily.Text = "";
             cbDaily.ValueMember = "MADL";
@@ -106,7 +104,7 @@ namespace QLBH_HBC
                         string maHH = row["MAHH"].ToString();
 
                         // Lấy thông tin hàng hóa từ cơ sở dữ liệu
-                        string sql = "SELECT TENHH, DVT, GIACUOC FROM HANGHOA WHERE MAHH = '" + maHH + "'";
+                        string sql = "SELECT TENHH, DVT, GIACUOC FROM HANGHOA WHERE MAHH = '" + maHH + "' AND LOAI = N'Vỏ'";
                         DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql);
 
                         // Hiển thị thông tin hàng hóa lên gridView
@@ -116,6 +114,10 @@ namespace QLBH_HBC
                             gridView.SetRowCellValue(rowHandle, "DVT", dt.Rows[0]["DVT"].ToString());
                             gridView.SetRowCellValue(rowHandle, "GIACUOC", dt.Rows[0]["GIACUOC"].ToString());
                         }
+                        else
+                        {
+                            XtraMessageBox.Show("Yêu cầu nhập mã hàng hóa là vỏ","Cảnh báo",MessageBoxButtons.OK);
+                        }
                     }
 
                     // Kiểm tra nếu cột SL đã được cập nhật
@@ -124,10 +126,11 @@ namespace QLBH_HBC
                         int sl = int.Parse(row["SL"].ToString());
                         float giaCuoc = float.Parse(gridView.GetRowCellValue(rowHandle, "GIACUOC").ToString());
 
-                        float thanhTien = sl * giaCuoc;
+                        double thanhTien = sl * giaCuoc;
                         gridView.SetRowCellValue(rowHandle, "THANHTIEN", thanhTien);
 
-                        tongTien = tongTien + thanhTien;
+                        thanhtien = (int)(thanhtien + thanhTien);
+                        txtTongtien.Text = thanhtien.ToString();
                     }
                 }
             }
@@ -169,12 +172,35 @@ namespace QLBH_HBC
             try
             {
                 string loaiNhap = "Nhập";
-                bool result = false;
                 DateTime parsedDate;
-                result = DAO.PhieuCuocDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, loaiNhap, cbDaily.SelectedValue.ToString().Trim());
-                if (result)
+                string result = DAO.PhieuCuocDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, loaiNhap, cbDaily.SelectedValue.ToString().Trim());
+                if (result != null)
                 {
-                    XtraMessageBox.Show("Tạo phiếu thành công!");
+                    bool resultCT = false;
+                    for (int i = 0; i < gridView.RowCount; i++)
+                    {
+                        object cellValueMaHH = gridView.GetRowCellValue(i, "MAHH");
+                        object cellValueSL = gridView.GetRowCellValue(i, "SL");
+                        if(cellValueMaHH.ToString().Trim().Length > 0 && cellValueSL.ToString().Trim().Length > 0)
+                        {
+                            resultCT = DAO.CTPhieuCuocDAO.Instance.Insert(result, cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL));
+                        }
+                        else
+                        {
+                            break;
+                        }
+                        
+
+                    }
+                    if (resultCT)
+                    {
+                        XtraMessageBox.Show("Tạo phiếu thành công!");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Lỗi nhâp số luọng");
+                    }
+
                 }
                 else
                 {
