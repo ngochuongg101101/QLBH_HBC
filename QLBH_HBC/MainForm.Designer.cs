@@ -36,6 +36,7 @@ namespace QLBH_HBC
             this.mnQLDM = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnKyguihang = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement7 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnCuocvo = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnQLDL = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnQLDH = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -59,7 +60,6 @@ namespace QLBH_HBC
             this.accordionControlElement12 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.calcEdit1 = new DevExpress.XtraEditors.CalcEdit();
             this.calcEdit2 = new DevExpress.XtraEditors.CalcEdit();
-            this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calcEdit1.Properties)).BeginInit();
@@ -132,6 +132,12 @@ namespace QLBH_HBC
             this.accordionControlElement7.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement7.Text = "Danh mục đại lý";
             // 
+            // accordionControlElement1
+            // 
+            this.accordionControlElement1.Name = "accordionControlElement1";
+            this.accordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement1.Text = "Danh mục hợp đồng";
+            // 
             // mnCuocvo
             // 
             this.mnCuocvo.Expanded = true;
@@ -172,6 +178,7 @@ namespace QLBH_HBC
             // 
             this.mnQLKho.Name = "mnQLKho";
             this.mnQLKho.Text = "QUẢN LÝ KHO";
+            this.mnQLKho.Click += new System.EventHandler(this.mnQLKho_Click);
             // 
             // mnBaocao
             // 
@@ -297,12 +304,6 @@ namespace QLBH_HBC
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.calcEdit2.Size = new System.Drawing.Size(305, 22);
             this.calcEdit2.TabIndex = 2;
-            // 
-            // accordionControlElement1
-            // 
-            this.accordionControlElement1.Name = "accordionControlElement1";
-            this.accordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement1.Text = "Danh mục hợp đồng";
             // 
             // MainForm
             // 
