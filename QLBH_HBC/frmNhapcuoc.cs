@@ -126,7 +126,7 @@ namespace QLBH_HBC
                         int sl = int.Parse(row["SL"].ToString());
                         float giaCuoc = float.Parse(gridView.GetRowCellValue(rowHandle, "GIACUOC").ToString());
 
-                        float thanhTien = sl * giaCuoc;
+                        double thanhTien = sl * giaCuoc;
                         gridView.SetRowCellValue(rowHandle, "THANHTIEN", thanhTien);
 
                         thanhtien = (int)(thanhtien + thanhTien);
@@ -172,19 +172,23 @@ namespace QLBH_HBC
             try
             {
                 string loaiNhap = "Nhập";
-                bool result = false;
                 DateTime parsedDate;
-                result = DAO.PhieuCuocDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, loaiNhap, cbDaily.SelectedValue.ToString().Trim());
-                if (result)
+                string result = DAO.PhieuCuocDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, loaiNhap, cbDaily.SelectedValue.ToString().Trim());
+                if (result != null)
                 {
-                    DTO.Phieucuoc data = DAO.PhieuCuocDAO.Instance.GetByDataOther(dtNgaytao.DateTime.ToString("MM/dd/yyyy"), userName, loaiNhap, cbDaily.SelectedValue.ToString().Trim());
-                    string mapc = data.MaPC.Trim();
                     bool resultCT = false;
                     for (int i = 0; i < gridView.RowCount; i++)
                     {
                         object cellValueMaHH = gridView.GetRowCellValue(i, "MAHH");
                         object cellValueSL = gridView.GetRowCellValue(i, "SL");
-                        resultCT = DAO.CTPhieuCuocDAO.Instance.Insert(mapc,cellValueMaHH.ToString().Trim(),(int)cellValueSL);
+                        if(cellValueMaHH.ToString().Trim().Length > 0 && cellValueSL.ToString().Trim().Length > 0)
+                        {
+                            resultCT = DAO.CTPhieuCuocDAO.Instance.Insert(result, cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL));
+                        }
+                        else
+                        {
+                            break;
+                        }
                         
 
                     }

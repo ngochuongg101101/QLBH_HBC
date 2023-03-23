@@ -32,11 +32,28 @@ namespace QLBH_HBC.DAO
             return list;
         }
         // Thêm
-        public bool Insert(string ngaytao,string nguoitao, string loai,string madl) 
+        public string Insert(string ngaytao,string nguoitao, string loai,string madl) 
         {
-            string query = String.Format("INSERT INTO PHIEUCUOC(NGAYTAO, NGUOITAO,LOAI, MA_DL) VALUES ('{0}','{1}',N'{2}','{3}')", ngaytao, nguoitao, loai, madl);
-            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
-            return _result > 0;
+            //string query = String.Format("INSERT INTO PHIEUCUOC(NGAYTAO, NGUOITAO,LOAI, MA_DL) VALUES ('{0}','{1}',N'{2}','{3}')", ngaytao, nguoitao, loai, madl);
+            //object _result = Config.DataProvider.Instance.ExecuteScalar(query);
+            //decimal insertedId = Convert.ToString""(_result);
+            //return _result;
+            // Call the AUTO_ID_PHIEUCUOC() function to generate the new MAPC value
+            string mapc = (string)Config.DataProvider.Instance.ExecuteScalar("SELECT dbo.AUTO_ID_PHIEUCUOC()");
+
+            // Construct the INSERT query with the generated MAPC value
+            string query = String.Format("INSERT INTO PHIEUCUOC (MAPC, NGAYTAO, NGUOITAO, LOAI, MA_DL) VALUES ('{0}', '{1}', '{2}', N'{3}', '{4}')", mapc, ngaytao, nguoitao, loai, madl);
+
+            // Execute the INSERT query and get the number of rows affected
+            int numRowsAffected = Config.DataProvider.Instance.ExecuteNonQuery(query);
+            if (numRowsAffected > 0)
+            {
+                return mapc.Trim();
+            }
+            else
+            {
+                return null;
+            }
         }
         // Sửa
         public bool Update(DateTime ngaytao, string loai, string madl,string mapc)
