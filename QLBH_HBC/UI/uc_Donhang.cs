@@ -184,5 +184,15 @@ namespace QLBH_HBC.UI
             }
         }
 
+        private void btnEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //Sửa ở bên Đơn bán hàng 
+        }
+
+        private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //TH1: Update thông tin đã sửa vào DONHANG, CT_DONHANG
+            //TH2: Insert vào DONHANG (TRANGTHAI='Chờ xuất kho', CT_DONHANG)
+        }
     }
 }

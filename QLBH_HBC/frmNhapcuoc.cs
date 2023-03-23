@@ -36,7 +36,7 @@ namespace QLBH_HBC
             string sql = "Select MADL,TENDL from DAILY";
             DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql);
             cbDaily.DataSource = dt;
-            string madl = dt.Rows["MADL"].ToString().Trim()
+            //string madl = dt.Rows["MADL"].ToString().Trim();
             dt.Columns.Add("FULL",typeof(string),"MADL".Trim() +" + ' - ' + TENDL");
             cbDaily.DisplayMember = "FULL";
             cbDaily.Text = "";
