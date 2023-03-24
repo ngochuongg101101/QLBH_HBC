@@ -75,7 +75,6 @@ namespace QLBH_HBC.UI
             gridView1.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
 
             NapCT();
-            //cbDaily.Focus();
             btnSave.Enabled = true;
             txtMapk.Enabled = false;
             dtNgaytao.EditValue = DateTime.Today;
@@ -85,6 +84,15 @@ namespace QLBH_HBC.UI
                 gridView2.AddNewRow();
             }
 
+            //Lấy lên list Loại PK -> cbLoaiPK, hiện value đầu tiên là LPK0001
+            //
+
+        }
+
+        private void cbLoaiPK_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //nếu = LPK0001 thì ok
+            //còn lại -> txtMadh.Visible = false;
         }
     }
 }

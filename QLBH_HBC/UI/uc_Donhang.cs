@@ -16,8 +16,9 @@ namespace QLBH_HBC.UI
 {
     public partial class uc_Donhang : DevExpress.XtraEditors.XtraUserControl
     {
-        private DataTable dt;
         float tongTien = 0;
+        Boolean addnewflag = false;
+
         public uc_Donhang()
         {
             InitializeComponent();
@@ -30,7 +31,9 @@ namespace QLBH_HBC.UI
             gridControl1.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql);
             gridControl1.Refresh();
             gridView1.RowClick += gridView1_RowClick;
-            gridView1.OptionsBehavior.Editable = true;
+            gridView1.OptionsBehavior.ReadOnly = true;
+            gridView1.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            //1. Có nên thêm 1 cột MADL khum, hoặc lms để lưu được thông tin đó -> hiện ra cbDaily "MADL - TENDL"
         }
 
         private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
@@ -48,11 +51,19 @@ namespace QLBH_HBC.UI
             cbDaily.Text = row["TENDL"].ToString();
             txtTongtien.Text = row["TONGTIEN"].ToString();
             //string trangthai = row["TRANGTHAI"].ToString();   
+            txtMadh.Enabled = false;
+            dtNgaytao.Enabled = false;
+            txtNguoitao.Enabled = false;
+            cbDaily.Enabled = false;
+            txtGhichu.Enabled = false;
+            txtTongtien.Enabled = false;
 
             string sql1 = "SELECT MAHH, TENHH, CT_DONHANG.SL, DVT, CT_DONHANG.DONGIA, THANHTIEN FROM CT_DONHANG JOIN HANGHOA ON MAHH = MA_HH " +
                 "WHERE MA_DH = '" + txtMadh.Text + "'";
             gridControl2.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql1);
             gridControl2.Refresh();
+            gridView2.OptionsBehavior.ReadOnly = true;
+            gridView2.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
         }
 
         private void gridControl1_MouseDown(object sender, MouseEventArgs e)
@@ -72,41 +83,31 @@ namespace QLBH_HBC.UI
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            txtMadh.Enabled = true;
+            dtNgaytao.Enabled = true;
+            txtNguoitao.Enabled = true;
+            cbDaily.Enabled = true;
+            txtGhichu.Enabled = true;
+            txtTongtien.Enabled = true;
 
             gridView1.AddNewRow();
             gridView1.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
 
-            NapCT();
             cbDaily.Focus();
             btnSave.Enabled = true;
             txtMadh.Enabled = false;
             dtNgaytao.EditValue = DateTime.Today;
+            //2. txtNguoitao = username
 
-            //Insert vào bảng các dòng trống có dữ liệu ở cột STT(1->20)
-            // Create a DataTable to hold the data
-            //dt = new DataTable();
-            //dt.Columns.Add("STT", typeof(int));
-            //dt.Columns.Add("MAHH", typeof(string));
-            //dt.Columns.Add("TENHH", typeof(string));
-            //dt.Columns.Add("DVT", typeof(string));
-            //dt.Columns.Add("SL", typeof(string));
-            //dt.Columns.Add("DONGIA", typeof(string));
-            //dt.Columns.Add("THANHTIEN", typeof(string));
-
-            // Add some data to the DataTable
             for (int i = 1; i <= 20; i++)
             {
-                //dt.Rows.Add(i);
                 gridView2.AddNewRow();
-                //gridView2.SetRowCellValue(i-1, "STT", i.ToString());
-                //gridView2.SetRowCellValue(rowHandle + i + 1, "MAHH", dt2.Rows[i]["MAHH"].ToString());
             }
+            gridView2.Appearance.Row.BackColor = Color.Empty;
+            addnewflag = true;
 
-            // Set the DataTable as the DataSource of the grid control
-            //gridControl2.DataSource = dt;
+            //3.Thêm danh sách Mã DL - Tên DL vào cbDaily
 
-            //Click để thêm dòng
-            //gridView2.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
         }
 
         private void gridView2_KeyUp(object sender, KeyEventArgs e)
@@ -167,12 +168,12 @@ namespace QLBH_HBC.UI
                             string sql = "SELECT MAHH,TENHH,BOOM.SL,DVT FROM HANGHOA,BOOM WHERE MAHH = MA_VO AND MA_BIA = '" + maHH + "'";
                             DataTable dt2 = Config.DataProvider.Instance.ExecuteQuery(sql);
                             // Hiển thị thông tin VCK lên gridView
-                            for (int i=0; i<dt2.Rows.Count; i++)
+                            for (int i = 0; i < dt2.Rows.Count; i++)
                             {
-                                gridView2.SetRowCellValue(rowHandle+i+1, "MAHH", dt2.Rows[i]["MAHH"].ToString());
-                                gridView2.SetRowCellValue(rowHandle+i+1, "TENHH", dt2.Rows[i]["TENHH"].ToString());
-                                gridView2.SetRowCellValue(rowHandle+i+1, "SL", Convert.ToInt32(dt2.Rows[i]["SL"].ToString())*sl);
-                                gridView2.SetRowCellValue(rowHandle+i+1, "DVT", dt2.Rows[i]["DVT"].ToString());
+                                gridView2.SetRowCellValue(rowHandle + i + 1, "MAHH", dt2.Rows[i]["MAHH"].ToString());
+                                gridView2.SetRowCellValue(rowHandle + i + 1, "TENHH", dt2.Rows[i]["TENHH"].ToString());
+                                gridView2.SetRowCellValue(rowHandle + i + 1, "SL", Convert.ToInt32(dt2.Rows[i]["SL"].ToString()) * sl);
+                                gridView2.SetRowCellValue(rowHandle + i + 1, "DVT", dt2.Rows[i]["DVT"].ToString());
                             }
 
                         }
@@ -186,13 +187,64 @@ namespace QLBH_HBC.UI
 
         private void btnEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //Sửa ở bên Đơn bán hàng 
+            txtMadh.Enabled = true;
+            dtNgaytao.Enabled = true;
+            txtNguoitao.Enabled = true;
+            cbDaily.Enabled = true;
+            txtGhichu.Enabled = true;
+            txtTongtien.Enabled = true;
+
+            gridView2.OptionsBehavior.ReadOnly = false;
+            gridView2.OptionsBehavior.Editable = true;
         }
 
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //TH1: Update thông tin đã sửa vào DONHANG, CT_DONHANG
-            //TH2: Insert vào DONHANG (TRANGTHAI='Chờ xuất kho', CT_DONHANG)
+            if (addnewflag == true)
+            {
+                //cập nhật thêm mới
+                if (CheckControl())
+                {
+                    //3. TH1: Insert vào DONHANG (TRANGTHAI='Chờ xuất kho', CT_DONHANG)
+                    MessageBox.Show("Thêm mới thành công!");
+                    addnewflag = false;
+                    NapLai();
+                }
+            }
+            else
+            {
+                //cập nhật sửa chữa
+                //4. TH2: Update thông tin đã sửa vào DONHANG, CT_DONHANG
+                btnSave.Enabled = false;
+                NapLai();
+                MessageBox.Show("Đã lưu thay đổi!");
+            }
+
+        }
+        public void NapLai()
+        {
+            string sql = "SELECT TRANGTHAI, MADH , NGAYTAO , TENDL , NGUOITAO, TONGTIEN  FROM DONHANG " +
+                        "JOIN DAILY ON MADL = MA_DL";
+            gridControl1.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql);
+            gridControl1.Refresh();
+        }
+        public bool CheckControl()
+        {
+            if (string.IsNullOrWhiteSpace(cbDaily.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn Đại lý", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cbDaily.Focus();
+                return false;
+            }
+            //5. 
+            //Check trong gridView2 nữa ạ (MAHH, SL)
+            //if (string.IsNullOrWhiteSpace())
+            //{
+            //    MessageBox.Show("Bạn chưa nhập...", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    .Focus();
+            //    return false;
+            //}
+            return true;
         }
     }
 }

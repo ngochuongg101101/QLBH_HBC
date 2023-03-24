@@ -373,6 +373,8 @@ namespace QLBH_HBC.UI
             // 
             // gridView2
             // 
+            this.gridView2.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.gridView2.Appearance.Row.Options.UseBackColor = true;
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.STT,
             this.MAHH,
@@ -489,6 +491,8 @@ namespace QLBH_HBC.UI
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.gridView1.Appearance.Row.Options.UseBackColor = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.MADH,
             this.NGAYTAO,
@@ -498,6 +502,8 @@ namespace QLBH_HBC.UI
             this.TONGTIEN});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedRow = false;
             this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
             // 
             // MADH
