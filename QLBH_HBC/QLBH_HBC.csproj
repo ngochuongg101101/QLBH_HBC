@@ -86,6 +86,8 @@
     <Compile Include="DAO\BoomDAO.cs" />
     <Compile Include="DAO\CTDonhangDAO.cs" />
     <Compile Include="DAO\CTPhieuCuocDAO.cs" />
+    <Compile Include="DAO\DonhangDAO.cs" />
+    <Compile Include="DAO\HanghoaDAO.cs" />
     <Compile Include="DAO\MaVuViecDAO.cs" />
     <Compile Include="DAO\PhieuCuocDAO.cs" />
     <Compile Include="DAO\PhieuThuChiDAO.cs" />

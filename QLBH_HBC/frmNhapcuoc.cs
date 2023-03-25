@@ -169,7 +169,8 @@ namespace QLBH_HBC
                                     DTO.Vckcuoc resultVCK = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim());
                                     if (resultVCK != null)
                                     {
-                                        DAO.VCKDAO.Instance.Update(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL) + Convert.ToInt32(resultVCK.SlCuoc));
+                                        DTO.Vckcuoc dataVCKSL = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim().ToUpper());
+                                        DAO.VCKDAO.Instance.Update(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL) + Convert.ToInt32(resultVCK.SlCuoc),Convert.ToInt32(dataVCKSL.SlGiu));
                                     }
                                     else
                                     {
@@ -198,10 +199,6 @@ namespace QLBH_HBC
                     {
                         XtraMessageBox.Show("Tạo phiếu không thành công!");
                     }
-                }
-                else
-                {
-
                 }
             }
             catch (Exception ex)

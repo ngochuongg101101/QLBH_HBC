@@ -32,9 +32,9 @@ namespace QLBH_HBC.DAO
             return list;
         }
         // Thêm 
-        public bool Insert(string madh, string mahh, int sl)
+        public bool Insert(string madh, string mahh, int sl,double dongia,double thanhtien)
         {
-            string query = String.Format("INSERT dbo.CT_DONHANG(MA_DH,MA_HH,SL)VALUES('{0}','{1}',{2})", madh, mahh, sl);
+            string query = String.Format("INSERT dbo.CT_DONHANG(MA_DH,MA_HH,SL,DONGIA,THANHTIEN)VALUES('{0}','{1}',{2},{3},{4})", madh, mahh, sl,dongia,thanhtien);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }

@@ -31,17 +31,29 @@ namespace QLBH_HBC.DAO
 
             return list;
         }
-        // Thêm 
-        public bool Insert(DateTime ngaytao,string nguoitao,string trangthai,string madl)
+        // Thêm
+        public string Insert(string ngaytao, string nguoitao, string trangthai, string madl,string ghichu,double tongtien)
         {
-            string query = String.Format("INSERT dbo.DONHANG(NGAYTAO,NGUOITAO,TRANGTHAI,MA_DL)VALUES('{0}','{1}','{2}','{3}')", ngaytao,nguoitao,trangthai,madl);
-            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
-            return _result > 0;
+            string madh = (string)Config.DataProvider.Instance.ExecuteScalar("SELECT dbo.AUTO_ID_DONHANG()");
+
+            // Construct the INSERT query with the generated MAPC value
+            string query = String.Format("INSERT INTO DONHANG ( NGAYTAO, NGUOITAO, TRANGTHAI, MA_DL,GHICHU,TONGTIEN) VALUES ('{0}', '{1}', N'{2}', N'{3}', N'{4}',{5})", ngaytao, nguoitao, trangthai, madl,ghichu,tongtien);
+
+            // Execute the INSERT query and get the number of rows affected
+            int numRowsAffected = Config.DataProvider.Instance.ExecuteNonQuery(query);
+            if (numRowsAffected > 0)
+            {
+                return madh.Trim();
+            }
+            else
+            {
+                return null;
+            }
         }
         // Sửa
-        public bool Update(DateTime ngaytao, string nguoitao, string trangthai, string madl,string madh)
+        public bool Update(string ngaytao, string madh, string trangthai, string madl, string ghichu, double tongtien)
         {
-            string query = String.Format("UPDATE dbo.DONHANG SET NGAYTAO = '{0}', NGUOITAO='{1}',TRANGTHAI='{2}',MA_DL='{3}' WHERE MADH = '{4}'", ngaytao, nguoitao, trangthai, madl,madh);
+            string query = String.Format("UPDATE dbo.DONHANG SET NGAYTAO = '{0}', TRANGTHAI = '{1}', MA_DL = '{2}', GHICHU='{3}',TONGTIEN={4} WHERE MADH = '{3}'", ngaytao, trangthai, madl, ghichu, tongtien,madh);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
@@ -56,7 +68,7 @@ namespace QLBH_HBC.DAO
         public DTO.Donhang Get(string madh)
         {
             DTO.Donhang item = null;
-            string query = "SELECT * FROM dbo.DONHANG WHERE MADH = @MADH";
+            string query = "SELECT * FROM dbo.DONHANG WHERE MADH =@MADH";
             DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { madh });
             foreach (DataRow row in result.Rows)
             {
@@ -65,5 +77,18 @@ namespace QLBH_HBC.DAO
             }
             return item;
         }
+        // Lấy 1 dũ liệu 
+        //public DTO.Donhang GetByDataOther(string ngaytao, string nguoitao, string loai, string madl)
+        //{
+        //    DTO.Donhang item = null;
+        //    string query = "SELECT MAPC FROM dbo.DONHANG WHERE NGAYTAO = @NGAYTAO, NGUOITAO = @NGUOITAO,LOAI = N'@LOAI', MA_DL=@MADL";
+        //    DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { ngaytao, nguoitao, loai, madl });
+        //    foreach (DataRow row in result.Rows)
+        //    {
+        //        item = new DTO.Donhang(row);
+        //        return item;
+        //    }
+        //    return item;
+        //}
     }
 }
