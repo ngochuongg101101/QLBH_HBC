@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraPrinting;
@@ -35,10 +36,33 @@ namespace QLBH_HBC.UI
         {
             string sql = "SELECT TRANGTHAI, MADH , NGAYTAO , TENDL , NGUOITAO, TONGTIEN  FROM DONHANG " +
                         "JOIN DAILY ON MADL = MA_DL";
-            gridControl1.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql);
+
+            DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql);
+            gridControl1.DataSource = dt;
+
+            dt.Columns.Add("STATUS", typeof(int));
+            for (int i=0; i<dt.Rows.Count; i++)
+            {
+                string trangThai = dt.Rows[i]["TRANGTHAI"].ToString();
+                if (trangThai == "Chờ xuất kho")
+                {
+                    dt.Rows[i]["STATUS"] = 0;
+                }
+                if (trangThai == "Đã xuất kho")
+                {
+                    dt.Rows[i]["STATUS"] = 1;
+                }
+                if (trangThai == "Đã tạo hóa đơn")
+                {
+                    dt.Rows[i]["STATUS"] = 2;
+                }
+            }
+
+            gridControl1.DataSource = dt;
             gridControl1.Refresh();
+
             gridView1.RowClick += gridView1_RowClick;
-            gridView1.OptionsBehavior.ReadOnly = true;
+            //gridView1.OptionsBehavior.ReadOnly = true;
             gridView1.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             //1. Có nên thêm 1 cột MADL khum, hoặc lms để lưu được thông tin đó -> hiện ra cbDaily "MADL - TENDL" Không cần thiết làm thế chỉ cho bên nhà phát triền dễ dùng. còn nguòi dùng sẽ biết chọn đại lý nào rồi mà
         }
@@ -70,7 +94,7 @@ namespace QLBH_HBC.UI
                 "WHERE MA_DH = '" + txtMadh.Text + "'";
             gridControl2.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql1);
             gridControl2.Refresh();
-            gridView2.OptionsBehavior.ReadOnly = true;
+            //gridView2.OptionsBehavior.ReadOnly = true;
             gridView2.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
         }
 
@@ -157,6 +181,7 @@ namespace QLBH_HBC.UI
                             gridView2.SetRowCellValue(rowHandle, "DONGIA", dt.Rows[0]["DONGIA"].ToString());
                         }
                     }
+                        
 
                     // Kiểm tra nếu cột SL đã được cập nhật
                     if (fieldName == "SL" && !row.IsNull("SL"))
@@ -169,12 +194,7 @@ namespace QLBH_HBC.UI
 
 
                         // Gán giá trị tính được cho thuộc tính Text của đối tượng TextEdit
-
                         txtTongtien.Text = tongTien.ToString();
-                        for (int i = 0; i < gridView2.RowCount; i++)
-                        {
-                            object cellValueDongia = gridView2.GetRowCellValue(i, "DONGIA");
-                            object cellValueThanhtien = gridView2.GetRowCellValue(i, "THANHTIEN");
 
                             tongTien = tongTien + Convert.ToDouble(cellValueThanhtien);
                         }
@@ -200,7 +220,10 @@ namespace QLBH_HBC.UI
                             }
 
                         }
-
+                        GridColumn summaryColumn = gridView2.Columns["THANHTIEN"];
+                        double summaryValue = Convert.ToDouble(gridView2.Columns["THANHTIEN"].SummaryItem.SummaryValue);
+                        MessageBox.Show(summaryValue.ToString());
+                        txtTongtien.Text = tongTien.ToString();
 
                     }
                 }
@@ -395,6 +418,11 @@ namespace QLBH_HBC.UI
             //    return false;
             //}
             return true;
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
         }
     }
 }

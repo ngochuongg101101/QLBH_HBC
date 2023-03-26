@@ -106,6 +106,12 @@
     <Compile Include="DTO\Phieukho.cs" />
     <Compile Include="DTO\Phieuthuchi.cs" />
     <Compile Include="DTO\Vckcuoc.cs" />
+    <Compile Include="frmDonhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDonhang.Designer.cs">
+      <DependentUpon>frmDonhang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNhapcuoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,12 +142,27 @@
     <Compile Include="UI\uc_Donhang.Designer.cs">
       <DependentUpon>uc_Donhang.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\uc_Hanghoa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_Hanghoa.Designer.cs">
+      <DependentUpon>uc_Hanghoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\uc_Hoadon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_Hoadon.Designer.cs">
+      <DependentUpon>uc_Hoadon.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\uc_Kho.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\uc_Kho.Designer.cs">
       <DependentUpon>uc_Kho.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmDonhang.resx">
+      <DependentUpon>frmDonhang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNhapcuoc.resx">
       <DependentUpon>frmNhapcuoc.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +191,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_Donhang.resx">
       <DependentUpon>uc_Donhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\uc_Hanghoa.resx">
+      <DependentUpon>uc_Hanghoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\uc_Hoadon.resx">
+      <DependentUpon>uc_Hoadon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_Kho.resx">
       <DependentUpon>uc_Kho.cs</DependentUpon>

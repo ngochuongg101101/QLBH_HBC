@@ -110,9 +110,9 @@ namespace QLBH_HBC
                         // Hiển thị thông tin hàng hóa lên gridView
                         if (dt.Rows.Count > 0)
                         {
-                            gridView.SetRowCellValue(rowHandle, "TENHH", dt.Rows[0]["TENHH"].ToString());
-                            gridView.SetRowCellValue(rowHandle, "DVT", dt.Rows[0]["DVT"].ToString());
-                            gridView.SetRowCellValue(rowHandle, "GIACUOC", dt.Rows[0]["GIACUOC"].ToString());
+                            gridView.SetRowCellValue(rowHandle, "TENHH", dt.Rows[0]["TENHH"]);
+                            gridView.SetRowCellValue(rowHandle, "DVT", dt.Rows[0]["DVT"]);
+                            gridView.SetRowCellValue(rowHandle, "GIACUOC", dt.Rows[0]["GIACUOC"]);
                         }
                         else
                         {
@@ -128,15 +128,15 @@ namespace QLBH_HBC
 
                         double thanhTien = sl * giaCuoc;
                         gridView.SetRowCellValue(rowHandle, "THANHTIEN", thanhTien);
-                        for (int i = 0; i < gridView.RowCount; i++)
-                        {
-                            object cellValueThanhTien = gridView.GetRowCellValue(i, "THANHTIEN");
-                            if(cellValueThanhTien.ToString().Trim().Length > 0)
-                            {
-                                tongtien = (float)(Double)(tongtien + Convert.ToDouble(cellValueThanhTien));
-                                txtTongtien.Text = tongtien.ToString();
-                            }
-                        }
+                        //for (int i = 0; i < gridView.RowCount; i++)
+                        //{
+                        //    object cellValueThanhTien = gridView.GetRowCellValue(i, "THANHTIEN");
+                        //    if(cellValueThanhTien.ToString().Trim().Length > 0)
+                        //    {
+                        //        tongtien = (float)(Double)(tongtien + Convert.ToDouble(cellValueThanhTien));
+                        //        txtTongtien.Text = tongtien.ToString();
+                        //    }
+                        //}
 
                         
                     }

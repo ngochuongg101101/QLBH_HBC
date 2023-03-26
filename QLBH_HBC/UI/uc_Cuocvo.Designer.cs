@@ -68,7 +68,7 @@ namespace QLBH_HBC.UI
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1108, 202, 812, 500);
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(821, 567);
+            this.layoutControl1.Size = new System.Drawing.Size(1025, 742);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -79,17 +79,17 @@ namespace QLBH_HBC.UI
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(797, 37);
+            this.label1.Size = new System.Drawing.Size(1001, 50);
             this.label1.TabIndex = 9;
             this.label1.Text = "QUẢN LÝ CƯỢC VCK";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gridControl
             // 
-            this.gridControl.Location = new System.Drawing.Point(12, 126);
+            this.gridControl.Location = new System.Drawing.Point(12, 152);
             this.gridControl.MainView = this.gridView;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(797, 429);
+            this.gridControl.Size = new System.Drawing.Size(1001, 578);
             this.gridControl.TabIndex = 5;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
@@ -102,9 +102,9 @@ namespace QLBH_HBC.UI
             // 
             // btnNhapcuoc
             // 
-            this.btnNhapcuoc.Location = new System.Drawing.Point(642, 95);
+            this.btnNhapcuoc.Location = new System.Drawing.Point(802, 121);
             this.btnNhapcuoc.Name = "btnNhapcuoc";
-            this.btnNhapcuoc.Size = new System.Drawing.Size(75, 27);
+            this.btnNhapcuoc.Size = new System.Drawing.Size(95, 27);
             this.btnNhapcuoc.StyleController = this.layoutControl1;
             this.btnNhapcuoc.TabIndex = 7;
             this.btnNhapcuoc.Text = "Nhập cược";
@@ -112,9 +112,9 @@ namespace QLBH_HBC.UI
             // 
             // btnTracuoc
             // 
-            this.btnTracuoc.Location = new System.Drawing.Point(741, 95);
+            this.btnTracuoc.Location = new System.Drawing.Point(926, 121);
             this.btnTracuoc.Name = "btnTracuoc";
-            this.btnTracuoc.Size = new System.Drawing.Size(68, 27);
+            this.btnTracuoc.Size = new System.Drawing.Size(87, 27);
             this.btnTracuoc.StyleController = this.layoutControl1;
             this.btnTracuoc.TabIndex = 8;
             this.btnTracuoc.Text = "Trả cược";
@@ -132,25 +132,25 @@ namespace QLBH_HBC.UI
             this.emptySpaceItem3,
             this.layoutControlItem3});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(821, 567);
+            this.Root.Size = new System.Drawing.Size(1025, 742);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.gridControl;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 114);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 140);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(801, 433);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1005, 582);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnNhapcuoc;
-            this.layoutControlItem4.Location = new System.Drawing.Point(630, 83);
+            this.layoutControlItem4.Location = new System.Drawing.Point(790, 109);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(78, 31);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(79, 31);
+            this.layoutControlItem4.Size = new System.Drawing.Size(99, 31);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
@@ -158,34 +158,34 @@ namespace QLBH_HBC.UI
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 83);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 109);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(630, 31);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(790, 31);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnTracuoc;
-            this.layoutControlItem1.Location = new System.Drawing.Point(729, 83);
+            this.layoutControlItem1.Location = new System.Drawing.Point(914, 109);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(72, 31);
+            this.layoutControlItem1.Size = new System.Drawing.Size(91, 31);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(709, 83);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(889, 109);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(20, 31);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(25, 31);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 41);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 54);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(801, 42);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(1005, 55);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
@@ -193,7 +193,7 @@ namespace QLBH_HBC.UI
             this.layoutControlItem3.Control = this.label1;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(801, 41);
+            this.layoutControlItem3.Size = new System.Drawing.Size(1005, 54);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -203,7 +203,7 @@ namespace QLBH_HBC.UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
             this.Name = "uc_Cuocvo";
-            this.Size = new System.Drawing.Size(821, 567);
+            this.Size = new System.Drawing.Size(1025, 742);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();

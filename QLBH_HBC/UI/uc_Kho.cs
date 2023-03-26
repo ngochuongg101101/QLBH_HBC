@@ -32,7 +32,7 @@ namespace QLBH_HBC.UI
             gridControl1.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql);
             gridControl1.Refresh();
             gridView1.RowClick += gridView1_RowClick;
-            gridView1.OptionsBehavior.Editable = true;
+            gridView1.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
         }
 
         private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
@@ -43,7 +43,6 @@ namespace QLBH_HBC.UI
         private void NapCT()
         {
             var row = gridView1.GetDataRow(gridView1.FocusedRowHandle);
-            // Lấy data lên gridview
             cbLoaiPK.Text = row["TENLOAI"].ToString();
             txtMapk.Text = row["MAPK"].ToString();
             dtNgaytao.Text = row["NGAYTAO"].ToString();
@@ -51,12 +50,14 @@ namespace QLBH_HBC.UI
             txtPTVC.Text = row["PTVC"].ToString();
             txtBienso.Text = row["BIENSO"].ToString();
             txtNoidung.Text = row["NOIDUNG"].ToString();
-            txtMadh.Text = row["MA_DH"].ToString();
+            btnMadh.Text = row["MA_DH"].ToString();
 
             string sql1 = "SELECT MAHH, TENHH, CT_DONHANG.SL, DVT FROM CT_DONHANG JOIN HANGHOA ON MAHH = MA_HH " +
-                "WHERE MA_DH = '" + txtMadh.Text + "'";
+                "WHERE MA_DH = '" + btnMadh.Text + "'";
             gridControl2.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql1);
             gridControl2.Refresh();
+            gridView2.OptionsBehavior.ReadOnly = true;
+            gridView2.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
         }
 
         private void gridControl1_MouseDown(object sender, MouseEventArgs e)
@@ -83,21 +84,72 @@ namespace QLBH_HBC.UI
             btnSave.Enabled = true;
             txtMapk.Enabled = false;
             dtNgaytao.EditValue = DateTime.Today;
+            //txtNguoitao = username;
 
             for (int i = 1; i <= 20; i++)
             {
                 gridView2.AddNewRow();
             }
+            gridView2.OptionsBehavior.Editable = true;
+            gridView2.OptionsBehavior.ReadOnly = false;
+            gridView2.Appearance.Row.BackColor = Color.Empty;
 
-            //Lấy lên list Loại PK -> cbLoaiPK, hiện value đầu tiên là LPK0001
+            //Lấy lên từ table LOAIPK -> cbLoaiPK, value = MALPK, displaymember = TENLOAI,
+            //hiển thị sẵn value (LPK0001) - displaymember (Xuất bán hàng) (loại thường xuyên nhất -> sau đó ng dùng có thể đổi)
             //
-
+            
         }
 
         private void cbLoaiPK_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //nếu = LPK0001 thì ok
-            //còn lại -> txtMadh.Visible = false;
+            //nếu = LPK0001 thì txtMadh.Visible = true;
+            //còn lại -> txtMadh.Visible = false; (do chỉ có trường hợp xuất bán hàng là có đi kèm mã đơn hàng)
+        }
+
+        private void btnMadh_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //Người dùng bấm vào ô tìm kiếm sẽ chạy ra frmDonhang -> gửi đi 1 tham số vào frmDonhang
+            frmDonhang f = new frmDonhang();
+            f.Show();
+            //Khi kích đúp vào 1 dòng -> sẽ truyền lại thông tin MADH vào tham số đã gửi đến
+            //Hiển thị tham số đó lên btnMadh.Text
+
+        }
+
+        private void btnMadh_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                //Sau khi người dùng điền xong Mã đơn hàng và ấn Enter
+                //Truy cập vào bảng CT_DONHANG, HANGHOA lấy lên MAHH, TENHH, SL, DVT
+            }
+        }
+
+        private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //1. Insert PHIEUKHO (NGAYTAO, NGUOITAO, NOIDUNG, PTVC, BIENSO, MA_LPK, MA_DH)
+            //
+            //2. Check thiếu thông tin
+            //- Check txtNgaytao, txtNguoitao, MaHH, SL
+            //- Nếu MALPK = 'LPK0001' -> Check thêm btnMadh
+
+            //2. Check tồn + VCK cược
+            //- Từ MALPK -> vào bảng LOAIPK xem LOAI -> Nếu LOAI = "Xuất" 
+            //  -> Kiểm tra xem có vượt tồn kho ở Hàng hóa không -> nếu vượt -> hiện thông báo chặn
+            //- Kiểm tra nếu MALPK = "LPK0001"
+            //  -> Kiểm tra SL có vượt SL khả dụng = SL_CUOC - SL_GIU -> nếu vượt -> hiện thông báo chặn
+            //
+            //3. Insert CT_PHIEUKHO (MAPK (vừa tạo), MAHH, SL)
+            //
+            //4. Update SL (tồn kho) ở bảng HANGHOA
+            //      + Nếu LOAI = "Nhập" -> cộng thêm
+            //      + Nếu LOAI = "Xuất" -> trừ đi
+
+            //5. Update SL giữ trong VCKCUOC
+            //- Nếu MALPK = "LPK0001" 
+            //- Với mã vỏ -> Lấy lên SL_GIU ở bảng VCKCUOC
+            //- SL_GIU mới = SL_GIU hiện tại + SL trong đơn hàng
+
         }
     }
 }

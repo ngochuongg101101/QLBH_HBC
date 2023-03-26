@@ -31,6 +31,11 @@ namespace QLBH_HBC.UI
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Donhang));
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleContains formatConditionRuleContains2 = new DevExpress.XtraEditors.FormatConditionRuleContains();
+            this.STATUS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TRANGTHAI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.txtTongtien = new DevExpress.XtraEditors.TextEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -69,14 +74,12 @@ namespace QLBH_HBC.UI
             this.MADH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NGAYTAO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TENDL = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TRANGTHAI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NGUOITAO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TONGTIEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtGhichu = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -86,12 +89,17 @@ namespace QLBH_HBC.UI
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTongtien.Properties)).BeginInit();
@@ -108,7 +116,6 @@ namespace QLBH_HBC.UI
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
@@ -118,22 +125,47 @@ namespace QLBH_HBC.UI
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // STATUS
+            // 
+            this.STATUS.FieldName = "STATUS";
+            this.STATUS.Name = "STATUS";
+            this.STATUS.OptionsColumn.AllowFocus = false;
+            this.STATUS.OptionsColumn.AllowMove = false;
+            this.STATUS.OptionsColumn.ShowCaption = false;
+            this.STATUS.Visible = true;
+            this.STATUS.VisibleIndex = 0;
+            this.STATUS.Width = 94;
+            // 
+            // TRANGTHAI
+            // 
+            this.TRANGTHAI.Caption = "Trạng thái";
+            this.TRANGTHAI.FieldName = "TRANGTHAI";
+            this.TRANGTHAI.MinWidth = 25;
+            this.TRANGTHAI.Name = "TRANGTHAI";
+            this.TRANGTHAI.Visible = true;
+            this.TRANGTHAI.VisibleIndex = 4;
+            this.TRANGTHAI.Width = 94;
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.tabControl1);
             this.layoutControl1.Controls.Add(this.txtTongtien);
             this.layoutControl1.Controls.Add(this.dtNgaytao);
             this.layoutControl1.Controls.Add(this.txtNguoitao);
             this.layoutControl1.Controls.Add(this.cbDaily);
             this.layoutControl1.Controls.Add(this.label3);
             this.layoutControl1.Controls.Add(this.label2);
-            this.layoutControl1.Controls.Add(this.gridControl2);
             this.layoutControl1.Controls.Add(this.txtMadh);
             this.layoutControl1.Controls.Add(this.label1);
             this.layoutControl1.Controls.Add(this.gridControl1);
@@ -149,7 +181,7 @@ namespace QLBH_HBC.UI
             // txtTongtien
             // 
             this.txtTongtien.EditValue = "";
-            this.txtTongtien.Location = new System.Drawing.Point(774, 565);
+            this.txtTongtien.Location = new System.Drawing.Point(774, 546);
             this.txtTongtien.MenuManager = this.barManager1;
             this.txtTongtien.Name = "txtTongtien";
             this.txtTongtien.Size = new System.Drawing.Size(120, 22);
@@ -176,7 +208,7 @@ namespace QLBH_HBC.UI
             this.btnPrint,
             this.btnDelete});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 14;
+            this.barManager1.MaxItemId = 16;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -362,11 +394,15 @@ namespace QLBH_HBC.UI
             // 
             // gridControl2
             // 
-            this.gridControl2.Location = new System.Drawing.Point(469, 206);
+            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridLevelNode2.RelationName = "Level1";
+            this.gridControl2.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode2});
+            this.gridControl2.Location = new System.Drawing.Point(3, 3);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.MenuManager = this.barManager1;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(425, 345);
+            this.gridControl2.Size = new System.Drawing.Size(411, 301);
             this.gridControl2.TabIndex = 8;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -385,6 +421,7 @@ namespace QLBH_HBC.UI
             this.THANHTIEN});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsView.ShowFooter = true;
             this.gridView2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gridView2_KeyUp);
             // 
             // STT
@@ -443,6 +480,8 @@ namespace QLBH_HBC.UI
             this.DONGIA.FieldName = "DONGIA";
             this.DONGIA.MinWidth = 25;
             this.DONGIA.Name = "DONGIA";
+            this.DONGIA.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "DONGIA", "Tổng tiền: ")});
             this.DONGIA.Visible = true;
             this.DONGIA.VisibleIndex = 5;
             this.DONGIA.Width = 94;
@@ -451,8 +490,10 @@ namespace QLBH_HBC.UI
             // 
             this.THANHTIEN.Caption = "Thành tiền";
             this.THANHTIEN.FieldName = "THANHTIEN";
-            this.THANHTIEN.MinWidth = 25;
+            this.THANHTIEN.MinWidth = 35;
             this.THANHTIEN.Name = "THANHTIEN";
+            this.THANHTIEN.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "THANHTIEN", "{0:0.##}")});
             this.THANHTIEN.Visible = true;
             this.THANHTIEN.VisibleIndex = 6;
             this.THANHTIEN.Width = 94;
@@ -494,13 +535,22 @@ namespace QLBH_HBC.UI
             this.gridView1.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.gridView1.Appearance.Row.Options.UseBackColor = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.STATUS,
             this.MADH,
             this.NGAYTAO,
             this.TENDL,
             this.TRANGTHAI,
             this.NGUOITAO,
             this.TONGTIEN});
+            gridFormatRule2.Column = this.STATUS;
+            gridFormatRule2.ColumnApplyTo = this.STATUS;
+            gridFormatRule2.Name = "Format0";
+            formatConditionRuleContains2.Values = null;
+            gridFormatRule2.Rule = formatConditionRuleContains2;
+            this.gridView1.FormatRules.Add(gridFormatRule2);
             this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.None, "", null, "")});
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedRow = false;
@@ -513,7 +563,7 @@ namespace QLBH_HBC.UI
             this.MADH.MinWidth = 25;
             this.MADH.Name = "MADH";
             this.MADH.Visible = true;
-            this.MADH.VisibleIndex = 0;
+            this.MADH.VisibleIndex = 1;
             this.MADH.Width = 94;
             // 
             // NGAYTAO
@@ -523,7 +573,7 @@ namespace QLBH_HBC.UI
             this.NGAYTAO.MinWidth = 25;
             this.NGAYTAO.Name = "NGAYTAO";
             this.NGAYTAO.Visible = true;
-            this.NGAYTAO.VisibleIndex = 1;
+            this.NGAYTAO.VisibleIndex = 2;
             this.NGAYTAO.Width = 94;
             // 
             // TENDL
@@ -533,18 +583,8 @@ namespace QLBH_HBC.UI
             this.TENDL.MinWidth = 25;
             this.TENDL.Name = "TENDL";
             this.TENDL.Visible = true;
-            this.TENDL.VisibleIndex = 2;
+            this.TENDL.VisibleIndex = 3;
             this.TENDL.Width = 94;
-            // 
-            // TRANGTHAI
-            // 
-            this.TRANGTHAI.Caption = "Trạng thái";
-            this.TRANGTHAI.FieldName = "TRANGTHAI";
-            this.TRANGTHAI.MinWidth = 25;
-            this.TRANGTHAI.Name = "TRANGTHAI";
-            this.TRANGTHAI.Visible = true;
-            this.TRANGTHAI.VisibleIndex = 3;
-            this.TRANGTHAI.Width = 94;
             // 
             // NGUOITAO
             // 
@@ -553,7 +593,7 @@ namespace QLBH_HBC.UI
             this.NGUOITAO.MinWidth = 25;
             this.NGUOITAO.Name = "NGUOITAO";
             this.NGUOITAO.Visible = true;
-            this.NGUOITAO.VisibleIndex = 4;
+            this.NGUOITAO.VisibleIndex = 5;
             this.NGUOITAO.Width = 94;
             // 
             // TONGTIEN
@@ -563,7 +603,7 @@ namespace QLBH_HBC.UI
             this.TONGTIEN.MinWidth = 25;
             this.TONGTIEN.Name = "TONGTIEN";
             this.TONGTIEN.Visible = true;
-            this.TONGTIEN.VisibleIndex = 5;
+            this.TONGTIEN.VisibleIndex = 6;
             this.TONGTIEN.Width = 94;
             // 
             // txtGhichu
@@ -581,8 +621,6 @@ namespace QLBH_HBC.UI
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
             this.layoutControlItem2,
-            this.layoutControlItem5,
-            this.layoutControlItem7,
             this.emptySpaceItem2,
             this.layoutControlItem9,
             this.layoutControlItem8,
@@ -591,11 +629,12 @@ namespace QLBH_HBC.UI
             this.layoutControlItem3,
             this.emptySpaceItem3,
             this.layoutControlItem11,
-            this.emptySpaceItem4,
             this.emptySpaceItem5,
             this.layoutControlItem6,
             this.emptySpaceItem1,
-            this.emptySpaceItem6});
+            this.emptySpaceItem6,
+            this.layoutControlItem12,
+            this.layoutControlItem7});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(906, 634);
             this.Root.TextVisible = false;
@@ -617,15 +656,6 @@ namespace QLBH_HBC.UI
             this.layoutControlItem2.Size = new System.Drawing.Size(416, 29);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.gridControl2;
-            this.layoutControlItem5.Location = new System.Drawing.Point(457, 194);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(429, 349);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem7
             // 
@@ -701,26 +731,18 @@ namespace QLBH_HBC.UI
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.txtTongtien;
-            this.layoutControlItem11.Location = new System.Drawing.Point(671, 553);
+            this.layoutControlItem11.Location = new System.Drawing.Point(671, 534);
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.Size = new System.Drawing.Size(215, 26);
             this.layoutControlItem11.Text = "Tổng tiền";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(79, 17);
             // 
-            // emptySpaceItem4
-            // 
-            this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(457, 543);
-            this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(429, 10);
-            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // emptySpaceItem5
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(457, 553);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(457, 534);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(214, 61);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(214, 80);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem6
@@ -743,15 +765,65 @@ namespace QLBH_HBC.UI
             // emptySpaceItem6
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.Location = new System.Drawing.Point(671, 579);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(671, 560);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(215, 35);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(215, 54);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // notifyIcon1
             // 
             this.notifyIcon1.Text = "hihi";
             this.notifyIcon1.Visible = true;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(469, 206);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(425, 336);
+            this.tabControl1.TabIndex = 15;
+            // 
+            // layoutControlItem12
+            // 
+            this.layoutControlItem12.Control = this.tabControl1;
+            this.layoutControlItem12.Location = new System.Drawing.Point(457, 194);
+            this.layoutControlItem12.Name = "layoutControlItem12";
+            this.layoutControlItem12.Size = new System.Drawing.Size(429, 340);
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem12.TextVisible = false;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.gridControl2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(417, 307);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Chi tiết hàng hóa";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.treeView1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(417, 307);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Trạng thái";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.Location = new System.Drawing.Point(3, 3);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(411, 301);
+            this.treeView1.TabIndex = 0;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // uc_Donhang
             // 
@@ -780,7 +852,6 @@ namespace QLBH_HBC.UI
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
@@ -790,11 +861,15 @@ namespace QLBH_HBC.UI
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -827,7 +902,6 @@ namespace QLBH_HBC.UI
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
@@ -856,12 +930,18 @@ namespace QLBH_HBC.UI
         private DevExpress.XtraGrid.Columns.GridColumn THANHTIEN;
         private DevExpress.XtraEditors.TextEdit txtTongtien;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
         private DevExpress.XtraGrid.Columns.GridColumn TONGTIEN;
         private DevExpress.XtraBars.BarButtonItem btnDelete;
         private DevExpress.XtraGrid.Columns.GridColumn STT;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private DevExpress.XtraGrid.Columns.GridColumn STATUS;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
+        private System.Windows.Forms.TreeView treeView1;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
     }
 }
