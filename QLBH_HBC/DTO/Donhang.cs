@@ -26,7 +26,7 @@ namespace QLBH_HBC.DTO
             this.TrangthaiDonHang = Row["TRANGTHAI"].ToString();
             this.MaDL_DonHang = Row["MA_DL"].ToString();
             this.Ghichu = Row["GHICHU"].ToString();
-            this.Tongtien = Convert.ToDouble(Row["SL"].ToString());
+            this.Tongtien = Convert.ToDouble(Row["TONGTIEN"].ToString());
         }
         public string MaDonHang { get; }
         public DateTime NgayTaoDonHang { get; private set; }

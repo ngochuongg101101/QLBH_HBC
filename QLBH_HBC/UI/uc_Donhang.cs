@@ -21,6 +21,7 @@ namespace QLBH_HBC.UI
         private int slcuoc = 0;
         Boolean addnewflag = false;
         private string username;
+        private double summaryValue = 0;
         public uc_Donhang()
         {
             InitializeComponent();
@@ -75,7 +76,6 @@ namespace QLBH_HBC.UI
             txtNguoitao.Enabled = false;
             cbDaily.Enabled = false;
             txtGhichu.Enabled = false;
-            txtTongtien.Enabled = false;
         }
 
         private void NapCT()
@@ -86,7 +86,6 @@ namespace QLBH_HBC.UI
             dtNgaytao.Text = row["NGAYTAO"].ToString();
             txtNguoitao.Text = row["NGUOITAO"].ToString();
             cbDaily.Text = row["TENDL"].ToString();
-            txtTongtien.Text = row["TONGTIEN"].ToString();
             //string trangthai = row["TRANGTHAI"].ToString();   
 
 
@@ -120,7 +119,6 @@ namespace QLBH_HBC.UI
             txtNguoitao.Enabled = true;
             cbDaily.Enabled = true;
             txtGhichu.Enabled = true;
-            txtTongtien.Enabled = true;
 
             gridView1.AddNewRow();
             gridView1.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
@@ -140,18 +138,18 @@ namespace QLBH_HBC.UI
             gridView2.Appearance.Row.BackColor = Color.Empty;
             addnewflag = true;
 
-            //3.Thêm danh sách Mã DL - Tên DL vào cbDaily
+            //3.Thêm danh sách Tên DL vào cbDaily
             string sql = "Select MADL,TENDL from DAILY";
             DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql);
             cbDaily.DataSource = dt;
-            dt.Columns.Add("FULL", typeof(string), "TRIM(MADL) + ' - ' + TENDL");
-            cbDaily.DisplayMember = "FULL";
+            cbDaily.DisplayMember = "TENDL";
             cbDaily.Text = "";
             cbDaily.ValueMember = "MADL";
         }
 
         private void gridView2_KeyUp(object sender, KeyEventArgs e)
         {
+
             if (e.KeyCode == Keys.Enter)
             {
                 // Lấy thông tin ô đang được chọn
@@ -194,10 +192,6 @@ namespace QLBH_HBC.UI
 
 
                         // Gán giá trị tính được cho thuộc tính Text của đối tượng TextEdit
-                        txtTongtien.Text = tongTien.ToString();
-
-                            tongTien = tongTien + Convert.ToDouble(cellValueThanhtien);
-                        }
 
                         //Lấy lên VCK đi kèm
                         //Kiểm tra Hàng hóa đó có VCK không
@@ -220,11 +214,9 @@ namespace QLBH_HBC.UI
                             }
 
                         }
+                        gridView2.RefreshData();
                         GridColumn summaryColumn = gridView2.Columns["THANHTIEN"];
-                        double summaryValue = Convert.ToDouble(gridView2.Columns["THANHTIEN"].SummaryItem.SummaryValue);
-                        MessageBox.Show(summaryValue.ToString());
-                        txtTongtien.Text = tongTien.ToString();
-
+                        summaryValue = Convert.ToDouble(gridView2.Columns["THANHTIEN"].SummaryItem.SummaryValue);
                     }
                 }
 
@@ -233,22 +225,51 @@ namespace QLBH_HBC.UI
 
         private void btnEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            txtMadh.Enabled = true;
-            dtNgaytao.Enabled = true;
-            txtNguoitao.Enabled = true;
-            cbDaily.Enabled = true;
-            txtGhichu.Enabled = true;
-            txtTongtien.Enabled = true;
-
-
-            for (int i = 1; i <= 20; i++)
+            if (txtMadh.Text.Length > 0)
             {
-                gridView2.AddNewRow();
+                DTO.Donhang donhang = DAO.DonhangDAO.Instance.Get(txtMadh.Text.Trim());
+                if (donhang == null)
+                {
+                    XtraMessageBox.Show("Thông tin mã đơn hàng không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+                else
+                {
+                    if(donhang.TrangthaiDonHang.ToString() == "Chờ xuất kho")
+                    {
+                        dtNgaytao.Enabled = true;
+                        txtNguoitao.Enabled = true;
+                        cbDaily.Enabled = true;
+                        txtGhichu.Enabled = true;
+                        //Thêm danh sách Tên DL vào cbDaily
+                        string sql = "Select MADL,TENDL from DAILY";
+                        DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql);
+                        cbDaily.DataSource = dt;
+                        cbDaily.DisplayMember = "TENDL";
+                        cbDaily.Text = "";
+                        cbDaily.ValueMember = "MADL";
+
+
+                        for (int i = 1; i <= 20; i++)
+                        {
+                            gridView2.AddNewRow();
+                        }
+                        gridView2.OptionsBehavior.Editable = true;
+                        gridView2.OptionsBehavior.ReadOnly = false;
+                        gridView2.Appearance.Row.BackColor = Color.Empty;
+                        btnSave.Enabled = true;
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Hiện tại đơn hàng đã được vận chuyển hoặc tạo hóa đơn nên yêu cầu của bạn không được chấp nhận", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+                }
             }
-            gridView2.OptionsBehavior.Editable = true;
-            gridView2.OptionsBehavior.ReadOnly = false;
-            gridView2.Appearance.Row.BackColor = Color.Empty;
-            btnSave.Enabled = true;
+            else
+            {
+                XtraMessageBox.Show("Yêu cầu bạn chọn đơn hàng để sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
         }
 
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -313,17 +334,17 @@ namespace QLBH_HBC.UI
                         }
                     }
                     
-                    if (CheckControl() && !checkHHVo && txtTongtien.Text.Trim().Length > 0 && cbDaily.SelectedValue.ToString().Trim().Length > 0)
+                    if (CheckControl() && !checkHHVo && summaryValue.ToString().Trim().Length > 0 && cbDaily.SelectedValue.ToString().Trim().Length > 0)
                     {
                         //3. TH1: Insert vào DONHANG (TRANGTHAI='Chờ xuất kho', CT_DONHANG)
                         string resultDH = null;
                         if (txtGhichu.Text.Length>0)
                         {
-                            resultDH = DAO.DonhangDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), username, "Chờ xuất kho", cbDaily.SelectedValue.ToString().Trim(), txtGhichu.Text.Trim(), Convert.ToDouble(txtTongtien.Text.Trim()));
+                            resultDH = DAO.DonhangDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), username, "Chờ xuất kho", cbDaily.SelectedValue.ToString().Trim(), txtGhichu.Text.Trim(), Convert.ToDouble(summaryValue.ToString().Trim()));
                         }
                         else
                         {
-                            resultDH = DAO.DonhangDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), username, "Chờ xuất kho", cbDaily.SelectedValue.ToString().Trim(), " ", Convert.ToDouble(txtTongtien.Text.Trim()));
+                            resultDH = DAO.DonhangDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), username, "Chờ xuất kho", cbDaily.SelectedValue.ToString().Trim(), " ", Convert.ToDouble(summaryValue.ToString().Trim()));
                         }
                         bool resultCT = false;
                         for (int i = 0; i < gridView2.RowCount; i++)
@@ -366,14 +387,12 @@ namespace QLBH_HBC.UI
                             txtNguoitao.Enabled = false;
                             cbDaily.Enabled = false;
                             txtGhichu.Enabled = false;
-                            txtTongtien.Enabled = false;
 
                             txtMadh.Text = "";
                             dtNgaytao.Text = "";
                             txtNguoitao.Text = "";
                             cbDaily.Text = "";
                             txtGhichu.Text = "";
-                            txtTongtien.Text = "";
 
                         }
                         else
@@ -386,9 +405,153 @@ namespace QLBH_HBC.UI
                 // Update
                 else
                 {
-                    btnSave.Enabled = false;
+                    if (cbDaily.SelectedValue.ToString().Trim().Length >0 && dtNgaytao.Text.Length >0)
+                    {
+                        try
+                        {
+                            DateTime dateNgaytao = DateTime.Parse(dtNgaytao.Text.Trim());
+                            bool result_update_donhang = false;
+                            if (txtGhichu.Text.Length > 0)
+                            {
+                                result_update_donhang = DAO.DonhangDAO.Instance.UpdateBasic(dateNgaytao.ToString(), txtMadh.Text.Trim().ToUpper(), cbDaily.SelectedValue.ToString().Trim(), txtGhichu.Text.Trim(), Convert.ToDouble(summaryValue.ToString().Trim()));
+
+                            }
+                            else
+                            {
+                                result_update_donhang = DAO.DonhangDAO.Instance.UpdateBasic(dateNgaytao.ToString(), txtMadh.Text.Trim().ToUpper(), cbDaily.SelectedValue.ToString().Trim(), "", Convert.ToDouble(summaryValue.ToString().Trim()));
+
+                            }
+                            if (result_update_donhang)
+                            {
+
+                                bool checkHHVo = false;
+                                DTO.Vckcuoc dataVCK;
+                                for (int i = 0; i < gridView2.RowCount; i++)
+                                {
+                                    object cellValueMaHH = gridView2.GetRowCellValue(i, "MAHH");
+                                    object cellValueMaSL = gridView2.GetRowCellValue(i, "SL");
+                                    if (cellValueMaHH.ToString().Trim().Length > 0)
+                                    {
+                                        bool HHVo = DAO.HanghoaDAO.Instance.GetByDataOtherByBark(cellValueMaHH.ToString().Trim());
+                                        if (HHVo)
+                                        {
+                                            dataVCK = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim().ToUpper());
+                                            if (dataVCK == null)
+                                            {
+                                                checkHHVo = true;
+                                                XtraMessageBox.Show("Mã võ không có trong danh sách cược vỏ chai két của Đại lý. Yêu cầu đại lý cược võ có mã hàng hóa là " + cellValueMaHH.ToString().Trim(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                int sl_khadung = Convert.ToInt32(dataVCK.SlCuoc) - Convert.ToInt32(dataVCK.SlGiu);
+                                                if (Convert.ToInt32(cellValueMaSL) - sl_khadung > 0)
+                                                {
+                                                    checkHHVo = true;
+                                                    XtraMessageBox.Show("Yêu cầu đại lý đặt cược thêm võ có mã hàng hóa là " + cellValueMaHH.ToString().Trim(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                    break;
+                                                }
+
+                                            }
+                                        }
+                                        else
+                                        {
+                                            bool HHBia = DAO.HanghoaDAO.Instance.GetByDataOtherByBear(cellValueMaHH.ToString().Trim().ToUpper());
+                                            if (HHBia)
+                                            {
+                                                DTO.Hanghoa hanghoa = DAO.HanghoaDAO.Instance.Get(cellValueMaHH.ToString().Trim().ToUpper());
+                                                if (Convert.ToInt32(hanghoa.Sl) - Convert.ToInt32(cellValueMaSL) < 0)
+                                                {
+                                                    checkHHVo = true;
+                                                    XtraMessageBox.Show("Hiện tại số lượng sản phẩm bạn đặt vượt quá số lượng hàng hóa kho!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                }
+
+                                if (CheckControl() && !checkHHVo && summaryValue.ToString().Trim().Length > 0 && cbDaily.SelectedValue.ToString().Trim().Length > 0)
+                                {
+                                    bool resultCT = false;
+                                    List<DTO.CTDonhang> data = DAO.CTDonhangDAO.Instance.GetMaHHByMaDH(txtMadh.Text.Trim().ToUpper());
+                                    for (int i = 0; i < gridView2.RowCount; i++)
+                                    {
+                                        object cellValueMaHH = gridView2.GetRowCellValue(i, "MAHH");
+                                        object cellValueTENHH = gridView2.GetRowCellValue(i, "TENHH");
+
+                                        object cellValueSL = gridView2.GetRowCellValue(i, "SL");
+                                        object cellValueDonGia = gridView2.GetRowCellValue(i, "DONGIA");
+                                        object cellValueThanhTien = gridView2.GetRowCellValue(i, "THANHTIEN");
+                                        if (cellValueMaHH.ToString().Trim().Length > 0 && cellValueTENHH.ToString().Trim().Length > 0 && cellValueSL.ToString().Trim().Length > 0)
+                                        {
+                                            if (cellValueDonGia.ToString().Trim().Length > 0 && cellValueThanhTien.ToString().Trim().Length > 0)
+                                            {
+                                                resultCT = DAO.CTDonhangDAO.Instance.Insert(txtMadh.Text.Trim().ToUpper(), cellValueMaHH.ToString().Trim().ToUpper(), Convert.ToInt32(cellValueSL), Convert.ToDouble(cellValueDonGia.ToString().Trim()), Convert.ToDouble(cellValueThanhTien.ToString().Trim()));
+                                            }
+                                            else
+                                            {
+                                                resultCT = DAO.CTDonhangDAO.Instance.Insert(txtMadh.Text.Trim().ToUpper(), cellValueMaHH.ToString().Trim().ToUpper(), Convert.ToInt32(cellValueSL), 0, 0);
+                                                if (resultCT)
+                                                {
+                                                    DTO.Vckcuoc dataVCKSL = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim().ToUpper());
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            break;
+                                        }
+
+                                    }
+                                    if (resultCT == true)
+                                    {
+                                        foreach (DTO.CTDonhang ctDonhang in data)
+                                        {
+                                            DAO.CTDonhangDAO.Instance.Delete(txtMadh.Text.Trim().ToUpper(), ctDonhang.MaHH);
+
+                                        }
+                                        MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        NapLai();
+                                        txtMadh.Enabled = false;
+                                        dtNgaytao.Enabled = false;
+                                        txtNguoitao.Enabled = false;
+                                        cbDaily.Enabled = false;
+                                        txtGhichu.Enabled = false;
+
+                                        txtMadh.Text = "";
+                                        dtNgaytao.Text = "";
+                                        txtNguoitao.Text = "";
+                                        cbDaily.Text = "";
+                                        txtGhichu.Text = "";
+
+                                        btnSave.Enabled = false;
+
+
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Cật nhật không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                    addnewflag = false;
+                                }
+                            }
+                            else
+                            {
+                                XtraMessageBox.Show("Cập nhật đơn hàng không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        catch(Exception ex)
+                        {
+                            XtraMessageBox.Show("Bạn kiểm tra lại ngày tạo của đơn hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        
+                    }
                     //NapLai();
-                    MessageBox.Show("Đã lưu thay đổi! Sửa");
                 }
 
             }

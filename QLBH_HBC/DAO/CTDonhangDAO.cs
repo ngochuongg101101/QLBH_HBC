@@ -39,16 +39,16 @@ namespace QLBH_HBC.DAO
             return _result > 0;
         }
         // Sửa
-        public bool Update(string madh, string mahh, int sl)
+        public bool Update(string madh, string mahh, int sl, double dongia, double thanhtien)
         {
-            string query = String.Format("UPDATE dbo.CT_DONHANG SET SL = {2} WHERE MA_DH = '{0}' AND MA_HH = '{1}'", madh, mahh, sl);
+            string query = String.Format("UPDATE dbo.CT_DONHANG SET SL = {2}, DONGIA={3},THANHTIEN={4} WHERE MA_DH = '{0}' AND MA_HH = '{1}'", madh, mahh, sl,dongia,thanhtien);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
         //Xóa
-        public bool Delete(string madh, string mahh)
+        public bool Delete(string madh,string mahh)
         {
-            string query = String.Format("DELETE dbo.CT_DONHANG WHERE MA_DH = '{0}' AND MA_HH = '{1}'", madh, mahh);
+            string query = String.Format("DELETE dbo.CT_DONHANG WHERE MA_DH = '{0}' AND MA_HH = '{1}'", madh,mahh);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
@@ -64,6 +64,20 @@ namespace QLBH_HBC.DAO
                 return item;
             }
             return item;
+        }
+
+        public List<DTO.CTDonhang> GetMaHHByMaDH(string madh)
+        {
+            List<DTO.CTDonhang> list = new List<DTO.CTDonhang>();
+            string query = "SELECT * FROM CT_DONHANG WHERE MA_DH ='"+madh+"'";
+            DataTable data = Config.DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                DTO.CTDonhang info = new DTO.CTDonhang(item);
+                list.Add(info);
+            }
+
+            return list;
         }
     }
 }

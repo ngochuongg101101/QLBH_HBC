@@ -57,6 +57,12 @@ namespace QLBH_HBC.DAO
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
+        public bool UpdateBasic(string ngaytao, string madh, string madl, string ghichu, double tongtien)
+        {
+            string query = String.Format("UPDATE dbo.DONHANG SET NGAYTAO = '{0}', MA_DL = '{1}', GHICHU=N'{2}',TONGTIEN={3} WHERE MADH = '{4}'", ngaytao, madl, ghichu, tongtien, madh);
+            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
+            return _result > 0;
+        }
         //Xóa
         public bool Delete(string madh)
         {
@@ -68,8 +74,8 @@ namespace QLBH_HBC.DAO
         public DTO.Donhang Get(string madh)
         {
             DTO.Donhang item = null;
-            string query = "SELECT * FROM dbo.DONHANG WHERE MADH =@MADH";
-            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { madh });
+            string query = "SELECT * FROM dbo.DONHANG WHERE MADH ='"+madh+"'";
+            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow row in result.Rows)
             {
                 item = new DTO.Donhang(row);
