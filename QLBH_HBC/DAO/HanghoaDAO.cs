@@ -65,11 +65,11 @@ namespace QLBH_HBC.DAO
             return _result > 0;
         }
         // Lấy 1 dũ liệu 
-        public DTO.Hanghoa Get(string mapc)
+        public DTO.Hanghoa Get(string mahh)
         {
             DTO.Hanghoa item = null;
-            string query = "SELECT * FROM dbo.HANGHOA WHERE MAPC =@MAPC";
-            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { mapc });
+            string query = "SELECT * FROM dbo.HANGHOA WHERE MAHH = '"+mahh+"'";
+            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow row in result.Rows)
             {
                 item = new DTO.Hanghoa(row);
@@ -94,8 +94,13 @@ namespace QLBH_HBC.DAO
         public bool GetByDataOtherByBear(string mahh)
         {
             string query = String.Format("SELECT COUNT(MAHH) FROM HANGHOA WHERE HANGHOA.MAHH = '{0}' AND HANGHOA.LOAI = N'Bia'", mahh);
-            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
-            return _result > 0;
+            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow row in result.Rows)
+            {
+                int count = Convert.ToInt32(row[0]);
+                return count > 0;
+            }
+            return false;
         }
         // Check dũ liệu la loai vo
         public bool GetByDataOtherByBark(string mahh)

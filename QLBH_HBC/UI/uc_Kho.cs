@@ -15,6 +15,11 @@ namespace QLBH_HBC.UI
 {
     public partial class uc_Kho : DevExpress.XtraEditors.XtraUserControl
     {
+        private string userName;
+        public uc_Kho(string username)
+        {
+            this.userName = username;
+        }
         public uc_Kho()
         {
             InitializeComponent();

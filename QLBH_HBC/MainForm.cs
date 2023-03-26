@@ -41,7 +41,7 @@ namespace QLBH_HBC
 
         private void mnQLKho_Click(object sender, EventArgs e)
         {
-            ucKho = new UI.uc_Kho();
+            ucKho = new UI.uc_Kho(userName);
             ucKho.Dock = DockStyle.Fill;
             mainContainer.Controls.Add(ucKho);
             ucKho.BringToFront();
