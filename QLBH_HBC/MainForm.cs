@@ -22,6 +22,8 @@ namespace QLBH_HBC
         UI.uc_Cuocvo ucCuocvo;
         UI.uc_Donhang ucDonhang;
         UI.uc_Kho ucKho;
+        UI.uc_Hoadon ucHoadon;
+
 
         private void mnCuocvo_Click(object sender, EventArgs e)
         {
@@ -55,6 +57,17 @@ namespace QLBH_HBC
                 ucKho.Dock = DockStyle.Fill;
                 mainContainer.Controls.Add(ucKho);
                 ucKho.BringToFront();
+            }
+        }
+
+        private void mnQLHoadon_Click(object sender, EventArgs e)
+        {
+            if (ucHoadon == null)
+            {
+                ucHoadon = new UI.uc_Hoadon();
+                ucHoadon.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucHoadon);
+                ucHoadon.BringToFront();
             }
         }
     }
