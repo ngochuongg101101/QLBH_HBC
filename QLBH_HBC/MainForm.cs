@@ -13,16 +13,12 @@ namespace QLBH_HBC
 {
     public partial class MainForm : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-        private string userName;
-        public MainForm(string username)
+        public Mainform()
         {
             InitializeComponent();
-            this.userName = username;
         }
-        UI.uc_Cuocvo ucCuocvo;
-        UI.uc_Donhang ucDonhang;
-        UI.uc_Kho ucKho;
-        UI.uc_Hoadon ucHoadon;
+
+        uc_Kiguihang ucKiguihang;
 
 
         private void mnCuocvo_Click(object sender, EventArgs e)
