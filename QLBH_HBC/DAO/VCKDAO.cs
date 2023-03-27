@@ -39,9 +39,9 @@ namespace QLBH_HBC.DAO
             return _result > 0;
         }
         // Sửa
-        public bool Update(string madl, string mavo, int slcuoc)
+        public bool Update(string madl, string mavo, int slcuoc,int slgiu)
         {
-            string query = String.Format("UPDATE dbo.VCKCUOC SET SL_CUOC = {2} WHERE MA_DL = '{0}' AND MA_VO = '{1}'", madl, mavo, slcuoc);
+            string query = String.Format("UPDATE dbo.VCKCUOC SET SL_CUOC = {2}, SL_GIU = {3} WHERE MA_DL = '{0}' AND MA_VO = '{1}'", madl, mavo, slcuoc,slgiu);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }

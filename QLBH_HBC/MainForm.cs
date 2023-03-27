@@ -27,37 +27,26 @@ namespace QLBH_HBC
 
         private void mnCuocvo_Click(object sender, EventArgs e)
         {
-            if(ucCuocvo==null)
-            {
-                ucCuocvo = new UI.uc_Cuocvo(userName);
-                ucCuocvo.Dock = DockStyle.Fill;
-                mainContainer.Controls.Add(ucCuocvo);
-                ucCuocvo.BringToFront();
-            }
-            
-                //lblTieude.Caption = mnKyguihang.Text; 
+            ucCuocvo = new UI.uc_Cuocvo(userName);
+            ucCuocvo.Dock = DockStyle.Fill;
+            mainContainer.Controls.Add(ucCuocvo);
+            ucCuocvo.BringToFront();
         }
 
         private void mnQLDH_Click(object sender, EventArgs e)
         {
-            if (ucDonhang == null)
-            {
-                ucDonhang = new UI.uc_Donhang();
-                ucDonhang.Dock = DockStyle.Fill;
-                mainContainer.Controls.Add(ucDonhang);
-                ucDonhang.BringToFront();
-            }
+            ucDonhang = new UI.uc_Donhang(userName);
+            ucDonhang.Dock = DockStyle.Fill;
+            mainContainer.Controls.Add(ucDonhang);
+            ucDonhang.BringToFront();
         }
 
         private void mnQLKho_Click(object sender, EventArgs e)
         {
-            if (ucKho == null)
-            {
-                ucKho = new UI.uc_Kho();
-                ucKho.Dock = DockStyle.Fill;
-                mainContainer.Controls.Add(ucKho);
-                ucKho.BringToFront();
-            }
+            ucKho = new UI.uc_Kho(userName);
+            ucKho.Dock = DockStyle.Fill;
+            mainContainer.Controls.Add(ucKho);
+            ucKho.BringToFront();
         }
 
         private void mnDMHanghoa_Click(object sender, EventArgs e)

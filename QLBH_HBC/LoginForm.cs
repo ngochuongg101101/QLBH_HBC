@@ -63,7 +63,6 @@ namespace QLBH_HBC
                         {
                             txtUsername.Text = "";
                             txtPassword.Text = "";
-
                         }
                     }
                     else

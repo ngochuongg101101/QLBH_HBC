@@ -21,10 +21,20 @@ namespace QLBH_HBC.DTO
         }
         public Hanghoa(DataRow Row)
         {
-            this.MaHH = Row["MADL"].ToString(); ;
+            this.MaHH = Row["MAHH"].ToString(); ;
             this.TenHH = Row["TENHH"].ToString();
             this.Dongia = (float)Convert.ToDouble(Row["DONGIA"].ToString());
-            this.Giacuoc = (float)Convert.ToDouble(Row["GIACUOC"].ToString());
+            string test = Row["GIACUOC"].ToString();
+            if(test.Length > 0)
+            {
+                this.Giacuoc = (float)Convert.ToDouble(Row["GIACUOC"].ToString());
+
+            }
+            else
+            {
+                this.Giacuoc = 0;
+
+            }
             this.Dvt = Row["DVT"].ToString();
             this.Sl = (int)Convert.ToDouble(Row["SL"].ToString());
             this.Loai  = Row["LOAI"].ToString();

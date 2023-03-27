@@ -17,10 +17,10 @@ namespace QLBH_HBC.DTO
         }
         public Vckcuoc(DataRow Row)
         {
-            this.MaDL = Row["MADL"].ToString();
-            this.MaVO = Row["MAVO"].ToString();
-            this.SlCuoc = (int)Convert.ToDouble(Row["SL_CUOC"].ToString());
-            this.SlGiu = (int)Convert.ToDouble(Row["SL_GIU"].ToString());
+            this.MaDL = Row["MA_DL"].ToString();
+            this.MaVO = Row["MA_VO"].ToString();
+            this.SlCuoc = Convert.ToInt32(Row["SL_CUOC"].ToString());
+            this.SlGiu = Convert.ToInt32(Row["SL_GIU"].ToString());
 
         }
         public string MaDL { get; }
