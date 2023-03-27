@@ -202,7 +202,6 @@ namespace QLBH_HBC.UI
                                 gridView2.SetRowCellValue(rowHandle + i + 1, "SL", Convert.ToInt32(dt2.Rows[i]["SL"].ToString()) * sl);
                                 gridView2.SetRowCellValue(rowHandle + i + 1, "DVT", dt2.Rows[i]["DVT"].ToString());
                             }
-
                         }
                         GridColumn summaryColumn = gridView2.Columns["THANHTIEN"];
                         double summaryValue = Convert.ToDouble(gridView2.Columns["THANHTIEN"].SummaryItem.SummaryValue);
