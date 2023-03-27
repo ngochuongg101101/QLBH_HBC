@@ -40,7 +40,7 @@ namespace QLBH_HBC.UI
             txtGiaban.Text = row["DONGIA"].ToString();
             txtGiaban.Text = row["GIACUOC"].ToString();
 
-            2
+            
             string sql1 = "SELECT * FROM HANGHOA,BOOM WHERE MA_BIA = '" + txtMaHH.Text + "'";
             gridControl2.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql1);
             gridControl2.Refresh();
