@@ -91,7 +91,14 @@
     <Reference Include="DevExpress.XtraScheduler.v20.2, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.PerformanceTools.Automation, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -102,6 +109,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\BoomDAO.cs" />
+    <Compile Include="DAO\CTDonhangDAO.cs" />
+    <Compile Include="DAO\CTPhieuCuocDAO.cs" />
+    <Compile Include="DAO\DonhangDAO.cs" />
+    <Compile Include="DAO\HanghoaDAO.cs" />
+    <Compile Include="DAO\MaVuViecDAO.cs" />
+    <Compile Include="DAO\PhieuCuocDAO.cs" />
+    <Compile Include="DAO\PhieuThuChiDAO.cs" />
+    <Compile Include="DAO\VCKDAO.cs" />
+    <Compile Include="DTO\Boom.cs" />
+    <Compile Include="DTO\CTDonhang.cs" />
+    <Compile Include="DTO\CtPhieucuoc.cs" />
+    <Compile Include="DTO\Daily.cs" />
+    <Compile Include="DTO\Donhang.cs" />
+    <Compile Include="DTO\Hoadon.cs" />
+    <Compile Include="DTO\HopDong.cs" />
+    <Compile Include="DTO\LoaiHD.cs" />
+    <Compile Include="DTO\LoaiPK.cs" />
+    <Compile Include="DTO\Mavuviec.cs" />
+    <Compile Include="DTO\Phieucuoc.cs" />
+    <Compile Include="DTO\Phieukho.cs" />
+    <Compile Include="DTO\Phieuthuchi.cs" />
+    <Compile Include="DTO\Vckcuoc.cs" />
+    <Compile Include="frmDonhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDonhang.Designer.cs">
+      <DependentUpon>frmDonhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNhapcuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNhapcuoc.Designer.cs">
+      <DependentUpon>frmNhapcuoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\DataProvider.cs" />
+    <Compile Include="DAO\NguoidungDAO.cs" />
+    <Compile Include="DTO\Nguoidung.cs" />
+    <Compile Include="DTO\Hanghoa.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,11 +156,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\uc_Kiguihang.cs">
+    <Compile Include="UI\uc_Cuocvo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\uc_Kiguihang.Designer.cs">
-      <DependentUpon>uc_Kiguihang.cs</DependentUpon>
+    <Compile Include="UI\uc_Cuocvo.Designer.cs">
+      <DependentUpon>uc_Cuocvo.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -127,9 +173,10 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UI\uc_Kiguihang.resx">
-      <DependentUpon>uc_Kiguihang.cs</DependentUpon>
+    <EmbeddedResource Include="UI\uc_Cuocvo.resx">
+      <DependentUpon>uc_Cuocvo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">

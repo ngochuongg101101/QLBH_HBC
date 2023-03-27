@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace QLBH_HBC
 {
-    public partial class Mainform : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
+    public partial class MainForm : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
         public Mainform()
         {
@@ -20,18 +20,40 @@ namespace QLBH_HBC
 
         uc_Kiguihang ucKiguihang;
 
-        private void mnKyguihang_Click(object sender, EventArgs e)
+
+        private void mnCuocvo_Click(object sender, EventArgs e)
         {
-            if (ucKiguihang==null)
+            ucCuocvo = new UI.uc_Cuocvo(userName);
+            ucCuocvo.Dock = DockStyle.Fill;
+            mainContainer.Controls.Add(ucCuocvo);
+            ucCuocvo.BringToFront();
+        }
+
+        private void mnQLDH_Click(object sender, EventArgs e)
+        {
+            ucDonhang = new UI.uc_Donhang(userName);
+            ucDonhang.Dock = DockStyle.Fill;
+            mainContainer.Controls.Add(ucDonhang);
+            ucDonhang.BringToFront();
+        }
+
+        private void mnQLKho_Click(object sender, EventArgs e)
+        {
+            ucKho = new UI.uc_Kho(userName);
+            ucKho.Dock = DockStyle.Fill;
+            mainContainer.Controls.Add(ucKho);
+            ucKho.BringToFront();
+        }
+
+        private void mnQLHoadon_Click(object sender, EventArgs e)
+        {
+            if (ucHoadon == null)
             {
-                ucKiguihang = new uc_Kiguihang();
-                ucKiguihang.Dock = DockStyle.Fill;
-                mainContainer.Controls.Add(ucKiguihang);
-                ucKiguihang.BringToFront();
+                ucHoadon = new UI.uc_Hoadon();
+                ucHoadon.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(ucHoadon);
+                ucHoadon.BringToFront();
             }
-            else
-                ucKiguihang.BringToFront();
-            lblTieude.Caption = mnKyguihang.Text;
         }
     }
 }

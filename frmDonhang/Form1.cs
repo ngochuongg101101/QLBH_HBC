@@ -5,14 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QLBH_HBC.UI
+namespace frmDonhang
 {
-    public partial class uc_Kiguihang : UserControl
+    public partial class Form1 : DevExpress.XtraEditors.XtraForm
     {
-        public uc_Kiguihang()
+        public Form1()
         {
             InitializeComponent();
         }

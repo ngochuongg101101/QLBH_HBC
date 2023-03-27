@@ -1,7 +1,7 @@
 ﻿
 namespace QLBH_HBC
 {
-    partial class Mainform
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,23 +33,21 @@ namespace QLBH_HBC
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainform));
             this.mainContainer = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
-            this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnQLDM = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnKyguihang = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement7 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement8 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement9 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement10 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement11 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement16 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement17 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement18 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnCuocvo = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnQLDL = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnQLDonhang = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnQLHoadon = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnQLThanhtoan = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnQLKho = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnBaocao = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement23 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement24 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement25 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnHethong = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement19 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -98,20 +96,20 @@ namespace QLBH_HBC
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
-            // accordionControlElement1
+            // mnQLDM
             // 
-            this.accordionControlElement1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.mnQLDM.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.mnKyguihang,
             this.accordionControlElement7,
-            this.accordionControlElement8});
-            this.accordionControlElement1.Expanded = true;
-            this.accordionControlElement1.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
+            this.accordionControlElement1});
+            this.mnQLDM.Expanded = true;
+            this.mnQLDM.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl, DevExpress.XtraBars.Navigation.HeaderElementAlignment.Left),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons)});
-            this.accordionControlElement1.Name = "accordionControlElement1";
-            this.accordionControlElement1.Text = "QUẢN LÝ KÝ GỬI";
+            this.mnQLDM.Name = "mnQLDM";
+            this.mnQLDM.Text = "QUẢN LÝ DANH MỤC";
             // 
             // mnKyguihang
             // 
@@ -122,8 +120,7 @@ namespace QLBH_HBC
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons)});
             this.mnKyguihang.Name = "mnKyguihang";
             this.mnKyguihang.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.mnKyguihang.Text = "Ký gửi hàng đại lý";
-            this.mnKyguihang.Click += new System.EventHandler(this.mnKyguihang_Click);
+            this.mnKyguihang.Text = "Danh mục hàng hóa";
             // 
             // accordionControlElement7
             // 
@@ -134,78 +131,66 @@ namespace QLBH_HBC
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons)});
             this.accordionControlElement7.Name = "accordionControlElement7";
             this.accordionControlElement7.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement7.Text = "Bán hàng ký gửi";
+            this.accordionControlElement7.Text = "Danh mục đại lý";
             // 
-            // accordionControlElement8
+            // accordionControlElement1
             // 
-            this.accordionControlElement8.Name = "accordionControlElement8";
-            this.accordionControlElement8.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement8.Text = "Nhập về hàng ký gửi";
+            this.accordionControlElement1.Name = "accordionControlElement1";
+            this.accordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement1.Text = "Danh mục hợp đồng";
             // 
-            // accordionControlElement2
+            // mnCuocvo
             // 
-            this.accordionControlElement2.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement9,
-            this.accordionControlElement10,
-            this.accordionControlElement11});
-            this.accordionControlElement2.Expanded = true;
-            this.accordionControlElement2.Name = "accordionControlElement2";
-            this.accordionControlElement2.Text = "QUẢN LÝ CƯỢC VCK";
+            this.mnCuocvo.Expanded = true;
+            this.mnCuocvo.Name = "mnCuocvo";
+            this.mnCuocvo.Text = "QUẢN LÝ CƯỢC VCK";
+            this.mnCuocvo.Click += new System.EventHandler(this.mnCuocvo_Click);
             // 
-            // accordionControlElement9
+            // mnQLDL
             // 
-            this.accordionControlElement9.Name = "accordionControlElement9";
-            this.accordionControlElement9.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement9.Text = "Nhận ký cược, bảo lãnh, giữ hộ VCK";
+            this.mnQLDL.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.mnQLDonhang,
+            this.mnQLHoadon,
+            this.mnQLThanhtoan});
+            this.mnQLDL.Expanded = true;
+            this.mnQLDL.Name = "mnQLDL";
+            this.mnQLDL.Text = "QUẢN LÝ BÁN HÀNG";
             // 
-            // accordionControlElement10
+            // mnQLDonhang
             // 
-            this.accordionControlElement10.Name = "accordionControlElement10";
-            this.accordionControlElement10.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement10.Text = "Trả cược VCK";
+            this.mnQLDonhang.Name = "mnQLDonhang";
+            this.mnQLDonhang.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.mnQLDonhang.Text = "Quản lý đơn hàng";
+            this.mnQLDonhang.Click += new System.EventHandler(this.mnQLDH_Click);
             // 
-            // accordionControlElement11
+            // mnQLHoadon
             // 
-            this.accordionControlElement11.Name = "accordionControlElement11";
-            this.accordionControlElement11.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement11.Text = "Bán VCK cược";
+            this.mnQLHoadon.Name = "mnQLHoadon";
+            this.mnQLHoadon.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.mnQLHoadon.Text = "Quản lý hóa đơn";
+            this.mnQLHoadon.Click += new System.EventHandler(this.mnQLHoadon_Click);
             // 
-            // accordionControlElement3
+            // mnQLThanhtoan
             // 
-            this.accordionControlElement3.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement16,
-            this.accordionControlElement17,
-            this.accordionControlElement18});
-            this.accordionControlElement3.Expanded = true;
-            this.accordionControlElement3.Name = "accordionControlElement3";
-            this.accordionControlElement3.Text = "QUẢN LÝ ĐẠI LÝ";
+            this.mnQLThanhtoan.Name = "mnQLThanhtoan";
+            this.mnQLThanhtoan.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.mnQLThanhtoan.Text = "Quản lý thanh toán";
             // 
-            // accordionControlElement16
+            // mnQLKho
             // 
-            this.accordionControlElement16.Name = "accordionControlElement16";
-            this.accordionControlElement16.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement16.Text = "Danh mục đại lý";
+            this.mnQLKho.Name = "mnQLKho";
+            this.mnQLKho.Text = "QUẢN LÝ KHO";
+            this.mnQLKho.Click += new System.EventHandler(this.mnQLKho_Click);
             // 
-            // accordionControlElement17
+            // mnBaocao
             // 
-            this.accordionControlElement17.Name = "accordionControlElement17";
-            this.accordionControlElement17.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement17.Text = "Hợp đồng bán hàng ";
-            // 
-            // accordionControlElement18
-            // 
-            this.accordionControlElement18.Name = "accordionControlElement18";
-            this.accordionControlElement18.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement18.Text = "Công nợ đại lý";
-            // 
-            // accordionControlElement4
-            // 
-            this.accordionControlElement4.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.mnBaocao.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement23,
             this.accordionControlElement24,
             this.accordionControlElement25});
-            this.accordionControlElement4.Name = "accordionControlElement4";
-            this.accordionControlElement4.Text = "BÁO CÁO";
+            this.mnBaocao.Expanded = true;
+            this.mnBaocao.Name = "mnBaocao";
+            this.mnBaocao.Text = "BÁO CÁO";
             // 
             // accordionControlElement23
             // 
@@ -225,14 +210,14 @@ namespace QLBH_HBC
             this.accordionControlElement25.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement25.Text = "Báo cáo nhập xuất tồn";
             // 
-            // accordionControlElement5
+            // mnHethong
             // 
-            this.accordionControlElement5.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.mnHethong.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement19,
             this.accordionControlElement20,
             this.accordionControlElement21});
-            this.accordionControlElement5.Name = "accordionControlElement5";
-            this.accordionControlElement5.Text = "HỆ THỐNG";
+            this.mnHethong.Name = "mnHethong";
+            this.mnHethong.Text = "HỆ THỐNG";
             // 
             // accordionControlElement19
             // 
@@ -252,11 +237,11 @@ namespace QLBH_HBC
             this.accordionControlElement21.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement21.Text = "Đăng xuất";
             // 
-            // accordionControlElement22
+            // mnTrogiup
             // 
-            this.accordionControlElement22.Expanded = true;
-            this.accordionControlElement22.Name = "accordionControlElement22";
-            this.accordionControlElement22.Text = "TRỢ GIÚP";
+            this.mnTrogiup.Expanded = true;
+            this.mnTrogiup.Name = "mnTrogiup";
+            this.mnTrogiup.Text = "TRỢ GIÚP";
             // 
             // accordionControlElement6
             // 
@@ -275,7 +260,6 @@ namespace QLBH_HBC
             this.fluentDesignFormControl1.Size = new System.Drawing.Size(1076, 31);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
-            this.fluentDesignFormControl1.TitleItemLinks.Add(this.lblTieude);
             // 
             // lblTieude
             // 
@@ -357,36 +341,33 @@ namespace QLBH_HBC
         #endregion
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer mainContainer;
         private DevExpress.XtraBars.Navigation.AccordionControl accordionControl1;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLDM;
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl fluentDesignFormControl1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnKyguihang;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement7;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement8;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement3;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement4;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement5;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement9;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement10;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement11;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnCuocvo;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLDL;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnBaocao;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnHethong;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement13;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement14;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement15;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement16;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement17;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement18;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLDonhang;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLHoadon;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLThanhtoan;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement23;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement24;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement25;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement19;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement21;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement22;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnTrogiup;
         private DevExpress.XtraEditors.CalcEdit calcEdit1;
         private DevExpress.XtraEditors.CalcEdit calcEdit2;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement12;
         private DevExpress.XtraBars.BarStaticItem lblTieude;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement6;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLKho;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
     }
 }
 

@@ -1,11 +1,12 @@
-﻿using DevExpress.Skins;
+﻿using DevExpress.LookAndFeel;
+using DevExpress.Skins;
 using DevExpress.UserSkins;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace QLBH_HBC
+namespace frmDonhang
 {
     static class Program
     {
@@ -17,7 +18,7 @@ namespace QLBH_HBC
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(mainForm: new LoginForm());
+            Application.Run(new Form1());
         }
     }
 }
