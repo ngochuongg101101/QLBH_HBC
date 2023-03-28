@@ -15,14 +15,15 @@ namespace QLBH_HBC.UI
 {
     public partial class uc_Kho : DevExpress.XtraEditors.XtraUserControl
     {
+
         private string userName;
-        public uc_Kho(string username)
-        {
-            this.userName = username;
-        }
-        public uc_Kho()
+        private uc_Kho ucKho;
+        public string maDH;
+        public uc_Kho(string username, uc_Kho ucKho)
         {
             InitializeComponent();
+            this.userName = username;
+            this.ucKho = ucKho;
         }
 
         private void gridControl1_Load(object sender, EventArgs e)
@@ -108,12 +109,24 @@ namespace QLBH_HBC.UI
 
         private void btnMadh_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            //Người dùng bấm vào ô tìm kiếm sẽ chạy ra frmDonhang -> gửi đi 1 tham số vào frmDonhang
-            frmDonhang f = new frmDonhang();
+            frmDonhang f = new frmDonhang(ucKho);
+            f.FormClosed += new FormClosedEventHandler(frmDonhang_FormClosed); // Đăng ký sự kiện FormClosed
             f.Show();
+            //Người dùng bấm vào ô tìm kiếm sẽ chạy ra frmDonhang -> gửi đi 1 tham số vào frmDonhang
             //Khi kích đúp vào 1 dòng -> sẽ truyền lại thông tin MADH vào tham số đã gửi đến
             //Hiển thị tham số đó lên btnMadh.Text
 
+        }
+        private void frmDonhang_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //MessageBox.Show(ucKho.maDH);
+            //Lấy thông tin mã đơn hàng từ form frmDonhang
+            frmDonhang f = sender as frmDonhang;
+            if (f != null && f.DialogResult == DialogResult.OK)
+            {
+                // Thực hiện gán giá trị mã đơn hàng cho button btnMadh
+                btnMadh.Text = ucKho.maDH;
+            }
         }
 
         private void btnMadh_KeyDown(object sender, KeyEventArgs e)
@@ -150,6 +163,11 @@ namespace QLBH_HBC.UI
             //- Với mã vỏ -> Lấy lên SL_GIU ở bảng VCKCUOC
             //- SL_GIU mới = SL_GIU hiện tại + SL trong đơn hàng
 
+        }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            btnMadh.Text = ucKho.maDH;
         }
     }
 }

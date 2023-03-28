@@ -233,6 +233,7 @@ namespace QLBH_HBC.UI
             this.barButtonItem2.Caption = "In";
             this.barButtonItem2.Id = 2;
             this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // bar2
             // 

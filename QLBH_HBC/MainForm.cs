@@ -13,17 +13,17 @@ namespace QLBH_HBC
 {
     public partial class MainForm : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
+        UI.uc_Cuocvo ucCuocvo;
+        UI.uc_Donhang ucDonhang;
+        public UI.uc_Kho ucKho;
+        UI.uc_Hanghoa ucHanghoa;
+
         private string userName;
         public MainForm(string username)
         {
             InitializeComponent();
             this.userName = username;
         }
-        UI.uc_Cuocvo ucCuocvo;
-        UI.uc_Donhang ucDonhang;
-        UI.uc_Kho ucKho;
-        UI.uc_Hanghoa ucHanghoa;
-
 
         private void mnCuocvo_Click(object sender, EventArgs e)
         {
@@ -43,7 +43,7 @@ namespace QLBH_HBC
 
         private void mnQLKho_Click(object sender, EventArgs e)
         {
-            ucKho = new UI.uc_Kho(userName);
+            ucKho = new UI.uc_Kho(userName, ucKho);
             ucKho.Dock = DockStyle.Fill;
             mainContainer.Controls.Add(ucKho);
             ucKho.BringToFront();

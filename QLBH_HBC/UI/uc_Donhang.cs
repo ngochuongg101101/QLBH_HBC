@@ -18,14 +18,9 @@ namespace QLBH_HBC.UI
     public partial class uc_Donhang : DevExpress.XtraEditors.XtraUserControl
     {
         public double tongTien = 0;
-        private int slcuoc = 0;
         Boolean addnewflag = false;
         private string username;
         private double summaryValue = 0;
-        public uc_Donhang()
-        {
-            InitializeComponent();
-        }
 
         public uc_Donhang(string userName)
         {
@@ -114,7 +109,6 @@ namespace QLBH_HBC.UI
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            txtMadh.Enabled = true;
             dtNgaytao.Enabled = true;
             txtNguoitao.Enabled = true;
             cbDaily.Enabled = true;

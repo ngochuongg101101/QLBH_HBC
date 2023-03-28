@@ -34,10 +34,10 @@ namespace QLBH_HBC.UI
             this.txtGiacuoc = new DevExpress.XtraEditors.TextEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
+            this.btnEdit = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -147,10 +147,10 @@ namespace QLBH_HBC.UI
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barButtonItem1,
-            this.barButtonItem2,
-            this.barButtonItem3,
-            this.barButtonItem4});
+            this.btnAdd,
+            this.btnEdit,
+            this.btnDelete,
+            this.btnSave});
             this.barManager1.MainMenu = this.bar2;
             this.barManager1.MaxItemId = 4;
             this.barManager1.StatusBar = this.bar3;
@@ -162,35 +162,36 @@ namespace QLBH_HBC.UI
             this.bar1.DockRow = 1;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnAdd),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnEdit),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnDelete),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnSave)});
             this.bar1.Text = "Tools";
             // 
-            // barButtonItem1
+            // btnAdd
             // 
-            this.barButtonItem1.Caption = "Thêm mới";
-            this.barButtonItem1.Id = 0;
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.btnAdd.Caption = "Thêm mới";
+            this.btnAdd.Id = 0;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
             // 
-            // barButtonItem2
+            // btnEdit
             // 
-            this.barButtonItem2.Caption = "Sửa";
-            this.barButtonItem2.Id = 1;
-            this.barButtonItem2.Name = "barButtonItem2";
+            this.btnEdit.Caption = "Sửa";
+            this.btnEdit.Id = 1;
+            this.btnEdit.Name = "btnEdit";
             // 
-            // barButtonItem3
+            // btnDelete
             // 
-            this.barButtonItem3.Caption = "Xóa";
-            this.barButtonItem3.Id = 2;
-            this.barButtonItem3.Name = "barButtonItem3";
+            this.btnDelete.Caption = "Xóa";
+            this.btnDelete.Id = 2;
+            this.btnDelete.Name = "btnDelete";
             // 
-            // barButtonItem4
+            // btnSave
             // 
-            this.barButtonItem4.Caption = "Cập nhật";
-            this.barButtonItem4.Id = 3;
-            this.barButtonItem4.Name = "barButtonItem4";
+            this.btnSave.Caption = "Cập nhật";
+            this.btnSave.Id = 3;
+            this.btnSave.Name = "btnSave";
             // 
             // bar2
             // 
@@ -276,6 +277,9 @@ namespace QLBH_HBC.UI
             // cbLoai
             // 
             this.cbLoai.FormattingEnabled = true;
+            this.cbLoai.Items.AddRange(new object[] {
+            "Bia",
+            "Vỏ"});
             this.cbLoai.Location = new System.Drawing.Point(660, 41);
             this.cbLoai.Name = "cbLoai";
             this.cbLoai.Size = new System.Drawing.Size(96, 24);
@@ -351,7 +355,7 @@ namespace QLBH_HBC.UI
             // TENVO
             // 
             this.TENVO.Caption = "Tên vỏ";
-            this.TENVO.FieldName = "MAHH";
+            this.TENVO.FieldName = "TENHH";
             this.TENVO.MinWidth = 25;
             this.TENVO.Name = "TENVO";
             this.TENVO.Visible = true;
@@ -640,10 +644,10 @@ namespace QLBH_HBC.UI
         private DevExpress.XtraEditors.TextEdit txtMaHH;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.BarButtonItem btnAdd;
+        private DevExpress.XtraBars.BarButtonItem btnEdit;
+        private DevExpress.XtraBars.BarButtonItem btnDelete;
+        private DevExpress.XtraBars.BarButtonItem btnSave;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;

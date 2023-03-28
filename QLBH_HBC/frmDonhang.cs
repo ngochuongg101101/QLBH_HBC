@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using QLBH_HBC.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,14 @@ namespace QLBH_HBC
 {
     public partial class frmDonhang : DevExpress.XtraEditors.XtraForm
     {
-        public frmDonhang()
+        public string maDH { get; set; }
+        private uc_Kho ucKho;
+        public frmDonhang(uc_Kho ucKho)
         {
+            //_ucKho = ucKho;
             InitializeComponent();
+            this.ucKho = ucKho;
         }
-
         private void gridControl1_Load(object sender, EventArgs e)
         {
             string sql = "SELECT TRANGTHAI, MADH , NGAYTAO , TENDL , NGUOITAO, TONGTIEN  FROM DONHANG " +
@@ -29,11 +33,15 @@ namespace QLBH_HBC
             //gridView1.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
         }
 
-        private void gridView1_DoubleClick(object sender, EventArgs e)
+        private void btnChoose_Click(object sender, EventArgs e)
         {
-            var row = gridView1.GetDataRow(gridView1.FocusedRowHandle);
-            string madh = row["MADH"].ToString();
-            MessageBox.Show("hh");
+            // Lấy giá trị mã đơn hàng từ row được chọn
+            string maDH = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MADH").ToString();
+            // Trả về giá trị maDH đã chọn và đóng form
+            this.DialogResult = DialogResult.OK;
+            ucKho.maDH = maDH;
+            this.Close();
+            //MessageBox.Show(ucKho.maDH);
 
             //đóng form lại và truyền madh về btnMadh trong uc_Kho
         }
