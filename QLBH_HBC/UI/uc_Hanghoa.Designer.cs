@@ -122,16 +122,16 @@ namespace QLBH_HBC.UI
             this.layoutControl1.Location = new System.Drawing.Point(0, 47);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(768, 536);
+            this.layoutControl1.Size = new System.Drawing.Size(1027, 538);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // txtGiacuoc
             // 
-            this.txtGiacuoc.Location = new System.Drawing.Point(652, 101);
+            this.txtGiacuoc.Location = new System.Drawing.Point(840, 101);
             this.txtGiacuoc.MenuManager = this.barManager1;
             this.txtGiacuoc.Name = "txtGiacuoc";
-            this.txtGiacuoc.Size = new System.Drawing.Size(104, 22);
+            this.txtGiacuoc.Size = new System.Drawing.Size(175, 22);
             this.txtGiacuoc.StyleController = this.layoutControl1;
             this.txtGiacuoc.TabIndex = 16;
             // 
@@ -221,15 +221,15 @@ namespace QLBH_HBC.UI
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(768, 47);
+            this.barDockControlTop.Size = new System.Drawing.Size(1027, 47);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 583);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 585);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(768, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1027, 20);
             // 
             // barDockControlLeft
             // 
@@ -237,41 +237,41 @@ namespace QLBH_HBC.UI
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 47);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 536);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 538);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(768, 47);
+            this.barDockControlRight.Location = new System.Drawing.Point(1027, 47);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 536);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 538);
             // 
             // txtGiaban
             // 
-            this.txtGiaban.Location = new System.Drawing.Point(479, 101);
+            this.txtGiaban.Location = new System.Drawing.Point(607, 101);
             this.txtGiaban.MenuManager = this.barManager1;
             this.txtGiaban.Name = "txtGiaban";
-            this.txtGiaban.Size = new System.Drawing.Size(71, 22);
+            this.txtGiaban.Size = new System.Drawing.Size(131, 22);
             this.txtGiaban.StyleController = this.layoutControl1;
             this.txtGiaban.TabIndex = 15;
             // 
             // chkCoVCK
             // 
-            this.chkCoVCK.Location = new System.Drawing.Point(381, 127);
+            this.chkCoVCK.Location = new System.Drawing.Point(509, 127);
             this.chkCoVCK.MenuManager = this.barManager1;
             this.chkCoVCK.Name = "chkCoVCK";
             this.chkCoVCK.Properties.Caption = "Có VCK";
-            this.chkCoVCK.Size = new System.Drawing.Size(375, 24);
+            this.chkCoVCK.Size = new System.Drawing.Size(506, 24);
             this.chkCoVCK.StyleController = this.layoutControl1;
             this.chkCoVCK.TabIndex = 14;
             // 
             // cbDVT
             // 
             this.cbDVT.FormattingEnabled = true;
-            this.cbDVT.Location = new System.Drawing.Point(724, 71);
+            this.cbDVT.Location = new System.Drawing.Point(937, 71);
             this.cbDVT.Name = "cbDVT";
-            this.cbDVT.Size = new System.Drawing.Size(32, 24);
+            this.cbDVT.Size = new System.Drawing.Size(78, 24);
             this.cbDVT.TabIndex = 11;
             // 
             // cbLoai
@@ -280,34 +280,34 @@ namespace QLBH_HBC.UI
             this.cbLoai.Items.AddRange(new object[] {
             "Bia",
             "Vỏ"});
-            this.cbLoai.Location = new System.Drawing.Point(660, 41);
+            this.cbLoai.Location = new System.Drawing.Point(851, 41);
             this.cbLoai.Name = "cbLoai";
-            this.cbLoai.Size = new System.Drawing.Size(96, 24);
+            this.cbLoai.Size = new System.Drawing.Size(164, 24);
             this.cbLoai.TabIndex = 10;
             // 
             // txtTenHH
             // 
-            this.txtTenHH.Location = new System.Drawing.Point(479, 71);
+            this.txtTenHH.Location = new System.Drawing.Point(607, 71);
             this.txtTenHH.MenuManager = this.barManager1;
             this.txtTenHH.Name = "txtTenHH";
-            this.txtTenHH.Size = new System.Drawing.Size(143, 22);
+            this.txtTenHH.Size = new System.Drawing.Size(228, 22);
             this.txtTenHH.StyleController = this.layoutControl1;
             this.txtTenHH.TabIndex = 9;
             // 
             // txtMaHH
             // 
-            this.txtMaHH.Location = new System.Drawing.Point(479, 41);
+            this.txtMaHH.Location = new System.Drawing.Point(607, 41);
             this.txtMaHH.MenuManager = this.barManager1;
             this.txtMaHH.Name = "txtMaHH";
-            this.txtMaHH.Size = new System.Drawing.Size(79, 22);
+            this.txtMaHH.Size = new System.Drawing.Size(142, 22);
             this.txtMaHH.StyleController = this.layoutControl1;
             this.txtMaHH.TabIndex = 8;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(381, 12);
+            this.label2.Location = new System.Drawing.Point(509, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(375, 25);
+            this.label2.Size = new System.Drawing.Size(506, 25);
             this.label2.TabIndex = 7;
             this.label2.Text = "Chi tiết hàng hóa";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -316,18 +316,18 @@ namespace QLBH_HBC.UI
             // 
             this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(365, 25);
+            this.label1.Size = new System.Drawing.Size(493, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "Danh mục hàng hóa";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // gridControl2
             // 
-            this.gridControl2.Location = new System.Drawing.Point(381, 155);
+            this.gridControl2.Location = new System.Drawing.Point(509, 155);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.MenuManager = this.barManager1;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(375, 369);
+            this.gridControl2.Size = new System.Drawing.Size(506, 371);
             this.gridControl2.TabIndex = 5;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -341,6 +341,7 @@ namespace QLBH_HBC.UI
             this.DVTINH});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
+            this.gridView2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gridView2_KeyUp);
             // 
             // MAVO
             // 
@@ -388,7 +389,7 @@ namespace QLBH_HBC.UI
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(365, 483);
+            this.gridControl1.Size = new System.Drawing.Size(493, 485);
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -496,7 +497,7 @@ namespace QLBH_HBC.UI
             this.layoutControlItem10,
             this.layoutControlItem8});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(768, 536);
+            this.Root.Size = new System.Drawing.Size(1027, 538);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -504,16 +505,16 @@ namespace QLBH_HBC.UI
             this.layoutControlItem1.Control = this.gridControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 29);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(369, 487);
+            this.layoutControlItem1.Size = new System.Drawing.Size(497, 489);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.gridControl2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(369, 143);
+            this.layoutControlItem2.Location = new System.Drawing.Point(497, 143);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(379, 373);
+            this.layoutControlItem2.Size = new System.Drawing.Size(510, 375);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -522,79 +523,79 @@ namespace QLBH_HBC.UI
             this.layoutControlItem3.Control = this.label1;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(369, 29);
+            this.layoutControlItem3.Size = new System.Drawing.Size(497, 29);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.label2;
-            this.layoutControlItem4.Location = new System.Drawing.Point(369, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(497, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(379, 29);
+            this.layoutControlItem4.Size = new System.Drawing.Size(510, 29);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.txtMaHH;
-            this.layoutControlItem5.Location = new System.Drawing.Point(369, 29);
+            this.layoutControlItem5.Location = new System.Drawing.Point(497, 29);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(181, 30);
+            this.layoutControlItem5.Size = new System.Drawing.Size(244, 30);
             this.layoutControlItem5.Text = "Mã hàng hóa";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(86, 16);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.txtTenHH;
-            this.layoutControlItem6.Location = new System.Drawing.Point(369, 59);
+            this.layoutControlItem6.Location = new System.Drawing.Point(497, 59);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(245, 30);
+            this.layoutControlItem6.Size = new System.Drawing.Size(330, 30);
             this.layoutControlItem6.Text = "Tên hàng hóa";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(86, 16);
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.chkCoVCK;
-            this.layoutControlItem11.Location = new System.Drawing.Point(369, 115);
+            this.layoutControlItem11.Location = new System.Drawing.Point(497, 115);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(379, 28);
+            this.layoutControlItem11.Size = new System.Drawing.Size(510, 28);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.txtGiaban;
-            this.layoutControlItem9.Location = new System.Drawing.Point(369, 89);
+            this.layoutControlItem9.Location = new System.Drawing.Point(497, 89);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(173, 26);
+            this.layoutControlItem9.Size = new System.Drawing.Size(233, 26);
             this.layoutControlItem9.Text = "Giá bán";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(86, 16);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.cbLoai;
-            this.layoutControlItem7.Location = new System.Drawing.Point(550, 29);
+            this.layoutControlItem7.Location = new System.Drawing.Point(741, 29);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(198, 30);
+            this.layoutControlItem7.Size = new System.Drawing.Size(266, 30);
             this.layoutControlItem7.Text = "Loại hàng hóa";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(86, 17);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.txtGiacuoc;
-            this.layoutControlItem10.Location = new System.Drawing.Point(542, 89);
+            this.layoutControlItem10.Location = new System.Drawing.Point(730, 89);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(206, 26);
+            this.layoutControlItem10.Size = new System.Drawing.Size(277, 26);
             this.layoutControlItem10.Text = "Giá cược";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(86, 17);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.cbDVT;
-            this.layoutControlItem8.Location = new System.Drawing.Point(614, 59);
+            this.layoutControlItem8.Location = new System.Drawing.Point(827, 59);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(134, 30);
+            this.layoutControlItem8.Size = new System.Drawing.Size(180, 30);
             this.layoutControlItem8.Text = "Đơn vị tính";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(86, 17);
             // 
@@ -608,7 +609,7 @@ namespace QLBH_HBC.UI
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "uc_Hanghoa";
-            this.Size = new System.Drawing.Size(768, 603);
+            this.Size = new System.Drawing.Size(1027, 605);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtGiacuoc.Properties)).EndInit();

@@ -28,7 +28,6 @@ namespace QLBH_HBC
             "JOIN DAILY ON MADL = MA_DL";
             gridControl1.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql);
             gridControl1.Refresh();
-            //gridView1.DoubleClick += gridView1_DoubleClick;
             //gridView1.OptionsBehavior.ReadOnly = true;
             //gridView1.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
         }

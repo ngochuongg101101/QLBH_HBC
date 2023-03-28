@@ -41,9 +41,14 @@ namespace QLBH_HBC.UI
             cbDVT.Text = row["DVT"].ToString();
             txtGiaban.Text = row["DONGIA"].ToString();
             txtGiacuoc.Text = row["GIACUOC"].ToString();
-            chkCoVCK.Checked = Convert.ToBoolean(row["CO_VCK"].ToString());
-
-
+            if (addnewflag==true)
+            {
+                chkCoVCK.Checked = false;
+            }
+            else
+            {
+                chkCoVCK.Checked = Convert.ToBoolean(row["CO_VCK"].ToString());
+            }
             string sql1 = "SELECT MAHH,TENHH,BOOM.SL,DVT FROM HANGHOA,BOOM WHERE MAHH = MA_VO AND MA_BIA = '" + txtMaHH.Text + "'";
             gridControl2.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql1);
             gridControl2.Refresh();
@@ -53,13 +58,44 @@ namespace QLBH_HBC.UI
 
         private void gridView1_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            NapCT();
-            txtMaHH.Enabled = false;
-            txtTenHH.Enabled = false;
-            cbLoai.Enabled = false;
-            cbDVT.Enabled = false;
-            txtGiaban.Enabled = false;
-            txtGiacuoc.Enabled = false;
+            if (addnewflag == true)
+            {
+                DialogResult result = MessageBox.Show("Bạn có muốn tiếp tục tạo mới?", "Thông báo", MessageBoxButtons.YesNo);
+
+                // Xử lý sự kiện khi người dùng bấm Có hoặc Không
+                switch (result)
+                {
+                    case DialogResult.Yes:
+                        
+                        // Thêm các sự kiện khi người dùng bấm Có vào đây
+                        break;
+                    case DialogResult.No:
+                        NapCT();
+                        txtMaHH.Enabled = false;
+                        txtTenHH.Enabled = false;
+                        cbLoai.Enabled = false;
+                        cbDVT.Enabled = false;
+                        txtGiaban.Enabled = false;
+                        txtGiacuoc.Enabled = false;
+                        chkCoVCK.Enabled = false;
+                        addnewflag = false;
+                        // Thêm các sự kiện khi người dùng bấm Không vào đây
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                NapCT();
+                txtMaHH.Enabled = false;
+                txtTenHH.Enabled = false;
+                cbLoai.Enabled = false;
+                cbDVT.Enabled = false;
+                txtGiaban.Enabled = false;
+                txtGiacuoc.Enabled = false;
+                chkCoVCK.Enabled = false;
+            }
         }
 
         private void gridControl1_MouseDown(object sender, MouseEventArgs e)
@@ -79,33 +115,36 @@ namespace QLBH_HBC.UI
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            addnewflag = true;
+
             txtTenHH.Enabled = true;
             cbLoai.Enabled = true;
             cbDVT.Enabled = true;
             txtGiaban.Enabled = true;
             txtGiacuoc.Enabled = true;
+            chkCoVCK.Enabled = true;
 
             gridView1.AddNewRow();
             gridView1.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             NapCT();
-            //txtTenHH.Focus();
-            //btnSave.Enabled = true;
+            txtTenHH.Focus();
+            btnSave.Enabled = true;
 
-            //for (int i = 1; i <= 20; i++)
-            //{
-            //    gridView2.AddNewRow();
-            //}
-            //gridView2.OptionsBehavior.Editable = true;
-            //gridView2.OptionsBehavior.ReadOnly = false;
-            //gridView2.Appearance.Row.BackColor = Color.Empty;
-            //addnewflag = true;
+            for (int i = 1; i <= 5; i++)
+            {
+                gridView2.AddNewRow();
+            }
+            gridView2.OptionsBehavior.Editable = true;
+            gridView2.OptionsBehavior.ReadOnly = false;
+            gridView2.Appearance.Row.BackColor = Color.Empty;
+            addnewflag = true;
 
-            //string sql2 = "Select distinct DVT from HANGHOA";
-            //DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql2);
-            //cbDVT.DataSource = dt;
-            //cbDVT.DisplayMember = "DVT";
-            //cbDVT.Text = "";
-            //cbDVT.ValueMember = "DVT";
+            string sql2 = "Select distinct DVT from HANGHOA";
+            DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql2);
+            cbDVT.DataSource = dt;
+            cbDVT.DisplayMember = "DVT";
+            cbDVT.Text = "";
+            cbDVT.ValueMember = "DVT";
         }
 
         private void gridView2_KeyUp(object sender, KeyEventArgs e)

@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
@@ -18,34 +19,46 @@ namespace QLBH_HBC
     public partial class frmNhapcuoc : DevExpress.XtraEditors.XtraForm
     {
         private string userName;
-        public frmNhapcuoc(string username)
+        private string loai;
+        private double tongtien = 0;
+
+        public frmNhapcuoc(string username, string loai)
         {
             InitializeComponent();
             this.userName = username;
+            this.loai = loai;
         }
-        private double tongtien = 0;
         private DataTable dt1;
         private void frmNhapcuoc_Load(object sender, EventArgs e)
         {
+            if (loai == "Nhập")
+            {
+                label1.Text = "PHIẾU NHẬN CƯỢC VỎ CHAI KÉT";
+            }
+            if (loai == "Trả")
+            {
+                label1.Text = "PHIẾU TRẢ CƯỢC VỎ CHAI KÉT";
+            }
+
 
             //Ngày tạo mặc định là ngày hiện tại
             dtNgaytao.EditValue = DateTime.Today;
-            txtTongtien.Text = tongtien.ToString();
             //Hiển thị mã + tên đại lý trong combobox
             string sql = "Select MADL,TENDL from DAILY";
             DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql);
             cbDaily.DataSource = dt;
-            dt.Columns.Add("FULL", typeof(string), "TRIM(MADL) + ' - ' + TENDL");
-            cbDaily.DisplayMember = "FULL";
+            //dt.Columns.Add("FULL", typeof(string), "TRIM(MADL) + ' - ' + TENDL");
+            cbDaily.DisplayMember = "TENDL";
             cbDaily.Text = "";
             cbDaily.ValueMember = "MADL";
-            DTO.Nguoidung Hoten = DAO.NguoidungDAO.Instance.GetFullNameByUsername(userName);
-            if (Hoten != null)
-            {
-                cbNguoitao.Text = Hoten.Hoten.ToString();
+            txtNguoitao.Text = userName;
+            //DTO.Nguoidung Hoten = DAO.NguoidungDAO.Instance.GetFullNameByUsername(userName);
+            //if (Hoten != null)
+            //{
+            //    txtNguoitao.Text = Hoten.Hoten.ToString();
 
-            }
-            cbNguoitao.Enabled = false;
+            //}
+            txtNguoitao.Enabled = false;
             txtNoidung.Text = "";
 
             //Truyền vào giá trị txtNguoitao = USERNAME đăng nhập, hiển thị là USERNAME
@@ -112,7 +125,7 @@ namespace QLBH_HBC
                         {
                             gridView.SetRowCellValue(rowHandle, "TENHH", dt.Rows[0]["TENHH"]);
                             gridView.SetRowCellValue(rowHandle, "DVT", dt.Rows[0]["DVT"]);
-                            gridView.SetRowCellValue(rowHandle, "GIACUOC", dt.Rows[0]["GIACUOC"]);
+                            gridView.SetRowCellValue(rowHandle, "GIACUOC", Convert.ToDouble (dt.Rows[0]["GIACUOC"]));
                         }
                         else
                         {
@@ -137,8 +150,10 @@ namespace QLBH_HBC
                         //        txtTongtien.Text = tongtien.ToString();
                         //    }
                         //}
+                        gridView.RefreshData();
+                        GridColumn summaryColumn = gridView.Columns["THANHTIEN"];
+                        tongtien = Convert.ToDouble(gridView.Columns["THANHTIEN"].SummaryItem.SummaryValue);
 
-                        
                     }
                 }
             }
@@ -148,57 +163,68 @@ namespace QLBH_HBC
         {
             try
             {
-                string loaiNhap = "Nhập";
-                DateTime parsedDate;
-                if (dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss").Length > 6 && cbDaily.SelectedValue.ToString().Trim().Length>0)
+                if (loai == "Nhập")
                 {
-                    string result = DAO.PhieuCuocDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, loaiNhap, cbDaily.SelectedValue.ToString().Trim());
-                    if (result != null)
+                    //MessageBox.Show(dtNgaytao.DateTime.ToString());
+                    //MessageBox.Show(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"));
+
+
+                    DateTime parsedDate;
+                    if (dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss").Length > 6 && cbDaily.SelectedValue.ToString().Trim().Length > 0)
                     {
-                        bool resultCT = false;
-                        for (int i = 0; i < gridView.RowCount; i++)
+                        string result = DAO.PhieuCuocDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, loai, cbDaily.SelectedValue.ToString().Trim());
+
+                        if (result != null)
                         {
-                            object cellValueMaHH = gridView.GetRowCellValue(i, "MAHH");
-                            object cellValueSL = gridView.GetRowCellValue(i, "SL");
-                            if (cellValueMaHH.ToString().Trim().Length > 0 && cellValueSL.ToString().Trim().Length > 0)
+                            bool resultCT = false;
+                            for (int i = 0; i < gridView.RowCount; i++)
                             {
-                                if (txtPTTT.Text.Length>0)
+                                object cellValueMaHH = gridView.GetRowCellValue(i, "MAHH");
+                                object cellValueSL = gridView.GetRowCellValue(i, "SL");
+                                if (cellValueMaHH.ToString().Trim().Length > 0 && cellValueSL.ToString().Trim().Length > 0)
                                 {
-                                    resultCT = DAO.CTPhieuCuocDAO.Instance.Insert(result, cellValueMaHH.ToString().Trim().ToUpper(), Convert.ToInt32(cellValueSL));
-                                    DAO.PhieuThuChiDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, txtPTTT.Text, Convert.ToInt32(txtTongtien.Text), "MVV0002", result.Trim());
-                                    DTO.Vckcuoc resultVCK = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim());
-                                    if (resultVCK != null)
+                                    if (txtPTTT.Text.Length > 0)
                                     {
-                                        DTO.Vckcuoc dataVCKSL = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim().ToUpper());
-                                        DAO.VCKDAO.Instance.Update(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL) + Convert.ToInt32(resultVCK.SlCuoc),Convert.ToInt32(dataVCKSL.SlGiu));
-                                    }
-                                    else
-                                    {
-                                        DAO.VCKDAO.Instance.Insert(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL));
+                                        resultCT = DAO.CTPhieuCuocDAO.Instance.Insert(result, cellValueMaHH.ToString().Trim().ToUpper(), Convert.ToInt32(cellValueSL));
+                                        DAO.PhieuThuChiDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, txtPTTT.Text, Convert.ToInt32(tongtien), "MVV0002", result.Trim());
+                                        DTO.Vckcuoc resultVCK = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim());
+                                        if (resultVCK != null)
+                                        {
+                                            DTO.Vckcuoc dataVCKSL = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim().ToUpper());
+                                            DAO.VCKDAO.Instance.Update(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL) + Convert.ToInt32(resultVCK.SlCuoc), Convert.ToInt32(dataVCKSL.SlGiu));
+                                        }
+                                        else
+                                        {
+                                            DAO.VCKDAO.Instance.Insert(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL));
+                                        }
                                     }
                                 }
+                                else
+                                {
+                                    break;
+                                }
+
+
+                            }
+                            if (resultCT)
+                            {
+                                XtraMessageBox.Show("Tạo phiếu thành công!");
                             }
                             else
                             {
-                                break;
+                                XtraMessageBox.Show("Lỗi nhập số lượng và hàng hóa. Yêu cầu nhập dùm");
                             }
 
-
-                        }
-                        if (resultCT)
-                        {
-                            XtraMessageBox.Show("Tạo phiếu thành công!");
                         }
                         else
                         {
-                            XtraMessageBox.Show("Lỗi nhâp số luọng");
+                            XtraMessageBox.Show("Tạo phiếu không thành công!");
                         }
+                    }
+                }
+                if (loai == "Trả")
+                {
 
-                    }
-                    else
-                    {
-                        XtraMessageBox.Show("Tạo phiếu không thành công!");
-                    }
                 }
             }
             catch (Exception ex)

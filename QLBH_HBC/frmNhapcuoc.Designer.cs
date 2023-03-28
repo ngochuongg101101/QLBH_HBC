@@ -41,7 +41,6 @@ namespace QLBH_HBC
             this.GIACUOC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.THANHTIEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dtNgaytao = new DevExpress.XtraEditors.DateEdit();
-            this.cbNguoitao = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPTTT = new DevExpress.XtraEditors.TextEdit();
             this.txtNoidung = new DevExpress.XtraEditors.TextEdit();
@@ -58,7 +57,6 @@ namespace QLBH_HBC
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutNgaytao = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutNguoitao = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -71,13 +69,14 @@ namespace QLBH_HBC
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutPTTT = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txtNguoitao = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtNgaytao.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtNgaytao.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbNguoitao.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPTTT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNoidung.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit12.Properties)).BeginInit();
@@ -91,7 +90,6 @@ namespace QLBH_HBC
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutNgaytao)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutNguoitao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
@@ -104,14 +102,16 @@ namespace QLBH_HBC
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutPTTT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNguoitao.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.txtNguoitao);
             this.layoutControl1.Controls.Add(this.cbDaily);
             this.layoutControl1.Controls.Add(this.gridControl);
             this.layoutControl1.Controls.Add(this.dtNgaytao);
-            this.layoutControl1.Controls.Add(this.cbNguoitao);
             this.layoutControl1.Controls.Add(this.label1);
             this.layoutControl1.Controls.Add(this.txtPTTT);
             this.layoutControl1.Controls.Add(this.txtNoidung);
@@ -228,7 +228,7 @@ namespace QLBH_HBC
             this.GIACUOC.MinWidth = 24;
             this.GIACUOC.Name = "GIACUOC";
             this.GIACUOC.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "GIACUOC", "Tổng tiên:")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "GIACUOC", "Tổng tiền:")});
             this.GIACUOC.Visible = true;
             this.GIACUOC.VisibleIndex = 5;
             this.GIACUOC.Width = 148;
@@ -256,17 +256,6 @@ namespace QLBH_HBC
             this.dtNgaytao.Size = new System.Drawing.Size(238, 22);
             this.dtNgaytao.StyleController = this.layoutControl1;
             this.dtNgaytao.TabIndex = 18;
-            // 
-            // cbNguoitao
-            // 
-            this.cbNguoitao.Location = new System.Drawing.Point(652, 78);
-            this.cbNguoitao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbNguoitao.Name = "cbNguoitao";
-            this.cbNguoitao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbNguoitao.Size = new System.Drawing.Size(225, 22);
-            this.cbNguoitao.StyleController = this.layoutControl1;
-            this.cbNguoitao.TabIndex = 9;
             // 
             // label1
             // 
@@ -381,7 +370,6 @@ namespace QLBH_HBC
             this.layoutControlItem7,
             this.emptySpaceItem2,
             this.layoutNgaytao,
-            this.layoutNguoitao,
             this.emptySpaceItem4,
             this.layoutControlItem4,
             this.layoutControlItem5,
@@ -393,7 +381,8 @@ namespace QLBH_HBC
             this.emptySpaceItem9,
             this.layoutControlItem8,
             this.layoutPTTT,
-            this.layoutControlItem9});
+            this.layoutControlItem9,
+            this.layoutControlItem10});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(889, 734);
             this.Root.TextVisible = false;
@@ -433,21 +422,12 @@ namespace QLBH_HBC
             this.layoutNgaytao.Text = "Ngày tạo";
             this.layoutNgaytao.TextSize = new System.Drawing.Size(154, 17);
             // 
-            // layoutNguoitao
-            // 
-            this.layoutNguoitao.Control = this.cbNguoitao;
-            this.layoutNguoitao.Location = new System.Drawing.Point(474, 66);
-            this.layoutNguoitao.Name = "layoutNguoitao";
-            this.layoutNguoitao.Size = new System.Drawing.Size(395, 26);
-            this.layoutNguoitao.Text = "Người tạo";
-            this.layoutNguoitao.TextSize = new System.Drawing.Size(154, 17);
-            // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.Location = new System.Drawing.Point(408, 66);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(66, 26);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(67, 26);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
@@ -544,6 +524,23 @@ namespace QLBH_HBC
             this.layoutControlItem9.Text = "Tổng tiền";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(154, 17);
             // 
+            // txtNguoitao
+            // 
+            this.txtNguoitao.Location = new System.Drawing.Point(653, 78);
+            this.txtNguoitao.Name = "txtNguoitao";
+            this.txtNguoitao.Size = new System.Drawing.Size(224, 22);
+            this.txtNguoitao.StyleController = this.layoutControl1;
+            this.txtNguoitao.TabIndex = 19;
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.txtNguoitao;
+            this.layoutControlItem10.Location = new System.Drawing.Point(475, 66);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(394, 26);
+            this.layoutControlItem10.Text = "Người tạo";
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(154, 17);
+            // 
             // frmNhapcuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -561,7 +558,6 @@ namespace QLBH_HBC
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtNgaytao.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtNgaytao.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbNguoitao.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPTTT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNoidung.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit12.Properties)).EndInit();
@@ -575,7 +571,6 @@ namespace QLBH_HBC
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutNgaytao)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutNguoitao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
@@ -588,6 +583,8 @@ namespace QLBH_HBC
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutPTTT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNguoitao.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -605,8 +602,6 @@ namespace QLBH_HBC
         private DevExpress.XtraLayout.LayoutControlItem layoutPTTT;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraEditors.ComboBoxEdit cbNguoitao;
-        private DevExpress.XtraLayout.LayoutControlItem layoutNguoitao;
         private DevExpress.XtraLayout.LayoutControlItem layoutNgaytao;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraGrid.GridControl gridControl;
@@ -636,5 +631,7 @@ namespace QLBH_HBC
         private DevExpress.XtraEditors.TextEdit txtTongtien;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraEditors.DateEdit dtNgaytao;
+        private DevExpress.XtraEditors.TextEdit txtNguoitao;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
     }
 }

@@ -118,6 +118,7 @@ namespace QLBH_HBC.UI
             this.btnTracuoc.StyleController = this.layoutControl1;
             this.btnTracuoc.TabIndex = 8;
             this.btnTracuoc.Text = "Trả cược";
+            this.btnTracuoc.Click += new System.EventHandler(this.btnTracuoc_Click);
             // 
             // Root
             // 
