@@ -14,7 +14,6 @@ namespace QLBH_HBC
 {
     public partial class frmDonhang : DevExpress.XtraEditors.XtraForm
     {
-        public string maDH { get; set; }
         private uc_Kho ucKho;
         public frmDonhang(uc_Kho ucKho)
         {

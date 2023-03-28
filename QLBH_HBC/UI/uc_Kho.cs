@@ -94,10 +94,12 @@ namespace QLBH_HBC.UI
             gridView2.OptionsBehavior.Editable = true;
             gridView2.OptionsBehavior.ReadOnly = false;
             gridView2.Appearance.Row.BackColor = Color.Empty;
-
+            List<DTO.LoaiPK> data_loaiPK = DAO.LoaiPKDAO.Instance.GetAll();
             //Lấy lên từ table LOAIPK -> cbLoaiPK, value = MALPK, displaymember = TENLOAI,
             //hiển thị sẵn value (LPK0001) - displaymember (Xuất bán hàng) (loại thường xuyên nhất -> sau đó ng dùng có thể đổi)
-            //
+            cbLoaiPK.DataSource = data_loaiPK;
+            cbLoaiPK.DisplayMember = "tenLPK";
+            //DONE
             
         }
 
@@ -105,6 +107,19 @@ namespace QLBH_HBC.UI
         {
             //nếu = LPK0001 thì txtMadh.Visible = true;
             //còn lại -> txtMadh.Visible = false; (do chỉ có trường hợp xuất bán hàng là có đi kèm mã đơn hàng)
+            if(cbLoaiPK.SelectedIndex != null)
+            {
+                DTO.LoaiPK loaiPK = (DTO.LoaiPK)cbLoaiPK.SelectedValue;
+                if(loaiPK.MaLPK.Trim() == "LPK0001")
+                {
+                    btnMadh.Visible = true;
+                }
+                else
+                {
+                    btnMadh.Visible = false;
+                }
+            }
+            //done
         }
 
         private void btnMadh_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -122,6 +137,7 @@ namespace QLBH_HBC.UI
             //MessageBox.Show(ucKho.maDH);
             //Lấy thông tin mã đơn hàng từ form frmDonhang
             frmDonhang f = sender as frmDonhang;
+            MessageBox.Show(ucKho.maDH);
             if (f != null && f.DialogResult == DialogResult.OK)
             {
                 // Thực hiện gán giá trị mã đơn hàng cho button btnMadh

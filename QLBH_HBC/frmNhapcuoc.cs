@@ -223,5 +223,10 @@ namespace QLBH_HBC
         {
             txtNoidung.Text = "Thu tiền cược VCK của " + cbDaily.Text;
         }
+
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
