@@ -203,7 +203,7 @@ namespace QLBH_HBC.UI
                             {
                                 gridView2.SetRowCellValue(rowHandle + i + 1, "MAHH", dt2.Rows[i]["MAHH"].ToString());
                                 gridView2.SetRowCellValue(rowHandle + i + 1, "TENHH", dt2.Rows[i]["TENHH"].ToString());
-                                gridView2.SetRowCellValue(rowHandle + i + 1, "SL", Convert.ToInt32(dt2.Rows[i]["SL"].ToString()) * sl);
+                                gridView2.SetRowCellValue(rowHandle + i + 1, "SL", Convert.ToDouble(dt2.Rows[i]["SL"].ToString()) * sl);
                                 gridView2.SetRowCellValue(rowHandle + i + 1, "DVT", dt2.Rows[i]["DVT"].ToString());
                             }
                         }

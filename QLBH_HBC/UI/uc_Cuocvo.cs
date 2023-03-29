@@ -23,7 +23,7 @@ namespace QLBH_HBC.UI
 
         private void btnNhapcuoc_Click(object sender, EventArgs e)
         {
-            Form f = new frmNhapcuoc(userName);
+            Form f = new frmNhapcuoc(userName,"Nhập");
             f.Show();
         }
 
@@ -33,6 +33,12 @@ namespace QLBH_HBC.UI
                 "from VCKCUOC,HANGHOA, DAILY WHERE VCKCUOC.MA_DL=DAILY.MADL AND VCKCUOC.MA_VO=HANGHOA.MAHH";
             gridControl.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql);
             gridControl.Refresh();
+        }
+
+        private void btnTracuoc_Click(object sender, EventArgs e)
+        {
+            Form f = new frmNhapcuoc(userName, "Trả");
+            f.Show();
         }
     }
 }
