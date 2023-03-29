@@ -14,12 +14,12 @@ namespace QLBH_HBC
 {
     public partial class frmDonhang : DevExpress.XtraEditors.XtraForm
     {
-        private uc_Kho ucKho;
+        private uc_Kho _ucKho;
         public frmDonhang(uc_Kho ucKho)
         {
-            //_ucKho = ucKho;
+            _ucKho = ucKho;
             InitializeComponent();
-            this.ucKho = ucKho;
+            //this.ucKho = ucKho;
         }
         private void gridControl1_Load(object sender, EventArgs e)
         {
@@ -34,10 +34,11 @@ namespace QLBH_HBC
         private void btnChoose_Click(object sender, EventArgs e)
         {
             // Lấy giá trị mã đơn hàng từ row được chọn
-            string maDH = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MADH").ToString();
+            string MaDH = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MADH").ToString();
             // Trả về giá trị maDH đã chọn và đóng form
             this.DialogResult = DialogResult.OK;
-            ucKho.maDH = maDH;
+            //ucKho.maDH = maDH;
+            _ucKho.maDH = MaDH;
             this.Close();
             //MessageBox.Show(ucKho.maDH);
 

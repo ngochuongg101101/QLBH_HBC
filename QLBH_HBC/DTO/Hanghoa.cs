@@ -38,7 +38,7 @@ namespace QLBH_HBC.DTO
             this.Dvt = Row["DVT"].ToString();
             this.Sl = (int)Convert.ToDouble(Row["SL"].ToString());
             this.Loai  = Row["LOAI"].ToString();
-            this.Co_vck = (Boolean)Row["CO_VCK"];
+            //this.Co_vck = (Boolean)Row["CO_VCK"];
 
         }
         public float Giacuoc { get; private set; }

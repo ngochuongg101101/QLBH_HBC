@@ -91,6 +91,7 @@
     <Compile Include="DAO\LoaiPKDAO.cs" />
     <Compile Include="DAO\MaVuViecDAO.cs" />
     <Compile Include="DAO\PhieuCuocDAO.cs" />
+    <Compile Include="DAO\PhieukhoDAO.cs" />
     <Compile Include="DAO\PhieuThuChiDAO.cs" />
     <Compile Include="DAO\VCKDAO.cs" />
     <Compile Include="DTO\Boom.cs" />

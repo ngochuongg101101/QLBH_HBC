@@ -18,7 +18,7 @@ namespace QLBH_HBC.UI
 
         private string userName;
         private uc_Kho ucKho;
-        public string maDH;
+        public string maDH { get; set; }
         public uc_Kho(string username, uc_Kho ucKho)
         {
             InitializeComponent();
@@ -85,7 +85,7 @@ namespace QLBH_HBC.UI
             btnSave.Enabled = true;
             txtMapk.Enabled = false;
             dtNgaytao.EditValue = DateTime.Today;
-            //txtNguoitao = username;
+            txtNguoitao.Text = userName;
 
             for (int i = 1; i <= 20; i++)
             {
@@ -124,12 +124,37 @@ namespace QLBH_HBC.UI
 
         private void btnMadh_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            frmDonhang f = new frmDonhang(ucKho);
-            f.FormClosed += new FormClosedEventHandler(frmDonhang_FormClosed); // Đăng ký sự kiện FormClosed
-            f.Show();
+            frmDonhang f = new frmDonhang(this);
+            f.ShowDialog();
+            btnMadh.Text = maDH;
+            if (maDH.Trim().Length > 0)
+            {
+                int rowHandle = gridView2.FocusedRowHandle;
+                DataRow row = gridView2.GetDataRow(rowHandle);
+                List<DTO.CTDonhang> data_ctdonhang = DAO.CTDonhangDAO.Instance.GetMaHHByMaDH(maDH.Trim().ToUpper());
+                if(data_ctdonhang != null)
+                {
+                    foreach (DTO.CTDonhang ctDonhang in data_ctdonhang)
+                    {
+                        if (ctDonhang.MaHH.Trim().ToUpper().Length>0)
+                        {
+                            DTO.Hanghoa hanghoa = DAO.HanghoaDAO.Instance.Get(ctDonhang.MaHH.Trim().ToUpper());
+                            if (hanghoa != null)
+                            {
+                                gridView2.SetRowCellValue(rowHandle, "MAHH", hanghoa.MaHH);
+                                gridView2.SetRowCellValue(rowHandle, "TENHH", hanghoa.TenHH);
+                                gridView2.SetRowCellValue(rowHandle, "SL", hanghoa.Sl);
+                                gridView2.SetRowCellValue(rowHandle, "DVT", hanghoa.Dvt);
+                            }
+                        }
+
+                    }
+                }
+            }
             //Người dùng bấm vào ô tìm kiếm sẽ chạy ra frmDonhang -> gửi đi 1 tham số vào frmDonhang
             //Khi kích đúp vào 1 dòng -> sẽ truyền lại thông tin MADH vào tham số đã gửi đến
             //Hiển thị tham số đó lên btnMadh.Text
+            //Done
 
         }
         private void frmDonhang_FormClosed(object sender, FormClosedEventArgs e)
@@ -151,6 +176,7 @@ namespace QLBH_HBC.UI
             {
                 //Sau khi người dùng điền xong Mã đơn hàng và ấn Enter
                 //Truy cập vào bảng CT_DONHANG, HANGHOA lấy lên MAHH, TENHH, SL, DVT
+                MessageBox.Show(btnMadh.Text);
             }
         }
 
@@ -161,7 +187,49 @@ namespace QLBH_HBC.UI
             //2. Check thiếu thông tin
             //- Check txtNgaytao, txtNguoitao, MaHH, SL
             //- Nếu MALPK = 'LPK0001' -> Check thêm btnMadh
+            if (cbLoaiPK.Text.Trim().Length > 0)
+            {
+                if (btnMadh.Text.Trim().Length > 0)
+                {
+                    if (txtNguoitao.Text.Trim().Length > 0)
+                    {
+                        if(txtNoidung.Text.Trim().Length > 0)
+                        {
+                            if(txtPTVC.Text.Trim().Length > 0)
+                            {
+                                if(txtBienso.Text.Trim().Length > 0)
+                                {
 
+                                }
+                                else
+                                {
+                                    XtraMessageBox.Show("Bạn nhập thiếu biển số xe vận chuyển", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                            else
+                            {
+                                XtraMessageBox.Show("Bạn nhập thiếu phương tiện vận chuyển", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Bạn nhập thiếu nội dung diễn giải", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Bạn nhập thiếu người tạo", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    XtraMessageBox.Show("Bạn nhập thiếu trường loai phiếu kho", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("Bạn nhập thiếu trường loai phiếu kho", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             //2. Check tồn + VCK cược
             //- Từ MALPK -> vào bảng LOAIPK xem LOAI -> Nếu LOAI = "Xuất" 
             //  -> Kiểm tra xem có vượt tồn kho ở Hàng hóa không -> nếu vượt -> hiện thông báo chặn

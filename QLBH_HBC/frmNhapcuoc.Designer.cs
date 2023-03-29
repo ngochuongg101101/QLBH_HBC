@@ -258,14 +258,14 @@ namespace QLBH_HBC
             // 
             // cbNguoitao
             // 
-            this.cbNguoitao.Location = new System.Drawing.Point(545, 63);
-            this.cbNguoitao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbNguoitao.Name = "cbNguoitao";
-            this.cbNguoitao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbNguoitao.Size = new System.Drawing.Size(206, 20);
-            this.cbNguoitao.StyleController = this.layoutControl1;
-            this.cbNguoitao.TabIndex = 9;
+            //this.cbNguoitao.Location = new System.Drawing.Point(545, 63);
+            //this.cbNguoitao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            //this.cbNguoitao.Name = "cbNguoitao";
+            //this.cbNguoitao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            //new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            //this.cbNguoitao.Size = new System.Drawing.Size(206, 20);
+            //this.cbNguoitao.StyleController = this.layoutControl1;
+            //this.cbNguoitao.TabIndex = 9;
             // 
             // label1
             // 
@@ -435,12 +435,12 @@ namespace QLBH_HBC
             // 
             // layoutNguoitao
             // 
-            this.layoutNguoitao.Control = this.cbNguoitao;
-            this.layoutNguoitao.Location = new System.Drawing.Point(406, 53);
-            this.layoutNguoitao.Name = "layoutNguoitao";
-            this.layoutNguoitao.Size = new System.Drawing.Size(338, 24);
-            this.layoutNguoitao.Text = "Người tạo";
-            this.layoutNguoitao.TextSize = new System.Drawing.Size(118, 13);
+            //this.layoutNguoitao.Control = this.cbNguoitao;
+            //this.layoutNguoitao.Location = new System.Drawing.Point(406, 53);
+            //this.layoutNguoitao.Name = "layoutNguoitao";
+            //this.layoutNguoitao.Size = new System.Drawing.Size(338, 24);
+            //this.layoutNguoitao.Text = "Người tạo";
+            //this.layoutNguoitao.TextSize = new System.Drawing.Size(118, 13);
             // 
             // emptySpaceItem4
             // 
