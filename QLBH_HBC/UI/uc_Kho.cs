@@ -91,6 +91,12 @@ namespace QLBH_HBC.UI
             {
                 gridView2.AddNewRow();
             }
+            // Thiết lập FocusedRowHandle là hàng đầu tiên
+            gridView2.FocusedRowHandle = 0;
+
+            // Thiết lập TopRowIndex để đảm bảo hàng đầu tiên là hàng đang được focus
+            gridView2.TopRowIndex = gridView2.FocusedRowHandle;
+
             gridView2.OptionsBehavior.Editable = true;
             gridView2.OptionsBehavior.ReadOnly = false;
             gridView2.Appearance.Row.BackColor = Color.Empty;
@@ -132,18 +138,18 @@ namespace QLBH_HBC.UI
                 int rowHandle = gridView2.FocusedRowHandle;
                 DataRow row = gridView2.GetDataRow(rowHandle);
                 List<DTO.CTDonhang> data_ctdonhang = DAO.CTDonhangDAO.Instance.GetMaHHByMaDH(maDH.Trim().ToUpper());
-                if(data_ctdonhang != null)
+                if (data_ctdonhang != null)
                 {
                     foreach (DTO.CTDonhang ctDonhang in data_ctdonhang)
                     {
-                        if (ctDonhang.MaHH.Trim().ToUpper().Length>0)
+                        if (ctDonhang.MaHH.Trim().ToUpper().Length > 0)
                         {
                             DTO.Hanghoa hanghoa = DAO.HanghoaDAO.Instance.Get(ctDonhang.MaHH.Trim().ToUpper());
                             if (hanghoa != null)
                             {
                                 gridView2.SetRowCellValue(rowHandle, "MAHH", hanghoa.MaHH);
                                 gridView2.SetRowCellValue(rowHandle, "TENHH", hanghoa.TenHH);
-                                gridView2.SetRowCellValue(rowHandle, "SL", hanghoa.Sl);
+                                gridView2.SetRowCellValue(rowHandle, "SL", ctDonhang.Sl);
                                 gridView2.SetRowCellValue(rowHandle, "DVT", hanghoa.Dvt);
                             }
                         }
@@ -167,16 +173,6 @@ namespace QLBH_HBC.UI
             {
                 // Thực hiện gán giá trị mã đơn hàng cho button btnMadh
                 btnMadh.Text = ucKho.maDH;
-            }
-        }
-
-        private void btnMadh_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                //Sau khi người dùng điền xong Mã đơn hàng và ấn Enter
-                //Truy cập vào bảng CT_DONHANG, HANGHOA lấy lên MAHH, TENHH, SL, DVT
-                MessageBox.Show(btnMadh.Text);
             }
         }
 

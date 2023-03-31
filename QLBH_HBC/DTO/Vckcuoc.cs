@@ -18,7 +18,7 @@ namespace QLBH_HBC.DTO
         public Vckcuoc(DataRow Row)
         {
             this.MaDL = Row["MA_DL"].ToString();
-            this.MaVO = Row["MA_VO"].ToString();
+             this.MaVO = Row["MA_VO"].ToString();
             this.SlCuoc = Convert.ToInt32(Row["SL_CUOC"].ToString());
             this.SlGiu = Convert.ToInt32(Row["SL_GIU"].ToString());
 

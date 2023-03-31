@@ -2,6 +2,7 @@
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
+using QLBH_HBC.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraReports.UI;
+using DevExpress.DataAccess.Sql;
 
 namespace QLBH_HBC
 {
@@ -21,7 +24,7 @@ namespace QLBH_HBC
         private string userName;
         private string loai;
         private double tongtien = 0;
-
+        private string mvv;
         public frmNhapcuoc(string username, string loai)
         {
             InitializeComponent();
@@ -34,10 +37,13 @@ namespace QLBH_HBC
             if (loai == "Nhập")
             {
                 label1.Text = "PHIẾU NHẬN CƯỢC VỎ CHAI KÉT";
+                mvv = "MVV0002";
+
             }
             if (loai == "Trả")
             {
                 label1.Text = "PHIẾU TRẢ CƯỢC VỎ CHAI KÉT";
+                mvv = "MVV0003";
             }
 
 
@@ -163,13 +169,7 @@ namespace QLBH_HBC
         {
             try
             {
-                if (loai == "Nhập")
-                {
-                    //MessageBox.Show(dtNgaytao.DateTime.ToString());
-                    //MessageBox.Show(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"));
-
-
-                    DateTime parsedDate;
+                    //DateTime parsedDate;
                     if (dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss").Length > 6 && cbDaily.SelectedValue.ToString().Trim().Length > 0)
                     {
                         string result = DAO.PhieuCuocDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, loai, cbDaily.SelectedValue.ToString().Trim());
@@ -183,22 +183,39 @@ namespace QLBH_HBC
                                 object cellValueSL = gridView.GetRowCellValue(i, "SL");
                                 if (cellValueMaHH.ToString().Trim().Length > 0 && cellValueSL.ToString().Trim().Length > 0)
                                 {
-                                    if (txtPTTT.Text.Length > 0)
+                                    if (cbPTTT.Text.Length > 0)
                                     {
                                         resultCT = DAO.CTPhieuCuocDAO.Instance.Insert(result, cellValueMaHH.ToString().Trim().ToUpper(), Convert.ToInt32(cellValueSL));
-                                        DAO.PhieuThuChiDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, txtPTTT.Text, Convert.ToInt32(tongtien), "MVV0002", result.Trim());
+                                        DAO.PhieuThuChiDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, cbPTTT.Text, Convert.ToInt32(tongtien), mvv, result.Trim());
                                         DTO.Vckcuoc resultVCK = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim());
-                                        if (resultVCK != null)
+                                        if (loai == "Nhập")
                                         {
-                                            DTO.Vckcuoc dataVCKSL = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim().ToUpper());
-                                            DAO.VCKDAO.Instance.Update(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL) + Convert.ToInt32(resultVCK.SlCuoc), Convert.ToInt32(dataVCKSL.SlGiu));
+                                            if (resultVCK != null)
+                                            {
+                                                DTO.Vckcuoc dataVCKSL = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim().ToUpper());
+                                                DAO.VCKDAO.Instance.Update(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL) + Convert.ToInt32(resultVCK.SlCuoc), Convert.ToInt32(dataVCKSL.SlGiu));                           
+                                            }
+                                            else
+                                            {
+                                                DAO.VCKDAO.Instance.Insert(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL));
+                                            }
                                         }
-                                        else
+                                        if (loai == "Trả")
                                         {
-                                            DAO.VCKDAO.Instance.Insert(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL));
+                                            if (resultVCK != null)
+                                            {
+                                                DTO.Vckcuoc dataVCKSL = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim().ToUpper());
+                                                DAO.VCKDAO.Instance.Update(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(resultVCK.SlCuoc) - Convert.ToInt32(cellValueSL), Convert.ToInt32(dataVCKSL.SlGiu));
+                                            }
+                                            else
+                                            {
+                                            MessageBox.Show("Khách hàng chưa cược loại vỏ " + cellValueMaHH);
+                                            }
                                         }
-                                    }
+
+
                                 }
+                            }
                                 else
                                 {
                                     break;
@@ -221,11 +238,6 @@ namespace QLBH_HBC
                             XtraMessageBox.Show("Tạo phiếu không thành công!");
                         }
                     }
-                }
-                if (loai == "Trả")
-                {
-
-                }
             }
             catch (Exception ex)
             {
@@ -247,12 +259,60 @@ namespace QLBH_HBC
 
         private void cbDaily_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtNoidung.Text = "Thu tiền cược VCK của " + cbDaily.Text;
+            if (loai == "Nhập")
+            {
+               txtNoidung.Text = "Thu tiền cược VCK của " + cbDaily.Text;
+            }
+            if (loai == "Trả")
+            {
+                txtNoidung.Text = "Trả tiền cược VCK của " + cbDaily.Text;
+            }
         }
 
         private void btnExit_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-33G4CSH;Initial Catalog=QLBH_HBC;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT MAPC, NGAYTAO, MADL, TENDL, HOTEN FROM PHIEUCUOC JOIN DAILY ON MADL = MA_DL JOIN NGUOIDUNG ON NGUOITAO = USERNAME WHERE MAPC = 'PC0003'",con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt2 = new DataTable();
+            da.Fill(dt2);
+            con.Close();
+            con.Open();
+            SqlCommand cmd1 = new SqlCommand("SELECT MAHH, TENHH, DVT, CT_PHIEUCUOC.SL, GIACUOC FROM CT_PHIEUCUOC JOIN PHIEUCUOC ON MAPC = MA_PC JOIN HANGHOA ON MAHH = MA_VO WHERE MAPC = 'PC0003'", con);
+            SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
+            DataTable dt3 = new DataTable();
+            da1.Fill(dt3);
+
+            // Create a new report instance
+            rptDMHH report = new rptDMHH();
+            DataSet ds = new DataSet();
+            ds.Tables.Add(dt2);
+            ds.Tables[0].TableName = "PHIEUCUOC_1"; // Assign name to the first DataTable as DataMember
+            ds.Tables.Add(dt3);
+            ds.Tables[1].TableName = "CT_PHIEUCUOC_1"; // Assign name to the second DataTable as DataMember
+
+            // Assign the DataSet to the report's DataSource
+            report.DataSource = ds;
+            //// Assign the data source to the report's DataSource property
+            //report.DataMember = "PHIEUCUOC_1";
+            //report.DataSource = dt2;
+
+            //// Create a new report instance
+            //DMHH report1 = new DMHH();
+
+            //// Assign the data source to the report's DataSource property
+            //report.DataMember = "CT_PHIEUCUOC_1";
+            //report.DataSource = dt3;
+
+            report.ShowPreviewDialog();
+            //report1.ShowPreviewDialog();
+
         }
     }
 }
