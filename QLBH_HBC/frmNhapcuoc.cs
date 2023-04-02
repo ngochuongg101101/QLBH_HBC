@@ -2,6 +2,7 @@
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
+using QLBH_HBC.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,12 +22,15 @@ namespace QLBH_HBC
         private string userName;
         private string loai;
         private double tongtien = 0;
-
-        public frmNhapcuoc(string username, string loai)
+        private uc_Cuocvo uc_Cuocvo;
+        // Declare an event that can be raised in the parent form
+        public event EventHandler ChildFormEvent;
+        public frmNhapcuoc(string username, string loai, uc_Cuocvo _Cuocvo)
         {
             InitializeComponent();
             this.userName = username;
             this.loai = loai;
+            this.uc_Cuocvo = _Cuocvo;
         }
         private DataTable dt1;
         private void frmNhapcuoc_Load(object sender, EventArgs e)
@@ -198,6 +202,21 @@ namespace QLBH_HBC
                                             DAO.VCKDAO.Instance.Insert(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL));
                                         }
                                     }
+                                    else
+                                    {
+                                        resultCT = DAO.CTPhieuCuocDAO.Instance.Insert(result, cellValueMaHH.ToString().Trim().ToUpper(), Convert.ToInt32(cellValueSL));
+                                        DAO.PhieuThuChiDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName, "", Convert.ToInt32(tongtien), "MVV0002", result.Trim());
+                                        DTO.Vckcuoc resultVCK = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim());
+                                        if (resultVCK != null)
+                                        {
+                                            DTO.Vckcuoc dataVCKSL = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim().ToUpper());
+                                            DAO.VCKDAO.Instance.Update(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL) + Convert.ToInt32(resultVCK.SlCuoc), Convert.ToInt32(dataVCKSL.SlGiu));
+                                        }
+                                        else
+                                        {
+                                            DAO.VCKDAO.Instance.Insert(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL));
+                                        }
+                                    }
                                 }
                                 else
                                 {
@@ -208,11 +227,13 @@ namespace QLBH_HBC
                             }
                             if (resultCT)
                             {
+                                ChildFormEvent?.Invoke(this, EventArgs.Empty);
                                 XtraMessageBox.Show("Tạo phiếu thành công!");
+                                this.Close();
                             }
                             else
                             {
-                                XtraMessageBox.Show("Lỗi nhập số lượng và hàng hóa. Yêu cầu nhập dùm");
+                                XtraMessageBox.Show("Lỗi nhập số lượng và hàng hóa");
                             }
 
                         }

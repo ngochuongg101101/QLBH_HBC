@@ -23,7 +23,7 @@ namespace QLBH_HBC.UI
 
         private void btnNhapcuoc_Click(object sender, EventArgs e)
         {
-            Form f = new frmNhapcuoc(userName,"Nhập");
+            Form f = new frmNhapcuoc(userName,"Nhập", this);
             f.Show();
         }
 
@@ -34,11 +34,19 @@ namespace QLBH_HBC.UI
             gridControl.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql);
             gridControl.Refresh();
         }
+        public event EventHandler ReloadData;
 
         private void btnTracuoc_Click(object sender, EventArgs e)
         {
-            Form f = new frmNhapcuoc(userName, "Trả");
+            Form f = new frmNhapcuoc(userName, "Trả",this);
+            ((frmNhapcuoc)f).ChildFormEvent += ChildFormEvent_Handler;
             f.Show();
+        }
+        // Handle the ChildFormEvent raised by the child form
+        private void ChildFormEvent_Handler(object sender, EventArgs e)
+        {
+            // Call the gridControl_Load method
+            gridControl_Load(sender, e);
         }
     }
 }

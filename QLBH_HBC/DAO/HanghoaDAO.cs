@@ -77,6 +77,19 @@ namespace QLBH_HBC.DAO
             }
             return item;
         }
+        // Lấy 1 danh sách dũ liệu 
+        public List<DTO.Hanghoa> GetList(string mahh)
+        {
+            List<DTO.Hanghoa> list = new List<DTO.Hanghoa>();
+            string query = "SELECT * FROM dbo.HANGHOA WHERE MAHH = '" + mahh + "'";
+            DataTable data = Config.DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                DTO.Hanghoa info = new DTO.Hanghoa(item);
+                list.Add(info);
+            }
+            return list;
+        }
         // Lấy 1 dũ liệu 
         public DTO.Hanghoa GetByDataOther(string ngaytao, string nguoitao, string loai, string madl)
         {
@@ -113,6 +126,37 @@ namespace QLBH_HBC.DAO
                 return count > 0;
             }
             return false;
+        }
+        // Check số lượng tồn
+        public bool CheckSLTonTrongKho(string mahh,int sl_check)
+        {
+            string query = String.Format("SELECT SL FROM dbo.HANGHOA WHERE MAHH = '{0}'", mahh);
+            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow row in result.Rows)
+            {
+                int sl = Convert.ToInt32(row[0]);
+                return sl - sl_check > 0;
+            }
+            return false;
+        }
+        // Lấy sô lượng hàng hoá
+        public int GetSL(string mahh)
+        {
+            string query = String.Format("SELECT SL FROM dbo.HANGHOA WHERE MAHH = '{0}'", mahh);
+            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow row in result.Rows)
+            {
+                int sl = Convert.ToInt32(row[0]);
+                return sl;
+            }
+            return 0;
+        }
+        // Cập nhật sô lượng hàng hoá khi xuất kho
+        public bool UpdateSL(string mahh, int sl)
+        {
+            string query = String.Format("UPDATE dbo.HANGHOA SET SL = {0} WHERE MAHH = '{1}'", sl, mahh);
+            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
+            return _result > 0;
         }
     }
 }

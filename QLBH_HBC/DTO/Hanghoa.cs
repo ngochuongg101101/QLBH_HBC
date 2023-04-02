@@ -21,7 +21,7 @@ namespace QLBH_HBC.DTO
         }
         public Hanghoa(DataRow Row)
         {
-            this.MaHH = Row["MAHH"].ToString(); ;
+            this.MaHH = Row["MAHH"].ToString();
             this.TenHH = Row["TENHH"].ToString();
             this.Dongia = (float)Convert.ToDouble(Row["DONGIA"].ToString());
             string test = Row["GIACUOC"].ToString();

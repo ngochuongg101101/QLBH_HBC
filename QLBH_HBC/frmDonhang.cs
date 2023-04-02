@@ -23,7 +23,7 @@ namespace QLBH_HBC
         }
         private void gridControl1_Load(object sender, EventArgs e)
         {
-            string sql = "SELECT TRANGTHAI, MADH , NGAYTAO , TENDL , NGUOITAO, TONGTIEN  FROM DONHANG " +
+            string sql = "SELECT TRANGTHAI, MADH ,MA_DL, NGAYTAO , TENDL , NGUOITAO, TONGTIEN  FROM DONHANG " +
             "JOIN DAILY ON MADL = MA_DL";
             gridControl1.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql);
             gridControl1.Refresh();
@@ -35,10 +35,12 @@ namespace QLBH_HBC
         {
             // Lấy giá trị mã đơn hàng từ row được chọn
             string MaDH = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MADH").ToString();
+            string MaDL = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MA_DL").ToString();
             // Trả về giá trị maDH đã chọn và đóng form
             this.DialogResult = DialogResult.OK;
             //ucKho.maDH = maDH;
             _ucKho.maDH = MaDH;
+            _ucKho.maDl = MaDL;
             this.Close();
             //MessageBox.Show(ucKho.maDH);
 
