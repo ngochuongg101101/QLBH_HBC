@@ -56,7 +56,7 @@ namespace QLBH_HBC
         {
             if (ucHanghoa == null)
             {
-                ucHanghoa = new UI.uc_Hanghoa();
+                ucHanghoa = new UI.uc_Hanghoa(userName);
                 ucHanghoa.Dock = DockStyle.Fill;
                 mainContainer.Controls.Add(ucHanghoa);
                 ucHanghoa.BringToFront();

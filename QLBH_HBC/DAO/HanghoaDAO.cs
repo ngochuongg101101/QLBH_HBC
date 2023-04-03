@@ -32,18 +32,61 @@ namespace QLBH_HBC.DAO
             return list;
         }
         // Thêm
-        public string Insert(string ngaytao, string nguoitao, string loai, string madl)
+        public string Insert(string tenhh,int dongia,int giacuoc,string dvt,int sl,string loai,int coVck)
         {
-            string mapc = (string)Config.DataProvider.Instance.ExecuteScalar("SELECT dbo.AUTO_ID_HANGHOA()");
+            string mahh = (string)Config.DataProvider.Instance.ExecuteScalar("SELECT dbo.AUTO_ID_HANGHOA()");
 
             // Construct the INSERT query with the generated MAPC value
-            string query = String.Format("INSERT INTO HANGHOA (MAPC, NGAYTAO, NGUOITAO, LOAI, MA_DL) VALUES ('{0}', '{1}', '{2}', N'{3}', '{4}')", mapc, ngaytao, nguoitao, loai, madl);
+            string query = String.Format("INSERT INTO HANGHOA ( TENHH,DONGIA,GIACUOC,DVT,SL,LOAI,CO_VCK) VALUES ( N'{0}', {1}, {2}, N'{3}',{4},N'{5}',{6})", tenhh,dongia,giacuoc,dvt,sl,loai,coVck);
 
             // Execute the INSERT query and get the number of rows affected
             int numRowsAffected = Config.DataProvider.Instance.ExecuteNonQuery(query);
             if (numRowsAffected > 0)
             {
-                return mapc.Trim();
+                return mahh.Trim();
+            }
+            else
+            {
+                return null;
+            }
+        }
+        //Thêm một hàng hoá gồm tenhh, dongia, dvt, sl, loai, coVck
+        public string InsertBia(string tenhh, int dongia, string dvt, string loai, bool coVck)
+        {
+            int number_coVck = 0; // false
+
+            string mahh = (string)Config.DataProvider.Instance.ExecuteScalar("SELECT dbo.AUTO_ID_HANGHOA()");
+            if (coVck)
+            {
+                number_coVck = 1;
+            }
+            // Construct the INSERT query with the generated MAPC value
+            string query = String.Format("INSERT INTO HANGHOA ( TENHH,DONGIA,DVT,SL,LOAI,CO_VCK) VALUES ( N'{0}', {1}, N'{2}',{3},N'{4}',{5})", tenhh, dongia, dvt, 0, loai, number_coVck);
+
+            // Execute the INSERT query and get the number of rows affected
+            int numRowsAffected = Config.DataProvider.Instance.ExecuteNonQuery(query);
+            if (numRowsAffected > 0)
+            {
+                return mahh.Trim();
+            }
+            else
+            {
+                return null;
+            }
+        }
+        //Thêm một hàng hoá gồm tenhh, dongia, dvt, sl, loai, coVck
+        public string InsertVo(string tenhh, int dongia,int giacuoc, string dvt, string loai)
+        {
+            string mahh = (string)Config.DataProvider.Instance.ExecuteScalar("SELECT dbo.AUTO_ID_HANGHOA()");
+
+            // Construct the INSERT query with the generated MAPC value
+            string query = String.Format("INSERT INTO HANGHOA ( TENHH,DONGIA,GIACUOC,DVT,SL,LOAI) VALUES ( N'{0}', {1}, {2}, N'{3}',{4},N'{5}',{6})", tenhh, dongia, giacuoc, dvt, 0, loai);
+
+            // Execute the INSERT query and get the number of rows affected
+            int numRowsAffected = Config.DataProvider.Instance.ExecuteNonQuery(query);
+            if (numRowsAffected > 0)
+            {
+                return mahh.Trim();
             }
             else
             {
@@ -51,19 +94,19 @@ namespace QLBH_HBC.DAO
             }
         }
         // Sửa
-        public bool Update(DateTime ngaytao, string loai, string madl, string mapc)
+        public bool Update(string mahh,string tenhh, int dongia, int giacuoc, string dvt, int sl, string loai, int coVck)
         {
-            string query = String.Format("UPDATE dbo.HANGHOA SET NGAYTAO = '{0}', LOAI = '{1}', MA_DL = '{2}' WHERE MAPC = '{3}'", ngaytao, loai, madl, mapc);
+            string query = String.Format("UPDATE dbo.HANGHOA SET TENHH = N'{0}', DONGIA = {1}, GIACUOC = {2}, DVT = N'{3}, SL = {4}, LOAI= N'{5}', CO_VCK={6} WHERE MAPC = '{7}'", tenhh, dongia, giacuoc, dvt, sl, loai, coVck,mahh);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
         //Xóa
-        public bool Delete(string mapc)
-        {
-            string query = String.Format("DELETE dbo.HANGHOA WHERE MAPC = '{0}'", mapc);
-            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
-            return _result > 0;
-        }
+        //public bool Delete(string mapc)
+        //{
+        //    string query = String.Format("DELETE dbo.HANGHOA WHERE MAPC = '{0}'", mapc);
+        //    int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
+        //    return _result > 0;
+        //}
         // Lấy 1 dũ liệu 
         public DTO.Hanghoa Get(string mahh)
         {

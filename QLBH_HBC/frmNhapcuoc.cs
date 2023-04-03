@@ -28,9 +28,8 @@ namespace QLBH_HBC
         private uc_Cuocvo uc_Cuocvo;
         // Declare an event that can be raised in the parent form
         public event EventHandler ChildFormEvent;
-        public frmNhapcuoc(string username, string loai, uc_Cuocvo _Cuocvo)
         private string mvv;
-        public frmNhapcuoc(string username, string loai)
+        public frmNhapcuoc(string username, string loai, uc_Cuocvo _Cuocvo)
         {
             InitializeComponent();
             this.userName = username;

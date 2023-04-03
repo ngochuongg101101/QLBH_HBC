@@ -119,19 +119,21 @@ namespace QLBH_HBC.UI
             this.layoutControl1.Controls.Add(this.gridControl2);
             this.layoutControl1.Controls.Add(this.gridControl1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 47);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 41);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1027, 538);
+            this.layoutControl1.Size = new System.Drawing.Size(880, 431);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // txtGiacuoc
             // 
-            this.txtGiacuoc.Location = new System.Drawing.Point(840, 101);
+            this.txtGiacuoc.Location = new System.Drawing.Point(713, 84);
+            this.txtGiacuoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtGiacuoc.MenuManager = this.barManager1;
             this.txtGiacuoc.Name = "txtGiacuoc";
-            this.txtGiacuoc.Size = new System.Drawing.Size(175, 22);
+            this.txtGiacuoc.Size = new System.Drawing.Size(156, 20);
             this.txtGiacuoc.StyleController = this.layoutControl1;
             this.txtGiacuoc.TabIndex = 16;
             // 
@@ -180,18 +182,21 @@ namespace QLBH_HBC.UI
             this.btnEdit.Caption = "Sửa";
             this.btnEdit.Id = 1;
             this.btnEdit.Name = "btnEdit";
+            this.btnEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEdit_ItemClick);
             // 
             // btnDelete
             // 
             this.btnDelete.Caption = "Xóa";
             this.btnDelete.Id = 2;
             this.btnDelete.Name = "btnDelete";
+            this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
             // 
             // btnSave
             // 
             this.btnSave.Caption = "Cập nhật";
             this.btnSave.Id = 3;
             this.btnSave.Name = "btnSave";
+            this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
             // 
             // bar2
             // 
@@ -221,57 +226,65 @@ namespace QLBH_HBC.UI
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1027, 47);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlTop.Size = new System.Drawing.Size(880, 41);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 585);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 472);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1027, 20);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlBottom.Size = new System.Drawing.Size(880, 20);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 47);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 41);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 538);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 431);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1027, 47);
+            this.barDockControlRight.Location = new System.Drawing.Point(880, 41);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 538);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 431);
             // 
             // txtGiaban
             // 
-            this.txtGiaban.Location = new System.Drawing.Point(607, 101);
+            this.txtGiaban.Location = new System.Drawing.Point(513, 84);
+            this.txtGiaban.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtGiaban.MenuManager = this.barManager1;
             this.txtGiaban.Name = "txtGiaban";
-            this.txtGiaban.Size = new System.Drawing.Size(131, 22);
+            this.txtGiaban.Size = new System.Drawing.Size(119, 20);
             this.txtGiaban.StyleController = this.layoutControl1;
             this.txtGiaban.TabIndex = 15;
             // 
             // chkCoVCK
             // 
-            this.chkCoVCK.Location = new System.Drawing.Point(509, 127);
+            this.chkCoVCK.Location = new System.Drawing.Point(436, 108);
+            this.chkCoVCK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkCoVCK.MenuManager = this.barManager1;
             this.chkCoVCK.Name = "chkCoVCK";
             this.chkCoVCK.Properties.Caption = "Có VCK";
-            this.chkCoVCK.Size = new System.Drawing.Size(506, 24);
+            this.chkCoVCK.Size = new System.Drawing.Size(433, 20);
             this.chkCoVCK.StyleController = this.layoutControl1;
             this.chkCoVCK.TabIndex = 14;
+            this.chkCoVCK.CheckedChanged += new System.EventHandler(this.chkCoVCK_CheckedChanged);
             // 
             // cbDVT
             // 
             this.cbDVT.FormattingEnabled = true;
-            this.cbDVT.Location = new System.Drawing.Point(937, 71);
+            this.cbDVT.Location = new System.Drawing.Point(796, 59);
+            this.cbDVT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbDVT.Name = "cbDVT";
-            this.cbDVT.Size = new System.Drawing.Size(78, 24);
+            this.cbDVT.Size = new System.Drawing.Size(73, 21);
             this.cbDVT.TabIndex = 11;
             // 
             // cbLoai
@@ -280,55 +293,61 @@ namespace QLBH_HBC.UI
             this.cbLoai.Items.AddRange(new object[] {
             "Bia",
             "Vỏ"});
-            this.cbLoai.Location = new System.Drawing.Point(851, 41);
+            this.cbLoai.Location = new System.Drawing.Point(722, 34);
+            this.cbLoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbLoai.Name = "cbLoai";
-            this.cbLoai.Size = new System.Drawing.Size(164, 24);
+            this.cbLoai.Size = new System.Drawing.Size(147, 21);
             this.cbLoai.TabIndex = 10;
             this.cbLoai.SelectedValueChanged += new System.EventHandler(this.cbLoai_SelectedValueChanged);
+            this.cbLoai.TextChanged += new System.EventHandler(this.cbLoai_TextChanged);
             // 
             // txtTenHH
             // 
-            this.txtTenHH.Location = new System.Drawing.Point(607, 71);
+            this.txtTenHH.Location = new System.Drawing.Point(513, 59);
+            this.txtTenHH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenHH.MenuManager = this.barManager1;
             this.txtTenHH.Name = "txtTenHH";
-            this.txtTenHH.Size = new System.Drawing.Size(228, 22);
+            this.txtTenHH.Size = new System.Drawing.Size(202, 20);
             this.txtTenHH.StyleController = this.layoutControl1;
             this.txtTenHH.TabIndex = 9;
             // 
             // txtMaHH
             // 
-            this.txtMaHH.Location = new System.Drawing.Point(607, 41);
+            this.txtMaHH.Location = new System.Drawing.Point(513, 34);
+            this.txtMaHH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMaHH.MenuManager = this.barManager1;
             this.txtMaHH.Name = "txtMaHH";
-            this.txtMaHH.Size = new System.Drawing.Size(142, 22);
+            this.txtMaHH.Size = new System.Drawing.Size(128, 20);
             this.txtMaHH.StyleController = this.layoutControl1;
             this.txtMaHH.TabIndex = 8;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(509, 12);
+            this.label2.Location = new System.Drawing.Point(436, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(506, 25);
+            this.label2.Size = new System.Drawing.Size(433, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "Chi tiết hàng hóa";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Location = new System.Drawing.Point(11, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(493, 25);
+            this.label1.Size = new System.Drawing.Size(421, 20);
             this.label1.TabIndex = 6;
             this.label1.Text = "Danh mục hàng hóa";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // gridControl2
             // 
-            this.gridControl2.Location = new System.Drawing.Point(509, 155);
+            this.gridControl2.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gridControl2.Location = new System.Drawing.Point(436, 132);
             this.gridControl2.MainView = this.gridView2;
+            this.gridControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl2.MenuManager = this.barManager1;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(506, 371);
+            this.gridControl2.Size = new System.Drawing.Size(433, 289);
             this.gridControl2.TabIndex = 5;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -340,6 +359,7 @@ namespace QLBH_HBC.UI
             this.TENVO,
             this.SLUONG,
             this.DVTINH});
+            this.gridView2.DetailHeight = 284;
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
             this.gridView2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gridView2_KeyUp);
@@ -348,49 +368,51 @@ namespace QLBH_HBC.UI
             // 
             this.MAVO.Caption = "Mã vỏ";
             this.MAVO.FieldName = "MAHH";
-            this.MAVO.MinWidth = 25;
+            this.MAVO.MinWidth = 21;
             this.MAVO.Name = "MAVO";
             this.MAVO.Visible = true;
             this.MAVO.VisibleIndex = 0;
-            this.MAVO.Width = 94;
+            this.MAVO.Width = 81;
             // 
             // TENVO
             // 
             this.TENVO.Caption = "Tên vỏ";
             this.TENVO.FieldName = "TENHH";
-            this.TENVO.MinWidth = 25;
+            this.TENVO.MinWidth = 21;
             this.TENVO.Name = "TENVO";
             this.TENVO.Visible = true;
             this.TENVO.VisibleIndex = 1;
-            this.TENVO.Width = 94;
+            this.TENVO.Width = 81;
             // 
             // SLUONG
             // 
             this.SLUONG.Caption = "Số lượng";
             this.SLUONG.FieldName = "SL";
-            this.SLUONG.MinWidth = 25;
+            this.SLUONG.MinWidth = 21;
             this.SLUONG.Name = "SLUONG";
             this.SLUONG.Visible = true;
             this.SLUONG.VisibleIndex = 2;
-            this.SLUONG.Width = 94;
+            this.SLUONG.Width = 81;
             // 
             // DVTINH
             // 
             this.DVTINH.Caption = "ĐVT";
             this.DVTINH.FieldName = "DVT";
-            this.DVTINH.MinWidth = 25;
+            this.DVTINH.MinWidth = 21;
             this.DVTINH.Name = "DVTINH";
             this.DVTINH.Visible = true;
             this.DVTINH.VisibleIndex = 3;
-            this.DVTINH.Width = 94;
+            this.DVTINH.Width = 81;
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(12, 41);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gridControl1.Location = new System.Drawing.Point(11, 34);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(493, 485);
+            this.gridControl1.Size = new System.Drawing.Size(421, 387);
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -407,6 +429,7 @@ namespace QLBH_HBC.UI
             this.DONGIA,
             this.GIACUOC,
             this.CO_VCK});
+            this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
@@ -415,71 +438,71 @@ namespace QLBH_HBC.UI
             // 
             this.MAHH.Caption = "Mã hàng hóa";
             this.MAHH.FieldName = "MAHH";
-            this.MAHH.MinWidth = 25;
+            this.MAHH.MinWidth = 21;
             this.MAHH.Name = "MAHH";
             this.MAHH.Visible = true;
             this.MAHH.VisibleIndex = 0;
-            this.MAHH.Width = 94;
+            this.MAHH.Width = 81;
             // 
             // TENHH
             // 
             this.TENHH.Caption = "Tên hàng hóa";
             this.TENHH.FieldName = "TENHH";
-            this.TENHH.MinWidth = 25;
+            this.TENHH.MinWidth = 21;
             this.TENHH.Name = "TENHH";
             this.TENHH.Visible = true;
             this.TENHH.VisibleIndex = 1;
-            this.TENHH.Width = 94;
+            this.TENHH.Width = 81;
             // 
             // LOAI
             // 
             this.LOAI.Caption = "Loại hàng hóa";
             this.LOAI.FieldName = "LOAI";
-            this.LOAI.MinWidth = 25;
+            this.LOAI.MinWidth = 21;
             this.LOAI.Name = "LOAI";
             this.LOAI.Visible = true;
             this.LOAI.VisibleIndex = 2;
-            this.LOAI.Width = 94;
+            this.LOAI.Width = 81;
             // 
             // DVT
             // 
             this.DVT.Caption = "ĐVT";
             this.DVT.FieldName = "DVT";
-            this.DVT.MinWidth = 25;
+            this.DVT.MinWidth = 21;
             this.DVT.Name = "DVT";
             this.DVT.Visible = true;
             this.DVT.VisibleIndex = 3;
-            this.DVT.Width = 94;
+            this.DVT.Width = 81;
             // 
             // DONGIA
             // 
             this.DONGIA.Caption = "Giá bán";
             this.DONGIA.FieldName = "DONGIA";
-            this.DONGIA.MinWidth = 25;
+            this.DONGIA.MinWidth = 21;
             this.DONGIA.Name = "DONGIA";
             this.DONGIA.Visible = true;
             this.DONGIA.VisibleIndex = 4;
-            this.DONGIA.Width = 94;
+            this.DONGIA.Width = 81;
             // 
             // GIACUOC
             // 
             this.GIACUOC.Caption = "Giá cược";
             this.GIACUOC.FieldName = "GIACUOC";
-            this.GIACUOC.MinWidth = 25;
+            this.GIACUOC.MinWidth = 21;
             this.GIACUOC.Name = "GIACUOC";
             this.GIACUOC.Visible = true;
             this.GIACUOC.VisibleIndex = 5;
-            this.GIACUOC.Width = 94;
+            this.GIACUOC.Width = 81;
             // 
             // CO_VCK
             // 
             this.CO_VCK.Caption = "Có VCK";
             this.CO_VCK.FieldName = "CO_VCK";
-            this.CO_VCK.MinWidth = 25;
+            this.CO_VCK.MinWidth = 21;
             this.CO_VCK.Name = "CO_VCK";
             this.CO_VCK.Visible = true;
             this.CO_VCK.VisibleIndex = 6;
-            this.CO_VCK.Width = 94;
+            this.CO_VCK.Width = 81;
             // 
             // Root
             // 
@@ -498,24 +521,24 @@ namespace QLBH_HBC.UI
             this.layoutControlItem10,
             this.layoutControlItem8});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1027, 538);
+            this.Root.Size = new System.Drawing.Size(880, 431);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gridControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 29);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(497, 489);
+            this.layoutControlItem1.Size = new System.Drawing.Size(425, 391);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.gridControl2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(497, 143);
+            this.layoutControlItem2.Location = new System.Drawing.Point(425, 122);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(510, 375);
+            this.layoutControlItem2.Size = new System.Drawing.Size(437, 293);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -524,93 +547,94 @@ namespace QLBH_HBC.UI
             this.layoutControlItem3.Control = this.label1;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(497, 29);
+            this.layoutControlItem3.Size = new System.Drawing.Size(425, 24);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.label2;
-            this.layoutControlItem4.Location = new System.Drawing.Point(497, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(425, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(510, 29);
+            this.layoutControlItem4.Size = new System.Drawing.Size(437, 24);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.txtMaHH;
-            this.layoutControlItem5.Location = new System.Drawing.Point(497, 29);
+            this.layoutControlItem5.Location = new System.Drawing.Point(425, 24);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(244, 30);
+            this.layoutControlItem5.Size = new System.Drawing.Size(209, 25);
             this.layoutControlItem5.Text = "Mã hàng hóa";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(86, 16);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(67, 13);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.txtTenHH;
-            this.layoutControlItem6.Location = new System.Drawing.Point(497, 59);
+            this.layoutControlItem6.Location = new System.Drawing.Point(425, 49);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(330, 30);
+            this.layoutControlItem6.Size = new System.Drawing.Size(283, 25);
             this.layoutControlItem6.Text = "Tên hàng hóa";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(86, 16);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(67, 13);
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.chkCoVCK;
-            this.layoutControlItem11.Location = new System.Drawing.Point(497, 115);
+            this.layoutControlItem11.Location = new System.Drawing.Point(425, 98);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(510, 28);
+            this.layoutControlItem11.Size = new System.Drawing.Size(437, 24);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.txtGiaban;
-            this.layoutControlItem9.Location = new System.Drawing.Point(497, 89);
+            this.layoutControlItem9.Location = new System.Drawing.Point(425, 74);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(233, 26);
+            this.layoutControlItem9.Size = new System.Drawing.Size(200, 24);
             this.layoutControlItem9.Text = "Giá bán";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(86, 16);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(67, 13);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.cbLoai;
-            this.layoutControlItem7.Location = new System.Drawing.Point(741, 29);
+            this.layoutControlItem7.Location = new System.Drawing.Point(634, 24);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(266, 30);
+            this.layoutControlItem7.Size = new System.Drawing.Size(228, 25);
             this.layoutControlItem7.Text = "Loại hàng hóa";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(86, 17);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(67, 13);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.txtGiacuoc;
-            this.layoutControlItem10.Location = new System.Drawing.Point(730, 89);
+            this.layoutControlItem10.Location = new System.Drawing.Point(625, 74);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(277, 26);
+            this.layoutControlItem10.Size = new System.Drawing.Size(237, 24);
             this.layoutControlItem10.Text = "Giá cược";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(86, 17);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(67, 13);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.cbDVT;
-            this.layoutControlItem8.Location = new System.Drawing.Point(827, 59);
+            this.layoutControlItem8.Location = new System.Drawing.Point(708, 49);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(180, 30);
+            this.layoutControlItem8.Size = new System.Drawing.Size(154, 25);
             this.layoutControlItem8.Text = "Đơn vị tính";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(86, 17);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(67, 13);
             // 
             // uc_Hanghoa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "uc_Hanghoa";
-            this.Size = new System.Drawing.Size(1027, 605);
+            this.Size = new System.Drawing.Size(880, 492);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtGiacuoc.Properties)).EndInit();
