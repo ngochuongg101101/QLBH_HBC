@@ -284,6 +284,7 @@ namespace QLBH_HBC.UI
             this.cbLoai.Name = "cbLoai";
             this.cbLoai.Size = new System.Drawing.Size(164, 24);
             this.cbLoai.TabIndex = 10;
+            this.cbLoai.SelectedValueChanged += new System.EventHandler(this.cbLoai_SelectedValueChanged);
             // 
             // txtTenHH
             // 

@@ -35,8 +35,8 @@ namespace QLBH_HBC
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.mnQLDM = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnDMHanghoa = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement7 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnDaily = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnHopdong = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnCuocvo = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnQLDL = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnQLDonhang = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -99,8 +99,8 @@ namespace QLBH_HBC
             // 
             this.mnQLDM.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.mnDMHanghoa,
-            this.accordionControlElement7,
-            this.accordionControlElement1});
+            this.mnDaily,
+            this.mnHopdong});
             this.mnQLDM.Expanded = true;
             this.mnQLDM.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
@@ -122,22 +122,24 @@ namespace QLBH_HBC
             this.mnDMHanghoa.Text = "Danh mục hàng hóa";
             this.mnDMHanghoa.Click += new System.EventHandler(this.mnDMHanghoa_Click);
             // 
-            // accordionControlElement7
+            // mnDaily
             // 
-            this.accordionControlElement7.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
+            this.mnDaily.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl),
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons)});
-            this.accordionControlElement7.Name = "accordionControlElement7";
-            this.accordionControlElement7.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement7.Text = "Danh mục đại lý";
+            this.mnDaily.Name = "mnDaily";
+            this.mnDaily.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.mnDaily.Text = "Danh mục đại lý";
+            this.mnDaily.Click += new System.EventHandler(this.mnDaily_Click);
             // 
-            // accordionControlElement1
+            // mnHopdong
             // 
-            this.accordionControlElement1.Name = "accordionControlElement1";
-            this.accordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement1.Text = "Danh mục hợp đồng";
+            this.mnHopdong.Name = "mnHopdong";
+            this.mnHopdong.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.mnHopdong.Text = "Danh mục hợp đồng";
+            this.mnHopdong.Click += new System.EventHandler(this.mnHopdong_Click);
             // 
             // mnCuocvo
             // 
@@ -190,6 +192,7 @@ namespace QLBH_HBC
             this.mnBaocao.Expanded = true;
             this.mnBaocao.Name = "mnBaocao";
             this.mnBaocao.Text = "BÁO CÁO";
+            this.mnBaocao.Click += new System.EventHandler(this.mnBaocao_Click);
             // 
             // accordionControlElement23
             // 
@@ -337,7 +340,7 @@ namespace QLBH_HBC
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLDM;
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl fluentDesignFormControl1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnDMHanghoa;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement7;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnDaily;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnCuocvo;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLDL;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnBaocao;
@@ -360,7 +363,7 @@ namespace QLBH_HBC
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement12;
         private DevExpress.XtraBars.BarStaticItem lblTieude;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLKho;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnHopdong;
     }
 }
 

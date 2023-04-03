@@ -198,16 +198,6 @@ namespace QLBH_HBC.UI
 
         }
 
-        private void btnMadh_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                //Sau khi người dùng điền xong Mã đơn hàng và ấn Enter
-                //Truy cập vào bảng CT_DONHANG, HANGHOA lấy lên MAHH, TENHH, SL, DVT
-                MessageBox.Show(btnMadh.Text);
-            }
-        }
-
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             //1. Insert PHIEUKHO (NGAYTAO, NGUOITAO, NOIDUNG, PTVC, BIENSO, MA_LPK, MA_DH)

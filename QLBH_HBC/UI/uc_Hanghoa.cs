@@ -152,9 +152,11 @@ namespace QLBH_HBC.UI
 
             if (e.KeyCode == Keys.Enter)
             {
+
                 // Lấy thông tin ô đang được chọn
                 int rowHandle = gridView2.FocusedRowHandle;
                 string fieldName = gridView2.FocusedColumn.FieldName;
+                //MessageBox.Show(fieldName);
 
                 DataRow row = gridView2.GetDataRow(rowHandle);
 
@@ -165,7 +167,7 @@ namespace QLBH_HBC.UI
                 if (fieldName == "MAHH" && !row.IsNull("MAHH"))
                  {
                     // Lấy thông tin hàng hóa từ cơ sở dữ liệu
-                    string sql = "SELECT TENHH, DVT, FROM HANGHOA WHERE MAHH = '" + maHH.Trim().ToUpper() + "'";
+                    string sql = "SELECT TENHH, DVT FROM HANGHOA WHERE MAHH = '" + maHH.Trim().ToUpper() + "'";
                     DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql);
 
                     // Hiển thị thông tin hàng hóa lên gridView
@@ -177,6 +179,19 @@ namespace QLBH_HBC.UI
                     
                 }
 
+            }
+        }
+
+        private void cbLoai_SelectedValueChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("hihi");
+            if (cbLoai.Text == "Bia")
+            {
+                gridControl2.Visible = true;
+            }
+            if (cbLoai.Text == "Vỏ")
+            {
+                gridControl2.Visible = false;
             }
         }
     }
