@@ -13,9 +13,11 @@ namespace QLBH_HBC.UI
 {
     public partial class uc_Hopdong : DevExpress.XtraEditors.XtraUserControl
     {
-        public uc_Hopdong()
+        private string userName;
+        public uc_Hopdong(string userName)
         {
             InitializeComponent();
+            this.userName = userName;
         }
     }
 }

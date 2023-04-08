@@ -54,29 +54,23 @@ namespace QLBH_HBC
 
         private void mnDMHanghoa_Click(object sender, EventArgs e)
         {
-            if (ucHanghoa == null)
-            {
-                ucHanghoa = new UI.uc_Hanghoa(userName);
-                ucHanghoa.Dock = DockStyle.Fill;
-                mainContainer.Controls.Add(ucHanghoa);
-                ucHanghoa.BringToFront();
-            }
+            ucHanghoa = new UI.uc_Hanghoa(userName);
+            ucHanghoa.Dock = DockStyle.Fill;
+            mainContainer.Controls.Add(ucHanghoa);
+            ucHanghoa.BringToFront();
         }
 
         private void mnDaily_Click(object sender, EventArgs e)
         {
-            if (ucDaily == null)
-            {
-                ucDaily = new UI.uc_Daily();
-                ucDaily.Dock = DockStyle.Fill;
-                mainContainer.Controls.Add(ucDaily);
-                ucDaily.BringToFront();
-            }
+            ucDaily = new UI.uc_Daily(userName);
+            ucDaily.Dock = DockStyle.Fill;
+            mainContainer.Controls.Add(ucDaily);
+            ucDaily.BringToFront();
         }
 
         private void mnHopdong_Click(object sender, EventArgs e)
         {
-            ucHopdong = new UI.uc_Hopdong();
+            ucHopdong = new UI.uc_Hopdong(userName);
             ucHopdong.Dock = DockStyle.Fill;
             mainContainer.Controls.Add(ucHopdong);
             ucHopdong.BringToFront();
@@ -84,7 +78,7 @@ namespace QLBH_HBC
 
         private void mnBaocao_Click(object sender, EventArgs e)
         {
-            ucBaocao = new UI.uc_Baocao();
+            ucBaocao = new UI.uc_Baocao(userName);
             ucBaocao.Dock = DockStyle.Fill;
             mainContainer.Controls.Add(ucBaocao);
             ucBaocao.BringToFront();

@@ -102,6 +102,7 @@
     <Compile Include="DAO\CTDonhangDAO.cs" />
     <Compile Include="DAO\CTPhieuCuocDAO.cs" />
     <Compile Include="DAO\CTPhieuKhoDAO.cs" />
+    <Compile Include="DAO\DailyDAO.cs" />
     <Compile Include="DAO\DonhangDAO.cs" />
     <Compile Include="DAO\HanghoaDAO.cs" />
     <Compile Include="DAO\LoaiPKDAO.cs" />
