@@ -3,6 +3,7 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using QLBH_HBC.Reports;
+using QLBH_HBC.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,12 +25,16 @@ namespace QLBH_HBC
         private string userName;
         private string loai;
         private double tongtien = 0;
+        private uc_Cuocvo uc_Cuocvo;
+        // Declare an event that can be raised in the parent form
+        public event EventHandler ChildFormEvent;
         private string mvv;
-        public frmNhapcuoc(string username, string loai)
+        public frmNhapcuoc(string username, string loai, uc_Cuocvo _Cuocvo)
         {
             InitializeComponent();
             this.userName = username;
             this.loai = loai;
+            this.uc_Cuocvo = _Cuocvo;
         }
         private DataTable dt1;
         private void frmNhapcuoc_Load(object sender, EventArgs e)
@@ -225,11 +230,13 @@ namespace QLBH_HBC
                             }
                             if (resultCT)
                             {
+                                ChildFormEvent?.Invoke(this, EventArgs.Empty);
                                 XtraMessageBox.Show("Tạo phiếu thành công!");
+                                this.Close();
                             }
                             else
                             {
-                                XtraMessageBox.Show("Lỗi nhập số lượng và hàng hóa. Yêu cầu nhập dùm");
+                                XtraMessageBox.Show("Lỗi nhập số lượng và hàng hóa");
                             }
 
                         }

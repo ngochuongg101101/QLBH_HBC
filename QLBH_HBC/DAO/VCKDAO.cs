@@ -65,5 +65,37 @@ namespace QLBH_HBC.DAO
             }
             return item;
         }
+        // Kiểm tra đại lý có cược vỏ không
+        public bool Check(string madl, string mavo)
+        {
+            string query = "SELECT * FROM dbo.VCKCUOC WHERE MA_DL = @MADL AND MA_VO = @MAVO";
+            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { madl, mavo });
+            return result.Rows.Count > 0;
+        }
+        // Kiểm tra số lượng cược vỏ có đủ để giao không
+        public bool CheckSL(string madl, string mavo, int slcuoc)
+        {
+            string query = "SELECT * FROM dbo.VCKCUOC WHERE MA_DL = @MADL AND MA_VO = @MAVO AND SL_CUOC - SL_GIU >= @SLCUOC";
+            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { madl, mavo, slcuoc });
+            return result.Rows.Count > 0;
+        }
+        // Cập nhật số lượng giữ
+        public bool UpdateSLGiu(string madl, string mavo, int slgiu)
+        {
+            string query = String.Format("UPDATE dbo.VCKCUOC SET SL_GIU = {2} WHERE MA_DL = '{0}' AND MA_VO = '{1}'", madl, mavo, slgiu);
+            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
+            return _result > 0;
+        }
+        // Lấy số lượng giữ của đại lý
+        public int GetSLGiu(string madl, string mavo)
+        {
+            string query = "SELECT SL_GIU FROM dbo.VCKCUOC WHERE MA_DL = @MADL AND MA_VO = @MAVO";
+            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { madl, mavo });
+            foreach (DataRow row in result.Rows)
+            {
+                return (int)row["SL_GIU"];
+            }
+            return 0;
+        }
     }
 }

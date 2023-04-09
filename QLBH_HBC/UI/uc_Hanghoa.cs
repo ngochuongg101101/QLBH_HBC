@@ -16,10 +16,11 @@ namespace QLBH_HBC.UI
     public partial class uc_Hanghoa : DevExpress.XtraEditors.XtraUserControl
     {
         Boolean addnewflag = false;
-
-        public uc_Hanghoa()
+        private string userName;
+        public uc_Hanghoa(string userName)
         {
             InitializeComponent();
+            this.userName = userName;
         }
 
         private void gridControl1_Load(object sender, EventArgs e)
@@ -41,14 +42,14 @@ namespace QLBH_HBC.UI
             cbDVT.Text = row["DVT"].ToString();
             txtGiaban.Text = row["DONGIA"].ToString();
             txtGiacuoc.Text = row["GIACUOC"].ToString();
-            if (addnewflag==true)
-            {
-                chkCoVCK.Checked = false;
-            }
-            else
-            {
-                chkCoVCK.Checked = Convert.ToBoolean(row["CO_VCK"].ToString());
-            }
+            //if (addnewflag==true)
+            //{
+            //    chkCoVCK.Checked = false;
+            //}
+            //else if(addnewflag == false)
+            //{
+            //    chkCoVCK.Checked = Convert.ToBoolean(row["CO_VCK"].ToString());
+            //}
             string sql1 = "SELECT MAHH,TENHH,BOOM.SL,DVT FROM HANGHOA,BOOM WHERE MAHH = MA_VO AND MA_BIA = '" + txtMaHH.Text + "'";
             gridControl2.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql1);
             gridControl2.Refresh();
@@ -145,6 +146,7 @@ namespace QLBH_HBC.UI
             cbDVT.DisplayMember = "DVT";
             cbDVT.Text = "";
             cbDVT.ValueMember = "DVT";
+            txtMaHH.Enabled = false;
         }
 
         private void gridView2_KeyUp(object sender, KeyEventArgs e)
@@ -167,14 +169,18 @@ namespace QLBH_HBC.UI
                 if (fieldName == "MAHH" && !row.IsNull("MAHH"))
                  {
                     // Lấy thông tin hàng hóa từ cơ sở dữ liệu
-                    string sql = "SELECT TENHH, DVT FROM HANGHOA WHERE MAHH = '" + maHH.Trim().ToUpper() + "'";
+                    string sql = "SELECT TENHH, DVT FROM HANGHOA WHERE MAHH = '" + maHH.Trim().ToUpper() + "' AND LOAI = N'Vỏ'";
                     DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql);
 
                     // Hiển thị thông tin hàng hóa lên gridView
                     if (dt.Rows.Count > 0)
                     {
-                    gridView2.SetRowCellValue(rowHandle, "TENHH", dt.Rows[0]["TENHH"].ToString());
-                    gridView2.SetRowCellValue(rowHandle, "DVT", dt.Rows[0]["DVT"].ToString());                        
+                        gridView2.SetRowCellValue(rowHandle, "TENHH", dt.Rows[0]["TENHH"].ToString());
+                        gridView2.SetRowCellValue(rowHandle, "DVT", dt.Rows[0]["DVT"].ToString());
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Hàng hoá bạn nhập không phải là vỏ!","Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     
                 }
@@ -184,7 +190,6 @@ namespace QLBH_HBC.UI
 
         private void cbLoai_SelectedValueChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("hihi");
             if (cbLoai.Text == "Bia")
             {
                 gridControl2.Visible = true;
@@ -192,6 +197,159 @@ namespace QLBH_HBC.UI
             if (cbLoai.Text == "Vỏ")
             {
                 gridControl2.Visible = false;
+            }
+        }
+
+        private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if(txtTenHH.Text.Length > 0) {
+                if(cbLoai.Text.Length > 0)
+                {
+                    if(cbDVT.Text.Length > 0)
+                    {
+                        if(txtGiaban.Text.Length > 0)
+                        {
+                            if(txtGiacuoc.Text.Length > 0 && cbLoai.Text == "Vỏ")
+                            {
+                                string mahh = DAO.HanghoaDAO.Instance.InsertVo(txtTenHH.Text.Trim(), Convert.ToInt32(txtGiaban.Text.Trim()), Convert.ToInt32(txtGiacuoc.Text.Trim()), cbDVT.Text.Trim(), cbLoai.Text.Trim());
+                                if(mahh != null)
+                                {
+                                    XtraMessageBox.Show("Thêm vỏ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
+                            }
+                            //Them Bia
+                            else
+                            {
+                                bool checkVoHangHoa = false;
+                                // Kiem tra hang hoa table la vo
+                                if (chkCoVCK.Checked)
+                                {
+                                    for (int i = 0; i < gridView2.RowCount; i++)
+                                    {
+
+                                        object cellValueMaHH = gridView2.GetRowCellValue(i, "MAHH");
+                                        object cellValueTenHH = gridView2.GetRowCellValue(i, "TENHH");
+                                        object cellValueSL = gridView2.GetRowCellValue(i, "SL");
+                                        object cellValueDVT = gridView2.GetRowCellValue(i, "DVT");
+                                        if (cellValueMaHH.ToString().Trim().Length > 0 && cellValueTenHH.ToString().Trim().Length > 0 && cellValueSL.ToString().Trim().Length > 0 && cellValueDVT.ToString().Trim().Length > 0 && Convert.ToInt32(cellValueSL) > 0)
+                                        {
+                                            bool checkVo = DAO.HanghoaDAO.Instance.GetByDataOtherByBark(cellValueMaHH.ToString().Trim());
+                                            if (!checkVo)
+                                            {
+                                                checkVoHangHoa = true;
+                                                break;
+                                            }
+                                        
+                                        }
+
+                                    }
+                                }
+                                
+                                // Them hang hoa
+                                if (chkCoVCK.Checked && checkVoHangHoa == false)
+                                {
+                                    string mahh = DAO.HanghoaDAO.Instance.InsertBia(txtTenHH.Text.Trim(),Convert.ToInt32(txtGiaban.Text.Trim()), cbDVT.Text.Trim(), cbLoai.Text.Trim(),chkCoVCK.Checked);
+                                    for (int i = 0; i < gridView2.RowCount; i++)
+                                    {
+
+                                        object cellValueMaHH = gridView2.GetRowCellValue(i, "MAHH");
+                                        object cellValueTenHH = gridView2.GetRowCellValue(i, "TENHH");
+                                        object cellValueSL = gridView2.GetRowCellValue(i, "SL");
+                                        object cellValueDVT = gridView2.GetRowCellValue(i, "DVT");
+                                        if(cellValueMaHH.ToString().Trim().Length > 0 && cellValueTenHH.ToString().Trim().Length > 0 && cellValueSL.ToString().Trim().Length > 0 && cellValueDVT.ToString().Trim().Length > 0 && Convert.ToInt32(cellValueSL) >0)
+                                        {
+                                            bool result = DAO.BoomDAO.Instance.Insert(mahh.Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL));
+                                        }
+
+                                    }
+                                }
+                                else
+                                {
+                                    string mahh = DAO.HanghoaDAO.Instance.InsertBia(txtTenHH.Text.Trim(), Convert.ToInt32(txtGiaban.Text.Trim()), cbDVT.Text.Trim(), cbLoai.Text.Trim(), chkCoVCK.Checked);
+                                    if(mahh != null)
+                                    {
+                                        XtraMessageBox.Show("Thêm hàng hoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    }
+                                }
+
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Bạn chưa nhập giá bán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtGiaban.Focus();
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bạn chưa nhập đơn vị tính", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        cbDVT.Focus();
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Bạn chưa nhập loại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cbLoai.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa nhập tên hàng hóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTenHH.Focus();
+            }
+            string sql = "SELECT * FROM HANGHOA";
+            gridControl1.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql);
+            gridView1.RowClick += gridView1_RowClick;
+            gridView1.OptionsBehavior.ReadOnly = true;
+            gridView1.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+
+        }
+
+        private void btnEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void cbLoai_TextChanged(object sender, EventArgs e)
+        {
+            if(cbLoai.Text.Length > 0)
+            {
+                if(cbLoai.Text.Trim()  == "Bia")
+                {
+                    txtGiacuoc.Enabled = false;
+                    chkCoVCK.Enabled = true;
+
+                }
+                else
+                {
+                    txtGiacuoc.Enabled=true;
+                    chkCoVCK.Enabled=false;
+                    gridView2.OptionsBehavior.Editable = true;
+                    gridView2.OptionsBehavior.ReadOnly = false;
+                }
+            }
+        }
+
+        private void chkCoVCK_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkCoVCK.Checked)
+            {
+                gridView2.OptionsBehavior.Editable = true;
+                gridView2.OptionsBehavior.ReadOnly = false;
+            }
+            else
+            {
+                gridView2.OptionsBehavior.Editable = false;
+                gridView2.OptionsBehavior.ReadOnly = true;
             }
         }
     }

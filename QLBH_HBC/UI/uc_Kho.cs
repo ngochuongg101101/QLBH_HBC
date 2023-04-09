@@ -19,6 +19,8 @@ namespace QLBH_HBC.UI
         private string userName;
         private uc_Kho ucKho;
         public string maDH { get; set; }
+        public string maDl { get; internal set; }
+
         public uc_Kho(string username, uc_Kho ucKho)
         {
             InitializeComponent();
@@ -91,14 +93,8 @@ namespace QLBH_HBC.UI
             {
                 gridView2.AddNewRow();
             }
-            // Thiết lập FocusedRowHandle là hàng đầu tiên
-            gridView2.FocusedRowHandle = 0;
-
-            // Thiết lập TopRowIndex để đảm bảo hàng đầu tiên là hàng đang được focus
-            gridView2.TopRowIndex = gridView2.FocusedRowHandle;
-
-            gridView2.OptionsBehavior.Editable = true;
-            gridView2.OptionsBehavior.ReadOnly = false;
+            gridView2.OptionsBehavior.Editable = false;
+            gridView2.OptionsBehavior.ReadOnly = true;
             gridView2.Appearance.Row.BackColor = Color.Empty;
             List<DTO.LoaiPK> data_loaiPK = DAO.LoaiPKDAO.Instance.GetAll();
             //Lấy lên từ table LOAIPK -> cbLoaiPK, value = MALPK, displaymember = TENLOAI,
@@ -106,17 +102,33 @@ namespace QLBH_HBC.UI
             cbLoaiPK.DataSource = data_loaiPK;
             cbLoaiPK.DisplayMember = "tenLPK";
             //DONE
-            
+            for (int i = gridView2.DataRowCount - 1; i >= 0; i--)
+            {
+                bool rowIsEmpty = true;
+                for (int j = 0; j < gridView2.VisibleColumns.Count; j++)
+                {
+                    if (!string.IsNullOrEmpty(gridView2.GetRowCellValue(i, gridView2.VisibleColumns[j]).ToString()))
+                    {
+                        rowIsEmpty = false;
+                        break;
+                    }
+                }
+
+                if (rowIsEmpty)
+                {
+                    gridView2.DeleteRow(i);
+                }
+            }
         }
 
         private void cbLoaiPK_SelectedIndexChanged(object sender, EventArgs e)
         {
             //nếu = LPK0001 thì txtMadh.Visible = true;
             //còn lại -> txtMadh.Visible = false; (do chỉ có trường hợp xuất bán hàng là có đi kèm mã đơn hàng)
-            if(cbLoaiPK.SelectedIndex != null)
+            if (cbLoaiPK.SelectedIndex != null)
             {
                 DTO.LoaiPK loaiPK = (DTO.LoaiPK)cbLoaiPK.SelectedValue;
-                if(loaiPK.MaLPK.Trim() == "LPK0001")
+                if (loaiPK.MaLPK.Trim() == "LPK0001")
                 {
                     btnMadh.Visible = true;
                 }
@@ -133,10 +145,21 @@ namespace QLBH_HBC.UI
             frmDonhang f = new frmDonhang(this);
             f.ShowDialog();
             btnMadh.Text = maDH;
-            if (maDH.Trim().Length > 0)
+            int check = gridView2.DataRowCount - 1;
+            if (check > 0)
+            {
+                for (int i = gridView2.DataRowCount - 1; i >= 0; i--)
+                {
+                    check = check - 1;
+                    gridView2.DeleteRow(i);
+                    break;
+                }
+            }
+            if (maDH.Trim().Length > 0 && check == 0)
             {
                 int rowHandle = gridView2.FocusedRowHandle;
                 DataRow row = gridView2.GetDataRow(rowHandle);
+
                 List<DTO.CTDonhang> data_ctdonhang = DAO.CTDonhangDAO.Instance.GetMaHHByMaDH(maDH.Trim().ToUpper());
                 if (data_ctdonhang != null)
                 {
@@ -144,13 +167,24 @@ namespace QLBH_HBC.UI
                     {
                         if (ctDonhang.MaHH.Trim().ToUpper().Length > 0)
                         {
-                            DTO.Hanghoa hanghoa = DAO.HanghoaDAO.Instance.Get(ctDonhang.MaHH.Trim().ToUpper());
-                            if (hanghoa != null)
+                            List<DTO.Hanghoa> hanghoa = DAO.HanghoaDAO.Instance.GetList(ctDonhang.MaHH.Trim().ToUpper());
+                            if (hanghoa.Count > 0)
                             {
-                                gridView2.SetRowCellValue(rowHandle, "MAHH", hanghoa.MaHH);
-                                gridView2.SetRowCellValue(rowHandle, "TENHH", hanghoa.TenHH);
-                                gridView2.SetRowCellValue(rowHandle, "SL", ctDonhang.Sl);
-                                gridView2.SetRowCellValue(rowHandle, "DVT", hanghoa.Dvt);
+
+                                gridView2.BeginUpdate();
+                                foreach (DTO.Hanghoa item in hanghoa)
+                                {
+                                    gridView2.AddNewRow();
+                                    int newRowHandle = gridView2.RowCount - 1;
+
+                                    gridView2.SetRowCellValue(rowHandle, "MAHH", item.MaHH);
+                                    gridView2.SetRowCellValue(rowHandle, "TENHH", item.TenHH);
+                                    gridView2.SetRowCellValue(rowHandle, "SL", ctDonhang.Sl);
+                                    gridView2.SetRowCellValue(rowHandle, "DVT", item.Dvt);
+                                    rowHandle = rowHandle + 1;
+                                }
+                                gridView2.EndUpdate();
+
                             }
                         }
 
@@ -162,18 +196,6 @@ namespace QLBH_HBC.UI
             //Hiển thị tham số đó lên btnMadh.Text
             //Done
 
-        }
-        private void frmDonhang_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //MessageBox.Show(ucKho.maDH);
-            //Lấy thông tin mã đơn hàng từ form frmDonhang
-            frmDonhang f = sender as frmDonhang;
-            MessageBox.Show(ucKho.maDH);
-            if (f != null && f.DialogResult == DialogResult.OK)
-            {
-                // Thực hiện gán giá trị mã đơn hàng cho button btnMadh
-                btnMadh.Text = ucKho.maDH;
-            }
         }
 
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -189,42 +211,148 @@ namespace QLBH_HBC.UI
                 {
                     if (txtNguoitao.Text.Trim().Length > 0)
                     {
-                        if(txtNoidung.Text.Trim().Length > 0)
+                        if (txtNoidung.Text.Trim().Length > 0)
                         {
-                            if(txtPTVC.Text.Trim().Length > 0)
+                            if (txtPTVC.Text.Trim().Length > 0)
                             {
-                                if(txtBienso.Text.Trim().Length > 0)
+                                if (txtBienso.Text.Trim().Length > 0)
                                 {
+                                    bool checkTon = false;
+                                    bool checkSl = false;
+                                    for (int i = 0; i < gridView2.RowCount; i++)
+                                    {
 
+                                        object cellValueMaHH = gridView2.GetRowCellValue(i, "MAHH");
+                                        object cellValueSL = gridView2.GetRowCellValue(i, "SL");
+
+                                        if (cellValueMaHH != null && cellValueMaHH.ToString().Length>0)
+                                        {
+                                            bool checkHangHoaTon = DAO.HanghoaDAO.Instance.CheckSLTonTrongKho(cellValueMaHH.ToString().Trim().ToUpper(), Convert.ToInt32(cellValueSL.ToString().Trim()));
+                                            if (checkHangHoaTon)
+                                            {
+                                                //
+                                                bool checkVo = DAO.HanghoaDAO.Instance.GetByDataOtherByBark(cellValueMaHH.ToString().Trim());
+                                                if (checkVo)
+                                                {
+                                                    bool checkVCKCuoc = DAO.VCKDAO.Instance.Check(maDl.ToString().Trim(), cellValueMaHH.ToString().Trim());
+                                                    if (!checkVCKCuoc)
+                                                    {
+                                                        checkTon = true; 
+                                                        NapCT();
+                                                        MessageBox.Show("Hiện tại đại lý chưa đặt cược vỏ chai két có mã hàng hoá là:" + cellValueMaHH.ToString().Trim(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                        break;
+                                                    }
+                                                    else
+                                                    {
+                                                        bool checkVCKCuocSL = DAO.VCKDAO.Instance.CheckSL(maDl.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL.ToString().Trim()));
+                                                        if (!checkVCKCuoc)
+                                                        {
+                                                            checkSl = true;
+                                                            NapCT();
+                                                            MessageBox.Show("Số lượng vỏ chai két của đại lý cược là không đủ. Yêu cầu đặt thêm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                            break;
+                                                        }
+
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                string text = "Hiện hàng "+cellValueMaHH.ToString().Trim()+" hoá tạm hết hàng!";
+                                                MessageBox.Show(text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    if(checkTon == false && checkSl == false)
+                                    {
+                                        DTO.LoaiPK loaiPK = (DTO.LoaiPK)cbLoaiPK.SelectedValue;
+
+                                        // Insert PHIEUKHO (NGAYTAO, NGUOITAO, NOIDUNG, PTVC, BIENSO, MA_LPK, MA_DH)
+                                        string maPhieuKho = DAO.PhieukhoDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName.ToString().Trim(), txtNoidung.Text.ToString().Trim(), txtPTVC.Text.ToString().Trim(), txtBienso.Text.ToString().Trim().ToUpper(), loaiPK.MaLPK.Trim(), btnMadh.Text.Trim());
+                                        if (maPhieuKho != null)
+                                        {
+                                            for (int i = 0; i < gridView2.RowCount; i++)
+                                            {
+                                                object cellValueMaHH = gridView2.GetRowCellValue(i, "MAHH");
+                                                object cellValueSL = gridView2.GetRowCellValue(i, "SL");
+                                                if(cellValueMaHH != null && cellValueSL != null)
+                                                {
+                                                    bool checkInsertCTPK = DAO.CTPhieuKhoDAO.Instance.Insert(maPhieuKho.Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL.ToString().Trim()));
+                                                    if (checkInsertCTPK)
+                                                    {
+                                                        int sl_hh = DAO.HanghoaDAO.Instance.GetSL(cellValueMaHH.ToString().Trim());
+                                                        if (loaiPK.LoaiLPK.Trim() == "Nhập")
+                                                        {
+                                                            int sl_new = sl_hh + Convert.ToInt32(cellValueSL.ToString().Trim());
+                                                            DAO.HanghoaDAO.Instance.UpdateSL(cellValueMaHH.ToString().Trim(), sl_new);
+                                                            if (loaiPK.MaLPK.Trim() == "LPK0001")
+                                                            {
+                                                                bool checkVo = DAO.HanghoaDAO.Instance.GetByDataOtherByBark(cellValueMaHH.ToString().Trim());
+                                                                if (checkVo)
+                                                                {
+                                                                    int slgiu = DAO.VCKDAO.Instance.GetSLGiu(maDl.Trim(), cellValueMaHH.ToString().Trim());
+                                                                    int slgiu_new = slgiu + Convert.ToInt32(cellValueSL.ToString().Trim());
+                                                                    DAO.VCKDAO.Instance.UpdateSLGiu(maDl.Trim(), cellValueMaHH.ToString().Trim(), slgiu_new);
+
+                                                                }
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            int sl_new = sl_hh - Convert.ToInt32(cellValueSL.ToString().Trim());
+                                                            DAO.HanghoaDAO.Instance.UpdateSL(cellValueMaHH.ToString().Trim(), sl_new);
+                                                        }
+                                                    }
+                                                    if (i == gridView2.RowCount - 1)
+                                                    {
+                                                        NapCT();
+                                                        DAO.DonhangDAO.Instance.UpdateTrangThai(maDH.ToString().Trim(),"Đã xuất kho");
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Tạo phiếu kho không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                            NapCT();
+                                        }
+                                    }
                                 }
                                 else
                                 {
                                     XtraMessageBox.Show("Bạn nhập thiếu biển số xe vận chuyển", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    NapCT();
                                 }
                             }
                             else
                             {
                                 XtraMessageBox.Show("Bạn nhập thiếu phương tiện vận chuyển", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                NapCT();
                             }
                         }
                         else
                         {
                             XtraMessageBox.Show("Bạn nhập thiếu nội dung diễn giải", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            NapCT();
                         }
                     }
                     else
                     {
                         XtraMessageBox.Show("Bạn nhập thiếu người tạo", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        NapCT();
                     }
                 }
                 else
                 {
-                    XtraMessageBox.Show("Bạn nhập thiếu trường loai phiếu kho", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Bạn nhập thiếu trường mã đơn hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    NapCT();
                 }
             }
             else
             {
                 XtraMessageBox.Show("Bạn nhập thiếu trường loai phiếu kho", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NapCT();
             }
             //2. Check tồn + VCK cược
             //- Từ MALPK -> vào bảng LOAIPK xem LOAI -> Nếu LOAI = "Xuất" 
