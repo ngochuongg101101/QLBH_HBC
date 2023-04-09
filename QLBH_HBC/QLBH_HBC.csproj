@@ -201,6 +201,12 @@
     <Compile Include="UI\uc_Kho.Designer.cs">
       <DependentUpon>uc_Kho.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\uc_Thanhtoan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_Thanhtoan.Designer.cs">
+      <DependentUpon>uc_Thanhtoan.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmDonhang.resx">
       <DependentUpon>frmDonhang.cs</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\uc_Thanhtoan.resx">
+      <DependentUpon>uc_Thanhtoan.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
