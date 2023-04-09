@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+
+
 namespace QLBH_HBC.DTO
 {
-    class HopDong
+    class HopdongDaily
     {
-        public HopDong(string mahd,DateTime ngaytao,string nguoitao,DateTime ngaybd,DateTime ngaykt,float ck,string madl)
+        public HopdongDaily(string mahd, DateTime ngaytao, string nguoitao, DateTime ngaybd, DateTime ngaykt, float ck, string madl,string tendl)
         {
             this.MaHD = mahd;
             this.NgayTao = ngaytao;
@@ -17,8 +19,9 @@ namespace QLBH_HBC.DTO
             this.NgayKT = ngaykt;
             this.CK = ck;
             this.MaDL = madl;
+            this.TenDL = tendl;
         }
-        public HopDong(DataRow Row)
+        public HopdongDaily(DataRow Row)
         {
             this.MaHD = Row["MAHD"].ToString();
             this.NgayTao = (DateTime)Row["NGAYTAO"];
@@ -27,6 +30,7 @@ namespace QLBH_HBC.DTO
             this.NgayKT = (DateTime)Row["NGAYKT"];
             this.CK = (int)Convert.ToDouble(Row["CK"].ToString());
             this.MaDL = Row["MA_DL"].ToString();
+            this.TenDL = Row["TENDL"].ToString();
 
         }
         public string MaHD { get; private set; }
@@ -36,5 +40,6 @@ namespace QLBH_HBC.DTO
         public DateTime NgayKT { get; private set; }
         public float CK { get; private set; }
         public string MaDL { get; private set; }
+        public string TenDL { get; private set; }
     }
 }

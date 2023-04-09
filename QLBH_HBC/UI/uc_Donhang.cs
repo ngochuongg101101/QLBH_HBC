@@ -55,6 +55,8 @@ namespace QLBH_HBC.UI
             }
 
             gridControl1.DataSource = dt;
+            gridView1.Columns[6].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns[6].DisplayFormat.FormatString = "#,##0 VND";
             gridControl1.Refresh();
 
             gridView1.RowClick += gridView1_RowClick;
@@ -87,6 +89,10 @@ namespace QLBH_HBC.UI
             string sql1 = "SELECT MAHH, TENHH, CT_DONHANG.SL, DVT, CT_DONHANG.DONGIA, THANHTIEN FROM CT_DONHANG JOIN HANGHOA ON MAHH = MA_HH " +
                 "WHERE MA_DH = '" + txtMadh.Text + "'";
             gridControl2.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql1);
+            gridView2.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView2.Columns[5].DisplayFormat.FormatString = "#,##0 VND";
+            gridView2.Columns[6].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView2.Columns[6].DisplayFormat.FormatString = "#,##0 VND";
             gridControl2.Refresh();
             //gridView2.OptionsBehavior.ReadOnly = true;
             gridView2.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -183,7 +189,8 @@ namespace QLBH_HBC.UI
 
                         double thanhTien = sl * donGia;
                         gridView2.SetRowCellValue(rowHandle, "THANHTIEN", thanhTien);
-
+                        gridView2.Columns[6].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                        gridView2.Columns[6].DisplayFormat.FormatString = "#,##0 VND";
 
                         // Gán giá trị tính được cho thuộc tính Text của đối tượng TextEdit
 

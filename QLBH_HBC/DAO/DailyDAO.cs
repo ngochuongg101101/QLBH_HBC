@@ -32,12 +32,12 @@ namespace QLBH_HBC.DAO
             return list;
         }
         // Thêm
-        public string Insert(string tendl, string diachi, string sdt, string email, string mst, int tongno)
+        public string Insert(string tendl, string diachi, string sdt, string email, string mst)
         {
             string madl = (string)Config.DataProvider.Instance.ExecuteScalar("SELECT dbo.AUTO_ID_DAILY()");
 
             // Construct the INSERT query with the generated MAPC value
-            string query = String.Format("INSERT INTO dbo.DAILY ( MADL,TENDL,DIACHI,SDT,EMAIL,MST,TONGNO) VALUES ('{0}', N'{1}', N'{2}', '{3}', '{4}',{5},{6})", madl, tendl, diachi, sdt, email, mst, tongno);
+            string query = String.Format("INSERT INTO dbo.DAILY ( MADL,TENDL,DIACHI,SDT,EMAIL,MST,TONGNO) VALUES ('{0}', N'{1}', N'{2}', '{3}', '{4}',{5},0)", madl, tendl, diachi, sdt, email, mst);
 
             // Execute the INSERT query and get the number of rows affected
             int numRowsAffected = Config.DataProvider.Instance.ExecuteNonQuery(query);
@@ -51,9 +51,9 @@ namespace QLBH_HBC.DAO
             }
         }
         // Sửa thông tin đại lý
-        public bool Update(string madl, string tendl, string diachi, string sdt, string email, string mst, int tongno)
+        public bool Update(string madl, string tendl, string diachi, string sdt, string email, string mst)
         {
-            string query = String.Format("UPDATE [dbo].[DAILY] SET [MADL] = '{0}', [TENDL] = N'{1}', [DIACHI] = N'{2}', [SDT] = '{3}', [EMAIL] = '{4}', [MST] = {5}, [TONGNO] = {6} WHERE ", madl, tendl, diachi, sdt, email, mst, tongno);
+            string query = String.Format("UPDATE [dbo].[DAILY] SET [TENDL] = N'{1}', [DIACHI] = N'{2}', [SDT] = '{3}', [EMAIL] = '{4}', [MST] = {5} WHERE [MADL] = '{0}'", madl, tendl, diachi, sdt, email, mst);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }

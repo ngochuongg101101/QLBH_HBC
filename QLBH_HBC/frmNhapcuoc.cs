@@ -43,12 +43,19 @@ namespace QLBH_HBC
             {
                 label1.Text = "PHIẾU NHẬN CƯỢC VỎ CHAI KÉT";
                 mvv = "MVV0002";
-
+                btnTrahet.Size = new Size(0, 0);
+                btnTrahet.Width = 0;
+                btnTrahet.Height = 0;
+                btnTrahet.Visible = false;
+                btnTrahet.Enabled = true;
             }
             if (loai == "Trả")
             {
                 label1.Text = "PHIẾU TRẢ CƯỢC VỎ CHAI KÉT";
                 mvv = "MVV0003";
+                btnTrahet.Size = new Size(99,22);
+                btnTrahet.Visible = true;
+                btnTrahet.Enabled = false;
             }
 
 
@@ -100,6 +107,10 @@ namespace QLBH_HBC
 
             //Click để thêm dòng
             gridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
+            gridView.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView.Columns[5].DisplayFormat.FormatString = "#,##0 VND";
+            gridView.Columns[6].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView.Columns[6].DisplayFormat.FormatString = "#,##0 VND";
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -273,6 +284,7 @@ namespace QLBH_HBC
             if (loai == "Trả")
             {
                 txtNoidung.Text = "Trả tiền cược VCK của " + cbDaily.Text;
+                btnTrahet.Enabled = true;
             }
         }
 
@@ -319,6 +331,11 @@ namespace QLBH_HBC
 
             report.ShowPreviewDialog();
             //report1.ShowPreviewDialog();
+
+        }
+
+        private void btnTrahet_Click(object sender, EventArgs e)
+        {
 
         }
     }

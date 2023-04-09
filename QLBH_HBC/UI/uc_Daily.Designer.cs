@@ -32,9 +32,8 @@ namespace QLBH_HBC.UI
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Daily));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtSDT = new DevExpress.XtraEditors.TextEdit();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -48,22 +47,16 @@ namespace QLBH_HBC.UI
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtSDT = new DevExpress.XtraEditors.TextEdit();
             this.txtEMAIL = new DevExpress.XtraEditors.TextEdit();
             this.txtDIACHI = new DevExpress.XtraEditors.TextEdit();
             this.txtMAST = new DevExpress.XtraEditors.TextEdit();
             this.txtTENDL = new DevExpress.XtraEditors.TextEdit();
             this.txtMADL = new DevExpress.XtraEditors.TextEdit();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.MADL = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TENDL = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MST = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.EMAIL = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.SDT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -72,22 +65,22 @@ namespace QLBH_HBC.UI
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEMAIL.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDIACHI.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMAST.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTENDL.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMADL.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
@@ -96,10 +89,12 @@ namespace QLBH_HBC.UI
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.gridControl2);
             this.layoutControl1.Controls.Add(this.pictureBox2);
             this.layoutControl1.Controls.Add(this.pictureBox1);
             this.layoutControl1.Controls.Add(this.txtSDT);
@@ -108,7 +103,6 @@ namespace QLBH_HBC.UI
             this.layoutControl1.Controls.Add(this.txtMAST);
             this.layoutControl1.Controls.Add(this.txtTENDL);
             this.layoutControl1.Controls.Add(this.txtMADL);
-            this.layoutControl1.Controls.Add(this.gridControl1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2});
@@ -120,35 +114,24 @@ namespace QLBH_HBC.UI
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // pictureBox2
+            // gridControl2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(549, 12);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(187, 116);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 15;
-            this.pictureBox2.TabStop = false;
+            this.gridControl2.Location = new System.Drawing.Point(12, 132);
+            this.gridControl2.MainView = this.gridView2;
+            this.gridControl2.MenuManager = this.barManager1;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.Size = new System.Drawing.Size(724, 317);
+            this.gridControl2.TabIndex = 16;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            this.gridControl2.Load += new System.EventHandler(this.gridControl2_Load);
             // 
-            // pictureBox1
+            // gridView2
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(113, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(625, 40);
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            // 
-            // txtSDT
-            // 
-            this.txtSDT.Location = new System.Drawing.Point(354, 108);
-            this.txtSDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSDT.MenuManager = this.barManager1;
-            this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(191, 20);
-            this.txtSDT.StyleController = this.layoutControl1;
-            this.txtSDT.TabIndex = 13;
+            this.gridView2.GridControl = this.gridControl2;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsScrollAnnotations.ShowFocusedRow = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView2.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView2_FocusedRowChanged);
             // 
             // barManager1
             // 
@@ -190,24 +173,28 @@ namespace QLBH_HBC.UI
             this.barButtonItem1.Caption = "Thêm mới";
             this.barButtonItem1.Id = 0;
             this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // barButtonItem2
             // 
             this.barButtonItem2.Caption = "Sửa";
             this.barButtonItem2.Id = 1;
             this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // barButtonItem3
             // 
             this.barButtonItem3.Caption = "Xóa";
             this.barButtonItem3.Id = 2;
             this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
             // 
             // barButtonItem4
             // 
             this.barButtonItem4.Caption = "Lưu";
             this.barButtonItem4.Id = 3;
             this.barButtonItem4.Name = "barButtonItem4";
+            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
             // barButtonItem5
             // 
@@ -273,6 +260,36 @@ namespace QLBH_HBC.UI
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 461);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(549, 12);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(187, 116);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(113, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(625, 40);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txtSDT
+            // 
+            this.txtSDT.Location = new System.Drawing.Point(354, 108);
+            this.txtSDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSDT.MenuManager = this.barManager1;
+            this.txtSDT.Name = "txtSDT";
+            this.txtSDT.Size = new System.Drawing.Size(191, 20);
+            this.txtSDT.StyleController = this.layoutControl1;
+            this.txtSDT.TabIndex = 13;
+            // 
             // txtEMAIL
             // 
             this.txtEMAIL.Location = new System.Drawing.Point(86, 108);
@@ -322,94 +339,6 @@ namespace QLBH_HBC.UI
             this.txtMADL.StyleController = this.layoutControl1;
             this.txtMADL.TabIndex = 8;
             // 
-            // gridControl1
-            // 
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gridControl1.Location = new System.Drawing.Point(12, 132);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(724, 317);
-            this.gridControl1.TabIndex = 4;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            this.gridControl1.Load += new System.EventHandler(this.gridControl1_Load);
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.MADL,
-            this.TENDL,
-            this.MST,
-            this.DIACHI,
-            this.EMAIL,
-            this.SDT});
-            this.gridView1.DetailHeight = 284;
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gridView1_SelectionChanged);
-            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
-            // 
-            // MADL
-            // 
-            this.MADL.Caption = "Mã đại lý";
-            this.MADL.FieldName = "MADL";
-            this.MADL.MinWidth = 21;
-            this.MADL.Name = "MADL";
-            this.MADL.Visible = true;
-            this.MADL.VisibleIndex = 0;
-            this.MADL.Width = 81;
-            // 
-            // TENDL
-            // 
-            this.TENDL.Caption = "Tên đại lý";
-            this.TENDL.FieldName = "TENDL";
-            this.TENDL.MinWidth = 21;
-            this.TENDL.Name = "TENDL";
-            this.TENDL.Visible = true;
-            this.TENDL.VisibleIndex = 1;
-            this.TENDL.Width = 81;
-            // 
-            // MST
-            // 
-            this.MST.Caption = "Mã số thuế";
-            this.MST.FieldName = "MST";
-            this.MST.MinWidth = 21;
-            this.MST.Name = "MST";
-            this.MST.Visible = true;
-            this.MST.VisibleIndex = 2;
-            this.MST.Width = 81;
-            // 
-            // DIACHI
-            // 
-            this.DIACHI.Caption = "Địa chỉ";
-            this.DIACHI.FieldName = "DIACHI";
-            this.DIACHI.MinWidth = 21;
-            this.DIACHI.Name = "DIACHI";
-            this.DIACHI.Visible = true;
-            this.DIACHI.VisibleIndex = 3;
-            this.DIACHI.Width = 81;
-            // 
-            // EMAIL
-            // 
-            this.EMAIL.Caption = "Email";
-            this.EMAIL.FieldName = "EMAIL";
-            this.EMAIL.MinWidth = 21;
-            this.EMAIL.Name = "EMAIL";
-            this.EMAIL.Visible = true;
-            this.EMAIL.VisibleIndex = 4;
-            this.EMAIL.Width = 81;
-            // 
-            // SDT
-            // 
-            this.SDT.Caption = "Số điện thoại";
-            this.SDT.FieldName = "SDT";
-            this.SDT.MinWidth = 21;
-            this.SDT.Name = "SDT";
-            this.SDT.Visible = true;
-            this.SDT.VisibleIndex = 5;
-            this.SDT.Width = 81;
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.pictureBox1;
@@ -423,7 +352,6 @@ namespace QLBH_HBC.UI
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
             this.layoutControlItem5,
             this.layoutControlItem6,
             this.layoutControlItem7,
@@ -431,19 +359,11 @@ namespace QLBH_HBC.UI
             this.layoutControlItem9,
             this.layoutControlItem3,
             this.emptySpaceItem1,
-            this.layoutControlItem10});
+            this.layoutControlItem10,
+            this.layoutControlItem4});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(748, 461);
             this.Root.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.gridControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 120);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(728, 321);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem5
             // 
@@ -516,6 +436,15 @@ namespace QLBH_HBC.UI
             this.layoutControlItem10.Text = "Số điện thoại";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(62, 13);
             // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.gridControl2;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 120);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(728, 321);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
             // uc_Daily
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -528,22 +457,22 @@ namespace QLBH_HBC.UI
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "uc_Daily";
             this.Size = new System.Drawing.Size(748, 522);
+            this.Load += new System.EventHandler(this.uc_Daily_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEMAIL.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDIACHI.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMAST.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTENDL.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMADL.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
@@ -552,6 +481,7 @@ namespace QLBH_HBC.UI
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -575,9 +505,6 @@ namespace QLBH_HBC.UI
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraEditors.TextEdit txtMADL;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -586,12 +513,6 @@ namespace QLBH_HBC.UI
         private DevExpress.XtraEditors.TextEdit txtEMAIL;
         private DevExpress.XtraEditors.TextEdit txtDIACHI;
         private DevExpress.XtraEditors.TextEdit txtMAST;
-        private DevExpress.XtraGrid.Columns.GridColumn MADL;
-        private DevExpress.XtraGrid.Columns.GridColumn TENDL;
-        private DevExpress.XtraGrid.Columns.GridColumn MST;
-        private DevExpress.XtraGrid.Columns.GridColumn DIACHI;
-        private DevExpress.XtraGrid.Columns.GridColumn EMAIL;
-        private DevExpress.XtraGrid.Columns.GridColumn SDT;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
@@ -600,5 +521,8 @@ namespace QLBH_HBC.UI
         private System.Windows.Forms.PictureBox pictureBox2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
     }
 }
