@@ -22,6 +22,7 @@ namespace QLBH_HBC
 {
     public partial class frmNhapcuoc : DevExpress.XtraEditors.XtraForm
     {
+        Button btnTrahet = new Button();
         private string userName;
         private string loai;
         private double tongtien = 0;
@@ -39,23 +40,45 @@ namespace QLBH_HBC
         private DataTable dt1;
         private void frmNhapcuoc_Load(object sender, EventArgs e)
         {
+            
             if (loai == "Nhập")
             {
                 label1.Text = "PHIẾU NHẬN CƯỢC VỎ CHAI KÉT";
                 mvv = "MVV0002";
-                btnTrahet.Size = new Size(0, 0);
-                btnTrahet.Width = 0;
-                btnTrahet.Height = 0;
-                btnTrahet.Visible = false;
-                btnTrahet.Enabled = true;
+                //btnTrahet.Width = 0;
+                //btnTrahet.Height = 0;
+                ////btnTrahet.ClientSize.Width = 0;
+
+
+                //btnTrahet.Visible = false;
+                //btnTrahet.Enabled = true;
             }
             if (loai == "Trả")
             {
                 label1.Text = "PHIẾU TRẢ CƯỢC VỎ CHAI KÉT";
                 mvv = "MVV0003";
-                btnTrahet.Size = new Size(99,22);
-                btnTrahet.Visible = true;
-                btnTrahet.Enabled = false;
+                // Create a new button control
+                
+                btnTrahet.Text = "Trả hết";
+
+                // Set the location and size of the button
+                btnTrahet.Location = new Point(651, 141);
+                btnTrahet.Size = new Size(99, 22);
+
+                // Add the button to the form's controls collection
+                // Create a new button control
+                Button newButton = new Button();
+
+                // Set the properties of the new button
+                newButton.Text = "Click me!";
+                newButton.Location = new Point(50, 50);
+                newButton.Size = new Size(100, 50);
+                panelControl1.Controls.Add(newButton);
+                panelControl1.Controls.Add(btnTrahet);
+                //btnTrahet.Size = new Size(99,22);
+                //btnTrahet.Location = new Point(651, 141);
+                //btnTrahet.Visible = true;
+                //btnTrahet.Enabled = false;
             }
 
 
@@ -284,7 +307,7 @@ namespace QLBH_HBC
             if (loai == "Trả")
             {
                 txtNoidung.Text = "Trả tiền cược VCK của " + cbDaily.Text;
-                btnTrahet.Enabled = true;
+                //btnTrahet.Enabled = true;
             }
         }
 
