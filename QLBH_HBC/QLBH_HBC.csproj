@@ -89,6 +89,9 @@
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -107,6 +110,7 @@
     <Compile Include="DAO\DailyDAO.cs" />
     <Compile Include="DAO\DonhangDAO.cs" />
     <Compile Include="DAO\HanghoaDAO.cs" />
+    <Compile Include="DAO\HopdongDAO.cs" />
     <Compile Include="DAO\LoaiPKDAO.cs" />
     <Compile Include="DAO\MaVuViecDAO.cs" />
     <Compile Include="DAO\PhieuCuocDAO.cs" />
@@ -121,6 +125,7 @@
     <Compile Include="DTO\Donhang.cs" />
     <Compile Include="DTO\Hoadon.cs" />
     <Compile Include="DTO\HopDong.cs" />
+    <Compile Include="DTO\HopdongDaily.cs" />
     <Compile Include="DTO\LoaiHD.cs" />
     <Compile Include="DTO\LoaiPK.cs" />
     <Compile Include="DTO\Mavuviec.cs" />
@@ -326,6 +331,7 @@
       <DependentUpon>uc_Thanhtoan.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

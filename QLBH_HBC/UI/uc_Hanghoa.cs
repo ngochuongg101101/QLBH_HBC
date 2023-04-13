@@ -27,6 +27,10 @@ namespace QLBH_HBC.UI
         {
             string sql = "SELECT * FROM HANGHOA";
             gridControl1.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql);
+            gridView1.Columns[4].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns[4].DisplayFormat.FormatString = "#,##0 VND";
+            gridView1.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns[5].DisplayFormat.FormatString = "#,##0 VND";
             gridView1.RowClick += gridView1_RowClick;
             gridView1.OptionsBehavior.ReadOnly = true;
             gridView1.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -231,15 +235,23 @@ namespace QLBH_HBC.UI
                                         object cellValueTenHH = gridView2.GetRowCellValue(i, "TENHH");
                                         object cellValueSL = gridView2.GetRowCellValue(i, "SL");
                                         object cellValueDVT = gridView2.GetRowCellValue(i, "DVT");
-                                        if (cellValueMaHH.ToString().Trim().Length > 0 && cellValueTenHH.ToString().Trim().Length > 0 && cellValueSL.ToString().Trim().Length > 0 && cellValueDVT.ToString().Trim().Length > 0 && Convert.ToInt32(cellValueSL) > 0)
+                                        if (cellValueMaHH == null && cellValueTenHH == null && cellValueSL == null && cellValueDVT == null)
                                         {
-                                            bool checkVo = DAO.HanghoaDAO.Instance.GetByDataOtherByBark(cellValueMaHH.ToString().Trim());
-                                            if (!checkVo)
+                                            XtraMessageBox.Show("Bạn chưa nhập vỏ chat két", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            if (cellValueMaHH.ToString().Trim().Length > 0 && cellValueTenHH.ToString().Trim().Length > 0 && cellValueSL.ToString().Trim().Length > 0 && cellValueDVT.ToString().Trim().Length > 0 && Convert.ToInt32(cellValueSL) > 0)
                                             {
-                                                checkVoHangHoa = true;
-                                                break;
+                                                bool checkVo = DAO.HanghoaDAO.Instance.GetByDataOtherByBark(cellValueMaHH.ToString().Trim());
+                                                if (!checkVo)
+                                                {
+                                                    checkVoHangHoa = true;
+                                                    break;
+                                                }
+
                                             }
-                                        
                                         }
 
                                     }
@@ -350,6 +362,66 @@ namespace QLBH_HBC.UI
             {
                 gridView2.OptionsBehavior.Editable = false;
                 gridView2.OptionsBehavior.ReadOnly = true;
+            }
+        }
+
+        private void txtGiaban_TextChanged(object sender, EventArgs e)
+        {
+            // Handle the TextChanged event
+            string newText = txtGiaban.Text;
+            if (!string.IsNullOrEmpty(newText))
+            {
+                // Convert the entered text to a decimal value
+                decimal value = decimal.Parse(newText);
+                // Format the decimal value as currency with the VND symbol
+                string formattedValue = value.ToString("#,##0 ");
+                // Display the formatted value in the TextEdit control
+                txtGiaban.Text = formattedValue;
+            }
+        }
+
+        private void txtGiacuoc_TextChanged(object sender, EventArgs e)
+        {
+            // Handle the TextChanged event
+            string newText = txtGiacuoc.Text;
+            if (!string.IsNullOrEmpty(newText))
+            {
+                // Convert the entered text to a decimal value
+                decimal value = decimal.Parse(newText);
+                // Format the decimal value as currency with the VND symbol
+                string formattedValue = value.ToString("#,##0 ");
+                // Display the formatted value in the TextEdit control
+                txtGiacuoc.Text = formattedValue;
+            }
+        }
+
+        private void txtGiaban_Enter(object sender, EventArgs e)
+        {
+            // Handle the TextChanged event
+            string newText = txtGiacuoc.Text;
+            if (!string.IsNullOrEmpty(newText))
+            {
+                // Convert the entered text to a decimal value
+                decimal value = decimal.Parse(newText);
+                // Format the decimal value as currency with the VND symbol
+                string formattedValue = value.ToString("#,##0 ");
+                // Display the formatted value in the TextEdit control
+                txtGiacuoc.Text = formattedValue;
+            }
+        }
+
+        private void txtGiacuoc_Enter(object sender, EventArgs e)
+        {
+            // Handle the TextChanged event
+            string newText = txtGiacuoc.Text;
+            if (!string.IsNullOrEmpty(newText))
+            {
+                // Convert the entered text to a decimal value
+                decimal value = decimal.Parse(newText);
+                // Format the decimal value as currency with the VND symbol
+                string formattedValue = value.ToString("#,##0 ");
+                // Display the formatted value in the TextEdit control
+                txtGiacuoc.Text = formattedValue;
             }
         }
     }
