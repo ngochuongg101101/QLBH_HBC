@@ -19,6 +19,7 @@ namespace QLBH_HBC
         UI.uc_Hanghoa ucHanghoa;
         UI.uc_Daily ucDaily;
         UI.uc_Hopdong ucHopdong;
+        UI.uc_Thanhtoan ucThanhtoan;
         UI.uc_Baocao ucBaocao;
 
         private string userName;
@@ -82,6 +83,20 @@ namespace QLBH_HBC
             ucBaocao.Dock = DockStyle.Fill;
             mainContainer.Controls.Add(ucBaocao);
             ucBaocao.BringToFront();
+        }
+
+        private void mnBCDM_Click(object sender, EventArgs e)
+        {
+            Form f = new frmInBCDM();
+            f.Show();
+        }
+
+        private void mnQLThanhtoan_Click(object sender, EventArgs e)
+        {
+            ucThanhtoan = new UI.uc_Thanhtoan(userName);
+            ucThanhtoan.Dock = DockStyle.Fill;
+            mainContainer.Controls.Add(ucThanhtoan);
+            ucThanhtoan.BringToFront();
         }
     }
 }

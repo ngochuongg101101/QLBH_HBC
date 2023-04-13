@@ -9,21 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QLBH_HBC.UI
+namespace QLBH_HBC
 {
-    public partial class uc_Thanhtoan : DevExpress.XtraEditors.XtraUserControl
+    public partial class frmThanhtoan : DevExpress.XtraEditors.XtraForm
     {
         private string username;
-        public uc_Thanhtoan(string userName)
+        public frmThanhtoan(string userName)
         {
             InitializeComponent();
             username = userName;
         }
 
-        private void btnPay_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Form f = new frmThanhtoan(username);
-            f.Show();
-        }
     }
 }

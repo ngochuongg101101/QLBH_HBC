@@ -44,7 +44,7 @@ namespace QLBH_HBC
             this.mnQLThanhtoan = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnQLKho = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnBaocao = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement23 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnBCDM = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement24 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement25 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnHethong = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -58,16 +58,14 @@ namespace QLBH_HBC
             this.accordionControlElement14 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement15 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement12 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.calcEdit1 = new DevExpress.XtraEditors.CalcEdit();
-            this.calcEdit2 = new DevExpress.XtraEditors.CalcEdit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // mainContainer
             // 
+            this.mainContainer.BackgroundImage = global::QLBH_HBC.Properties.Resources.background;
+            this.mainContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainContainer.Font = new System.Drawing.Font("Tahoma", 10F);
             this.mainContainer.Location = new System.Drawing.Point(285, 39);
@@ -176,6 +174,7 @@ namespace QLBH_HBC
             this.mnQLThanhtoan.Name = "mnQLThanhtoan";
             this.mnQLThanhtoan.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.mnQLThanhtoan.Text = "Quản lý thanh toán";
+            this.mnQLThanhtoan.Click += new System.EventHandler(this.mnQLThanhtoan_Click);
             // 
             // mnQLKho
             // 
@@ -186,7 +185,7 @@ namespace QLBH_HBC
             // mnBaocao
             // 
             this.mnBaocao.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement23,
+            this.mnBCDM,
             this.accordionControlElement24,
             this.accordionControlElement25});
             this.mnBaocao.Expanded = true;
@@ -194,11 +193,12 @@ namespace QLBH_HBC
             this.mnBaocao.Text = "BÁO CÁO";
             this.mnBaocao.Click += new System.EventHandler(this.mnBaocao_Click);
             // 
-            // accordionControlElement23
+            // mnBCDM
             // 
-            this.accordionControlElement23.Name = "accordionControlElement23";
-            this.accordionControlElement23.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement23.Text = "Báo cáo danh mục";
+            this.mnBCDM.Name = "mnBCDM";
+            this.mnBCDM.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.mnBCDM.Text = "Báo cáo danh mục";
+            this.mnBCDM.Click += new System.EventHandler(this.mnBCDM_Click);
             // 
             // accordionControlElement24
             // 
@@ -289,26 +289,6 @@ namespace QLBH_HBC
             this.accordionControlElement12.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement12.Text = "Hóa đơn";
             // 
-            // calcEdit1
-            // 
-            this.calcEdit1.Location = new System.Drawing.Point(331, 278);
-            this.calcEdit1.Margin = new System.Windows.Forms.Padding(8);
-            this.calcEdit1.Name = "calcEdit1";
-            this.calcEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calcEdit1.Size = new System.Drawing.Size(305, 22);
-            this.calcEdit1.TabIndex = 2;
-            // 
-            // calcEdit2
-            // 
-            this.calcEdit2.Location = new System.Drawing.Point(331, 278);
-            this.calcEdit2.Margin = new System.Windows.Forms.Padding(8);
-            this.calcEdit2.Name = "calcEdit2";
-            this.calcEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calcEdit2.Size = new System.Drawing.Size(305, 22);
-            this.calcEdit2.TabIndex = 2;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -317,8 +297,6 @@ namespace QLBH_HBC
             this.ControlContainer = this.mainContainer;
             this.Controls.Add(this.mainContainer);
             this.Controls.Add(this.accordionControl1);
-            this.Controls.Add(this.calcEdit1);
-            this.Controls.Add(this.calcEdit2);
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -328,8 +306,6 @@ namespace QLBH_HBC
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -351,15 +327,13 @@ namespace QLBH_HBC
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLDonhang;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLHoadon;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLThanhtoan;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement23;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnBCDM;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement24;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement25;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement19;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement21;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnTrogiup;
-        private DevExpress.XtraEditors.CalcEdit calcEdit1;
-        private DevExpress.XtraEditors.CalcEdit calcEdit2;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement12;
         private DevExpress.XtraBars.BarStaticItem lblTieude;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLKho;

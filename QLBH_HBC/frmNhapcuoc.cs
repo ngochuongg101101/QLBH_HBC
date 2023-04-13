@@ -295,30 +295,16 @@ namespace QLBH_HBC
             SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
             DataTable dt3 = new DataTable();
             da1.Fill(dt3);
-
+            
             // Create a new report instance
-            rptDMHH report = new rptDMHH();
+            rptPhieucuoc report = new rptPhieucuoc();
             DataSet ds = new DataSet();
             ds.Tables.Add(dt2);
-            ds.Tables[0].TableName = "PHIEUCUOC_1"; // Assign name to the first DataTable as DataMember
+            ds.Tables[0].TableName = "PHIEUCUOC_1"; 
             ds.Tables.Add(dt3);
-            ds.Tables[1].TableName = "CT_PHIEUCUOC_1"; // Assign name to the second DataTable as DataMember
-
-            // Assign the DataSet to the report's DataSource
+            ds.Tables[1].TableName = "CT_PHIEUCUOC_1";
             report.DataSource = ds;
-            //// Assign the data source to the report's DataSource property
-            //report.DataMember = "PHIEUCUOC_1";
-            //report.DataSource = dt2;
-
-            //// Create a new report instance
-            //DMHH report1 = new DMHH();
-
-            //// Assign the data source to the report's DataSource property
-            //report.DataMember = "CT_PHIEUCUOC_1";
-            //report.DataSource = dt3;
-
             report.ShowPreviewDialog();
-            //report1.ShowPreviewDialog();
 
         }
     }

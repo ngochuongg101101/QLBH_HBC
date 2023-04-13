@@ -52,6 +52,7 @@
     <Reference Include="DevExpress.RichEdit.v20.2.Core, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.RichEdit.v20.2.Export, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Sparkline.v20.2.Core, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.SpellChecker.v20.2.Core, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Spreadsheet.v20.2.Core, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.TreeMap.v20.2.Core, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v20.2, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -74,6 +75,7 @@
     <Reference Include="DevExpress.XtraReports.v20.2, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v20.2.Extensions, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraRichEdit.v20.2, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraSpellChecker.v20.2, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraSpreadsheet.v20.2, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v20.2, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeMap.v20.2, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -132,6 +134,12 @@
     <Compile Include="frmDonhang.Designer.cs">
       <DependentUpon>frmDonhang.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInBCDM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInBCDM.Designer.cs">
+      <DependentUpon>frmInBCDM.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNhapcuoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +150,12 @@
     <Compile Include="DAO\NguoidungDAO.cs" />
     <Compile Include="DTO\Nguoidung.cs" />
     <Compile Include="DTO\Hanghoa.cs" />
+    <Compile Include="frmThanhtoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThanhtoan.Designer.cs">
+      <DependentUpon>frmThanhtoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,11 +164,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\rptDMDL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptDMDL.Designer.cs">
+      <DependentUpon>rptDMDL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptDMHH.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\rptDMHH.Designer.cs">
       <DependentUpon>rptDMHH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptNhapcuoc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptNhapcuoc.Designer.cs">
+      <DependentUpon>rptNhapcuoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptPhieucuoc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPhieucuoc.Designer.cs">
+      <DependentUpon>rptPhieucuoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\test.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\uc_Cuocvo.cs">
       <SubType>UserControl</SubType>
@@ -213,6 +251,9 @@
     <EmbeddedResource Include="frmDonhang.resx">
       <DependentUpon>frmDonhang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInBCDM.resx">
+      <DependentUpon>frmInBCDM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNhapcuoc.resx">
       <DependentUpon>frmNhapcuoc.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +263,9 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmThanhtoan.resx">
+      <DependentUpon>frmThanhtoan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,8 +280,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\rptDMDL.resx">
+      <DependentUpon>rptDMDL.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptDMHH.resx">
       <DependentUpon>rptDMHH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptNhapcuoc.resx">
+      <DependentUpon>rptNhapcuoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPhieucuoc.resx">
+      <DependentUpon>rptPhieucuoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\test.resx">
+      <DependentUpon>test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_Cuocvo.resx">
       <DependentUpon>uc_Cuocvo.cs</DependentUpon>

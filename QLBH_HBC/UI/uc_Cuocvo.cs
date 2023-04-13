@@ -48,5 +48,10 @@ namespace QLBH_HBC.UI
             // Call the gridControl_Load method
             gridControl_Load(sender, e);
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

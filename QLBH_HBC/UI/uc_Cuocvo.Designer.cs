@@ -306,6 +306,7 @@ namespace QLBH_HBC.UI
             this.simpleButton1.StyleController = this.layoutControl2;
             this.simpleButton1.TabIndex = 16;
             this.simpleButton1.Text = "In phiếu";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButton2
             // 
