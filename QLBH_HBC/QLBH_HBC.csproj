@@ -110,6 +110,7 @@
     <Compile Include="DAO\DailyDAO.cs" />
     <Compile Include="DAO\DonhangDAO.cs" />
     <Compile Include="DAO\HanghoaDAO.cs" />
+    <Compile Include="DAO\HoaDonDAO.cs" />
     <Compile Include="DAO\HopdongDAO.cs" />
     <Compile Include="DAO\LoaiPKDAO.cs" />
     <Compile Include="DAO\MaVuViecDAO.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="DTO\CTPhieuKho.cs" />
     <Compile Include="DTO\Daily.cs" />
     <Compile Include="DTO\Donhang.cs" />
+    <Compile Include="DTO\HanghoaVck.cs" />
     <Compile Include="DTO\Hoadon.cs" />
     <Compile Include="DTO\HopDong.cs" />
     <Compile Include="DTO\HopdongDaily.cs" />
@@ -133,6 +135,12 @@
     <Compile Include="DTO\Phieukho.cs" />
     <Compile Include="DTO\Phieuthuchi.cs" />
     <Compile Include="DTO\Vckcuoc.cs" />
+    <Compile Include="frmDonhangThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDonhangThanhToan.Designer.cs">
+      <DependentUpon>frmDonhangThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDonhang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,11 +163,11 @@
     <Compile Include="DAO\NguoidungDAO.cs" />
     <Compile Include="DTO\Nguoidung.cs" />
     <Compile Include="DTO\Hanghoa.cs" />
-    <Compile Include="frmThanhtoan.cs">
+    <Compile Include="frmThanhtoancongno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmThanhtoan.Designer.cs">
-      <DependentUpon>frmThanhtoan.cs</DependentUpon>
+    <Compile Include="frmThanhtoancongno.Designer.cs">
+      <DependentUpon>frmThanhtoancongno.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -253,6 +261,9 @@
     <Compile Include="UI\uc_Thanhtoan.Designer.cs">
       <DependentUpon>uc_Thanhtoan.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmDonhangThanhToan.resx">
+      <DependentUpon>frmDonhangThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDonhang.resx">
       <DependentUpon>frmDonhang.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,8 +279,8 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmThanhtoan.resx">
-      <DependentUpon>frmThanhtoan.cs</DependentUpon>
+    <EmbeddedResource Include="frmThanhtoancongno.resx">
+      <DependentUpon>frmThanhtoancongno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

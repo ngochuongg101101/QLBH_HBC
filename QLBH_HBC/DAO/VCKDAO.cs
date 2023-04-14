@@ -97,5 +97,34 @@ namespace QLBH_HBC.DAO
             }
             return 0;
         }
+        // Lấy danh sách dữ liệu theo ma_dl
+        public List<DTO.Vckcuoc> GetAllByMaDL(string madl)
+        {
+            List<DTO.Vckcuoc> list = new List<DTO.Vckcuoc>();
+            string query = "SELECT * FROM VCKCUOC WHERE VCKCUOC.MA_DL = '"+madl+"'";
+            DataTable data = Config.DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                DTO.Vckcuoc info = new DTO.Vckcuoc(item);
+                list.Add(info);
+            }
+
+            return list;
+        }
+
+        // Lấy danh sách dữ liệu theo ma_dl
+        public DTO.HanghoaVck GetAllTraKet(string mahh)
+        {
+            DTO.HanghoaVck item = null;
+            string query = "SELECT HANGHOA.MAHH,dbo.HANGHOA.TENHH,dbo.HANGHOA.DVT,dbo.VCKCUOC.SL_CUOC AS SOLUONG,dbo.HANGHOA.GIACUOC,(dbo.VCKCUOC.SL_CUOC*dbo.HANGHOA.GIACUOC) AS THANHTIEN FROM dbo.VCKCUOC,dbo.HANGHOA WHERE dbo.HANGHOA.MAHH = dbo.VCKCUOC.MA_VO AND HANGHOA.MAHH ='" + mahh.Trim().ToUpper() + "'";
+            DataTable data = Config.DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow row in data.Rows)
+            {
+                item = new DTO.HanghoaVck(row);
+                return item;
+            }
+
+            return item;
+        }
     }
 }

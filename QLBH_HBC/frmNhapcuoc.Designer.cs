@@ -30,6 +30,7 @@ namespace QLBH_HBC
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.cbPTTT = new System.Windows.Forms.ComboBox();
             this.txtNguoitao = new DevExpress.XtraEditors.TextEdit();
@@ -71,10 +72,12 @@ namespace QLBH_HBC
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnCheck = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNguoitao.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -104,7 +107,6 @@ namespace QLBH_HBC
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,6 +137,14 @@ namespace QLBH_HBC
             this.layoutControl1.Size = new System.Drawing.Size(762, 596);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.btnCheck);
+            this.panelControl1.Location = new System.Drawing.Point(383, 141);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(367, 22);
+            this.panelControl1.TabIndex = 22;
             // 
             // btnPrint
             // 
@@ -549,13 +559,6 @@ namespace QLBH_HBC
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
-            // panelControl1
-            // 
-            this.panelControl1.Location = new System.Drawing.Point(383, 141);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(367, 22);
-            this.panelControl1.TabIndex = 22;
-            // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.panelControl1;
@@ -564,6 +567,14 @@ namespace QLBH_HBC
             this.layoutControlItem12.Size = new System.Drawing.Size(371, 26);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.Location = new System.Drawing.Point(159, 0);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(208, 23);
+            this.btnCheck.TabIndex = 0;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // frmNhapcuoc
             // 
@@ -578,6 +589,8 @@ namespace QLBH_HBC
             this.Load += new System.EventHandler(this.frmNhapcuoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtNguoitao.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
@@ -607,7 +620,6 @@ namespace QLBH_HBC
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             this.ResumeLayout(false);
 
@@ -659,5 +671,6 @@ namespace QLBH_HBC
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
+        private DevExpress.XtraEditors.SimpleButton btnCheck;
     }
 }
