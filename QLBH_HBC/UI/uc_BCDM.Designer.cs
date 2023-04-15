@@ -31,14 +31,6 @@ namespace QLBH_HBC.UI
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnDMHH = new System.Windows.Forms.RadioButton();
-            this.btnDMDL = new System.Windows.Forms.RadioButton();
-            this.btnDMHD = new System.Windows.Forms.RadioButton();
-            this.gpLocHH = new System.Windows.Forms.GroupBox();
-            this.gpLocHD = new System.Windows.Forms.GroupBox();
-            this.dateEdit3 = new DevExpress.XtraEditors.DateEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnPrint = new DevExpress.XtraBars.BarButtonItem();
@@ -48,144 +40,51 @@ namespace QLBH_HBC.UI
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dateEdit4 = new DevExpress.XtraEditors.DateEdit();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnDMHH = new System.Windows.Forms.RadioButton();
+            this.btnDMDL = new System.Windows.Forms.RadioButton();
+            this.btnDMHD = new System.Windows.Forms.RadioButton();
+            this.gpLocHH = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbLoai = new System.Windows.Forms.ComboBox();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.gpLocHD = new System.Windows.Forms.GroupBox();
+            this.dateEdit3 = new DevExpress.XtraEditors.DateEdit();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dateEdit4 = new DevExpress.XtraEditors.DateEdit();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gpLocHH.SuspendLayout();
-            this.gpLocHD.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            this.gpLocHD.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.gpLocHD);
             this.layoutControl1.Controls.Add(this.groupControl1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 54);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 47);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1240, 455);
+            this.layoutControl1.Size = new System.Drawing.Size(1063, 363);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.Controls.Add(this.groupBox2);
-            this.groupControl1.Controls.Add(this.gpLocHH);
-            this.groupControl1.Location = new System.Drawing.Point(12, 12);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1216, 168);
-            this.groupControl1.TabIndex = 8;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnDMHH);
-            this.groupBox2.Controls.Add(this.btnDMDL);
-            this.groupBox2.Controls.Add(this.btnDMHD);
-            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(5, 31);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(452, 121);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Loại báo cáo";
-            // 
-            // btnDMHH
-            // 
-            this.btnDMHH.AutoSize = true;
-            this.btnDMHH.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDMHH.Location = new System.Drawing.Point(6, 26);
-            this.btnDMHH.Name = "btnDMHH";
-            this.btnDMHH.Size = new System.Drawing.Size(210, 28);
-            this.btnDMHH.TabIndex = 0;
-            this.btnDMHH.Text = "Danh mục hàng hóa";
-            this.btnDMHH.UseVisualStyleBackColor = true;
-            this.btnDMHH.CheckedChanged += new System.EventHandler(this.btnDMHH_CheckedChanged);
-            // 
-            // btnDMDL
-            // 
-            this.btnDMDL.AutoSize = true;
-            this.btnDMDL.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDMDL.Location = new System.Drawing.Point(6, 54);
-            this.btnDMDL.Name = "btnDMDL";
-            this.btnDMDL.Size = new System.Drawing.Size(175, 28);
-            this.btnDMDL.TabIndex = 1;
-            this.btnDMDL.Text = "Danh mục đại lý";
-            this.btnDMDL.UseVisualStyleBackColor = true;
-            // 
-            // btnDMHD
-            // 
-            this.btnDMHD.AutoSize = true;
-            this.btnDMHD.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDMHD.Location = new System.Drawing.Point(6, 82);
-            this.btnDMHD.Name = "btnDMHD";
-            this.btnDMHD.Size = new System.Drawing.Size(210, 28);
-            this.btnDMHD.TabIndex = 2;
-            this.btnDMHD.Text = "Danh mục hợp đồng";
-            this.btnDMHD.UseVisualStyleBackColor = true;
-            this.btnDMHD.CheckedChanged += new System.EventHandler(this.btnDMHD_CheckedChanged);
-            // 
-            // gpLocHH
-            // 
-            this.gpLocHH.Controls.Add(this.label1);
-            this.gpLocHH.Controls.Add(this.cbLoai);
-            this.gpLocHH.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpLocHH.Location = new System.Drawing.Point(520, 31);
-            this.gpLocHH.Name = "gpLocHH";
-            this.gpLocHH.Size = new System.Drawing.Size(594, 121);
-            this.gpLocHH.TabIndex = 5;
-            this.gpLocHH.TabStop = false;
-            this.gpLocHH.Text = "Tham số lọc";
-            this.gpLocHH.Visible = false;
-            // 
-            // gpLocHD
-            // 
-            this.gpLocHD.Controls.Add(this.dateEdit3);
-            this.gpLocHD.Controls.Add(this.label4);
-            this.gpLocHD.Controls.Add(this.dateEdit4);
-            this.gpLocHD.Controls.Add(this.label5);
-            this.gpLocHD.Controls.Add(this.label6);
-            this.gpLocHD.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpLocHD.Location = new System.Drawing.Point(132, 184);
-            this.gpLocHD.Name = "gpLocHD";
-            this.gpLocHD.Size = new System.Drawing.Size(637, 259);
-            this.gpLocHD.TabIndex = 9;
-            this.gpLocHD.TabStop = false;
-            this.gpLocHD.Text = "Tham số lọc";
-            this.gpLocHD.Visible = false;
-            // 
-            // dateEdit3
-            // 
-            this.dateEdit3.EditValue = null;
-            this.dateEdit3.Location = new System.Drawing.Point(351, 32);
-            this.dateEdit3.MenuManager = this.barManager1;
-            this.dateEdit3.Name = "dateEdit3";
-            this.dateEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit3.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit3.Size = new System.Drawing.Size(125, 22);
-            this.dateEdit3.TabIndex = 8;
             // 
             // barManager1
             // 
@@ -251,81 +150,122 @@ namespace QLBH_HBC.UI
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1240, 54);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlTop.Size = new System.Drawing.Size(1063, 47);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 509);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 410);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1240, 20);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1063, 20);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 54);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 47);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 455);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 363);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1240, 54);
+            this.barDockControlRight.Location = new System.Drawing.Point(1063, 47);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 455);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 363);
             // 
-            // label4
+            // groupControl1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(253, 28);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 24);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "đến ngày";
+            this.groupControl1.Controls.Add(this.gpLocHD);
+            this.groupControl1.Controls.Add(this.groupBox2);
+            this.groupControl1.Controls.Add(this.gpLocHH);
+            this.groupControl1.Location = new System.Drawing.Point(11, 10);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(1041, 133);
+            this.groupControl1.TabIndex = 8;
             // 
-            // dateEdit4
+            // groupBox2
             // 
-            this.dateEdit4.EditValue = null;
-            this.dateEdit4.Location = new System.Drawing.Point(122, 32);
-            this.dateEdit4.MenuManager = this.barManager1;
-            this.dateEdit4.Name = "dateEdit4";
-            this.dateEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit4.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit4.Size = new System.Drawing.Size(125, 22);
-            this.dateEdit4.TabIndex = 6;
+            this.groupBox2.Controls.Add(this.btnDMHH);
+            this.groupBox2.Controls.Add(this.btnDMDL);
+            this.groupBox2.Controls.Add(this.btnDMHD);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(4, 25);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(387, 98);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Loại báo cáo";
             // 
-            // label5
+            // btnDMHH
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(26, 30);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 24);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Từ ngày";
+            this.btnDMHH.AutoSize = true;
+            this.btnDMHH.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDMHH.Location = new System.Drawing.Point(5, 21);
+            this.btnDMHH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDMHH.Name = "btnDMHH";
+            this.btnDMHH.Size = new System.Drawing.Size(170, 23);
+            this.btnDMHH.TabIndex = 0;
+            this.btnDMHH.Text = "Danh mục hàng hóa";
+            this.btnDMHH.UseVisualStyleBackColor = true;
+            this.btnDMHH.CheckedChanged += new System.EventHandler(this.btnDMHH_CheckedChanged);
             // 
-            // label6
+            // btnDMDL
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(33, 28);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 24);
-            this.label6.TabIndex = 4;
+            this.btnDMDL.AutoSize = true;
+            this.btnDMDL.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDMDL.Location = new System.Drawing.Point(5, 44);
+            this.btnDMDL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDMDL.Name = "btnDMDL";
+            this.btnDMDL.Size = new System.Drawing.Size(142, 23);
+            this.btnDMDL.TabIndex = 1;
+            this.btnDMDL.Text = "Danh mục đại lý";
+            this.btnDMDL.UseVisualStyleBackColor = true;
+            // 
+            // btnDMHD
+            // 
+            this.btnDMHD.AutoSize = true;
+            this.btnDMHD.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDMHD.Location = new System.Drawing.Point(5, 67);
+            this.btnDMHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDMHD.Name = "btnDMHD";
+            this.btnDMHD.Size = new System.Drawing.Size(172, 23);
+            this.btnDMHD.TabIndex = 2;
+            this.btnDMHD.Text = "Danh mục hợp đồng";
+            this.btnDMHD.UseVisualStyleBackColor = true;
+            this.btnDMHD.CheckedChanged += new System.EventHandler(this.btnDMHD_CheckedChanged);
+            // 
+            // gpLocHH
+            // 
+            this.gpLocHH.Controls.Add(this.label1);
+            this.gpLocHH.Controls.Add(this.cbLoai);
+            this.gpLocHH.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpLocHH.Location = new System.Drawing.Point(446, 25);
+            this.gpLocHH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gpLocHH.Name = "gpLocHH";
+            this.gpLocHH.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gpLocHH.Size = new System.Drawing.Size(285, 98);
+            this.gpLocHH.TabIndex = 5;
+            this.gpLocHH.TabStop = false;
+            this.gpLocHH.Text = "Tham số lọc";
+            this.gpLocHH.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(33, 28);
+            this.label1.Location = new System.Drawing.Point(28, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 24);
+            this.label1.Size = new System.Drawing.Size(109, 19);
             this.label1.TabIndex = 4;
             this.label1.Text = "Loại hàng hóa";
             // 
@@ -335,9 +275,10 @@ namespace QLBH_HBC.UI
             this.cbLoai.Items.AddRange(new object[] {
             "Bia",
             "Vỏ"});
-            this.cbLoai.Location = new System.Drawing.Point(175, 28);
+            this.cbLoai.Location = new System.Drawing.Point(150, 23);
+            this.cbLoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbLoai.Name = "cbLoai";
-            this.cbLoai.Size = new System.Drawing.Size(121, 29);
+            this.cbLoai.Size = new System.Drawing.Size(104, 25);
             this.cbLoai.TabIndex = 3;
             // 
             // Root
@@ -346,18 +287,17 @@ namespace QLBH_HBC.UI
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem1,
-            this.layoutControlItem5,
-            this.layoutControlItem1});
+            this.layoutControlItem5});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1240, 455);
+            this.Root.Size = new System.Drawing.Size(1063, 363);
             this.Root.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(761, 172);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 137);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(459, 263);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(1045, 210);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
@@ -365,48 +305,115 @@ namespace QLBH_HBC.UI
             this.layoutControlItem5.Control = this.groupControl1;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(1220, 172);
+            this.layoutControlItem5.Size = new System.Drawing.Size(1045, 137);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
-            // layoutControlItem1
+            // gpLocHD
             // 
-            this.layoutControlItem1.Control = this.gpLocHD;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 172);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(761, 263);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(108, 16);
+            this.gpLocHD.Controls.Add(this.dateEdit3);
+            this.gpLocHD.Controls.Add(this.label4);
+            this.gpLocHD.Controls.Add(this.dateEdit4);
+            this.gpLocHD.Controls.Add(this.label5);
+            this.gpLocHD.Controls.Add(this.label6);
+            this.gpLocHD.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpLocHD.Location = new System.Drawing.Point(446, 25);
+            this.gpLocHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gpLocHD.Name = "gpLocHD";
+            this.gpLocHD.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gpLocHD.Size = new System.Drawing.Size(545, 104);
+            this.gpLocHD.TabIndex = 10;
+            this.gpLocHD.TabStop = false;
+            this.gpLocHD.Text = "Tham số lọc";
+            this.gpLocHD.Visible = false;
+            // 
+            // dateEdit3
+            // 
+            this.dateEdit3.EditValue = null;
+            this.dateEdit3.Location = new System.Drawing.Point(301, 26);
+            this.dateEdit3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateEdit3.MenuManager = this.barManager1;
+            this.dateEdit3.Name = "dateEdit3";
+            this.dateEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit3.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit3.Size = new System.Drawing.Size(107, 20);
+            this.dateEdit3.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(217, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 19);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "đến ngày";
+            // 
+            // dateEdit4
+            // 
+            this.dateEdit4.EditValue = null;
+            this.dateEdit4.Location = new System.Drawing.Point(105, 26);
+            this.dateEdit4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateEdit4.MenuManager = this.barManager1;
+            this.dateEdit4.Name = "dateEdit4";
+            this.dateEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit4.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit4.Size = new System.Drawing.Size(107, 20);
+            this.dateEdit4.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(22, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 19);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Từ ngày";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(28, 23);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 19);
+            this.label6.TabIndex = 4;
             // 
             // uc_BCDM
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "uc_BCDM";
-            this.Size = new System.Drawing.Size(1240, 529);
+            this.Size = new System.Drawing.Size(1063, 430);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.gpLocHH.ResumeLayout(false);
             this.gpLocHH.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.gpLocHD.ResumeLayout(false);
             this.gpLocHD.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -441,6 +448,5 @@ namespace QLBH_HBC.UI
         private DevExpress.XtraEditors.DateEdit dateEdit4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
     }
 }
