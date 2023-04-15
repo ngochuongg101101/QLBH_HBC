@@ -151,6 +151,7 @@ namespace QLBH_HBC.UI
             if (btnDMHH.Checked == true)
             {
                 gpLocHH.Visible = true;
+                gpLocHD.Visible = false;
             }    
             else
             {
@@ -160,13 +161,17 @@ namespace QLBH_HBC.UI
 
         private void btnDMHD_CheckedChanged(object sender, EventArgs e)
         {
-            if (btnDMHH.Checked == true)
+            //MessageBox.Show(gpLocHD.Visible.ToString());
+            if (btnDMHD.Checked == true)
             {
                 gpLocHD.Visible = true;
+                gpLocHH.Visible = false;
+
             }
             else
             {
                 gpLocHD.Visible = false;
+                gpLocHH.Visible = false;
             }
         }
     }

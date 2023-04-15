@@ -57,6 +57,7 @@ namespace QLBH_HBC.UI
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -72,10 +73,12 @@ namespace QLBH_HBC.UI
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.gpLocHD);
             this.layoutControl1.Controls.Add(this.groupControl1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 54);
@@ -144,7 +147,6 @@ namespace QLBH_HBC.UI
             // 
             // gpLocHH
             // 
-            this.gpLocHH.Controls.Add(this.gpLocHD);
             this.gpLocHH.Controls.Add(this.label1);
             this.gpLocHH.Controls.Add(this.cbLoai);
             this.gpLocHH.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,12 +166,13 @@ namespace QLBH_HBC.UI
             this.gpLocHD.Controls.Add(this.label5);
             this.gpLocHD.Controls.Add(this.label6);
             this.gpLocHD.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpLocHD.Location = new System.Drawing.Point(0, 0);
+            this.gpLocHD.Location = new System.Drawing.Point(132, 184);
             this.gpLocHD.Name = "gpLocHD";
-            this.gpLocHD.Size = new System.Drawing.Size(594, 121);
+            this.gpLocHD.Size = new System.Drawing.Size(637, 259);
             this.gpLocHD.TabIndex = 9;
             this.gpLocHD.TabStop = false;
             this.gpLocHD.Text = "Tham số lọc";
+            this.gpLocHD.Visible = false;
             // 
             // dateEdit3
             // 
@@ -343,7 +346,8 @@ namespace QLBH_HBC.UI
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem1,
-            this.layoutControlItem5});
+            this.layoutControlItem5,
+            this.layoutControlItem1});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(1240, 455);
             this.Root.TextVisible = false;
@@ -351,9 +355,9 @@ namespace QLBH_HBC.UI
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 172);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(761, 172);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(1220, 263);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(459, 263);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
@@ -364,6 +368,14 @@ namespace QLBH_HBC.UI
             this.layoutControlItem5.Size = new System.Drawing.Size(1220, 172);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.gpLocHD;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 172);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(761, 263);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(108, 16);
             // 
             // uc_BCDM
             // 
@@ -394,6 +406,7 @@ namespace QLBH_HBC.UI
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,5 +441,6 @@ namespace QLBH_HBC.UI
         private DevExpress.XtraEditors.DateEdit dateEdit4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
     }
 }
