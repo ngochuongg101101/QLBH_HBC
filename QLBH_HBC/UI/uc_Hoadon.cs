@@ -13,9 +13,11 @@ namespace QLBH_HBC.UI
 {
     public partial class uc_Hoadon : DevExpress.XtraEditors.XtraUserControl
     {
-        public uc_Hoadon()
+        private string username;
+        public uc_Hoadon(string userName)
         {
             InitializeComponent();
+            username = userName;
         }
         //Insert -> Chọn loại HD -> Click vào kính lúp sẽ mở ra form frmDonhang (tương tự uc_Kho) 
         //    * Sửa lại như sao cho khi mở form từ:

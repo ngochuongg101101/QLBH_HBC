@@ -31,11 +31,7 @@ namespace QLBH_HBC
             DataTable dt = new DataTable();
             da.Fill(dt);
             con.Close();
-            //con.Open();
-            //SqlCommand cmd1 = new SqlCommand("SELECT MAHH, TENHH, DVT, CT_PHIEUCUOC.SL, GIACUOC FROM CT_PHIEUCUOC JOIN PHIEUCUOC ON MAPC = MA_PC JOIN HANGHOA ON MAHH = MA_VO WHERE MAPC = 'PC0003'", con);
-            //SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
-            //DataTable dt3 = new DataTable();
-            //da1.Fill(dt3);
+
            
             // Create a new report instance
             rptDMHH rpt = new rptDMHH();
@@ -43,31 +39,29 @@ namespace QLBH_HBC
             ds.Tables.Add(dt);
             ds.Tables[0].TableName = "HANGHOA";
 
-            CalculatedField calculatedField = null;
+            //CalculatedField calculatedField = null;
             foreach (CalculatedField field in rpt.CalculatedFields)
             {
-                if (field.Name == "Nguoitao")
-                {
-                    MessageBox.Show("Có Nguoitao");
-                    CalculatedField Nguoitao = field;
-                    Nguoitao.Expression = "'Nguyễn Thị Ngọc Hương'";
-                }
                 if (field.Name == "Loai")
                 {
                     MessageBox.Show("Có Loai");
                     CalculatedField Nguoitao = field;
                     Nguoitao.Expression = "'Vỏ'";
                 }
-                if (field.Name == "Day")
+                if (field.Name == "Nguoitao")
                 {
-                    MessageBox.Show("Có Day");
-                    //CalculatedField Loai = field;
-                    //Loai.Expression = "'Vỏ'";
+                    MessageBox.Show("Có Nguoitao");
+                    CalculatedField Nguoitao = field;
+                    Nguoitao.Expression = "'Nguyễn Thị Ngọc Hương'";
                 }
-                else { break; }
             }
             rpt.DataSource = ds;
             rpt.ShowPreviewDialog();
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

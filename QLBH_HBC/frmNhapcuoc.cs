@@ -371,7 +371,7 @@ namespace QLBH_HBC
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            if (btnCheck.Text == "Kiểm tra danh sách")
+            if (btnCheck.Text == "Kiểm tra")
             {
                 check_vo();
             }
@@ -399,8 +399,6 @@ namespace QLBH_HBC
                         }
                     }
                     //gridControl.DataSource = list_get;
-
-
                 }
             }
         }
@@ -424,5 +422,6 @@ namespace QLBH_HBC
                 }
             }
         }
+
     }
 }

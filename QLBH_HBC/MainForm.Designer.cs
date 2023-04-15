@@ -168,6 +168,7 @@ namespace QLBH_HBC
             this.mnQLHoadon.Name = "mnQLHoadon";
             this.mnQLHoadon.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.mnQLHoadon.Text = "Quản lý hóa đơn";
+            this.mnQLHoadon.Click += new System.EventHandler(this.mnQLHoadon_Click);
             // 
             // mnQLThanhtoan
             // 

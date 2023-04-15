@@ -183,6 +183,12 @@
     <Compile Include="Reports\rptDMDL.Designer.cs">
       <DependentUpon>rptDMDL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\rptDMHD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptDMHD.Designer.cs">
+      <DependentUpon>rptDMHD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptDMHH.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -206,6 +212,12 @@
     </Compile>
     <Compile Include="Reports\test.Designer.cs">
       <DependentUpon>test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\uc_BCDM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_BCDM.Designer.cs">
+      <DependentUpon>uc_BCDM.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\uc_Cuocvo.cs">
       <SubType>UserControl</SubType>
@@ -299,6 +311,9 @@
     <EmbeddedResource Include="Reports\rptDMDL.resx">
       <DependentUpon>rptDMDL.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptDMHD.resx">
+      <DependentUpon>rptDMHD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptDMHH.resx">
       <DependentUpon>rptDMHH.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\test.resx">
       <DependentUpon>test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\uc_BCDM.resx">
+      <DependentUpon>uc_BCDM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_Cuocvo.resx">
       <DependentUpon>uc_Cuocvo.cs</DependentUpon>
