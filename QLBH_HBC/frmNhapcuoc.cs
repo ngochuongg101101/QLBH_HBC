@@ -208,6 +208,7 @@ namespace QLBH_HBC
         {
             try
             {
+                // Check loai nhap vs loai tra
                 bool check = false;
                 if (checkBtn == true && loai == "Nhập")
                 {
@@ -222,7 +223,65 @@ namespace QLBH_HBC
                 else if (loai == "Trả")
                 {
                     check_vo();
-                    check = true;
+                    bool check_for = false;
+                    for (int i = 0; i < gridView.RowCount; i++)
+                    {
+                        object cellValueMaHH = gridView.GetRowCellValue(i, "MAHH");
+                        object cellValueSL = gridView.GetRowCellValue(i, "SL");
+                        if (cellValueMaHH != null && cellValueSL != null && cellValueMaHH.ToString().Trim().Length > 0 && cellValueSL.ToString().Trim().Length > 0)
+                        {
+                            DTO.Vckcuoc resultVCK = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim());
+                            if(resultVCK.MaDL != null)
+                            {
+                                if (Convert.ToInt32(cellValueSL.ToString()) > Convert.ToInt32(resultVCK.SlCuoc)){
+                                    check_for = false;
+                                    MessageBox.Show("Bạn nhập vượt quá số lượng của đại lý, mã võ " + cellValueMaHH +" lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    break;
+                                }
+                                else
+                                {
+                                    if (Convert.ToInt32(cellValueSL.ToString()) > (Convert.ToInt32(resultVCK.SlCuoc) - Convert.ToInt32(resultVCK.SlGiu)))
+                                    {
+                                        if (Convert.ToInt32(resultVCK.SlGiu) == 0)
+                                        {
+                                            check_for = false;
+                                            MessageBox.Show("Bạn nhập vượt quá số lượng của đại lý, mã võ " + cellValueMaHH + " lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            check_for = true;
+                                            MessageBox.Show("Hiện tại đại lý đang giữ " + resultVCK.SlGiu + "trong võ " + resultVCK.MaVO, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            break;
+                                        }
+                                    }
+                                    else if (Convert.ToInt32(cellValueSL.ToString()) <= (Convert.ToInt32(resultVCK.SlCuoc) - Convert.ToInt32(resultVCK.SlGiu)))
+                                    {
+                                        check_for = true;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                check_for = false;
+                                MessageBox.Show("Khách hàng chưa cược loại vỏ " + cellValueMaHH, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    if (check_for == true)
+                    {
+                        check = true;
+
+                    }
+                    else
+                    {
+                        check = false;
+                    }
                 }
                 else
                 {
@@ -263,11 +322,18 @@ namespace QLBH_HBC
                                         if (resultVCK != null)
                                         {
                                             DTO.Vckcuoc dataVCKSL = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim().ToUpper());
-                                            DAO.VCKDAO.Instance.Update(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(resultVCK.SlCuoc) - Convert.ToInt32(cellValueSL), Convert.ToInt32(dataVCKSL.SlGiu));
+                                            if (dataVCKSL.SlGiu == 0 && dataVCKSL.SlCuoc == Convert.ToInt32(cellValueSL))
+                                            {
+                                                DAO.VCKDAO.Instance.Delete(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim());
+                                            }
+                                            else
+                                            {
+                                                DAO.VCKDAO.Instance.Update(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(resultVCK.SlCuoc) - Convert.ToInt32(cellValueSL), Convert.ToInt32(dataVCKSL.SlGiu));
+                                            }
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Khách hàng chưa cược loại vỏ " + cellValueMaHH);
+                                            MessageBox.Show("Khách hàng chưa cược loại vỏ " + cellValueMaHH, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         }
                                     }
 
@@ -386,16 +452,18 @@ namespace QLBH_HBC
                     {
                         if (row.MaVO.ToString().Trim().Substring(0, 2) == "HH")
                         {
-                            DTO.HanghoaVck hanghoaVck = DAO.VCKDAO.Instance.GetAllTraKet(row.MaVO.Trim().ToUpper());
-                            list_get.Add(hanghoaVck);
-                            XtraMessageBox.Show(hanghoaVck.MaHH);
-                            gridView.SetRowCellValue(i, "MAHH", hanghoaVck.MaHH);
-                            gridView.SetRowCellValue(i, "TENHH", hanghoaVck.TenHH);
-                            gridView.SetRowCellValue(i, "DVT", hanghoaVck.Dvt);
-                            gridView.SetRowCellValue(i, "SL", hanghoaVck.Sl);
-                            gridView.SetRowCellValue(i, "GIACUOC", hanghoaVck.GiaCuoc);
-                            gridView.SetRowCellValue(i, "THANHTIEN", hanghoaVck.Thanhtien);
-                            i++;
+                            DTO.HanghoaVck hanghoaVck = DAO.VCKDAO.Instance.GetAllTraKet(cbDaily.SelectedValue.ToString().Trim(),row.MaVO.Trim().ToUpper());
+                            if(hanghoaVck.MaHH.Length > 0)
+                            {
+                                list_get.Add(hanghoaVck);
+                                gridView.SetRowCellValue(i, "MAHH", hanghoaVck.MaHH);
+                                gridView.SetRowCellValue(i, "TENHH", hanghoaVck.TenHH);
+                                gridView.SetRowCellValue(i, "DVT", hanghoaVck.Dvt);
+                                gridView.SetRowCellValue(i, "SL", hanghoaVck.Sl);
+                                gridView.SetRowCellValue(i, "GIACUOC", hanghoaVck.GiaCuoc);
+                                gridView.SetRowCellValue(i, "THANHTIEN", hanghoaVck.Thanhtien);
+                                i++;
+                            }
                         }
                     }
                     //gridControl.DataSource = list_get;
@@ -420,6 +488,10 @@ namespace QLBH_HBC
                         break;
                     }
                 }
+            }
+            if (result == false && checkBtn == true)
+            {
+                XtraMessageBox.Show("Danh sách không có lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
