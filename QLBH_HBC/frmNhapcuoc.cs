@@ -45,7 +45,7 @@ namespace QLBH_HBC
             if (loai == "Nhập")
             {
                 label1.Text = "PHIẾU NHẬN CƯỢC VỎ CHAI KÉT";
-                btnCheck.Text = "Kiểm tra danh sách";
+                btnCheck.Text = "Kiểm tra";
                 mvv = "MVV0002";
                 //btnTrahet.Width = 0;
                 //btnTrahet.Height = 0;

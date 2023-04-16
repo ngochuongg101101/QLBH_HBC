@@ -96,7 +96,7 @@ namespace QLBH_HBC.UI
             {
                 SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-33G4CSH;Initial Catalog=QLBH_HBC;Integrated Security=True");
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM DAILY", con);
+                SqlCommand cmd = new SqlCommand("SELECT TOP 10 * FROM DAILY", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);

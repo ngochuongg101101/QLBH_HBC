@@ -24,6 +24,7 @@ namespace QLBH_HBC.UI
         private void btnNhapcuoc_Click(object sender, EventArgs e)
         {
             Form f = new frmNhapcuoc(userName,"Nhập", this);
+            ((frmNhapcuoc)f).ChildFormEvent += ChildFormEvent_Handler;
             f.Show();
         }
 
@@ -47,11 +48,6 @@ namespace QLBH_HBC.UI
         {
             // Call the gridControl_Load method
             gridControl_Load(sender, e);
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
