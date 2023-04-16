@@ -120,6 +120,20 @@
   <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="customSqlQuery1.Sql" xml:space="preserve">
+    <value>select "CT_PHIEUCUOC"."SL", "HANGHOA"."TENHH", "HANGHOA"."MAHH",
+       "HANGHOA"."GIACUOC", "HANGHOA"."DVT", "PHIEUCUOC"."NGAYTAO",
+       "DAILY"."TENDL", "DAILY"."MADL", "CT_PHIEUCUOC"."MA_PC",
+       "PHIEUCUOC"."LOAI"
+  from ((("dbo"."CT_PHIEUCUOC" "CT_PHIEUCUOC"
+  inner join "dbo"."HANGHOA" "HANGHOA"
+       on ("HANGHOA"."MAHH" = "CT_PHIEUCUOC"."MA_VO"))
+  inner join "dbo"."PHIEUCUOC" "PHIEUCUOC"
+       on ("PHIEUCUOC"."MAPC" = "CT_PHIEUCUOC"."MA_PC"))
+  inner join "dbo"."DAILY" "DAILY"
+       on ("DAILY"."MADL" = "PHIEUCUOC"."MA_DL"))
+where MAHH = 'HH0009' and NGAYTAO BETWEEN '2023/04/01' and '2023/04/30'</value>
+  </data>
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
     <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IkNUX1BISUVVQ1VPQyI+PEZpZWxkIE5hbWU9IlNMIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iVEVOSEgiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iTUFISCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJHSUFDVU9DIiBUeXBlPSJEb3VibGUiIC8+PEZpZWxkIE5hbWU9IkRWVCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJOR0FZVEFPIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0iVEVOREwiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iTUFETCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJNQV9QQyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJMT0FJIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
   </data>

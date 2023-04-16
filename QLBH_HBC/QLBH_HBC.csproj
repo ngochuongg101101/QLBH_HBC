@@ -219,6 +219,12 @@
     <Compile Include="UI\uc_BCDM.Designer.cs">
       <DependentUpon>uc_BCDM.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\uc_BCDT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\uc_BCDT.Designer.cs">
+      <DependentUpon>uc_BCDT.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\uc_Cuocvo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -328,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_BCDM.resx">
       <DependentUpon>uc_BCDM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\uc_BCDT.resx">
+      <DependentUpon>uc_BCDT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_Cuocvo.resx">
       <DependentUpon>uc_Cuocvo.cs</DependentUpon>
