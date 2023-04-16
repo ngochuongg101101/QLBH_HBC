@@ -24,6 +24,7 @@ namespace QLBH_HBC.UI
         private void btnNhapcuoc_Click(object sender, EventArgs e)
         {
             Form f = new frmNhapcuoc(userName,"Nhập", this);
+            ((frmNhapcuoc)f).ChildFormEvent += ChildFormEvent_Handler;
             f.Show();
         }
 

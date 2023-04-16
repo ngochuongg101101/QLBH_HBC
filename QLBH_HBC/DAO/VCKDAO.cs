@@ -113,10 +113,10 @@ namespace QLBH_HBC.DAO
         }
 
         // Lấy danh sách dữ liệu theo ma_dl
-        public DTO.HanghoaVck GetAllTraKet(string mahh)
+        public DTO.HanghoaVck GetAllTraKet(string madl,string mahh)
         {
             DTO.HanghoaVck item = null;
-            string query = "SELECT HANGHOA.MAHH,dbo.HANGHOA.TENHH,dbo.HANGHOA.DVT,dbo.VCKCUOC.SL_CUOC AS SOLUONG,dbo.HANGHOA.GIACUOC,(dbo.VCKCUOC.SL_CUOC*dbo.HANGHOA.GIACUOC) AS THANHTIEN FROM dbo.VCKCUOC,dbo.HANGHOA WHERE dbo.HANGHOA.MAHH = dbo.VCKCUOC.MA_VO AND HANGHOA.MAHH ='" + mahh.Trim().ToUpper() + "'";
+            string query = "SELECT HANGHOA.MAHH,dbo.HANGHOA.TENHH,dbo.HANGHOA.DVT,dbo.VCKCUOC.SL_CUOC AS SOLUONG,dbo.HANGHOA.GIACUOC,(dbo.VCKCUOC.SL_CUOC*dbo.HANGHOA.GIACUOC) AS THANHTIEN FROM dbo.VCKCUOC,dbo.HANGHOA,DAILY WHERE dbo.HANGHOA.MAHH = dbo.VCKCUOC.MA_VO AND dbo.DAILY.MADL = dbo.VCKCUOC.MA_DL AND HANGHOA.MAHH ='" + mahh.Trim().ToUpper() + "' AND dbo.DAILY.MADL='" + madl.Trim().ToUpper()+"'";
             DataTable data = Config.DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow row in data.Rows)
             {
