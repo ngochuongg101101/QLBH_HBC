@@ -21,7 +21,7 @@ namespace QLBH_HBC.DAO
         public List<DTO.Daily> GetAll()
         {
             List<DTO.Daily> list = new List<DTO.Daily>();
-            string query = "SELECT * FROM DAILY";
+            string query = "SELECT * FROM dbo.DAILY";
             DataTable data = Config.DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
@@ -31,24 +31,29 @@ namespace QLBH_HBC.DAO
 
             return list;
         }
-        // Thêm 
-        public bool Insert(string tendl,string diachi,string sdt,string email,int mst,int tongno)
+        // Thêm
+        public string Insert(string tendl, string diachi, string sdt, string email, string mst)
         {
-            string query = String.Format("INSERT dbo.DAILY(TENDL,DIACHI,SDT,EMAIL,MST,TONGNO)VALUES('{0}','{1}','{2}','{3}',{4},{5})", tendl,diachi,sdt,email,mst,tongno);
-            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
-            return _result > 0;
+            string madl = (string)Config.DataProvider.Instance.ExecuteScalar("SELECT dbo.AUTO_ID_DAILY()");
+
+            // Construct the INSERT query with the generated MAPC value
+            string query = String.Format("INSERT INTO dbo.DAILY ( MADL,TENDL,DIACHI,SDT,EMAIL,MST,TONGNO) VALUES ('{0}', N'{1}', N'{2}', '{3}', '{4}',{5},0)", madl, tendl, diachi, sdt, email, mst);
+
+            // Execute the INSERT query and get the number of rows affected
+            int numRowsAffected = Config.DataProvider.Instance.ExecuteNonQuery(query);
+            if (numRowsAffected > 0)
+            {
+                return madl.Trim();
+            }
+            else
+            {
+                return null;
+            }
         }
-        // Sửa
-        public bool Update(string madl,string tendl, string diachi, string sdt, string email, int mst, int tongno)
+        // Sửa thông tin đại lý
+        public bool Update(string madl, string tendl, string diachi, string sdt, string email, string mst)
         {
-            string query = String.Format("UPDATE dbo.DAILY SET TENDL = '{0}',DIACHI = '{1}',SDT = '{2}',EMAIL = '{3}',MST = {4},TONGNO={5} WHERE MADL = '{6}' AND MA_VO = '{1}'", tendl, diachi, sdt, email, mst, tongno,madl);
-            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
-            return _result > 0;
-        }
-        //Xóa
-        public bool Delete(string madl)
-        {
-            string query = String.Format("DELETE dbo.DAILY WHERE MADL = '{0}'", madl);
+            string query = String.Format("UPDATE [dbo].[DAILY] SET [TENDL] = N'{1}', [DIACHI] = N'{2}', [SDT] = '{3}', [EMAIL] = '{4}', [MST] = {5} WHERE [MADL] = '{0}'", madl, tendl, diachi, sdt, email, mst);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
@@ -56,14 +61,27 @@ namespace QLBH_HBC.DAO
         public DTO.Daily Get(string madl)
         {
             DTO.Daily item = null;
-            string query = "SELECT * FROM dbo.DAILY WHERE MADL = @MADL";
-            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { madl });
+            string query = "SELECT * FROM dbo.DAILY WHERE MADL = '" + madl + "'";
+            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow row in result.Rows)
             {
                 item = new DTO.Daily(row);
                 return item;
             }
             return item;
+        }
+        // Lấy 1 danh sách dũ liệu 
+        public List<DTO.Daily> GetList(string madl)
+        {
+            List<DTO.Daily> list = new List<DTO.Daily>();
+            string query = "SELECT * FROM dbo.DAILY WHERE MADL = '" + madl + "'";
+            DataTable data = Config.DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                DTO.Daily info = new DTO.Daily(item);
+                list.Add(info);
+            }
+            return list;
         }
     }
 }

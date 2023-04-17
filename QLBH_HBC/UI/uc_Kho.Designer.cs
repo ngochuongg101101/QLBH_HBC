@@ -174,7 +174,6 @@ namespace QLBH_HBC.UI
             this.btnMadh.StyleController = this.layoutControl1;
             this.btnMadh.TabIndex = 21;
             this.btnMadh.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnMadh_ButtonClick);
-            this.btnMadh.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnMadh_KeyDown);
             // 
             // barManager1
             // 
@@ -233,6 +232,7 @@ namespace QLBH_HBC.UI
             this.barButtonItem2.Caption = "In";
             this.barButtonItem2.Id = 2;
             this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // bar2
             // 

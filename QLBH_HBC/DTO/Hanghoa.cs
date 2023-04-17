@@ -21,7 +21,7 @@ namespace QLBH_HBC.DTO
         }
         public Hanghoa(DataRow Row)
         {
-            this.MaHH = Row["MAHH"].ToString(); ;
+            this.MaHH = Row["MAHH"].ToString();
             this.TenHH = Row["TENHH"].ToString();
             this.Dongia = (float)Convert.ToDouble(Row["DONGIA"].ToString());
             string test = Row["GIACUOC"].ToString();
@@ -38,7 +38,7 @@ namespace QLBH_HBC.DTO
             this.Dvt = Row["DVT"].ToString();
             this.Sl = (int)Convert.ToDouble(Row["SL"].ToString());
             this.Loai  = Row["LOAI"].ToString();
-            this.Co_vck = (Boolean)Row["CO_VCK"];
+            //this.Co_vck = (Boolean)Row["CO_VCK"];
 
         }
         public float Giacuoc { get; private set; }

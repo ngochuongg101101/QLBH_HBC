@@ -26,9 +26,35 @@ namespace QLBH_HBC.DTO
             this.NguoitaoPTC = Row["NGUOITAO"].ToString();
             this.Pttt = Row["PTTT"].ToString();
             this.TongTienPTC = (int)Convert.ToDouble(Row["TONGTIEN"].ToString());
-            this.MaMVV = Row["MA_MVV"].ToString();
-            this.MaPC = Row["MA_PC"].ToString();
-            this.MaHD = Row["MA_HD"].ToString();
+            string test = Row["MA_VV"].ToString();
+            if (test.Length > 0)
+            {
+                this.MaMVV = Row["MA_VV"].ToString();
+            }
+            else
+            {
+                this.MaMVV = "";
+            }
+            test = Row["MA_PC"].ToString();
+            if (test.Length>0)
+            {
+                this.MaPC = Row["MA_PC"].ToString();
+            }
+            else
+            {
+                this.MaPC = "";
+            }
+            test = Row["MA_HD"].ToString();
+            if (Row["MA_HD"].ToString().Length > 0)
+            {
+                this.MaHD = Row["MA_HD"].ToString();
+            }
+            else
+            {
+                this.MaHD = "";
+            }
+
+            
 
         }
         public string MaPTC { get; }

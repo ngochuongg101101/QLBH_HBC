@@ -39,17 +39,25 @@ namespace QLBH_HBC.DAO
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
+        // Thêm
+        public bool InsertThanhToan(string ngaytao, string nguoitao, string pttt, int tongtien, string mavv,string mahd)
+        {
+            // Construct the INSERT query with the generated MAPC value
+            string query = String.Format("INSERT INTO PHIEUTHUCHI ( NGAYTAO, NGUOITAO, PTTT, TONGTIEN,MA_VV,MA_HD) VALUES ('{0}', '{1}', N'{2}', {3}, '{4}','{5}')", ngaytao, nguoitao, pttt, tongtien, mavv,mahd);
+            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
+            return _result > 0;
+        }
         // Sửa
         public bool Update(DateTime ngaytao, string loai, string madl, string mapc)
         {
-            string query = String.Format("UPDATE dbo.PHIEUCUOC SET NGAYTAO = '{0}', LOAI = '{1}', MA_DL = '{2}' WHERE MAPC = '{3}'", ngaytao, loai, madl, mapc);
+            string query = String.Format("UPDATE dbo.PHIEUTHUCHI SET NGAYTAO = '{0}', LOAI = '{1}', MA_DL = '{2}' WHERE MAPC = '{3}'", ngaytao, loai, madl, mapc);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
         //Xóa
         public bool Delete(string mapc)
         {
-            string query = String.Format("DELETE dbo.PHIEUCUOC WHERE MAPC = '{0}'", mapc);
+            string query = String.Format("DELETE dbo.PHIEUTHUCHI WHERE MAPC = '{0}'", mapc);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
@@ -57,7 +65,7 @@ namespace QLBH_HBC.DAO
         public DTO.Phieuthuchi Get(string mapc)
         {
             DTO.Phieuthuchi item = null;
-            string query = "SELECT * FROM dbo.PHIEUCUOC WHERE MAPC =@MAPC";
+            string query = "SELECT * FROM dbo.PHIEUTHUCHI WHERE MAPC =@MAPC";
             DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { mapc });
             foreach (DataRow row in result.Rows)
             {
@@ -70,7 +78,7 @@ namespace QLBH_HBC.DAO
         public DTO.Phieuthuchi GetByDataOther(string ngaytao, string nguoitao, string loai, string madl)
         {
             DTO.Phieuthuchi item = null;
-            string query = "SELECT MAPC FROM dbo.PHIEUCUOC WHERE NGAYTAO = @NGAYTAO, NGUOITAO = @NGUOITAO,LOAI = N'@LOAI', MA_DL=@MADL";
+            string query = "SELECT MAPC FROM dbo.PHIEUTHUCHI WHERE NGAYTAO = @NGAYTAO, NGUOITAO = @NGUOITAO,LOAI = N'@LOAI', MA_DL=@MADL";
             DataTable result = Config.DataProvider.Instance.ExecuteQuery(query, new object[] { ngaytao, nguoitao, loai, madl });
             foreach (DataRow row in result.Rows)
             {
@@ -78,6 +86,32 @@ namespace QLBH_HBC.DAO
                 return item;
             }
             return item;
+        }
+        // Lấy 1 dũ liệu từ mã 
+        public List<DTO.Phieuthuchi> GetByMaHD(string mahd)
+        {
+            List<DTO.Phieuthuchi> list = new List<DTO.Phieuthuchi>();
+            string query = "SELECT * FROM dbo.PHIEUTHUCHI WHERE MA_HD ='"+ mahd+ "'";
+            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow row in result.Rows)
+            {
+                DTO.Phieuthuchi info = new DTO.Phieuthuchi(row);
+                list.Add(info);
+            }
+            return list;
+        }
+        // Lấy 1 dũ liệu từ mã 
+        public string GetMinNgayTaoByMaHD(string mahd)
+        {
+            string ngaytao = null;
+            string query = "SELECT MIN(dbo.PHIEUTHUCHI.NGAYTAO) FROM dbo.PHIEUTHUCHI WHERE MA_HD ='" + mahd + "'";
+            DataTable result = Config.DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow row in result.Rows)
+            {
+                ngaytao = row.ItemArray[0].ToString().Trim();
+                return ngaytao;
+            }
+            return ngaytao;
         }
     }
 }

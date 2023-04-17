@@ -96,5 +96,12 @@ namespace QLBH_HBC.DAO
         //    }
         //    return item;
         //}
+        //Cập nhật trạng thái   
+        public bool UpdateTrangThai(string madh, string trangthai)
+        {
+            string query = String.Format("UPDATE dbo.DONHANG SET TRANGTHAI = '{0}' WHERE MADH = '{1}'", trangthai, madh);
+            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
+            return _result > 0;
+        }
     }
 }
