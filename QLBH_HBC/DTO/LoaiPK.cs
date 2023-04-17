@@ -12,15 +12,18 @@ namespace QLBH_HBC.DTO
         {
             this.MaLPK = malpk;
             this.TenLPK = tenlpk;
-            this.Loai = loai;
+            this.LoaiLPK = loai;
         }
         public LoaiPK(DataRow Row)
         {
             this.MaLPK = Row["MALPK"].ToString();
             this.TenLPK = Row["TENLOAI"].ToString();
+            this.LoaiLPK = Row["LOAI"].ToString();
         }
-        public string MaLPK { get; }
-        public string TenLPK { get; private set; }
-        public string Loai { get; private set; }
+        private string maLPK;
+        private string tenLPK;
+        public string MaLPK { get => maLPK; set => maLPK = value; }
+        public string TenLPK { get => tenLPK; set => tenLPK = value; }
+        public string LoaiLPK { get; private set; }
     }
 }

@@ -21,8 +21,28 @@ namespace QLBH_HBC.DTO
             this.MaDH = Row["MA_DH"].ToString();
             this.MaHH = Row["MA_HH"].ToString();
             this.Sl = (int)Convert.ToDouble(Row["SL"].ToString());
-            this.Dongia = Convert.ToDouble(Row["DONGIA"].ToString());
-            this.Thanhtien = Convert.ToDouble(Row["THANHTIEN"].ToString());
+            string test = Row["DONGIA"].ToString();
+            if (test.Length > 0)
+            {
+                this.Dongia = Convert.ToDouble(Row["DONGIA"].ToString());
+
+            }
+            else
+            {
+                this.Dongia = 0;
+
+            }
+            test = Row["THANHTIEN"].ToString();
+            if (test.Length > 0)
+            {
+                this.Thanhtien = Convert.ToDouble(Row["THANHTIEN"].ToString());
+
+            }
+            else
+            {
+                this.Thanhtien = 0;
+
+            }
 
 
         }

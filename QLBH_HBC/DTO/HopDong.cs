@@ -29,7 +29,7 @@ namespace QLBH_HBC.DTO
             this.MaDL = Row["MA_DL"].ToString();
 
         }
-        private string MaHD { get; }
+        public string MaHD { get; private set; }
         public DateTime NgayTao { get; private set; }
         public string NguoiTao { get; private set; }
         public DateTime NgayBD { get; private set; }

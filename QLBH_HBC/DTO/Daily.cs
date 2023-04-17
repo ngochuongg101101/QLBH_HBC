@@ -8,14 +8,15 @@ namespace QLBH_HBC.DTO
 {
     class Daily
     {
-        private string MaDL;
+        public string MaDL { get; private set; }
 
         public string TenDL { get; private set; }
         public string DiaChi { get; private set; }
         public string Sdt { get; private set; }
         public string Email { get; private set; }
         public string MST { get; private set; }
-        public float TongNo { get; private set; }
+
+        private float TongNo;
         public Daily(DataRow Row)
         {
             this.MaDL = Row["MADL"].ToString(); ;

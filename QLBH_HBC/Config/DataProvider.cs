@@ -10,8 +10,9 @@ namespace QLBH_HBC.Config
 {
     class DataProvider
     {
-
-        private string connectionSTR = @"Data Source=DESKTOP-ALEX;Initial Catalog=QLBH_HBC;Integrated Security=True";
+        //Huong: Data Source=DESKTOP-33G4CSH;Initial Catalog=QLBH_HBC;Integrated Security=True
+        //An: Data Source=DESKTOP-ALEX\SQLEXPRESS01;Initial Catalog=QLBH_HBC;Integrated Security=True
+        private string connectionSTR = @"Data Source=DESKTOP-ALEX\SQLEXPRESS01;Initial Catalog=QLBH_HBC;Integrated Security=True";
         private static DataProvider instance;
         internal static DataProvider Instance
         {

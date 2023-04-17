@@ -34,8 +34,8 @@ namespace QLBH_HBC.DAO
         // Thêm 
         public bool Insert(string mabia,string mavo,int sl)
         {
-            string query = String.Format("INSERT dbo.BOOM(MA_BIA,MA_VO,SL)VALUES(@MABIA,@MAVO,@SL)");
-            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query, new object[] { mabia,mavo,sl });
+            string query = String.Format("INSERT dbo.BOOM(MA_BIA,MA_VO,SL)VALUES( '{0}', '{1}', {2})", mabia, mavo, sl);
+            int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }
         // Sửa

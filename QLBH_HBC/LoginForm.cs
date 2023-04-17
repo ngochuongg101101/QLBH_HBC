@@ -54,7 +54,7 @@ namespace QLBH_HBC
                     string password = txtPassword.Text.Trim();
                     if (LoginDB(username, password))
                     {
-                        MessageBox.Show("Đăng nhập thành công !");
+                        MessageBox.Show("Đăng nhập thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MainForm mainForm = new MainForm(username.Trim().ToUpper());
                         this.Hide();
                         mainForm.ShowDialog();
@@ -69,12 +69,13 @@ namespace QLBH_HBC
                     {
                         CheckLogin++;
                         MessageBox.Show("Sai mật khẩu hoặc tên người dùng. " +
-                            "Bạn còn " + (3 - CheckLogin) + " lần đăng nhập.");
+                            "Bạn còn " + (3 - CheckLogin) + " lần đăng nhập.","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                 }
             }
             catch (Exception ex)
             {
+                Application.Exit();
                 //MessageBox.Show("Lỗi máy chủ đăng nhập !");
             }
         }

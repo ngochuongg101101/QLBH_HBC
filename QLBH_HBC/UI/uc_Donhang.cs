@@ -18,14 +18,9 @@ namespace QLBH_HBC.UI
     public partial class uc_Donhang : DevExpress.XtraEditors.XtraUserControl
     {
         public double tongTien = 0;
-        private int slcuoc = 0;
         Boolean addnewflag = false;
         private string username;
         private double summaryValue = 0;
-        public uc_Donhang()
-        {
-            InitializeComponent();
-        }
 
         public uc_Donhang(string userName)
         {
@@ -60,6 +55,8 @@ namespace QLBH_HBC.UI
             }
 
             gridControl1.DataSource = dt;
+            gridView1.Columns[6].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns[6].DisplayFormat.FormatString = "#,##0 VND";
             gridControl1.Refresh();
 
             gridView1.RowClick += gridView1_RowClick;
@@ -92,6 +89,10 @@ namespace QLBH_HBC.UI
             string sql1 = "SELECT MAHH, TENHH, CT_DONHANG.SL, DVT, CT_DONHANG.DONGIA, THANHTIEN FROM CT_DONHANG JOIN HANGHOA ON MAHH = MA_HH " +
                 "WHERE MA_DH = '" + txtMadh.Text + "'";
             gridControl2.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql1);
+            gridView2.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView2.Columns[5].DisplayFormat.FormatString = "#,##0 VND";
+            gridView2.Columns[6].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView2.Columns[6].DisplayFormat.FormatString = "#,##0 VND";
             gridControl2.Refresh();
             //gridView2.OptionsBehavior.ReadOnly = true;
             gridView2.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -114,7 +115,6 @@ namespace QLBH_HBC.UI
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            txtMadh.Enabled = true;
             dtNgaytao.Enabled = true;
             txtNguoitao.Enabled = true;
             cbDaily.Enabled = true;
@@ -189,7 +189,8 @@ namespace QLBH_HBC.UI
 
                         double thanhTien = sl * donGia;
                         gridView2.SetRowCellValue(rowHandle, "THANHTIEN", thanhTien);
-
+                        gridView2.Columns[6].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                        gridView2.Columns[6].DisplayFormat.FormatString = "#,##0 VND";
 
                         // Gán giá trị tính được cho thuộc tính Text của đối tượng TextEdit
 
@@ -209,10 +210,9 @@ namespace QLBH_HBC.UI
                             {
                                 gridView2.SetRowCellValue(rowHandle + i + 1, "MAHH", dt2.Rows[i]["MAHH"].ToString());
                                 gridView2.SetRowCellValue(rowHandle + i + 1, "TENHH", dt2.Rows[i]["TENHH"].ToString());
-                                gridView2.SetRowCellValue(rowHandle + i + 1, "SL", Convert.ToInt32(dt2.Rows[i]["SL"].ToString()) * sl);
+                                gridView2.SetRowCellValue(rowHandle + i + 1, "SL", Convert.ToDouble(dt2.Rows[i]["SL"].ToString()) * sl);
                                 gridView2.SetRowCellValue(rowHandle + i + 1, "DVT", dt2.Rows[i]["DVT"].ToString());
                             }
-
                         }
                         gridView2.RefreshData();
                         GridColumn summaryColumn = gridView2.Columns["THANHTIEN"];
