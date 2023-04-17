@@ -47,6 +47,7 @@ namespace QLBH_HBC
                 label1.Text = "PHIẾU NHẬN CƯỢC VỎ CHAI KÉT";
                 btnCheck.Text = "Kiểm tra";
                 mvv = "MVV0002";
+                btnCheck.Visible = false;
                 //btnTrahet.Width = 0;
                 //btnTrahet.Height = 0;
                 ////btnTrahet.ClientSize.Width = 0;
@@ -60,6 +61,8 @@ namespace QLBH_HBC
                 btnCheck.Text = "Trả hết";
                 label1.Text = "PHIẾU TRẢ CƯỢC VỎ CHAI KÉT";
                 mvv = "MVV0003";
+                btnCheck.Visible = true;
+
                 // Create a new button control
 
                 btnTrahet.Text = "Trả hết";
@@ -126,9 +129,9 @@ namespace QLBH_HBC
             //Click để thêm dòng
             gridView.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             gridView.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridView.Columns[5].DisplayFormat.FormatString = "#,##0 VND";
+            gridView.Columns[5].DisplayFormat.FormatString = "#,##0 ";
             gridView.Columns[6].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridView.Columns[6].DisplayFormat.FormatString = "#,##0 VND";
+            gridView.Columns[6].DisplayFormat.FormatString = "#,##0 ";
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -496,23 +499,99 @@ namespace QLBH_HBC
             {
                 object cellValueMaHH = gridView.GetRowCellValue(i, "MAHH");
                 object cellValueSL = gridView.GetRowCellValue(i, "SL");
-                if (cellValueSL != null)
+                object cellValueThanhTien = gridView.GetRowCellValue(i, "THANHTIEN");
+                if(cellValueMaHH != null)
                 {
-                    if(cellValueSL.ToString().Trim().Length > 0 && Convert.ToInt32(cellValueSL) > 0)
+                    if(cellValueMaHH.ToString().Trim().Length > 5  && cellValueMaHH.ToString().Trim().ToUpper().Substring(0,2) == "HH")
                     {
-                        if (cellValueMaHH != null && cellValueMaHH.ToString().Trim().Length > 0)
+                        if (cellValueSL != null)
                         {
-                            result = DAO.HanghoaDAO.Instance.GetByDataOtherByBark(cellValueMaHH.ToString().Trim());
-                            if (result == false)
+                            if (cellValueSL.ToString().Trim().Length > 0 && Convert.ToInt32(cellValueSL) > 0)
                             {
-                                checkBtn = false;
-                                XtraMessageBox.Show("Danh sách nhập hàng hoá có một hàng hoá không phải là vỏ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                break;
+                                if (cellValueMaHH != null && cellValueMaHH.ToString().Trim().Length > 0)
+                                {
+                                    result = DAO.HanghoaDAO.Instance.GetByDataOtherByBark(cellValueMaHH.ToString().Trim());
+                                    if (result == false)
+                                    {
+                                        checkBtn = false;
+                                        XtraMessageBox.Show("Danh sách nhập hàng hoá có một hàng hoá không phải là vỏ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        if(loai == "Nhập")
+                                        {
+                                            // Do BA không cho viết code 
+                                        }
+                                        else if(loai == "Trả")
+                                        {
+                                            DTO.Vckcuoc resultVCK = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim());
+                                            if (resultVCK != null)
+                                            {
+                                                if (Convert.ToInt32(cellValueSL.ToString()) > 0)
+                                                {
+                                                    if (Convert.ToInt32(cellValueSL.ToString()) > Convert.ToInt32(resultVCK.SlCuoc))
+                                                    {
+                                                        checkBtn = false;
+                                                        MessageBox.Show("Bạn nhập vượt quá số lượng của đại lý, mã võ " + cellValueMaHH + " lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                        break;
+                                                    }
+                                                    else
+                                                    {
+                                                        if (Convert.ToInt32(cellValueSL.ToString()) > (Convert.ToInt32(resultVCK.SlCuoc) - Convert.ToInt32(resultVCK.SlGiu)))
+                                                        {
+                                                            if (Convert.ToInt32(resultVCK.SlGiu) == 0)
+                                                            {
+                                                                checkBtn = false;
+                                                                MessageBox.Show("Bạn nhập vượt quá số lượng của đại lý, mã võ " + cellValueMaHH + " lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                                break;
+                                                            }
+                                                            else
+                                                            {
+                                                                checkBtn = false;
+                                                                MessageBox.Show("Hiện tại đại lý đang giữ  " + resultVCK.SlGiu.ToString().Trim().ToUpper() + "  trong võ  " + resultVCK.MaVO.ToString().Trim().ToUpper(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                                break;
+                                                            }
+                                                        }
+                                                        else if (Convert.ToInt32(cellValueSL.ToString()) <= (Convert.ToInt32(resultVCK.SlCuoc) - Convert.ToInt32(resultVCK.SlGiu)))
+                                                        {
+                                                            checkBtn = true;
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    checkBtn = false;
+                                                    XtraMessageBox.Show("Bạn phải nhập số lượng lớn hơn 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                    break;
+                                                }
+
+                                            }
+                                            else
+                                            {
+                                                checkBtn = false;
+                                                MessageBox.Show("Khách hàng chưa cược loại vỏ " + cellValueMaHH, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                break;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            checkBtn = false;
+                                            break;
+                                        }
+                                    }
+                                }
+
                             }
+
                         }
-
                     }
-
+                    else
+                    {
+                        checkBtn = false;
+                        XtraMessageBox.Show("Nhập sai mã hàng hoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    }
                 }
             }
             if (checkBtn == true)
@@ -539,5 +618,25 @@ namespace QLBH_HBC
             }
         }
 
+        private void gridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            XtraMessageBox.Show("Bam it thoi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void gridView_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (e.RowHandle >= 0 && e.Column.FieldName == "MAHH")
+            {
+                bool result = DAO.HanghoaDAO.Instance.GetByDataOtherByBark(e.Value.ToString().Trim().ToUpper());
+                if (result == false)
+                {
+                    XtraMessageBox.Show("Danh sách nhập hàng hoá có một hàng hoá không phải là vỏ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+
+                }
+            }
+        }
     }
 }
