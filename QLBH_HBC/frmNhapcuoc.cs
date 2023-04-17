@@ -625,16 +625,19 @@ namespace QLBH_HBC
 
         private void gridView_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            if (e.RowHandle >= 0 && e.Column.FieldName == "MAHH")
+            if (e.RowHandle >= 0 && e.Column.FieldName == "MAHH" && e.Value.ToString().Length > 1)
             {
-                bool result = DAO.HanghoaDAO.Instance.GetByDataOtherByBark(e.Value.ToString().Trim().ToUpper());
-                if (result == false)
+                if(e.Value.ToString().Length>5 && e.Value.ToString().Trim().ToUpper().Substring(0,2) == "HH")
                 {
-                    XtraMessageBox.Show("Danh sách nhập hàng hoá có một hàng hoá không phải là vỏ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    bool result = DAO.HanghoaDAO.Instance.GetByDataOtherByBark(e.Value.ToString().Trim().ToUpper());
+                    if (result == false)
+                    {
+                        XtraMessageBox.Show("Danh sách nhập hàng hoá có một hàng hoá không phải là vỏ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-
+                    XtraMessageBox.Show("Yêu cầu nhập đúng hàng hoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
