@@ -28,7 +28,6 @@ namespace QLBH_HBC
         public MainForm(string username)
         {
             InitializeComponent();
-            this.userName = username;
         }
 
         private void mnCuocvo_Click(object sender, EventArgs e)
