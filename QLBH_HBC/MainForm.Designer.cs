@@ -46,7 +46,7 @@ namespace QLBH_HBC
             this.mnBaocao = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnBCDM = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement24 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement25 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.mnBCNTCUOC = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.mnHethong = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement19 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -187,8 +187,8 @@ namespace QLBH_HBC
             // 
             this.mnBaocao.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.mnBCDM,
-            this.accordionControlElement24,
-            this.accordionControlElement25});
+            this.mnBCNTCUOC,
+            this.accordionControlElement24});
             this.mnBaocao.Expanded = true;
             this.mnBaocao.Name = "mnBaocao";
             this.mnBaocao.Text = "BÁO CÁO";
@@ -207,11 +207,12 @@ namespace QLBH_HBC
             this.accordionControlElement24.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement24.Text = "Báo cáo doanh thu";
             // 
-            // accordionControlElement25
+            // mnBCNTCUOC
             // 
-            this.accordionControlElement25.Name = "accordionControlElement25";
-            this.accordionControlElement25.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement25.Text = "Báo cáo nhập xuất tồn";
+            this.mnBCNTCUOC.Name = "mnBCNTCUOC";
+            this.mnBCNTCUOC.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.mnBCNTCUOC.Text = "Báo cáo nhập trả cược";
+            this.mnBCNTCUOC.Click += new System.EventHandler(this.mnBCNTCUOC_Click);
             // 
             // mnHethong
             // 
@@ -330,7 +331,7 @@ namespace QLBH_HBC
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnQLThanhtoan;
         private DevExpress.XtraBars.Navigation.AccordionControlElement mnBCDM;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement24;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement25;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement mnBCNTCUOC;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement19;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement21;
