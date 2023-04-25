@@ -15,11 +15,14 @@ namespace QLBH_HBC
     public partial class frmDonhang : DevExpress.XtraEditors.XtraForm
     {
         private uc_Kho _ucKho;
-        public frmDonhang(uc_Kho ucKho)
+        private uc_Hoadon _ucHoadon;
+
+        public frmDonhang(uc_Kho ucKho,uc_Hoadon ucHoadon)
         {
             _ucKho = ucKho;
+            _ucHoadon = ucHoadon;
+
             InitializeComponent();
-            //this.ucKho = ucKho;
         }
         private void gridControl1_Load(object sender, EventArgs e)
         {
@@ -38,9 +41,16 @@ namespace QLBH_HBC
             string MaDL = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MA_DL").ToString();
             // Trả về giá trị maDH đã chọn và đóng form
             this.DialogResult = DialogResult.OK;
+            if(_ucKho!=null)
+            {
+                _ucKho.maDH = MaDH; 
+                _ucKho.maDl = MaDL;
+            }
             //ucKho.maDH = maDH;
-            _ucKho.maDH = MaDH;
-            _ucKho.maDl = MaDL;
+            if (_ucHoadon != null)
+            {
+                _ucHoadon.maDH = MaDH;
+            }
             this.Close();
             //MessageBox.Show(ucKho.maDH);
 

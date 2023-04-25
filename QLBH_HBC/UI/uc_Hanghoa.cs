@@ -46,14 +46,14 @@ namespace QLBH_HBC.UI
             cbDVT.Text = row["DVT"].ToString();
             txtGiaban.Text = row["DONGIA"].ToString();
             txtGiacuoc.Text = row["GIACUOC"].ToString();
-            //if (addnewflag==true)
-            //{
-            //    chkCoVCK.Checked = false;
-            //}
-            //else if(addnewflag == false)
-            //{
-            //    chkCoVCK.Checked = Convert.ToBoolean(row["CO_VCK"].ToString());
-            //}
+            if (addnewflag == true)
+            {
+                chkCoVCK.Checked = false;
+            }
+            else if (addnewflag == false)
+            {
+                chkCoVCK.Checked = Convert.ToBoolean(row["CO_VCK"].ToString());
+            }
             string sql1 = "SELECT MAHH,TENHH,BOOM.SL,DVT FROM HANGHOA,BOOM WHERE MAHH = MA_VO AND MA_BIA = '" + txtMaHH.Text + "'";
             gridControl2.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql1);
             gridControl2.Refresh();

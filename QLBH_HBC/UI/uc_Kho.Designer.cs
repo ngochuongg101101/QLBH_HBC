@@ -69,7 +69,6 @@ namespace QLBH_HBC.UI
             this.label1 = new System.Windows.Forms.Label();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.STATUS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NGAYTAO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NGUOITAO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NOIDUNG = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -99,7 +98,7 @@ namespace QLBH_HBC.UI
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutMadh = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMadh.Properties)).BeginInit();
@@ -132,7 +131,7 @@ namespace QLBH_HBC.UI
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutMadh)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -414,7 +413,6 @@ namespace QLBH_HBC.UI
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.STATUS,
             this.NGAYTAO,
             this.NGUOITAO,
             this.NOIDUNG,
@@ -453,16 +451,6 @@ namespace QLBH_HBC.UI
             this.gridView1.Name = "gridView1";
             this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
             // 
-            // STATUS
-            // 
-            this.STATUS.Caption = "Trạng thái";
-            this.STATUS.MinWidth = 25;
-            this.STATUS.Name = "STATUS";
-            this.STATUS.OptionsColumn.ShowCaption = false;
-            this.STATUS.Visible = true;
-            this.STATUS.VisibleIndex = 0;
-            this.STATUS.Width = 94;
-            // 
             // NGAYTAO
             // 
             this.NGAYTAO.Caption = "Ngày tạo";
@@ -470,7 +458,7 @@ namespace QLBH_HBC.UI
             this.NGAYTAO.MinWidth = 25;
             this.NGAYTAO.Name = "NGAYTAO";
             this.NGAYTAO.Visible = true;
-            this.NGAYTAO.VisibleIndex = 2;
+            this.NGAYTAO.VisibleIndex = 1;
             this.NGAYTAO.Width = 44;
             // 
             // NGUOITAO
@@ -480,7 +468,7 @@ namespace QLBH_HBC.UI
             this.NGUOITAO.MinWidth = 25;
             this.NGUOITAO.Name = "NGUOITAO";
             this.NGUOITAO.Visible = true;
-            this.NGUOITAO.VisibleIndex = 3;
+            this.NGUOITAO.VisibleIndex = 2;
             this.NGUOITAO.Width = 44;
             // 
             // NOIDUNG
@@ -490,7 +478,7 @@ namespace QLBH_HBC.UI
             this.NOIDUNG.MinWidth = 25;
             this.NOIDUNG.Name = "NOIDUNG";
             this.NOIDUNG.Visible = true;
-            this.NOIDUNG.VisibleIndex = 4;
+            this.NOIDUNG.VisibleIndex = 3;
             this.NOIDUNG.Width = 44;
             // 
             // PTVC
@@ -500,7 +488,7 @@ namespace QLBH_HBC.UI
             this.PTVC.MinWidth = 25;
             this.PTVC.Name = "PTVC";
             this.PTVC.Visible = true;
-            this.PTVC.VisibleIndex = 5;
+            this.PTVC.VisibleIndex = 4;
             this.PTVC.Width = 44;
             // 
             // BIENSO
@@ -510,7 +498,7 @@ namespace QLBH_HBC.UI
             this.BIENSO.MinWidth = 25;
             this.BIENSO.Name = "BIENSO";
             this.BIENSO.Visible = true;
-            this.BIENSO.VisibleIndex = 6;
+            this.BIENSO.VisibleIndex = 5;
             this.BIENSO.Width = 44;
             // 
             // MA_DH
@@ -520,7 +508,7 @@ namespace QLBH_HBC.UI
             this.MA_DH.MinWidth = 25;
             this.MA_DH.Name = "MA_DH";
             this.MA_DH.Visible = true;
-            this.MA_DH.VisibleIndex = 7;
+            this.MA_DH.VisibleIndex = 6;
             this.MA_DH.Width = 44;
             // 
             // TENLOAI
@@ -530,7 +518,7 @@ namespace QLBH_HBC.UI
             this.TENLOAI.MinWidth = 25;
             this.TENLOAI.Name = "TENLOAI";
             this.TENLOAI.Visible = true;
-            this.TENLOAI.VisibleIndex = 8;
+            this.TENLOAI.VisibleIndex = 7;
             this.TENLOAI.Width = 59;
             // 
             // MAPK
@@ -540,7 +528,7 @@ namespace QLBH_HBC.UI
             this.MAPK.MinWidth = 25;
             this.MAPK.Name = "MAPK";
             this.MAPK.Visible = true;
-            this.MAPK.VisibleIndex = 1;
+            this.MAPK.VisibleIndex = 0;
             this.MAPK.Width = 51;
             // 
             // txtNoidung
@@ -615,7 +603,7 @@ namespace QLBH_HBC.UI
             this.layoutControlItem4,
             this.emptySpaceItem1,
             this.layoutControlItem13,
-            this.layoutControlItem14});
+            this.layoutMadh});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(915, 591);
             this.Root.TextVisible = false;
@@ -743,14 +731,14 @@ namespace QLBH_HBC.UI
             this.layoutControlItem13.Text = "Phương tiện VC";
             this.layoutControlItem13.TextSize = new System.Drawing.Size(96, 17);
             // 
-            // layoutControlItem14
+            // layoutMadh
             // 
-            this.layoutControlItem14.Control = this.btnMadh;
-            this.layoutControlItem14.Location = new System.Drawing.Point(684, 63);
-            this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(211, 30);
-            this.layoutControlItem14.Text = "Số đơn hàng";
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(96, 17);
+            this.layoutMadh.Control = this.btnMadh;
+            this.layoutMadh.Location = new System.Drawing.Point(684, 63);
+            this.layoutMadh.Name = "layoutMadh";
+            this.layoutMadh.Size = new System.Drawing.Size(211, 30);
+            this.layoutMadh.Text = "Số đơn hàng";
+            this.layoutMadh.TextSize = new System.Drawing.Size(96, 17);
             // 
             // uc_Kho
             // 
@@ -795,7 +783,7 @@ namespace QLBH_HBC.UI
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutMadh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -859,7 +847,6 @@ namespace QLBH_HBC.UI
         private DevExpress.XtraEditors.TextEdit txtPTVC;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
         private DevExpress.XtraEditors.ButtonEdit btnMadh;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
-        private DevExpress.XtraGrid.Columns.GridColumn STATUS;
+        private DevExpress.XtraLayout.LayoutControlItem layoutMadh;
     }
 }

@@ -35,11 +35,11 @@ namespace QLBH_HBC.UI
             this.dtNgaytao = new DevExpress.XtraEditors.DateEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
+            this.btnEdit = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSave = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPrint = new DevExpress.XtraBars.BarButtonItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -116,25 +116,26 @@ namespace QLBH_HBC.UI
             this.layoutControl1.Controls.Add(this.txtNguoitao);
             this.layoutControl1.Controls.Add(this.txtMaHD);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 41);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 47);
             this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(771, 405);
+            this.layoutControl1.Size = new System.Drawing.Size(899, 507);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // dtNgaytao
             // 
             this.dtNgaytao.EditValue = null;
-            this.dtNgaytao.Location = new System.Drawing.Point(108, 36);
+            this.dtNgaytao.Location = new System.Drawing.Point(131, 38);
+            this.dtNgaytao.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtNgaytao.MenuManager = this.barManager1;
             this.dtNgaytao.Name = "dtNgaytao";
             this.dtNgaytao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtNgaytao.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtNgaytao.Size = new System.Drawing.Size(179, 20);
+            this.dtNgaytao.Size = new System.Drawing.Size(203, 22);
             this.dtNgaytao.StyleController = this.layoutControl1;
             this.dtNgaytao.TabIndex = 18;
             // 
@@ -150,11 +151,11 @@ namespace QLBH_HBC.UI
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barButtonItem1,
-            this.barButtonItem2,
-            this.barButtonItem3,
-            this.barButtonItem4,
-            this.barButtonItem5});
+            this.btnAdd,
+            this.btnEdit,
+            this.btnDelete,
+            this.btnSave,
+            this.btnPrint});
             this.barManager1.MainMenu = this.bar2;
             this.barManager1.MaxItemId = 5;
             this.barManager1.StatusBar = this.bar3;
@@ -166,46 +167,46 @@ namespace QLBH_HBC.UI
             this.bar1.DockRow = 1;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnAdd),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnEdit),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnDelete),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnSave),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnPrint)});
             this.bar1.Text = "Tools";
             // 
-            // barButtonItem1
+            // btnAdd
             // 
-            this.barButtonItem1.Caption = "Thêm mới";
-            this.barButtonItem1.Id = 0;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            this.btnAdd.Caption = "Thêm mới";
+            this.btnAdd.Id = 0;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
-            // barButtonItem2
+            // btnEdit
             // 
-            this.barButtonItem2.Caption = "Sửa";
-            this.barButtonItem2.Id = 1;
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
+            this.btnEdit.Caption = "Sửa";
+            this.btnEdit.Id = 1;
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
-            // barButtonItem3
+            // btnDelete
             // 
-            this.barButtonItem3.Caption = "Xóa";
-            this.barButtonItem3.Id = 2;
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
+            this.btnDelete.Caption = "Xóa";
+            this.btnDelete.Id = 2;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
             // 
-            // barButtonItem4
+            // btnSave
             // 
-            this.barButtonItem4.Caption = "Lưu";
-            this.barButtonItem4.Id = 3;
-            this.barButtonItem4.Name = "barButtonItem4";
-            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
+            this.btnSave.Caption = "Lưu";
+            this.btnSave.Id = 3;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
-            // barButtonItem5
+            // btnPrint
             // 
-            this.barButtonItem5.Caption = "In báo cáo";
-            this.barButtonItem5.Id = 4;
-            this.barButtonItem5.Name = "barButtonItem5";
+            this.btnPrint.Caption = "In báo cáo";
+            this.btnPrint.Id = 4;
+            this.btnPrint.Name = "btnPrint";
             // 
             // bar2
             // 
@@ -236,78 +237,83 @@ namespace QLBH_HBC.UI
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlTop.Size = new System.Drawing.Size(771, 41);
+            this.barDockControlTop.Size = new System.Drawing.Size(899, 47);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 446);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 554);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlBottom.Size = new System.Drawing.Size(771, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(899, 20);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 41);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 47);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 405);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 507);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(771, 41);
+            this.barDockControlRight.Location = new System.Drawing.Point(899, 47);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 405);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 507);
             // 
             // dtNgayKT
             // 
             this.dtNgayKT.EditValue = null;
-            this.dtNgayKT.Location = new System.Drawing.Point(387, 85);
+            this.dtNgayKT.Location = new System.Drawing.Point(457, 94);
+            this.dtNgayKT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtNgayKT.MenuManager = this.barManager1;
             this.dtNgayKT.Name = "dtNgayKT";
             this.dtNgayKT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtNgayKT.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtNgayKT.Size = new System.Drawing.Size(180, 20);
+            this.dtNgayKT.Size = new System.Drawing.Size(205, 22);
             this.dtNgayKT.StyleController = this.layoutControl1;
             this.dtNgayKT.TabIndex = 17;
             // 
             // dtNgayBD
             // 
             this.dtNgayBD.EditValue = null;
-            this.dtNgayBD.Location = new System.Drawing.Point(108, 85);
+            this.dtNgayBD.Location = new System.Drawing.Point(131, 94);
+            this.dtNgayBD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtNgayBD.MenuManager = this.barManager1;
             this.dtNgayBD.Name = "dtNgayBD";
             this.dtNgayBD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtNgayBD.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtNgayBD.Size = new System.Drawing.Size(179, 20);
+            this.dtNgayBD.Size = new System.Drawing.Size(203, 22);
             this.dtNgayBD.StyleController = this.layoutControl1;
             this.dtNgayBD.TabIndex = 16;
             // 
             // cbDaily
             // 
             this.cbDaily.FormattingEnabled = true;
-            this.cbDaily.Location = new System.Drawing.Point(108, 60);
+            this.cbDaily.Location = new System.Drawing.Point(131, 64);
+            this.cbDaily.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbDaily.Name = "cbDaily";
-            this.cbDaily.Size = new System.Drawing.Size(459, 21);
+            this.cbDaily.Size = new System.Drawing.Size(531, 24);
             this.cbDaily.TabIndex = 15;
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(12, 133);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.gridControl1.Location = new System.Drawing.Point(12, 146);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(747, 260);
+            this.gridControl1.Size = new System.Drawing.Size(875, 349);
             this.gridControl1.TabIndex = 14;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -315,6 +321,7 @@ namespace QLBH_HBC.UI
             // 
             // gridView1
             // 
+            this.gridView1.DetailHeight = 431;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
@@ -322,38 +329,38 @@ namespace QLBH_HBC.UI
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(571, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(666, 12);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(188, 117);
+            this.pictureBox1.Size = new System.Drawing.Size(221, 130);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
             // txtCK
             // 
-            this.txtCK.Location = new System.Drawing.Point(108, 109);
+            this.txtCK.Location = new System.Drawing.Point(131, 120);
             this.txtCK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCK.Name = "txtCK";
-            this.txtCK.Size = new System.Drawing.Size(179, 20);
+            this.txtCK.Size = new System.Drawing.Size(203, 22);
             this.txtCK.StyleController = this.layoutControl1;
             this.txtCK.TabIndex = 11;
             // 
             // txtNguoitao
             // 
-            this.txtNguoitao.Location = new System.Drawing.Point(387, 36);
+            this.txtNguoitao.Location = new System.Drawing.Point(457, 38);
             this.txtNguoitao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNguoitao.Name = "txtNguoitao";
-            this.txtNguoitao.Size = new System.Drawing.Size(180, 20);
+            this.txtNguoitao.Size = new System.Drawing.Size(205, 22);
             this.txtNguoitao.StyleController = this.layoutControl1;
             this.txtNguoitao.TabIndex = 8;
             // 
             // txtMaHD
             // 
-            this.txtMaHD.Location = new System.Drawing.Point(108, 12);
+            this.txtMaHD.Location = new System.Drawing.Point(131, 12);
             this.txtMaHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMaHD.Name = "txtMaHD";
-            this.txtMaHD.Size = new System.Drawing.Size(179, 20);
+            this.txtMaHD.Size = new System.Drawing.Size(203, 22);
             this.txtMaHD.StyleController = this.layoutControl1;
             this.txtMaHD.TabIndex = 6;
             // 
@@ -374,7 +381,7 @@ namespace QLBH_HBC.UI
             this.layoutControlItem12,
             this.layoutControlItem5});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(771, 405);
+            this.Root.Size = new System.Drawing.Size(899, 507);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem3
@@ -382,97 +389,97 @@ namespace QLBH_HBC.UI
             this.layoutControlItem3.Control = this.txtMaHD;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(279, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(326, 26);
             this.layoutControlItem3.Text = "Mã hợp đồng";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(84, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(107, 17);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.txtCK;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 97);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 108);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(279, 24);
+            this.layoutControlItem7.Size = new System.Drawing.Size(326, 26);
             this.layoutControlItem7.Text = "Chiết khấu";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(84, 13);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(107, 17);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(279, 97);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(326, 108);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(280, 24);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(328, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.pictureBox1;
-            this.layoutControlItem9.Location = new System.Drawing.Point(559, 0);
+            this.layoutControlItem9.Location = new System.Drawing.Point(654, 0);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(192, 121);
+            this.layoutControlItem9.Size = new System.Drawing.Size(225, 134);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gridControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 121);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 134);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(751, 264);
+            this.layoutControlItem1.Size = new System.Drawing.Size(879, 353);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.cbDaily;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 52);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(559, 25);
+            this.layoutControlItem10.Size = new System.Drawing.Size(654, 30);
             this.layoutControlItem10.Text = "Đại lý";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(84, 13);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(107, 17);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.dtNgayBD;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 73);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 82);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(279, 24);
+            this.layoutControlItem8.Size = new System.Drawing.Size(326, 26);
             this.layoutControlItem8.Text = "Ngày hiệu lực";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(84, 13);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(107, 17);
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.dtNgayKT;
-            this.layoutControlItem11.Location = new System.Drawing.Point(279, 73);
+            this.layoutControlItem11.Location = new System.Drawing.Point(326, 82);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(280, 24);
+            this.layoutControlItem11.Size = new System.Drawing.Size(328, 26);
             this.layoutControlItem11.Text = "Ngày hết hiệu lực";
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(84, 13);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(107, 17);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(279, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(326, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(280, 24);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(328, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.dtNgaytao;
-            this.layoutControlItem12.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(279, 24);
+            this.layoutControlItem12.Size = new System.Drawing.Size(326, 26);
             this.layoutControlItem12.Text = "Ngày tạo";
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(84, 13);
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(107, 17);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.txtNguoitao;
-            this.layoutControlItem5.Location = new System.Drawing.Point(279, 24);
+            this.layoutControlItem5.Location = new System.Drawing.Point(326, 26);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(280, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(328, 26);
             this.layoutControlItem5.Text = "Người tạo";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(84, 13);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(107, 17);
             // 
             // fileSystemWatcher1
             // 
@@ -494,16 +501,16 @@ namespace QLBH_HBC.UI
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.barManager2;
             this.barDockControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControl1.Size = new System.Drawing.Size(771, 0);
+            this.barDockControl1.Size = new System.Drawing.Size(899, 0);
             // 
             // barDockControl2
             // 
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 466);
+            this.barDockControl2.Location = new System.Drawing.Point(0, 574);
             this.barDockControl2.Manager = this.barManager2;
             this.barDockControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControl2.Size = new System.Drawing.Size(771, 0);
+            this.barDockControl2.Size = new System.Drawing.Size(899, 0);
             // 
             // barDockControl3
             // 
@@ -512,20 +519,20 @@ namespace QLBH_HBC.UI
             this.barDockControl3.Location = new System.Drawing.Point(0, 0);
             this.barDockControl3.Manager = this.barManager2;
             this.barDockControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControl3.Size = new System.Drawing.Size(0, 466);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 574);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(771, 0);
+            this.barDockControl4.Location = new System.Drawing.Point(899, 0);
             this.barDockControl4.Manager = this.barManager2;
             this.barDockControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControl4.Size = new System.Drawing.Size(0, 466);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 574);
             // 
             // uc_Hopdong
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.barDockControlLeft);
@@ -538,7 +545,7 @@ namespace QLBH_HBC.UI
             this.Controls.Add(this.barDockControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "uc_Hopdong";
-            this.Size = new System.Drawing.Size(771, 466);
+            this.Size = new System.Drawing.Size(899, 574);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtNgaytao.Properties.CalendarTimeProperties)).EndInit();
@@ -590,11 +597,11 @@ namespace QLBH_HBC.UI
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraBars.BarButtonItem btnAdd;
+        private DevExpress.XtraBars.BarButtonItem btnEdit;
+        private DevExpress.XtraBars.BarButtonItem btnDelete;
+        private DevExpress.XtraBars.BarButtonItem btnSave;
+        private DevExpress.XtraBars.BarButtonItem btnPrint;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;

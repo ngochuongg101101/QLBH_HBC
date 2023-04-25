@@ -42,10 +42,14 @@ namespace QLBH_HBC.UI
 
         private void btnPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+
+
             DTO.Nguoidung Hoten = DAO.NguoidungDAO.Instance.GetFullNameByUsername(username);
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-33G4CSH;Initial Catalog=QLBH_HBC;Integrated Security=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT MAHH,TENHH,DONGIA,GIACUOC,DVT,CO_VCK,LOAI FROM HANGHOA", con);
+            SqlCommand cmd = new SqlCommand("SELECT MA_PC, NGAYTAO, MAHH, TENHH, DVT, CT_PHIEUCUOC.SL, PHIEUCUOC.LOAI FROM HANGHOA, PHIEUCUOC, CT_PHIEUCUOC WHERE MAPC = MA_PC AND MAHH = MA_VO AND MA_DL = '"+ cbDaily.SelectedValue.ToString() +"' AND MA_VO = '"+ cbLoaivo.SelectedValue.ToString() +"' " +
+                "AND NGAYTAO BETWEEN '"+ dtNgay1.DateTime.ToString("yyyy/MM/dd") + "' AND '"+ dtNgay2.DateTime.ToString("yyyy/MM/dd") + "'", con);
+            
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -54,23 +58,37 @@ namespace QLBH_HBC.UI
             rptNhapcuoc rpt = new rptNhapcuoc();
             DataSet ds = new DataSet();
             ds.Tables.Add(dt);
-            ds.Tables[0].TableName = "HANGHOA";
-
+            ds.Tables[0].TableName = "CT_PHIEUCUOC";
             foreach (CalculatedField field in rpt.CalculatedFields)
             {
-                if (field.Name == "Loai")
+                if (field.Name == "Daily")
                 {
-                    CalculatedField Nguoitao = field;
-                    Nguoitao.Expression = "'Bia, Vỏ'";
+                    CalculatedField calculatedField = field;
+                    calculatedField.Expression = "'" + cbDaily.Text + "'";
+                }
+                if (field.Name == "Hanghoa")
+                {
+                    CalculatedField calculatedField = field;
+                    calculatedField.Expression = "'" + cbLoaivo.Text + "'";
+                }
+                if (field.Name == "Day1")
+                {
+                    CalculatedField calculatedField = field;
+                    calculatedField.Expression = "'" + dtNgay1.DateTime.ToString("dd/MM/yyyy") + "'";
+                }
+                if (field.Name == "Day2")
+                {
+                    CalculatedField calculatedField = field;
+                    calculatedField.Expression = "'" + dtNgay2.DateTime.ToString("dd/MM/yyyy") + "'";
                 }
                 if (field.Name == "Nguoitao")
                 {
-                    CalculatedField Nguoitao = field;
-                    Nguoitao.Expression = "'" + Hoten.Hoten.ToString() + "'";
+                    CalculatedField calculatedField = field;
+                    calculatedField.Expression = "'" + Hoten.Hoten.ToString() + "'";
                 }
             }
             rpt.DataSource = ds;
             rpt.ShowPreviewDialog();
-        }   
+        }
     }
 }

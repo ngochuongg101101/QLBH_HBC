@@ -34,7 +34,6 @@ namespace QLBH_HBC.UI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Donhang));
             DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleContains formatConditionRuleContains1 = new DevExpress.XtraEditors.FormatConditionRuleContains();
-            this.STATUS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TRANGTHAI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -132,17 +131,6 @@ namespace QLBH_HBC.UI
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
-            // STATUS
-            // 
-            this.STATUS.FieldName = "STATUS";
-            this.STATUS.Name = "STATUS";
-            this.STATUS.OptionsColumn.AllowFocus = false;
-            this.STATUS.OptionsColumn.AllowMove = false;
-            this.STATUS.OptionsColumn.ShowCaption = false;
-            this.STATUS.Visible = true;
-            this.STATUS.VisibleIndex = 0;
-            this.STATUS.Width = 94;
-            // 
             // TRANGTHAI
             // 
             this.TRANGTHAI.Caption = "Trạng thái";
@@ -150,7 +138,7 @@ namespace QLBH_HBC.UI
             this.TRANGTHAI.MinWidth = 24;
             this.TRANGTHAI.Name = "TRANGTHAI";
             this.TRANGTHAI.Visible = true;
-            this.TRANGTHAI.VisibleIndex = 4;
+            this.TRANGTHAI.VisibleIndex = 3;
             this.TRANGTHAI.Width = 94;
             // 
             // layoutControl1
@@ -467,7 +455,7 @@ namespace QLBH_HBC.UI
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(417, 308);
+            this.tabPage2.Size = new System.Drawing.Size(451, 309);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Trạng thái";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -478,7 +466,7 @@ namespace QLBH_HBC.UI
             this.treeView1.Location = new System.Drawing.Point(3, 2);
             this.treeView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(411, 304);
+            this.treeView1.Size = new System.Drawing.Size(445, 305);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -578,15 +566,12 @@ namespace QLBH_HBC.UI
             this.gridView1.Appearance.Row.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.gridView1.Appearance.Row.Options.UseBackColor = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.STATUS,
             this.MADH,
             this.NGAYTAO,
             this.TENDL,
             this.TRANGTHAI,
             this.NGUOITAO,
             this.TONGTIEN});
-            gridFormatRule1.Column = this.STATUS;
-            gridFormatRule1.ColumnApplyTo = this.STATUS;
             gridFormatRule1.Name = "Format0";
             formatConditionRuleContains1.Values = null;
             gridFormatRule1.Rule = formatConditionRuleContains1;
@@ -606,7 +591,7 @@ namespace QLBH_HBC.UI
             this.MADH.MinWidth = 24;
             this.MADH.Name = "MADH";
             this.MADH.Visible = true;
-            this.MADH.VisibleIndex = 1;
+            this.MADH.VisibleIndex = 0;
             this.MADH.Width = 94;
             // 
             // NGAYTAO
@@ -616,7 +601,7 @@ namespace QLBH_HBC.UI
             this.NGAYTAO.MinWidth = 24;
             this.NGAYTAO.Name = "NGAYTAO";
             this.NGAYTAO.Visible = true;
-            this.NGAYTAO.VisibleIndex = 2;
+            this.NGAYTAO.VisibleIndex = 1;
             this.NGAYTAO.Width = 94;
             // 
             // TENDL
@@ -626,7 +611,7 @@ namespace QLBH_HBC.UI
             this.TENDL.MinWidth = 24;
             this.TENDL.Name = "TENDL";
             this.TENDL.Visible = true;
-            this.TENDL.VisibleIndex = 3;
+            this.TENDL.VisibleIndex = 2;
             this.TENDL.Width = 94;
             // 
             // NGUOITAO
@@ -636,7 +621,7 @@ namespace QLBH_HBC.UI
             this.NGUOITAO.MinWidth = 24;
             this.NGUOITAO.Name = "NGUOITAO";
             this.NGUOITAO.Visible = true;
-            this.NGUOITAO.VisibleIndex = 5;
+            this.NGUOITAO.VisibleIndex = 4;
             this.NGUOITAO.Width = 94;
             // 
             // TONGTIEN
@@ -646,7 +631,7 @@ namespace QLBH_HBC.UI
             this.TONGTIEN.MinWidth = 24;
             this.TONGTIEN.Name = "TONGTIEN";
             this.TONGTIEN.Visible = true;
-            this.TONGTIEN.VisibleIndex = 6;
+            this.TONGTIEN.VisibleIndex = 5;
             this.TONGTIEN.Width = 94;
             // 
             // txtGhichu
@@ -925,7 +910,6 @@ namespace QLBH_HBC.UI
         private DevExpress.XtraGrid.Columns.GridColumn TONGTIEN;
         private DevExpress.XtraBars.BarButtonItem btnDelete;
         private DevExpress.XtraGrid.Columns.GridColumn STT;
-        private DevExpress.XtraGrid.Columns.GridColumn STATUS;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;

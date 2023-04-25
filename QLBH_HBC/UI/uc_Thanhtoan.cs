@@ -26,5 +26,12 @@ namespace QLBH_HBC.UI
             Form f = new frmThanhtoancongno(username, frmThanhtoancongno);
             f.Show();
         }
+
+        private void gridControl1_Load(object sender, EventArgs e)
+        {
+            string sql = "SELECT MADL,TENDL,MST,TONGNO FROM DAILY WHERE TONGNO != 0";
+            gridControl1.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql);
+            gridControl1.Refresh();
+        }
     }
 }

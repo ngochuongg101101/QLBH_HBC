@@ -13,17 +13,20 @@ namespace QLBH_HBC
 {
     public partial class MainForm : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
+        UI.uc_Background ucBackground;
         UI.uc_Cuocvo ucCuocvo;
         UI.uc_Donhang ucDonhang;
         public UI.uc_Kho ucKho;
         UI.uc_Hanghoa ucHanghoa;
         UI.uc_Daily ucDaily;
         UI.uc_Hopdong ucHopdong;
-        UI.uc_Hoadon ucHoadon;
+        public UI.uc_Hoadon ucHoadon;
         UI.uc_Thanhtoan ucThanhtoan;
         UI.uc_Baocao ucBaocao;
         UI.uc_BCDM ucBCDM;
         UI.uc_BCNTCUOC ucBCNTCUOC;
+        UI.uc_BCDT ucBCDT;
+
 
 
         private string userName;
@@ -31,6 +34,14 @@ namespace QLBH_HBC
         {
             InitializeComponent();
             this.userName = username;
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            ucBackground = new UI.uc_Background();
+            ucBackground.Dock = DockStyle.Fill;
+            mainContainer.Controls.Add(ucBackground);
+            ucBackground.BringToFront();
         }
 
         private void mnCuocvo_Click(object sender, EventArgs e)
@@ -107,7 +118,7 @@ namespace QLBH_HBC
 
         private void mnQLHoadon_Click(object sender, EventArgs e)
         {
-            ucHoadon = new UI.uc_Hoadon(userName);
+            ucHoadon = new UI.uc_Hoadon(userName, ucHoadon);
             ucHoadon.Dock = DockStyle.Fill;
             mainContainer.Controls.Add(ucHoadon);
             ucHoadon.BringToFront();
@@ -119,6 +130,14 @@ namespace QLBH_HBC
             ucBCNTCUOC.Dock = DockStyle.Fill;
             mainContainer.Controls.Add(ucBCNTCUOC);
             ucBCNTCUOC.BringToFront();
+        }
+
+        private void mnBCDT_Click(object sender, EventArgs e)
+        {
+            ucBCDT = new UI.uc_BCDT(userName);
+            ucBCDT.Dock = DockStyle.Fill;
+            mainContainer.Controls.Add(ucBCDT);
+            ucBCDT.BringToFront();
         }
     }
 }

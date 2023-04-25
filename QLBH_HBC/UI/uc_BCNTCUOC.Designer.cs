@@ -42,16 +42,16 @@ namespace QLBH_HBC.UI
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.dtNgay1 = new DevExpress.XtraEditors.DateEdit();
-            this.cbDaily = new System.Windows.Forms.ComboBox();
+            this.cbLoaivo = new System.Windows.Forms.ComboBox();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.cbNgay1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.cbNgay2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.cbLoaivo = new System.Windows.Forms.ComboBox();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cbDaily = new System.Windows.Forms.ComboBox();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtNgay2.Properties.CalendarTimeProperties)).BeginInit();
@@ -60,20 +60,20 @@ namespace QLBH_HBC.UI
             ((System.ComponentModel.ISupportInitialize)(this.dtNgay1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtNgay1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbNgay1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbNgay2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.cbDaily);
             this.layoutControl1.Controls.Add(this.dtNgay2);
             this.layoutControl1.Controls.Add(this.dtNgay1);
-            this.layoutControl1.Controls.Add(this.cbDaily);
             this.layoutControl1.Controls.Add(this.cbLoaivo);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 46);
@@ -93,7 +93,7 @@ namespace QLBH_HBC.UI
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtNgay2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtNgay2.Size = new System.Drawing.Size(62, 22);
+            this.dtNgay2.Size = new System.Drawing.Size(127, 22);
             this.dtNgay2.StyleController = this.layoutControl1;
             this.dtNgay2.TabIndex = 7;
             // 
@@ -195,42 +195,34 @@ namespace QLBH_HBC.UI
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtNgay1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtNgay1.Properties.MaxValue = new System.DateTime(9999, 12, 31, 0, 0, 0, 0);
             this.dtNgay1.Size = new System.Drawing.Size(185, 22);
             this.dtNgay1.StyleController = this.layoutControl1;
             this.dtNgay1.TabIndex = 6;
             // 
-            // cbDaily
+            // cbLoaivo
             // 
-            this.cbDaily.FormattingEnabled = true;
-            this.cbDaily.Location = new System.Drawing.Point(84, 12);
-            this.cbDaily.Name = "cbDaily";
-            this.cbDaily.Size = new System.Drawing.Size(185, 24);
-            this.cbDaily.TabIndex = 4;
+            this.cbLoaivo.FormattingEnabled = true;
+            this.cbLoaivo.Location = new System.Drawing.Point(84, 42);
+            this.cbLoaivo.Name = "cbLoaivo";
+            this.cbLoaivo.Size = new System.Drawing.Size(185, 24);
+            this.cbLoaivo.TabIndex = 4;
             // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
             this.emptySpaceItem1,
             this.cbNgay1,
             this.emptySpaceItem2,
             this.cbNgay2,
             this.emptySpaceItem3,
-            this.layoutControlItem2});
+            this.layoutControlItem2,
+            this.layoutControlItem3});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(699, 453);
             this.Root.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.cbDaily;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(261, 30);
-            this.layoutControlItem1.Text = "Đại lý";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(60, 17);
             // 
             // emptySpaceItem1
             // 
@@ -262,25 +254,17 @@ namespace QLBH_HBC.UI
             this.cbNgay2.Control = this.dtNgay2;
             this.cbNgay2.Location = new System.Drawing.Point(261, 60);
             this.cbNgay2.Name = "cbNgay2";
-            this.cbNgay2.Size = new System.Drawing.Size(138, 26);
+            this.cbNgay2.Size = new System.Drawing.Size(203, 26);
             this.cbNgay2.Text = "Đến ngày";
             this.cbNgay2.TextSize = new System.Drawing.Size(60, 17);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(399, 60);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(464, 60);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(280, 26);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(215, 26);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // cbLoaivo
-            // 
-            this.cbLoaivo.FormattingEnabled = true;
-            this.cbLoaivo.Location = new System.Drawing.Point(84, 42);
-            this.cbLoaivo.Name = "cbLoaivo";
-            this.cbLoaivo.Size = new System.Drawing.Size(185, 24);
-            this.cbLoaivo.TabIndex = 4;
             // 
             // layoutControlItem2
             // 
@@ -292,6 +276,23 @@ namespace QLBH_HBC.UI
             this.layoutControlItem2.Size = new System.Drawing.Size(261, 30);
             this.layoutControlItem2.Text = "Loại vỏ";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(60, 17);
+            // 
+            // cbDaily
+            // 
+            this.cbDaily.FormattingEnabled = true;
+            this.cbDaily.Location = new System.Drawing.Point(84, 12);
+            this.cbDaily.Name = "cbDaily";
+            this.cbDaily.Size = new System.Drawing.Size(185, 24);
+            this.cbDaily.TabIndex = 8;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.cbDaily;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(261, 30);
+            this.layoutControlItem3.Text = "Đại lý";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(60, 17);
             // 
             // uc_BCNTCUOC
             // 
@@ -313,13 +314,13 @@ namespace QLBH_HBC.UI
             ((System.ComponentModel.ISupportInitialize)(this.dtNgay1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtNgay1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbNgay1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbNgay2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,8 +339,6 @@ namespace QLBH_HBC.UI
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private System.Windows.Forms.ComboBox cbDaily;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraEditors.DateEdit dtNgay2;
         private DevExpress.XtraEditors.DateEdit dtNgay1;
@@ -349,5 +348,7 @@ namespace QLBH_HBC.UI
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private System.Windows.Forms.ComboBox cbLoaivo;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private System.Windows.Forms.ComboBox cbDaily;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

@@ -112,6 +112,7 @@
     <Compile Include="DAO\HanghoaDAO.cs" />
     <Compile Include="DAO\HoaDonDAO.cs" />
     <Compile Include="DAO\HopdongDAO.cs" />
+    <Compile Include="DAO\LoaiHDDAO .cs" />
     <Compile Include="DAO\LoaiPKDAO.cs" />
     <Compile Include="DAO\MaVuViecDAO.cs" />
     <Compile Include="DAO\PhieuCuocDAO.cs" />
@@ -177,6 +178,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\BCDT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BCDT.Designer.cs">
+      <DependentUpon>BCDT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\rptDMDL.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -207,11 +214,11 @@
     <Compile Include="Reports\rptPhieucuoc.Designer.cs">
       <DependentUpon>rptPhieucuoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\test.cs">
-      <SubType>Component</SubType>
+    <Compile Include="UI\uc_Background.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Reports\test.Designer.cs">
-      <DependentUpon>test.cs</DependentUpon>
+    <Compile Include="UI\uc_Background.Designer.cs">
+      <DependentUpon>uc_Background.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\uc_BCDM.cs">
       <SubType>UserControl</SubType>
@@ -320,6 +327,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\BCDT.resx">
+      <DependentUpon>BCDT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptDMDL.resx">
       <DependentUpon>rptDMDL.cs</DependentUpon>
     </EmbeddedResource>
@@ -335,8 +345,8 @@
     <EmbeddedResource Include="Reports\rptPhieucuoc.resx">
       <DependentUpon>rptPhieucuoc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\test.resx">
-      <DependentUpon>test.cs</DependentUpon>
+    <EmbeddedResource Include="UI\uc_Background.resx">
+      <DependentUpon>uc_Background.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\uc_BCDM.resx">
       <DependentUpon>uc_BCDM.cs</DependentUpon>

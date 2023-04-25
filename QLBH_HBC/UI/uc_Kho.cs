@@ -142,7 +142,7 @@ namespace QLBH_HBC.UI
 
         private void btnMadh_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            frmDonhang f = new frmDonhang(this);
+            frmDonhang f = new frmDonhang(this,null);
             f.ShowDialog();
             btnMadh.Text = maDH;
             int check = gridView2.DataRowCount - 1;
@@ -193,7 +193,7 @@ namespace QLBH_HBC.UI
             }
             //Người dùng bấm vào ô tìm kiếm sẽ chạy ra frmDonhang -> gửi đi 1 tham số vào frmDonhang
             //Khi kích đúp vào 1 dòng -> sẽ truyền lại thông tin MADH vào tham số đã gửi đến
-            //Hiển thị tham số đó lên btnMadh.Text
+            //Hiển thị tham số đó lên btnMadh.
             //Done
 
         }
@@ -258,7 +258,7 @@ namespace QLBH_HBC.UI
                                             }
                                             else
                                             {
-                                                string text = "Hiện hàng "+cellValueMaHH.ToString().Trim()+" hoá tạm hết hàng!";
+                                                string text = "Hiện hàng "+cellValueMaHH.ToString().Trim()+" tạm hết hàng!";
                                                 MessageBox.Show(text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                                 break;
                                             }
@@ -272,15 +272,19 @@ namespace QLBH_HBC.UI
                                         string maPhieuKho = DAO.PhieukhoDAO.Instance.Insert(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), userName.ToString().Trim(), txtNoidung.Text.ToString().Trim(), txtPTVC.Text.ToString().Trim(), txtBienso.Text.ToString().Trim().ToUpper(), loaiPK.MaLPK.Trim(), btnMadh.Text.Trim());
                                         if (maPhieuKho != null)
                                         {
+                                            //MessageBox.Show("Đã insert được Phiếu kho");
                                             for (int i = 0; i < gridView2.RowCount; i++)
                                             {
                                                 object cellValueMaHH = gridView2.GetRowCellValue(i, "MAHH");
                                                 object cellValueSL = gridView2.GetRowCellValue(i, "SL");
-                                                if(cellValueMaHH != null && cellValueSL != null)
+                                                int k = 0;
+                                                if (cellValueMaHH != null && cellValueSL != null)
                                                 {
+                                                    k = i;
                                                     bool checkInsertCTPK = DAO.CTPhieuKhoDAO.Instance.Insert(maPhieuKho.Trim(), cellValueMaHH.ToString().Trim(), Convert.ToInt32(cellValueSL.ToString().Trim()));
                                                     if (checkInsertCTPK)
                                                     {
+                                                        //MessageBox.Show("Đã insert CTPK");
                                                         int sl_hh = DAO.HanghoaDAO.Instance.GetSL(cellValueMaHH.ToString().Trim());
                                                         if (loaiPK.LoaiLPK.Trim() == "Nhập")
                                                         {
@@ -298,17 +302,28 @@ namespace QLBH_HBC.UI
                                                                 }
                                                             }
                                                         }
-                                                        else
+                                                        else if (loaiPK.LoaiLPK.Trim() == "Xuất")
                                                         {
                                                             int sl_new = sl_hh - Convert.ToInt32(cellValueSL.ToString().Trim());
                                                             DAO.HanghoaDAO.Instance.UpdateSL(cellValueMaHH.ToString().Trim(), sl_new);
                                                         }
+                                                        else
+                                                        {
+                                                            MessageBox.Show("Không xác định đc Loại Nhập/Xuất");
+                                                        }
                                                     }
-                                                    if (i == gridView2.RowCount - 1)
+                                                    else
                                                     {
-                                                        NapCT();
-                                                        DAO.DonhangDAO.Instance.UpdateTrangThai(maDH.ToString().Trim(),"Đã xuất kho");
+                                                        MessageBox.Show("Thêm CTPK fail");
                                                     }
+                                                }
+                                                else 
+                                                //if (cellValueMaHH == null && cellValueSL == null && i <= Convert.ToInt32(Convert.ToInt32(gridView2.RowCount) - 1) && k != 0 && k > 0)
+                                                {
+                                                    gridControl1_Load(sender,e);
+                                                    //Câu update trạng thái đang k chạy ạ
+                                                    DAO.DonhangDAO.Instance.UpdateTrangThai(maDH.ToString().Trim(), "Đã xuất kho");
+                                                    MessageBox.Show("Đã cập nhật trạng thái đơn hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                 }
                                             }
                                         }
@@ -351,7 +366,7 @@ namespace QLBH_HBC.UI
             }
             else
             {
-                XtraMessageBox.Show("Bạn nhập thiếu trường loai phiếu kho", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Bạn nhập thiếu trường loại phiếu kho", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 NapCT();
             }
             //2. Check tồn + VCK cược

@@ -105,20 +105,20 @@ namespace QLBH_HBC.UI
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(597, 12);
+            this.label1.Location = new System.Drawing.Point(507, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(371, 25);
+            this.label1.Size = new System.Drawing.Size(461, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "Lịch sử thanh toán";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gridControl2
             // 
-            this.gridControl2.Location = new System.Drawing.Point(597, 41);
+            this.gridControl2.Location = new System.Drawing.Point(507, 41);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.MenuManager = this.barManager1;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(371, 582);
+            this.gridControl2.Size = new System.Drawing.Size(461, 582);
             this.gridControl2.TabIndex = 5;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -280,10 +280,11 @@ namespace QLBH_HBC.UI
             this.gridControl1.Location = new System.Drawing.Point(12, 12);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(581, 611);
+            this.gridControl1.Size = new System.Drawing.Size(491, 611);
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControl1.Load += new System.EventHandler(this.gridControl1_Load);
             // 
             // gridView1
             // 
@@ -303,7 +304,7 @@ namespace QLBH_HBC.UI
             this.MADL.Name = "MADL";
             this.MADL.Visible = true;
             this.MADL.VisibleIndex = 0;
-            this.MADL.Width = 94;
+            this.MADL.Width = 79;
             // 
             // TENDL
             // 
@@ -313,7 +314,7 @@ namespace QLBH_HBC.UI
             this.TENDL.Name = "TENDL";
             this.TENDL.Visible = true;
             this.TENDL.VisibleIndex = 1;
-            this.TENDL.Width = 94;
+            this.TENDL.Width = 156;
             // 
             // MST
             // 
@@ -323,7 +324,7 @@ namespace QLBH_HBC.UI
             this.MST.Name = "MST";
             this.MST.Visible = true;
             this.MST.VisibleIndex = 2;
-            this.MST.Width = 94;
+            this.MST.Width = 156;
             // 
             // TONGNO
             // 
@@ -333,7 +334,7 @@ namespace QLBH_HBC.UI
             this.TONGNO.Name = "TONGNO";
             this.TONGNO.Visible = true;
             this.TONGNO.VisibleIndex = 3;
-            this.TONGNO.Width = 94;
+            this.TONGNO.Width = 160;
             // 
             // Root
             // 
@@ -353,25 +354,25 @@ namespace QLBH_HBC.UI
             this.layoutControlItem1.Control = this.gridControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(585, 615);
+            this.layoutControlItem1.Size = new System.Drawing.Size(495, 615);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.gridControl2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(585, 29);
+            this.layoutControlItem2.Location = new System.Drawing.Point(495, 29);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(375, 586);
+            this.layoutControlItem2.Size = new System.Drawing.Size(465, 586);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.label1;
-            this.layoutControlItem3.Location = new System.Drawing.Point(585, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(495, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(375, 29);
+            this.layoutControlItem3.Size = new System.Drawing.Size(465, 29);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 

@@ -36,27 +36,9 @@ namespace QLBH_HBC.UI
             DataTable dt = Config.DataProvider.Instance.ExecuteQuery(sql);
             gridControl1.DataSource = dt;
 
-            dt.Columns.Add("STATUS", typeof(int));
-            for (int i=0; i<dt.Rows.Count; i++)
-            {
-                string trangThai = dt.Rows[i]["TRANGTHAI"].ToString();
-                if (trangThai == "Chờ xuất kho")
-                {
-                    dt.Rows[i]["STATUS"] = 0;
-                }
-                if (trangThai == "Đã xuất kho")
-                {
-                    dt.Rows[i]["STATUS"] = 1;
-                }
-                if (trangThai == "Đã tạo hóa đơn")
-                {
-                    dt.Rows[i]["STATUS"] = 2;
-                }
-            }
-
             gridControl1.DataSource = dt;
-            gridView1.Columns[6].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridView1.Columns[6].DisplayFormat.FormatString = "#,##0 VND";
+            gridView1.Columns["TONGTIEN"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns["TONGTIEN"].DisplayFormat.FormatString = "#,##0 VND";
             gridControl1.Refresh();
 
             gridView1.RowClick += gridView1_RowClick;
@@ -368,12 +350,12 @@ namespace QLBH_HBC.UI
                                             {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
                                                 DTO.Vckcuoc dataVCKSL = DAO.VCKDAO.Instance.Get(cbDaily.SelectedValue.ToString().Trim(), cellValueMaHH.ToString().Trim().ToUpper());
                                             }
+                                        }
                                     }
-                                }
-                                    else
-                                    {
-                                        break;
-                                    }
+                                    //else
+                                    //{
+                                    //    break;
+                                    //}
                             }
 
                         }
@@ -393,17 +375,31 @@ namespace QLBH_HBC.UI
                             txtNguoitao.Text = "";
                             cbDaily.Text = "";
                             txtGhichu.Text = "";
+                            addnewflag = false;
+                            // Assuming you have a reference to your grid view object
+                            gridView2.BeginUpdate();
+                            try
+                            {
+                                while (gridView2.RowCount > 0)
+                                {
+                                    gridView2.DeleteRow(0);
+                                }
+                            }
+                            finally
+                            {
+                                gridView2.EndUpdate();
+                            }
 
                         }
                         else
                         {
                             MessageBox.Show("Thêm mới không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        addnewflag = false;
+                        
                     }
                 }
                 // Update
-                else
+                else if(addnewflag == false)
                 {
                     if (cbDaily.SelectedValue.ToString().Trim().Length >0 && dtNgaytao.Text.Length >0)
                     {

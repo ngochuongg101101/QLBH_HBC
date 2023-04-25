@@ -6,9 +6,9 @@ using System.Drawing;
 
 namespace QLBH_HBC.Reports
 {
-    public partial class test : DevExpress.XtraReports.UI.XtraReport
+    public partial class BCDT : DevExpress.XtraReports.UI.XtraReport
     {
-        public test()
+        public BCDT()
         {
             InitializeComponent();
         }

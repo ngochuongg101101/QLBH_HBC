@@ -53,7 +53,6 @@ namespace QLBH_HBC.Reports
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrPictureBox2 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
@@ -80,6 +79,9 @@ namespace QLBH_HBC.Reports
             this.xrTableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell15 = new DevExpress.XtraReports.UI.XRTableCell();
             this.STT = new DevExpress.XtraReports.UI.CalculatedField();
+            this.Day1 = new DevExpress.XtraReports.UI.CalculatedField();
+            this.Day2 = new DevExpress.XtraReports.UI.CalculatedField();
+            this.xrPictureBox2 = new DevExpress.XtraReports.UI.XRPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -289,7 +291,7 @@ namespace QLBH_HBC.Reports
             this.xrLabel6.SizeF = new System.Drawing.SizeF(650F, 23F);
             this.xrLabel6.StylePriority.UseFont = false;
             this.xrLabel6.StylePriority.UseTextAlignment = false;
-            this.xrLabel6.Text = "Từ ngày: 01/04/2023 đến ngày 30/04/2023";
+            this.xrLabel6.Text = "Từ ngày [Day1] đến ngày [Day2]";
             this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // xrLabel1
@@ -302,16 +304,8 @@ namespace QLBH_HBC.Reports
             this.xrLabel1.SizeF = new System.Drawing.SizeF(650F, 23F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.StylePriority.UseTextAlignment = false;
-            this.xrLabel1.Text = "Loại vỏ: Vỏ chai 450";
+            this.xrLabel1.Text = "Loại vỏ: [Hanghoa]";
             this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            // 
-            // xrPictureBox2
-            // 
-            this.xrPictureBox2.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox2.ImageSource"));
-            this.xrPictureBox2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrPictureBox2.Name = "xrPictureBox2";
-            this.xrPictureBox2.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
-            this.xrPictureBox2.SizeF = new System.Drawing.SizeF(111.6667F, 81.66666F);
             // 
             // xrLabel9
             // 
@@ -364,7 +358,7 @@ namespace QLBH_HBC.Reports
             this.xrLabel3.SizeF = new System.Drawing.SizeF(650F, 23F);
             this.xrLabel3.StylePriority.UseFont = false;
             this.xrLabel3.StylePriority.UseTextAlignment = false;
-            this.xrLabel3.Text = "Đại lý: Công ty TNHH Hưng Đạt";
+            this.xrLabel3.Text = "Đại lý: [Daily]";
             this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // ReportFooter
@@ -373,6 +367,7 @@ namespace QLBH_HBC.Reports
             this.xrLabel18,
             this.xrLabel2,
             this.xrLabel4});
+            this.ReportFooter.HeightF = 124.1665F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // xrLabel18
@@ -404,7 +399,7 @@ namespace QLBH_HBC.Reports
             // xrLabel4
             // 
             this.xrLabel4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Nguyễn Thị Ngọc Hương")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Nguoitao]")});
             this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 9.75F);
             this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(363.3333F, 77F);
             this.xrLabel4.Multiline = true;
@@ -546,6 +541,24 @@ namespace QLBH_HBC.Reports
             this.STT.Expression = "[DataSource.CurrentRowIndex]+1";
             this.STT.Name = "STT";
             // 
+            // Day1
+            // 
+            this.Day1.FieldType = DevExpress.XtraReports.UI.FieldType.String;
+            this.Day1.Name = "Day1";
+            // 
+            // Day2
+            // 
+            this.Day2.FieldType = DevExpress.XtraReports.UI.FieldType.String;
+            this.Day2.Name = "Day2";
+            // 
+            // xrPictureBox2
+            // 
+            this.xrPictureBox2.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox2.ImageSource"));
+            this.xrPictureBox2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrPictureBox2.Name = "xrPictureBox2";
+            this.xrPictureBox2.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
+            this.xrPictureBox2.SizeF = new System.Drawing.SizeF(111.6667F, 81.66666F);
+            // 
             // rptNhapcuoc
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -562,7 +575,9 @@ namespace QLBH_HBC.Reports
             this.Nguoitao,
             this.Daily,
             this.Hanghoa,
-            this.STT});
+            this.STT,
+            this.Day1,
+            this.Day2});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.sqlDataSource1});
             this.DataMember = "CT_PHIEUCUOC";
@@ -625,5 +640,7 @@ namespace QLBH_HBC.Reports
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell14;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell15;
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
+        private DevExpress.XtraReports.UI.CalculatedField Day1;
+        private DevExpress.XtraReports.UI.CalculatedField Day2;
     }
 }
