@@ -38,6 +38,7 @@ namespace QLBH_HBC
             btnMadh.Text = "";
             txtUsername.Text = username;
             txtUsername.Enabled = false;
+            dtNgaytao.EditValue = DateTime.Today;
         }
 
         private void btnMadh_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -86,7 +87,7 @@ namespace QLBH_HBC
                                     }
                                     else
                                     {
-                                        XtraMessageBox.Show("Habeco nợ đại lý với số tiền là:" + (tongtien_ptc - hoadon.TongTienHoaDon).ToString("C", new CultureInfo("vi-VN")), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        XtraMessageBox.Show("Đại lý còn nợ số tiền là:" + (tongtien_ptc - hoadon.TongTienHoaDon).ToString("C", new CultureInfo("vi-VN")), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         txtTongSoDuNo.Text = "-" + (tongtien_ptc - hoadon.TongTienHoaDon).ToString("C", new CultureInfo("vi-VN"));
 
                                     }

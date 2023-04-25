@@ -35,11 +35,10 @@ namespace QLBH_HBC.UI
             this.label1 = new System.Windows.Forms.Label();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MAPTC = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NGAYTAO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MA_HD = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TONGTIEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnPay = new DevExpress.XtraBars.BarButtonItem();
@@ -126,58 +125,52 @@ namespace QLBH_HBC.UI
             // gridView2
             // 
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2,
-            this.gridColumn3,
-            this.gridColumn5,
-            this.gridColumn4});
+            this.MAPTC,
+            this.NGAYTAO,
+            this.MA_HD,
+            this.TONGTIEN});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
             // 
-            // gridColumn1
+            // MAPTC
             // 
-            this.gridColumn1.Caption = "Mã phiếu";
-            this.gridColumn1.MinWidth = 25;
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 94;
+            this.MAPTC.Caption = "Mã phiếu";
+            this.MAPTC.FieldName = "MAPTC";
+            this.MAPTC.MinWidth = 25;
+            this.MAPTC.Name = "MAPTC";
+            this.MAPTC.Visible = true;
+            this.MAPTC.VisibleIndex = 0;
+            this.MAPTC.Width = 94;
             // 
-            // gridColumn2
+            // NGAYTAO
             // 
-            this.gridColumn2.Caption = "Ngày thu";
-            this.gridColumn2.MinWidth = 25;
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 94;
+            this.NGAYTAO.Caption = "Ngày thu";
+            this.NGAYTAO.FieldName = "NGAYTAO";
+            this.NGAYTAO.MinWidth = 25;
+            this.NGAYTAO.Name = "NGAYTAO";
+            this.NGAYTAO.Visible = true;
+            this.NGAYTAO.VisibleIndex = 1;
+            this.NGAYTAO.Width = 94;
             // 
-            // gridColumn3
+            // MA_HD
             // 
-            this.gridColumn3.Caption = "Đại lý";
-            this.gridColumn3.MinWidth = 25;
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 94;
+            this.MA_HD.Caption = "Hóa đơn";
+            this.MA_HD.FieldName = "MA_HD";
+            this.MA_HD.MinWidth = 25;
+            this.MA_HD.Name = "MA_HD";
+            this.MA_HD.Visible = true;
+            this.MA_HD.VisibleIndex = 2;
+            this.MA_HD.Width = 94;
             // 
-            // gridColumn5
+            // TONGTIEN
             // 
-            this.gridColumn5.Caption = "Hóa đơn";
-            this.gridColumn5.MinWidth = 25;
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 3;
-            this.gridColumn5.Width = 94;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Tổng thu";
-            this.gridColumn4.MinWidth = 25;
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 4;
-            this.gridColumn4.Width = 94;
+            this.TONGTIEN.Caption = "Tổng thu";
+            this.TONGTIEN.FieldName = "TONGTIEN";
+            this.TONGTIEN.MinWidth = 25;
+            this.TONGTIEN.Name = "TONGTIEN";
+            this.TONGTIEN.Visible = true;
+            this.TONGTIEN.VisibleIndex = 3;
+            this.TONGTIEN.Width = 94;
             // 
             // barManager1
             // 
@@ -295,6 +288,8 @@ namespace QLBH_HBC.UI
             this.TONGNO});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
+            this.gridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridControl1_MouseDown);
             // 
             // MADL
             // 
@@ -485,16 +480,15 @@ namespace QLBH_HBC.UI
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraGrid.GridControl gridControl2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn MAPTC;
+        private DevExpress.XtraGrid.Columns.GridColumn NGAYTAO;
+        private DevExpress.XtraGrid.Columns.GridColumn TONGTIEN;
         private DevExpress.XtraBars.BarButtonItem btnPay;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraGrid.Columns.GridColumn MST;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn MA_HD;
     }
 }

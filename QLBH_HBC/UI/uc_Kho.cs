@@ -322,6 +322,7 @@ namespace QLBH_HBC.UI
                                                 {
                                                     gridControl1_Load(sender,e);
                                                     //Câu update trạng thái đang k chạy ạ
+                                                    MessageBox.Show("HIHI");
                                                     DAO.DonhangDAO.Instance.UpdateTrangThai(maDH.ToString().Trim(), "Đã xuất kho");
                                                     MessageBox.Show("Đã cập nhật trạng thái đơn hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                 }

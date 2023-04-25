@@ -122,7 +122,8 @@ namespace QLBH_HBC.UI
             {
                 SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-33G4CSH;Initial Catalog=QLBH_HBC;Integrated Security=True");
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM HOPDONG", con);
+                SqlCommand cmd = new SqlCommand("SELECT MAHD,NGAYTAO,NGUOITAO,NGAYBD,NGAYKT,CK,TENDL FROM HOPDONG,DAILY WHERE MADL=MA_DL " +
+                    "AND NGAYTAO BETWEEN '"+ dtNgay1.DateTime.ToString("yyyy/MM/dd") + "' AND '"+ dtNgay2.DateTime.ToString("yyyy/MM/dd") + "'", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -135,10 +136,20 @@ namespace QLBH_HBC.UI
 
                 foreach (CalculatedField field in rpt.CalculatedFields)
                 {
-                    if (field.Name == "Nguoitao")
+                    if (field.Name == "Day1")
                     {
-                        CalculatedField Nguoitao = field;
-                        Nguoitao.Expression = "'" + Hoten.Hoten.ToString() + "'";
+                        CalculatedField calculatedField = field;
+                        calculatedField.Expression = "'" + dtNgay1.DateTime.ToString("dd/MM/yyyy") + "'";
+                    }
+                    if (field.Name == "Day2")
+                    {
+                        CalculatedField calculatedField = field;
+                        calculatedField.Expression = "'" + dtNgay2.DateTime.ToString("dd/MM/yyyy") + "'";
+                    }
+                    if (field.Name == "Username")
+                    {
+                        CalculatedField calculatedField = field;
+                        calculatedField.Expression = "'" + Hoten.Hoten.ToString() + "'";
                     }
                 }
                 rpt.DataSource = ds;
