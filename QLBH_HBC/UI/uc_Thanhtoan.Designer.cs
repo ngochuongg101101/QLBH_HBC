@@ -87,37 +87,40 @@ namespace QLBH_HBC.UI
             this.layoutControl1.Controls.Add(this.gridControl2);
             this.layoutControl1.Controls.Add(this.gridControl1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 47);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 41);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(980, 664);
+            this.layoutControl1.Size = new System.Drawing.Size(840, 533);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(12, 627);
+            this.label2.Location = new System.Drawing.Point(11, 503);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(956, 25);
+            this.label2.Size = new System.Drawing.Size(818, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "Lịch sử thanh toán";
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(507, 12);
+            this.label1.Location = new System.Drawing.Point(435, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(461, 25);
+            this.label1.Size = new System.Drawing.Size(394, 20);
             this.label1.TabIndex = 6;
             this.label1.Text = "Lịch sử thanh toán";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gridControl2
             // 
-            this.gridControl2.Location = new System.Drawing.Point(507, 41);
+            this.gridControl2.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gridControl2.Location = new System.Drawing.Point(435, 34);
             this.gridControl2.MainView = this.gridView2;
+            this.gridControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl2.MenuManager = this.barManager1;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(461, 582);
+            this.gridControl2.Size = new System.Drawing.Size(394, 465);
             this.gridControl2.TabIndex = 5;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -125,52 +128,59 @@ namespace QLBH_HBC.UI
             // gridView2
             // 
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.MAPTC,
-            this.NGAYTAO,
-            this.MA_HD,
-            this.TONGTIEN});
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn5,
+            this.gridColumn4});
+            this.gridView2.DetailHeight = 284;
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
             // 
             // MAPTC
             // 
-            this.MAPTC.Caption = "Mã phiếu";
-            this.MAPTC.FieldName = "MAPTC";
-            this.MAPTC.MinWidth = 25;
-            this.MAPTC.Name = "MAPTC";
-            this.MAPTC.Visible = true;
-            this.MAPTC.VisibleIndex = 0;
-            this.MAPTC.Width = 94;
+            this.gridColumn1.Caption = "Mã phiếu";
+            this.gridColumn1.MinWidth = 21;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 81;
             // 
             // NGAYTAO
             // 
-            this.NGAYTAO.Caption = "Ngày thu";
-            this.NGAYTAO.FieldName = "NGAYTAO";
-            this.NGAYTAO.MinWidth = 25;
-            this.NGAYTAO.Name = "NGAYTAO";
-            this.NGAYTAO.Visible = true;
-            this.NGAYTAO.VisibleIndex = 1;
-            this.NGAYTAO.Width = 94;
+            this.gridColumn2.Caption = "Ngày thu";
+            this.gridColumn2.MinWidth = 21;
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 81;
             // 
-            // MA_HD
+            // gridColumn3
             // 
-            this.MA_HD.Caption = "Hóa đơn";
-            this.MA_HD.FieldName = "MA_HD";
-            this.MA_HD.MinWidth = 25;
-            this.MA_HD.Name = "MA_HD";
-            this.MA_HD.Visible = true;
-            this.MA_HD.VisibleIndex = 2;
-            this.MA_HD.Width = 94;
+            this.gridColumn3.Caption = "Đại lý";
+            this.gridColumn3.MinWidth = 21;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 81;
             // 
-            // TONGTIEN
+            // gridColumn5
             // 
-            this.TONGTIEN.Caption = "Tổng thu";
-            this.TONGTIEN.FieldName = "TONGTIEN";
-            this.TONGTIEN.MinWidth = 25;
-            this.TONGTIEN.Name = "TONGTIEN";
-            this.TONGTIEN.Visible = true;
-            this.TONGTIEN.VisibleIndex = 3;
-            this.TONGTIEN.Width = 94;
+            this.gridColumn5.Caption = "Hóa đơn";
+            this.gridColumn5.MinWidth = 21;
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.Width = 81;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Tổng thu";
+            this.gridColumn4.MinWidth = 21;
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 4;
+            this.gridColumn4.Width = 81;
             // 
             // barManager1
             // 
@@ -242,38 +252,44 @@ namespace QLBH_HBC.UI
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(980, 47);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlTop.Size = new System.Drawing.Size(840, 41);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 711);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 574);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(980, 20);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlBottom.Size = new System.Drawing.Size(840, 20);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 47);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 41);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 664);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 533);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(980, 47);
+            this.barDockControlRight.Location = new System.Drawing.Point(840, 41);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 664);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 533);
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(12, 12);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gridControl1.Location = new System.Drawing.Point(11, 10);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(491, 611);
+            this.gridControl1.Size = new System.Drawing.Size(420, 489);
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -286,6 +302,7 @@ namespace QLBH_HBC.UI
             this.TENDL,
             this.MST,
             this.TONGNO});
+            this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
@@ -295,41 +312,41 @@ namespace QLBH_HBC.UI
             // 
             this.MADL.Caption = "Mã đại lý";
             this.MADL.FieldName = "MADL";
-            this.MADL.MinWidth = 25;
+            this.MADL.MinWidth = 21;
             this.MADL.Name = "MADL";
             this.MADL.Visible = true;
             this.MADL.VisibleIndex = 0;
-            this.MADL.Width = 79;
+            this.MADL.Width = 68;
             // 
             // TENDL
             // 
             this.TENDL.Caption = "Tên đại lý";
             this.TENDL.FieldName = "TENDL";
-            this.TENDL.MinWidth = 25;
+            this.TENDL.MinWidth = 21;
             this.TENDL.Name = "TENDL";
             this.TENDL.Visible = true;
             this.TENDL.VisibleIndex = 1;
-            this.TENDL.Width = 156;
+            this.TENDL.Width = 134;
             // 
             // MST
             // 
             this.MST.Caption = "Mã số thuế";
             this.MST.FieldName = "MST";
-            this.MST.MinWidth = 25;
+            this.MST.MinWidth = 21;
             this.MST.Name = "MST";
             this.MST.Visible = true;
             this.MST.VisibleIndex = 2;
-            this.MST.Width = 156;
+            this.MST.Width = 134;
             // 
             // TONGNO
             // 
             this.TONGNO.Caption = "Tổng nợ";
             this.TONGNO.FieldName = "TONGNO";
-            this.TONGNO.MinWidth = 25;
+            this.TONGNO.MinWidth = 21;
             this.TONGNO.Name = "TONGNO";
             this.TONGNO.Visible = true;
             this.TONGNO.VisibleIndex = 3;
-            this.TONGNO.Width = 160;
+            this.TONGNO.Width = 137;
             // 
             // Root
             // 
@@ -341,7 +358,7 @@ namespace QLBH_HBC.UI
             this.layoutControlItem3,
             this.layoutControlItem4});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(980, 664);
+            this.Root.Size = new System.Drawing.Size(840, 533);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -349,34 +366,34 @@ namespace QLBH_HBC.UI
             this.layoutControlItem1.Control = this.gridControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(495, 615);
+            this.layoutControlItem1.Size = new System.Drawing.Size(424, 493);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.gridControl2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(495, 29);
+            this.layoutControlItem2.Location = new System.Drawing.Point(424, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(465, 586);
+            this.layoutControlItem2.Size = new System.Drawing.Size(398, 469);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.label1;
-            this.layoutControlItem3.Location = new System.Drawing.Point(495, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(424, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(465, 29);
+            this.layoutControlItem3.Size = new System.Drawing.Size(398, 24);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.label2;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 615);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 493);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(960, 29);
+            this.layoutControlItem4.Size = new System.Drawing.Size(822, 24);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -394,15 +411,17 @@ namespace QLBH_HBC.UI
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.barManager2;
-            this.barDockControl1.Size = new System.Drawing.Size(980, 0);
+            this.barDockControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControl1.Size = new System.Drawing.Size(840, 0);
             // 
             // barDockControl2
             // 
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 731);
+            this.barDockControl2.Location = new System.Drawing.Point(0, 594);
             this.barDockControl2.Manager = this.barManager2;
-            this.barDockControl2.Size = new System.Drawing.Size(980, 0);
+            this.barDockControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControl2.Size = new System.Drawing.Size(840, 0);
             // 
             // barDockControl3
             // 
@@ -410,19 +429,21 @@ namespace QLBH_HBC.UI
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControl3.Location = new System.Drawing.Point(0, 0);
             this.barDockControl3.Manager = this.barManager2;
-            this.barDockControl3.Size = new System.Drawing.Size(0, 731);
+            this.barDockControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 594);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(980, 0);
+            this.barDockControl4.Location = new System.Drawing.Point(840, 0);
             this.barDockControl4.Manager = this.barManager2;
-            this.barDockControl4.Size = new System.Drawing.Size(0, 731);
+            this.barDockControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 594);
             // 
             // uc_Thanhtoan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.barDockControlLeft);
@@ -433,8 +454,9 @@ namespace QLBH_HBC.UI
             this.Controls.Add(this.barDockControl4);
             this.Controls.Add(this.barDockControl2);
             this.Controls.Add(this.barDockControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "uc_Thanhtoan";
-            this.Size = new System.Drawing.Size(980, 731);
+            this.Size = new System.Drawing.Size(840, 594);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();

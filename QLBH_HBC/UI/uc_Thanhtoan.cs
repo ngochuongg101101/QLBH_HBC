@@ -25,7 +25,7 @@ namespace QLBH_HBC.UI
 
         private void btnPay_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form f = new frmThanhtoancongno(username, frmThanhtoancongno);
+            frmThanhtoancongno f = new frmThanhtoancongno(username, frmThanhtoancongno);
             f.Show();
         }
 

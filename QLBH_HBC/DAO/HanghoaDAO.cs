@@ -178,7 +178,8 @@ namespace QLBH_HBC.DAO
             foreach (DataRow row in result.Rows)
             {
                 int sl = Convert.ToInt32(row[0]);
-                return sl - sl_check > 0;
+                bool resultCheck = Convert.ToBoolean(Convert.ToInt32(sl - sl_check) > 0);
+                return resultCheck;
             }
             return false;
         }
