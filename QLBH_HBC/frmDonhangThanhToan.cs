@@ -24,8 +24,7 @@ namespace QLBH_HBC
 
         private void gridControl1_Load(object sender, EventArgs e)
         {
-            string sql = "SELECT TRANGTHAI, MADH ,MA_DL, NGAYTAO , TENDL , NGUOITAO, TONGTIEN  FROM DONHANG " +
-            "JOIN DAILY ON MADL = MA_DL WHERE MADL = '"+ _frmThanhtoancongno.maDL+ "'";
+            string sql = "SELECT DISTINCT HOADON.MAHD,HOADON.NGAYTAO,dbo.HOADON.NGUOITAO,dbo.HOADON.VAT,dbo.HOADON.THANHTOAN,dbo.HOADON.TONGTIEN,dbo.HOADON.MA_DH,dbo.HOADON.MA_LHD FROM dbo.HOADON, DONHANG JOIN dbo.DAILY ON DAILY.MADL = DONHANG.MA_DL WHERE THANHTOAN = 0 AND MADL = '" + _frmThanhtoancongno.maDL+ "'";
             gridControl1.DataSource = Config.DataProvider.Instance.ExecuteQuery(sql);
             gridControl1.Refresh();
         }
@@ -35,12 +34,12 @@ namespace QLBH_HBC
             // Lấy giá trị mã đơn hàng từ row được chọn
             for (int i = 0; i < gridView1.RowCount; i++)
             { 
-                string MaDH = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MADH").ToString();
+                string MaHD = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "MAHD").ToString();
                 // Trả về giá trị maDH đã chọn và đóng form
                 this.DialogResult = DialogResult.OK;
-                if(MaDH.Trim().Length > 0)
+                if(MaHD!= null && MaHD.Trim().Length > 0)
                 {
-                    _frmThanhtoancongno.maDH = MaDH.Trim();
+                    _frmThanhtoancongno.maHD = MaHD.Trim();
                 }
                 else
                 {

@@ -33,12 +33,12 @@ namespace QLBH_HBC
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.TRANGTHAI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MADH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.THANHTOAN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MAHD = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NGAYTAO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NGUOITAO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TENDL = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.GHICHU = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.VAT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MA_DH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TONGTIEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -69,7 +69,7 @@ namespace QLBH_HBC
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(11, 10);
+            this.simpleButton1.Location = new System.Drawing.Point(12, 12);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(74, 22);
@@ -81,11 +81,11 @@ namespace QLBH_HBC
             // gridControl1
             // 
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gridControl1.Location = new System.Drawing.Point(11, 36);
+            this.gridControl1.Location = new System.Drawing.Point(12, 38);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(565, 511);
+            this.gridControl1.Size = new System.Drawing.Size(563, 507);
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -94,36 +94,36 @@ namespace QLBH_HBC
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.TRANGTHAI,
-            this.MADH,
+            this.THANHTOAN,
+            this.MAHD,
             this.NGAYTAO,
             this.NGUOITAO,
-            this.TENDL,
-            this.GHICHU,
+            this.VAT,
+            this.MA_DH,
             this.TONGTIEN});
             this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             // 
-            // TRANGTHAI
+            // THANHTOAN
             // 
-            this.TRANGTHAI.Caption = "Trạng thái";
-            this.TRANGTHAI.FieldName = "TRANGTHAI";
-            this.TRANGTHAI.MinWidth = 21;
-            this.TRANGTHAI.Name = "TRANGTHAI";
-            this.TRANGTHAI.Visible = true;
-            this.TRANGTHAI.VisibleIndex = 0;
-            this.TRANGTHAI.Width = 81;
+            this.THANHTOAN.Caption = "Thanh toán";
+            this.THANHTOAN.FieldName = "THANHTOAN";
+            this.THANHTOAN.MinWidth = 21;
+            this.THANHTOAN.Name = "THANHTOAN";
+            this.THANHTOAN.Visible = true;
+            this.THANHTOAN.VisibleIndex = 0;
+            this.THANHTOAN.Width = 81;
             // 
-            // MADH
+            // MAHD
             // 
-            this.MADH.Caption = "Số đơn hàng";
-            this.MADH.FieldName = "MADH";
-            this.MADH.MinWidth = 21;
-            this.MADH.Name = "MADH";
-            this.MADH.Visible = true;
-            this.MADH.VisibleIndex = 1;
-            this.MADH.Width = 81;
+            this.MAHD.Caption = "Số hoá đơn";
+            this.MAHD.FieldName = "MAHD";
+            this.MAHD.MinWidth = 21;
+            this.MAHD.Name = "MAHD";
+            this.MAHD.Visible = true;
+            this.MAHD.VisibleIndex = 1;
+            this.MAHD.Width = 81;
             // 
             // NGAYTAO
             // 
@@ -145,26 +145,25 @@ namespace QLBH_HBC
             this.NGUOITAO.VisibleIndex = 3;
             this.NGUOITAO.Width = 81;
             // 
-            // TENDL
+            // VAT
             // 
-            this.TENDL.Caption = "Tên đại lý";
-            this.TENDL.FieldName = "TENDL";
-            this.TENDL.MinWidth = 21;
-            this.TENDL.Name = "TENDL";
-            this.TENDL.Visible = true;
-            this.TENDL.VisibleIndex = 4;
-            this.TENDL.Width = 81;
+            this.VAT.Caption = "VAT";
+            this.VAT.FieldName = "VAT";
+            this.VAT.MinWidth = 21;
+            this.VAT.Name = "VAT";
+            this.VAT.Visible = true;
+            this.VAT.VisibleIndex = 4;
+            this.VAT.Width = 81;
             // 
-            // GHICHU
+            // MA_DH
             // 
-            this.GHICHU.Caption = "gridColumn5";
-            this.GHICHU.CustomizationCaption = "Ghi chú";
-            this.GHICHU.FieldName = "GHICHU";
-            this.GHICHU.MinWidth = 21;
-            this.GHICHU.Name = "GHICHU";
-            this.GHICHU.Visible = true;
-            this.GHICHU.VisibleIndex = 5;
-            this.GHICHU.Width = 81;
+            this.MA_DH.Caption = "Mã đơn hàng";
+            this.MA_DH.FieldName = "MADH";
+            this.MA_DH.MinWidth = 21;
+            this.MA_DH.Name = "MA_DH";
+            this.MA_DH.Visible = true;
+            this.MA_DH.VisibleIndex = 5;
+            this.MA_DH.Width = 81;
             // 
             // TONGTIEN
             // 
@@ -193,7 +192,7 @@ namespace QLBH_HBC
             this.layoutControlItem1.Control = this.gridControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(569, 515);
+            this.layoutControlItem1.Size = new System.Drawing.Size(567, 511);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -211,19 +210,19 @@ namespace QLBH_HBC
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(78, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(491, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(489, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // frmDonhang
+            // frmDonhangThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(587, 557);
             this.Controls.Add(this.layoutControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "frmDonhang";
+            this.Name = "frmDonhangThanhToan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Danh sách đơn hàng";
+            this.Text = "Danh sách hoá đơn";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -242,16 +241,16 @@ namespace QLBH_HBC
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn TRANGTHAI;
-        private DevExpress.XtraGrid.Columns.GridColumn MADH;
+        private DevExpress.XtraGrid.Columns.GridColumn THANHTOAN;
+        private DevExpress.XtraGrid.Columns.GridColumn MAHD;
         private DevExpress.XtraGrid.Columns.GridColumn NGAYTAO;
         private DevExpress.XtraGrid.Columns.GridColumn NGUOITAO;
-        private DevExpress.XtraGrid.Columns.GridColumn TENDL;
-        private DevExpress.XtraGrid.Columns.GridColumn GHICHU;
+        private DevExpress.XtraGrid.Columns.GridColumn VAT;
         private DevExpress.XtraGrid.Columns.GridColumn TONGTIEN;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraGrid.Columns.GridColumn MA_DH;
     }
 }

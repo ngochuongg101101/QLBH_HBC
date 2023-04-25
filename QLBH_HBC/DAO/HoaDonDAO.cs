@@ -72,10 +72,10 @@ namespace QLBH_HBC.DAO
             return _result > 0;
         }
         // Lấy 1 dũ liệu 
-        public DTO.Hoadon Get(string madh)
+        public DTO.Hoadon Get(string mahd)
         {
             DTO.Hoadon item = null;
-            string query = "SELECT * FROM dbo.HOADON WHERE dbo.HOADON.MA_DH = '" + madh + "' AND HOADON.TONGTIEN > 0 AND HOADON.THANHTOAN = 0";
+            string query = "SELECT * FROM dbo.HOADON WHERE dbo.HOADON.MAHD = '" + mahd + "' AND HOADON.TONGTIEN > 0 AND HOADON.THANHTOAN = 0";
             DataTable result = Config.DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow row in result.Rows)
             {
@@ -98,9 +98,9 @@ namespace QLBH_HBC.DAO
         //    return item;
         //}
         //Cập nhật trạng thái   
-        public bool UpdateTrangThai(string madh, string trangthai)
+        public bool UpdateTrangThai(string mahd, int trangthai)
         {
-            string query = String.Format("UPDATE dbo.HOADON SET TRANGTHAI = '{0}' WHERE MAHD = '{1}'", trangthai, madh);
+            string query = String.Format("UPDATE dbo.HOADON SET THANHTOAN = {0} WHERE MAHD = '{1}'", trangthai, mahd);
             int _result = Config.DataProvider.Instance.ExecuteNonQuery(query);
             return _result > 0;
         }

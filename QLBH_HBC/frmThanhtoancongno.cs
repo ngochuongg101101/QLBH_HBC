@@ -15,9 +15,9 @@ namespace QLBH_HBC
     public partial class frmThanhtoancongno : DevExpress.XtraEditors.XtraForm
     {
         private string username;
-        private string maHD;
+        private string maDH;
         private frmThanhtoancongno _frmThanhtoancongno;
-        public string maDH { get; set; }
+        public string maHD { get; set; }
         public string maDL { get; set; }
         public frmThanhtoancongno(string userName, frmThanhtoancongno frmThanhtoancongno)
         {
@@ -47,9 +47,9 @@ namespace QLBH_HBC
                 btnPay.Enabled = true;
                 frmDonhangThanhToan f = new frmDonhangThanhToan(this);
                 f.ShowDialog();
-                btnMadh.Text = maDH;
+                btnMadh.Text = maHD;
                 //txtTongSoDuNo.Text
-                if (maDH.Trim().Length > 0)
+                if (maHD != null && maHD.Trim().Length > 0)
                 {
                     DTO.Hoadon hoadon = DAO.HoaDonDAO.Instance.Get(btnMadh.Text.Trim());
                     if (hoadon != null)
@@ -79,7 +79,7 @@ namespace QLBH_HBC
                                 }
                                 else
                                 {
-                                    if(tongtien_ptc - hoadon.TongTienHoaDon == 0)
+                                    if (tongtien_ptc - hoadon.TongTienHoaDon == 0)
                                     {
                                         XtraMessageBox.Show("Đại lý đã thanh toán hết khoản nợ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         txtTongSoDuNo.Text = (tongtien_ptc - hoadon.TongTienHoaDon).ToString("C", new CultureInfo("vi-VN"));
@@ -90,7 +90,7 @@ namespace QLBH_HBC
                                         txtTongSoDuNo.Text = "-" + (tongtien_ptc - hoadon.TongTienHoaDon).ToString("C", new CultureInfo("vi-VN"));
 
                                     }
-                                    txtSoTienThanhToan.Enabled = false;
+                                    //txtSoTienThanhToan.Enabled = false;
                                     btnPay.Enabled = false;
                                 }
                             }
@@ -143,9 +143,13 @@ namespace QLBH_HBC
                             DateTime minDate = DateTime.Parse(dateMin);
                             if (dtNgaytao.DateTime > minDate)
                             {
-                                bool result = DAO.PhieuThuChiDAO.Instance.InsertThanhToan(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), username, txtPTTT.Text.Trim(), Convert.ToInt32(txtSoTienThanhToan.Text), "MVV0001", maHD);
+                                bool result = DAO.PhieuThuChiDAO.Instance.InsertThanhToan(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), username, txtPTTT.Text.Trim(), Convert.ToInt32(txtSoTienThanhToan.Text), "MVV0001", maHD); 
                                 if (result == true)
                                 {
+                                    if (Convert.ToInt32(txtTongSoDuNo.Text) == Convert.ToInt32(txtSoTienThanhToan.Text))
+                                    {
+                                        DAO.HoaDonDAO.Instance.UpdateTrangThai(maHD, 1);
+                                    }
                                     XtraMessageBox.Show("Thanh toán phiếu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                                 else
@@ -159,6 +163,10 @@ namespace QLBH_HBC
                                 bool result = DAO.PhieuThuChiDAO.Instance.InsertThanhToan(dtNgaytao.DateTime.ToString("MM/dd/yyyy HH:mm:ss"), username, txtPTTT.Text.Trim(), Convert.ToInt32(txtSoTienThanhToan.Text), "MVV0001", maHD);
                                 if (result == true)
                                 {
+                                    if (Convert.ToInt32(txtTongSoDuNo.Text) == Convert.ToInt32(txtSoTienThanhToan.Text))
+                                    {
+                                        DAO.HoaDonDAO.Instance.UpdateTrangThai(maHD, 1);
+                                    }
                                     XtraMessageBox.Show("Thanh toán phiếu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                                 else
